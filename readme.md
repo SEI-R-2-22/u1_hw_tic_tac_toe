@@ -17,8 +17,7 @@ Feel free to implement your own style or theme when building your game, it might
 ## Getting Started
 
 - Fork and clone this repository.
-- Run `npm install` to install dependencies.
-  - `npm start` - start BrowserSync server
+- Run `open index.html` to open your game in the browser.
   - `cmd + option + i` or `ctrl + shift + i` to **open your dev tools** in your browser.
 - You'll be working in the `index.html` file, `app.js` in the `js` folder, and `style.css` in the `css` folder.
 - Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and `class` on clickable elements will help you wire this up in JavaScript afterwards.
