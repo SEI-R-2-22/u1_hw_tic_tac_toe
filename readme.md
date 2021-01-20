@@ -128,10 +128,6 @@ document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click'
 - Make your computer seem more human by adding a short time delay between your turn and the computer's turn.
 - Style it up! Get creative, or even make a theme!
 
-## Super Duper Bonus
-
-- Add an AI that can beat you every time with the mini-max algorithm.
-
 ## Submission Guidelines
 - Pull Request must be submitted utilizing these guidelines: [PR Guidelines](https://github.com/SEI-R-1-25/Pull-Request-Template)
 
