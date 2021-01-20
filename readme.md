@@ -79,7 +79,7 @@ const winCombos = [
  	[2, 5, 8],
  	[0, 4, 8],  //winning diagonals
  	[2, 4, 6]
-];
+  ];
 ```
 
 Let's think about what might be going on here.
