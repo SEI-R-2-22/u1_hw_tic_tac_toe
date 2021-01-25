@@ -91,7 +91,9 @@ Our game will need several things to happen when a player clicks on a space in t
 - We'll need to target all of the cells and fire a callback function when one is clicked.
 - Example below:
 ```js
-document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', someCallbackFunction));
+document.querySelectorAll('.cell').forEach(function(cell) {
+cell.addEventListener('click', someCallbackFunction);
+})
 ```
 - What should happen when a player clicks on a cell?
 - A good place to start would be to build several functions that each accomplish an individual process in the overall game and callback to each other to track the game state and check for win conditions.
