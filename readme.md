@@ -92,7 +92,7 @@ Our game will need several things to happen when a player clicks on a space in t
 - Example below:
 ```js
 document.querySelectorAll('.cell').forEach(function(cell) {
-cell.addEventListener('click', someCallbackFunction);
+  cell.addEventListener('click', someCallbackFunction);
 })
 ```
 - What should happen when a player clicks on a cell?
