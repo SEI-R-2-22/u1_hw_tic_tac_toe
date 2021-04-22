@@ -130,12 +130,12 @@ document.querySelectorAll('.cell').forEach(function(cell) {
 - Style it up! Get creative, or even make a theme!
 
 ## Submission Guidelines
-- Pull Request must be submitted utilizing these guidelines: [PR Guidelines](https://github.com/SEI-R-1-25/Pull-Request-Template)
+- Pull Request must be submitted utilizing these guidelines: [PR Guidelines](https://github.com/SEI-R-4-26/Pull-Request-Template)
 
 ## Resources
-- [JavaScript DOM Lesson](https://github.com/SEI-R-1-25/u1_lesson_js_dom)
-- [Events and Callbacks Lesson](https://github.com/SEI-R-1-25/u1_lesson_js_events_callbacks)
-- [JavaScript Arrays Lesson](https://github.com/SEI-R-1-25/u1_lesson_js_arrays)
-- [CSS Flex and Grid Lesson](https://github.com/SEI-R-1-25/u1_lesson_flex_grid)
-- [JavaScript Scope Lesson](https://github.com/SEI-R-1-25/u1_lesson_js_scope)
-- [JavaScript Functions Lesson](https://github.com/SEI-R-1-25/u1_lesson_js_functions)
+- [JavaScript DOM Lesson](https://github.com/SEI-R-4-26/u1_lesson_js_dom)
+- [Events and Callbacks Lesson](https://github.com/SEI-R-4-26/u1_lesson_js_events_callbacks)
+- [JavaScript Arrays Lesson](https://github.com/SEI-R-4-26/u1_lesson_js_arrays)
+- [CSS Flex and Grid Lesson](https://github.com/SEI-R-4-26/u1_lesson_flex_grid)
+- [JavaScript Scope Lesson](https://github.com/SEI-R-4-26/u1_lesson_js_scope)
+- [JavaScript Functions Lesson](https://github.com/SEI-R-4-26/u1_lesson_js_functions)
