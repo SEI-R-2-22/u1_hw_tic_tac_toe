@@ -133,9 +133,9 @@ document.querySelectorAll('.cell').forEach(function(cell) {
 - Pull Request must be submitted utilizing these guidelines: [PR Guidelines](https://github.com/SEI-R-4-26/Pull-Request-Template)
 
 ## Resources
-- [JavaScript DOM Lesson](https://github.com/SEI-R-4-26/u1_lesson_DOM)
-- [Events and Callbacks Lesson](https://github.com/SEI-R-4-26/u1_lesson_events_callbacks)
-- [JavaScript Arrays Lesson](https://github.com/SEI-R-4-26/u1_lesson_js_arrays)
-- [CSS Flex and Grid Lesson](https://github.com/SEI-R-4-26/u1_lesson_flex_grid)
-- [JavaScript Scope Lesson](https://github.com/SEI-R-4-26/u1_lesson_js_scope)
-- [JavaScript Functions Lesson](https://github.com/SEI-R-4-26/u1_lesson_js_functions)
+- [JavaScript DOM Lesson](https://github.com/SEI-R-7-26/u1_lesson_DOM)
+- [Events and Callbacks Lesson](https://github.com/SEI-R-7-26/u1_lesson_events_callbacks)
+- [JavaScript Arrays Lesson](https://github.com/SEI-R-7-26/u1_lesson_js_arrays)
+- [CSS Flex and Grid Lesson](https://github.com/SEI-R-7-26/u1_lesson_flex_grid)
+- [JavaScript Scope Lesson](https://github.com/SEI-R-7-26/u1_lesson_js_scope)
+- [JavaScript Functions Lesson](https://github.com/SEI-R-7-26/u1_lesson_js_functions)
