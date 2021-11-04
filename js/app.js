@@ -1,4 +1,3 @@
-console.log('Hello frontend');
 // Global Variables Here
 
 
