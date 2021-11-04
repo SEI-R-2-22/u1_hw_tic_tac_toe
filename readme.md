@@ -20,17 +20,11 @@ Feel free to implement your own style or theme when building your game, it might
 - Run `open index.html` to open your game in the browser.
   - `cmd + option + i` or `ctrl + shift + i` to **open your dev tools** in your browser.
 - You'll be working in the `index.html` file, `app.js` in the `js` folder, and `style.css` in the `css` folder.
-- Before you even start working with JavaScript, construct the gameboard. The gameboard page should include the 3x3 grid (of divs), and at minimum a reset button. Using `id` and `class` on clickable elements will help you wire this up in JavaScript afterwards.
-- The JavaScript portion will be next
-  - Select elements and attach functions via event listeners
-  - You will also need a variable to keep track of moves. This will be used to indicate whether or not to draw an `X` or an `O`
 
 
 ## Setting Up the Game Board
 Think about what you'll want your game to look like along with how you'll want to display instructions and game information for players. Let's take a look at the `index.html` file.
-- First off, we'll want to replace the original title that currently says "Hello Front-End" with something more Tic Tac Toe specific
-- Tic Tac Toe has 9 spaces where either player will be able to make a move, so a reasonable way of implementing that in code would be with 9 divs inside of a container div.
-- A good way of setting up your board would be setting its display to either flex or grid.
+
 - Here is one way you could set it up with your HTML and CSS:
 #### HTML
 ```html
@@ -55,22 +49,17 @@ Think about what you'll want your game to look like along with how you'll want t
   margin: 0 auto;
 }
 ```
-- You'll need to decide how large you'll want your Game Board to be along with how your `X`'s and `O`'s display and the overall design of your website.
 
 ## Global Variables
 Your game will need to respond to events from players, track the state of the game as it progresses, and have the necessary logic to determine if a player has won or if the game is a tie. You'll be working in `app.js` to build your game logic.
-- Start with necessary global variables you'll need for your game logic to function properly at the top of `app.js`.
-  - A variable containing all possible win conditions. This can be accomplished with an array containing nested arrays of all possible wins.
-  - Another important necessary variable would be one for tracking the state of the current player. Our game needs to know whether or not an `X` or `O` is being played.
-  - We'll also need a variable to record the moves that have been made by our players to record the game state as it progresses and compare it with our win conditions to see if a player has won or not. An array might be a good option for recording moves.
-  - If a player has won, we'll need a way of stopping the game from progressing any further. A boolean might be a good way of accomplishing this.
+
 - Examples of how these global variables might be set up below:
 ```js
 const gameActive = false;
 const currentPlayer = "X";
 const gameState = ["","","","","","","","","",];
 const winCombos = [
-        [0, 1, 2],  // winning rows
+  [0, 1, 2],  // winning rows
  	[3, 4, 5],				
  	[6, 7, 8], 
  	[0, 3, 6],  // winning columns
@@ -81,13 +70,9 @@ const winCombos = [
   ];
 ```
 
-Let's think about what might be going on here.
-- How might the `gameState` array be related to the `winCombos` array?
-- How might the `gameState` array record moves with `currentPlayer`?
-
 ## Functions and Event Listeners
 Our game will need several things to happen when a player clicks on a space in the Game Board. We'll need to write functions to and attach some of them to event listeners to allow for our game to work properly.
-- A good place to start would be at the very bottom of our file in `app.js` with an event listener.
+
 - We'll need to target all of the cells and fire a callback function when one is clicked.
 - Example below:
 ```js
@@ -95,17 +80,7 @@ document.querySelectorAll('.cell').forEach(function(cell) {
   cell.addEventListener('click', someCallbackFunction);
 })
 ```
-- What should happen when a player clicks on a cell?
-- A good place to start would be to build several functions that each accomplish an individual process in the overall game and callback to each other to track the game state and check for win conditions.
-- This will allow for more legible code as you build out your game logic.
-- A few good places to start might be:
-  - A function that starts the game. What needs to happen when a game is started?
-  - A function that handles what happens when a cell is clicked.
-  - A function that handles the game state of a cell that has been played.
-  - A function that handles changing the state of `currentPlayer`.
-  - A function that checks for win conditions .
-- Make sure to be clear with your naming conventions, as this will help you with understanding what is happening in each function.
-- Also be sure that your functions are in `scope` and that you pass data with `arguments` where it is needed between functions.
+
 
 ## Requirements
 - A user should be able to click on different squares to make a move.
@@ -130,12 +105,12 @@ document.querySelectorAll('.cell').forEach(function(cell) {
 - Style it up! Get creative, or even make a theme!
 
 ## Submission Guidelines
-- Pull Request must be submitted utilizing these guidelines: [PR Guidelines](https://github.com/SEI-R-4-26/Pull-Request-Template)
+- Pull Request must be submitted utilizing these guidelines: [PR Guidelines](https://github.com/SEI-R-11-8/template_pull_request)
 
 ## Resources
-- [JavaScript DOM Lesson](https://github.com/SEI-R-7-26/u1_lesson_DOM)
-- [Events and Callbacks Lesson](https://github.com/SEI-R-7-26/u1_lesson_events_callbacks)
-- [JavaScript Arrays Lesson](https://github.com/SEI-R-7-26/u1_lesson_js_arrays)
-- [CSS Flex and Grid Lesson](https://github.com/SEI-R-7-26/u1_lesson_flex_grid)
-- [JavaScript Scope Lesson](https://github.com/SEI-R-7-26/u1_lesson_js_scope)
-- [JavaScript Functions Lesson](https://github.com/SEI-R-7-26/u1_lesson_js_functions)
+- [JavaScript DOM Lesson](https://github.com/SEI-R-11-8/u1_lesson_intro_to_dom)
+- [Events Lesson](https://github.com/SEI-R-11-8/u1_lesson_js_events)
+- [JavaScript Arrays Lesson](https://github.com/SEI-R-11-8/u1_lesson_js_arrays)
+- [CSS Flex and Grid Lesson](https://github.com/SEI-R-11-8/u1_lesson_flex_grid)
+- [JavaScript Scope Lesson](https://github.com/SEI-R-11-8/u1_lesson_js_scope)
+- [JavaScript Functions Lesson](https://github.com/SEI-R-11-8/u1_lesson_js_functions)
