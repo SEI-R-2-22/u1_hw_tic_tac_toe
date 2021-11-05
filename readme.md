@@ -45,11 +45,3 @@ Feel free to implement your own style or theme when building your game, it might
 
 ## Submission Guidelines
 - Pull Request must be submitted utilizing these guidelines: [PR Guidelines](https://github.com/SEI-R-11-8/template_pull_request)
-
-## Resources
-- [JavaScript DOM Lesson](https://github.com/SEI-R-11-8/u1_lesson_intro_to_dom)
-- [Events Lesson](https://github.com/SEI-R-11-8/u1_lesson_js_events)
-- [JavaScript Arrays Lesson](https://github.com/SEI-R-11-8/u1_lesson_js_arrays)
-- [CSS Flex and Grid Lesson](https://github.com/SEI-R-11-8/u1_lesson_flex_grid)
-- [JavaScript Scope Lesson](https://github.com/SEI-R-11-8/u1_lesson_js_scope)
-- [JavaScript Functions Lesson](https://github.com/SEI-R-11-8/u1_lesson_js_functions)
