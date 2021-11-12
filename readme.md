@@ -12,19 +12,20 @@ This week we have been learning about writing functions, working with loops, and
 
 ## What You'll Be Building
 Feel free to implement your own style or theme when building your game, it might be something you want to put on a portfolio showing off your skills!
-- [Live Demo](https://playtictactoe.org/)
+- [Simple Example](https://chalk-tac-toe.surge.sh/)
+- [Advanced Example](https://playtictactoe.org/)
+
 
 ## Getting Started
 
 - Fork and clone this repository.
-- Run `open index.html` to open your game in the browser.
+- Run `open index.html` to open your game in the browser (Mac).
   - `cmd + option + i` or `ctrl + shift + i` to **open your dev tools** in your browser.
 - You'll be working in the `index.html` file, `app.js` in the `js` folder, and `style.css` in the `css` folder.
 
 ## Requirements
 - A user should be able to click on different squares to make a move.
 - Every click will alternate between marking an `X` and `O`
-- Upon marking of an individual cell, use JavaScript to add a class to each cell to display the separate players.
 - A cell should not be able to be replayed once marked.
 - You should not be able to click remaining empty cells after the game is over.
 - Add a reset button that will clear the contents of the board.
