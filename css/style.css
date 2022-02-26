@@ -10,10 +10,9 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-rows: 50px 1fr;
   grid-template-columns: 1fr 2fr 1fr;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   height: 100vh;
   /* font-size: 3vh; */
   background-image: url('../Notebook.jpg');
@@ -22,9 +21,10 @@ body {
 }
 
 header,
-.wrapper,
+/* .wrapper, */
 .start,
-.scores {
+.scores,
+.turn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,32 +33,34 @@ header,
 header,
 .start,
 .scores {
-  grid-column: span 3;
+  grid-column: 1 / -1;
 }
 header {
   margin-top: 5vh;
-  height: 50px;
-  font-size: 5vh;
+  margin-bottom: 3vh;
+  font-size: 3.5vh;
 }
 
 .game-info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-flow: column-reverse;
+
   height: 25%;
 }
-
+.rules {
+  font-size: 25px;
+}
 .turn {
-  display: inline;
-  margin: 0 auto;
   font-size: 40px;
 }
 .wrapper {
+  display: flex;
   flex-flow: column;
-  height: 50%;
+  align-items: center;
+  /* height: 50%; */
 }
 .board {
   width: 50%;
-  height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -68,13 +70,15 @@ header {
   display: grid;
   grid-template: 1fr 9fr / 1fr 1fr 1fr;
   height: 25%;
-  margin: 0 5vw;
+  /* margin: 0 3vw; */
+  font-size: 40px;
 }
 
 .btn {
   border: none;
   background: transparent;
-  font-size: 10vh;
+  font-size: 4vh;
+  aspect-ratio: 1;
   transition: 0.2s;
 }
 #tleft,

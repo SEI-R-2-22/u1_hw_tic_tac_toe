@@ -5,12 +5,6 @@ const whoTurn = document.querySelector('.who')
 const xScore = document.querySelector('.x-score')
 const oScore = document.querySelector('.o-score')
 const drawTotal = document.querySelector('.draw-total')
-let boxes = 9
-let turn = 'X'
-let winner = ''
-let xWins = 0
-let oWins = 0
-let draws = 0
 const winArrays = [
   [0, 1, 2],
   [3, 4, 5],
@@ -21,6 +15,12 @@ const winArrays = [
   [0, 4, 8],
   [2, 4, 6]
 ]
+let boxes = 9
+let turn = ''
+let winner = ''
+let xWins = 0
+let oWins = 0
+let draws = 0
 let xChoices = []
 let oChoices = []
 
@@ -43,10 +43,10 @@ const startGame = () => {
   console.log(turnOrder)
   if (turnOrder === 0) {
     turn = 'X'
-    whoTurn.innerText = turn
+    whoTurn.innerText = 'X goes first!'
   } else {
     turn = 'O'
-    whoTurn.innerText = turn
+    whoTurn.innerText = 'O goes first!'
   }
 }
 
@@ -56,20 +56,19 @@ const gameOver = () => {
   }
   if (winner === 'X') {
     xWins++
-    whoTurn.innerText = 'Game Over.  Play again!'
+    whoTurn.innerText = 'X wins!  Game Over.  Play again!'
     xScore.innerText = 'X: ' + xWins
     startButton.innerText = 'Play again?'
     startButton.disabled = false
   } else if (winner === 'O') {
     oWins++
-    whoTurn.innerText = 'Game Over.  Play again!'
+    whoTurn.innerText = 'O wins!  Game Over.  Play again!'
     oScore.innerText = 'O: ' + oWins
     startButton.innerText = 'Play again?'
     startButton.disabled = false
   } else if (winner === 'draw') {
-    //boxes++
     draws++
-    whoTurn.innerText = 'Game Over.  Play again!'
+    whoTurn.innerText = 'Draw!  Game Over.  Play again!'
     drawTotal.innerText = 'Draws: ' + draws
     startButton.innerText = 'Play again?'
     startButton.disabled = false
@@ -84,26 +83,18 @@ const winCheck = () => {
     for (let i = 0; i < setCheck.length; i++) {
       if (xChoices.includes(setCheck[i]) && winner === '') {
         xTrips++
-        console.log('x ' + xTrips)
-        console.log('boxes: ' + boxes)
         if (xTrips === 3) {
           winner = 'X'
           gameOver()
         }
       } else if (oChoices.includes(setCheck[i]) && winner === '') {
         oTrips++
-        console.log('o ' + oTrips)
-        console.log('boxes: ' + boxes)
         if (oTrips === 3) {
           winner = 'O'
           gameOver()
         }
       }
     }
-    // if (winner === 'draw') {
-    //   console.log(winner)
-    //   gameOver()
-    // }
   }
   if (boxes === 0 && winner === '') {
     winner = 'draw'
@@ -120,11 +111,11 @@ for (let i = 0; i < button.length; i++) {
     if (turn === 'X') {
       xChoices.push(i)
       turn = 'O'
-      whoTurn.innerText = turn
+      whoTurn.innerText = 'Os turn'
     } else if (turn === 'O') {
       oChoices.push(i)
       turn = 'X'
-      whoTurn.innerText = turn
+      whoTurn.innerText = 'Xs turn'
     }
     boxes--
     winCheck()
