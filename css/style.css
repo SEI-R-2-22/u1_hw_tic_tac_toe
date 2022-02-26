@@ -4,7 +4,25 @@ article{
 
 img{
     width: 100%;
-    filter: grayscale(50%)
+    filter: opacity(30%)
+}
+.game{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 25em;
+    width: 25em;
+    border: solid black 3px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-    
+
+.sqr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid black 3px;
+    width: 7em;
+    height: 7em;
+}
