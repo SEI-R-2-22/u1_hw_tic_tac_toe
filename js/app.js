@@ -38,6 +38,66 @@ for (let i = 0; i < 3; i++){
 // Functions For Game Logic Here
 
 
+//Update the board
+const updateBoardGame = (player) =>{
+    switch(player.lastClicked){
+        case 1: 
+            if (board-game[0][0] === null) {
+                boardGame[0][0] = player.sign
+                player.isTurn = false
+            }
+            break
+        case 2:
+            if (board-game[0][1] === null) {
+                boardGame[0][1] = player.sign
+                player.isTurn = false
+            }
+            break
+        case 3:
+            if (board-game[0][2] === null) {
+                boardGame[0][2] = player.sign
+                player.isTurn = false
+            }
+            break
+        case 4:
+            if (board-game[1][0] === null) {
+                boardGame[1][0] = player.sign
+                player.isTurn = false
+            }
+            break
+        case 5:
+            if (board-game[1][1] === null){
+                boardGame[1][1] = player.sign
+                player.isTurn = false
+            }
+            break
+        case 6:
+            if (board-game[1][2] === null){
+                boardGame[1][2] = player.sign
+                player.isTurn = false
+            }
+            break
+        case 7:
+            if (board-game[2][0] === null){
+                boardGame[2][0] = player.sign
+                player.isTurn = false
+            }
+            break
+        case 8:
+            if (board-game[2][1] === null){
+                boardGame[2][1] = player.sign
+                player.isTurn = false
+            }
+            break
+        case 9:
+            if (board-game[2][2] === null){
+                boardGame[2][2] = player.sign
+                player.isTurn = false
+            }
+            break  
+        default: break           
+    }
+}
 
 //Check if the board game is full
 const isBoardFull = () => {

@@ -1,0 +1,137 @@
+[33mcommit b5f337e3253927afadf75fb1e15bbcd4e89a159f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: vinhnghiemcr <vinhnghiemcr@gmail.com>
+Date:   Fri Feb 25 15:59:44 2022 -0600
+
+    Create structure of game
+
+[33mcommit e51548fbeb9e27a4e35929bd6083482e6cbd7934[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Michael Lackey <59581978+mlackey9601@users.noreply.github.com>
+Date:   Wed Feb 16 00:50:14 2022 -0600
+
+    Update readme.md
+
+[33mcommit 753f5e8897c2876d23d817d17f01324dda5f8429[m
+Author: Michael Lackey <59581978+mlackey9601@users.noreply.github.com>
+Date:   Thu Nov 11 22:41:57 2021 -0600
+
+    Update readme.md
+
+[33mcommit 27bd897e936215a0c91b877ab60d7c919d46c4d3[m
+Author: Michael Lackey <59581978+mlackey9601@users.noreply.github.com>
+Date:   Thu Nov 4 23:50:25 2021 -0500
+
+    Remove resources
+
+[33mcommit d93c2ddfbf5fb31433a81c5348179828af70c922[m
+Author: Michael Lackey <59581978+mlackey9601@users.noreply.github.com>
+Date:   Thu Nov 4 16:08:46 2021 -0500
+
+    Update style.css
+
+[33mcommit e998e906d5c765a24cb8023d8fbf314a055e4554[m
+Author: Michael Lackey <59581978+mlackey9601@users.noreply.github.com>
+Date:   Thu Nov 4 16:07:26 2021 -0500
+
+    Update app.js
+
+[33mcommit 7f277fa07f44000f61b156a45b009e3d5d426d88[m
+Author: Michael Lackey <59581978+mlackey9601@users.noreply.github.com>
+Date:   Thu Nov 4 16:06:41 2021 -0500
+
+    Update index.html
+
+[33mcommit c9c89b06bcf7edf7df30f1c026b1a22ff6314561[m
+Author: Ben Manning <bmanning@me.com>
+Date:   Thu Nov 4 17:05:33 2021 -0400
+
+    another refactor
+
+[33mcommit 3657cd0ede6c4e77d4f01a1177d4943ad17d19a6[m
+Author: Ben Manning <bmanning@me.com>
+Date:   Thu Nov 4 16:58:18 2021 -0400
+
+    refactor to remove extra instructions
+
+[33mcommit fd8d14ba732b76a7fa11bb6a666dcb6aea083b12[m
+Author: Michael Lackey <59581978+mlackey9601@users.noreply.github.com>
+Date:   Fri Jul 30 10:42:33 2021 -0500
+
+    update resources
+
+[33mcommit be208c201d4105537689d71cf5a7d4a11a5b7811[m
+Author: Michael Lackey <59581978+mlackey9601@users.noreply.github.com>
+Date:   Fri Apr 23 10:09:20 2021 -0500
+
+    Update readme.md
+
+[33mcommit b2ee2848b92380e85ab2493fdb536135a0ffa351[m
+Author: Michael Lackey <59581978+mlackey9601@users.noreply.github.com>
+Date:   Thu Apr 22 12:01:57 2021 -0500
+
+    Update readme.md
+
+[33mcommit b237a9290e369fdb4c6c9d017bf29e3a1b319083[m
+Author: Adam Honore <61853978+ahonore42@users.noreply.github.com>
+Date:   Sun Jan 24 23:56:07 2021 -0600
+
+    Update readme.md
+
+[33mcommit a5217da7e7030aa19ffcb0d77188dfdaf1b80f30[m
+Author: Adam Honore <61853978+ahonore42@users.noreply.github.com>
+Date:   Sun Jan 24 23:53:47 2021 -0600
+
+    Update readme.md
+
+[33mcommit 7128166a32713d4c5c6e13c63aac0a6faf75ac44[m
+Merge: 7054045 091b1d2
+Author: Adam Honore <61853978+ahonore42@users.noreply.github.com>
+Date:   Wed Jan 20 17:28:17 2021 -0500
+
+    Merge pull request #2 from SEI-R-1-25/adam
+    
+    remove unnecessary dependencies
+
+[33mcommit 091b1d2051c43db8f3cc21b47b75ebe8efa48c87[m
+Author: ahonore42 <a1honore80@gmail.com>
+Date:   Wed Jan 20 16:27:13 2021 -0600
+
+    remove unnecessary dependencies
+
+[33mcommit 7054045d65a0613a3c493e7e16f3c4e512995f43[m
+Merge: 22371c8 7e987be
+Author: Andre Pato <36831606+anpato@users.noreply.github.com>
+Date:   Wed Jan 20 17:21:13 2021 -0500
+
+    Merge pull request #1 from SEI-R-1-25/adam
+    
+    REVIEW
+
+[33mcommit 7e987befb10f7e16ffae8fad183edbbdcf40c0af[m
+Author: Adam Honore <61853978+ahonore42@users.noreply.github.com>
+Date:   Wed Jan 20 16:21:03 2021 -0600
+
+    Update readme.md
+
+[33mcommit 15cf0e13da58bbfcb43a807f18221d199cb8c1a5[m
+Author: Adam Honore <61853978+ahonore42@users.noreply.github.com>
+Date:   Wed Jan 20 16:20:38 2021 -0600
+
+    Update readme.md
+
+[33mcommit 41a3edde3e15246cb10eb496c687df4a57349700[m
+Author: Adam Honore <61853978+ahonore42@users.noreply.github.com>
+Date:   Wed Jan 20 16:19:24 2021 -0600
+
+    Update readme.md
+
+[33mcommit a74c8a7ed114d64b64711e38fd80eda791e4fac6[m
+Author: ahonore42 <a1honore80@gmail.com>
+Date:   Wed Jan 20 15:04:31 2021 -0600
+
+    add clear instructions and guidelines for tic tac toe
+
+[33mcommit 22371c8e9f3437c2003259c401ebd1c65bc3d85b[m
+Author: ahonore42 <a1honore80@gmail.com>
+Date:   Sat Jan 16 19:54:54 2021 -0600
+
+    add tic tac toe requirements and starter
