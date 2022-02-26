@@ -10,42 +10,42 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template: 50px 1fr 50px / 1fr 1fr;
-
-  /* display: flex;
-  flex-flow: column wrap; */
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* font-family: 'Permanent Marker', cursive; */
   font-size: 3vh;
-  /* color: black; */
   background-image: url('../Notebook.jpg');
   background-size: cover;
 }
 
 h1,
 .wrapper,
-.rules-wrap {
+.game-info,
+.start {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 h1,
 .start {
-  grid-column: span 2;
+  grid-column: span 3;
 }
 
-.rules-wrap {
-  /* border: 5px solid blue; */
+/* .rules-wrap {
   height: 50vh;
-}
+  width: 25vw;
+} */
 .game-info {
   display: grid;
-  grid-template: 3fr 1fr 2fr / 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.turn {
+  display: inline-block;
 }
 .wrapper {
-  /* width: 50%; */
   height: 50vh;
 }
 .board {
@@ -60,11 +60,7 @@ h1,
 .btn {
   border: none;
   background: transparent;
-  /* border-radius: 2vh; */
-  /* border: 1.1vh solid black; */
   font-size: 10vh;
-  /* font-family: 'Permanent Marker', cursive;
-  color: black; */
   transition: 0.2s;
 }
 #tleft,
@@ -86,11 +82,10 @@ h1,
 }
 
 .start {
-  width: 10vw;
+  width: 20vw;
   font-size: 4vh;
   margin-top: 2vh;
   padding: 2vh;
-  /* font-family: 'Permanent Marker', cursive; */
   border: 1vh solid black;
   border-radius: 2vh;
   background: transparent;

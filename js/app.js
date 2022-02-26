@@ -2,6 +2,9 @@
 const button = document.querySelectorAll('.btn')
 const startButton = document.querySelector('.start')
 const whoTurn = document.querySelector('.who')
+const xScore = document.querySelector('.x-score')
+const oScore = document.querySelector('.o-score')
+const drawTotal = document.querySelector('.draw-total')
 let boxes = 9
 let turn = 'X'
 let winner = ''
@@ -18,19 +21,21 @@ const winArrays = [
   [0, 4, 8],
   [2, 4, 6]
 ]
-const xChoices = []
-const oChoices = []
+let xChoices = []
+let oChoices = []
 
 for (let i = 0; i < button.length; i++) {
-  boxes = 9
   button[i].innerText = ''
   button[i].disabled = true
 }
 ////////////////////////////////
 // Functions For Game Logic Here
 const startGame = () => {
+  winner = ''
+  xChoices = []
+  oChoices = []
+  boxes = 9
   for (let i = 0; i < button.length; i++) {
-    boxes = 9
     button[i].innerText = ''
     button[i].disabled = false
   }
@@ -50,20 +55,22 @@ const gameOver = () => {
     button[i].disabled = true
   }
   if (winner === 'X') {
-    winner = ''
     xWins++
-    console.log('xWins: ' + xWins)
+    whoTurn.innerText = 'Game Over.  Play again!'
+    xScore.innerText = 'X: ' + xWins
     startButton.innerText = 'Play again?'
     startButton.disabled = false
   } else if (winner === 'O') {
-    winner = ''
     oWins++
-    console.log('oWins: ' + oWins)
+    whoTurn.innerText = 'Game Over.  Play again!'
+    oScore.innerText = 'O: ' + oWins
     startButton.innerText = 'Play again?'
     startButton.disabled = false
-  } else {
+  } else if (winner === 'draw') {
+    boxes++
     draws++
-    console.log('Draw: ' + draws)
+    whoTurn.innerText = 'Game Over.  Play again!'
+    drawTotal.innerText = 'Draws: ' + draws
     startButton.innerText = 'Play again?'
     startButton.disabled = false
   }
@@ -74,27 +81,33 @@ const winCheck = () => {
     let setCheck = winArrays[i]
     let xTrips = 0
     let oTrips = 0
-    console.log('set:' + setCheck)
-    console.log('x array: ' + xChoices)
-    console.log('o array: ' + oChoices)
     for (let i = 0; i < setCheck.length; i++) {
-      if (xChoices.includes(setCheck[i])) {
+      if (xChoices.includes(setCheck[i]) && winner === '') {
         xTrips++
-        console.log('good x ' + xChoices[i] + ' ' + xTrips)
-      } else if (oChoices.includes(setCheck[i])) {
+        console.log('x ' + xTrips)
+        if (xTrips === 3) {
+          winner = 'X'
+          gameOver()
+        } else if (boxes === 0 && winner === '') {
+          winner = 'draw'
+        }
+      } else if (oChoices.includes(setCheck[i]) && winner === '') {
         oTrips++
-        console.log('good o ' + oChoices[i] + ' ' + oTrips)
+        console.log('o ' + oTrips)
+        if (oTrips === 3) {
+          winner = 'O'
+          gameOver()
+        } else if (boxes === 0 && winner === '') {
+          winner = 'draw'
+        }
+      } else if (boxes === 0 && winner === 'draw') {
+        console.log(winner)
+        gameOver()
       }
-    }
-    if (xTrips === 3) {
-      winner = 'X'
-      gameOver()
-    } else if (oTrips === 3) {
-      winner = 'O'
-      gameOver()
     }
   }
 }
+
 ////////////////////////////////
 // Event Listeners Here
 for (let i = 0; i < button.length; i++) {
@@ -112,9 +125,6 @@ for (let i = 0; i < button.length; i++) {
     }
     winCheck()
     boxes--
-    if (boxes === 0 && winner === '') {
-      gameOver()
-    }
   })
 }
 startButton.addEventListener('click', () => {
