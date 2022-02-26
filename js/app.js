@@ -5,13 +5,7 @@ const player2Score = document.querySelector('.player2')
 const tie = document.querySelector('.tie')
 
 
-const player = {
-    sign: '',
-    score: 0,
-    lastClicked: 0,
-    isTurn : true,
-    isWiner : false,
-}
+
 const player1 = {
     sign: 'X',
     score: 0,
