@@ -24,6 +24,7 @@ body {
     right: 0;
     margin: auto;
     
+    
 
 }
 
@@ -31,6 +32,7 @@ body {
     background-color:darkslategray;
     margin: 5px;
     border-radius: 25px;
+    
     
 }
 
@@ -67,5 +69,100 @@ body {
 }
 
 .box8 {
+    grid-area: i;
+}
+
+/* Computer pieces */
+
+.moon {
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%
+    
+    
+}
+
+.moon0 {
+    grid-area: a;
+}
+
+.moon1 {
+    grid-area: b;
+}
+.moon2 {
+    grid-area: c;
+}
+
+.moon3 {
+    grid-area: d;
+}
+
+.moon4 {
+    grid-area: e;
+}
+
+.moon5 {
+    grid-area: f;
+}
+
+.moon6 {
+    grid-area: g;
+}
+
+.moon7 {
+    grid-area: h;
+}
+
+.moon8 {
+    grid-area: i;
+
+}
+
+/* Player pieces */
+
+.star {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid yellow;
+}
+
+.star0 {
+    grid-area: a;
+}
+ 
+.star1 {
+    grid-area: b;
+}
+
+.star2 {
+    grid-area: c;
+}
+
+.star3 {
+    grid-area: d;
+}
+
+.star4 {
+    grid-area: e;
+}
+
+.star5 {
+    grid-area: f;
+}
+
+.star6 {
+    grid-area: g;
+}
+
+.star7 {
+    grid-area: h;
+}
+
+.star8 {
     grid-area: i;
 }
