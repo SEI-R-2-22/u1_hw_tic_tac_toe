@@ -67,7 +67,7 @@ const gameOver = () => {
     startButton.innerText = 'Play again?'
     startButton.disabled = false
   } else if (winner === 'draw') {
-    boxes++
+    //boxes++
     draws++
     whoTurn.innerText = 'Game Over.  Play again!'
     drawTotal.innerText = 'Draws: ' + draws
@@ -85,26 +85,29 @@ const winCheck = () => {
       if (xChoices.includes(setCheck[i]) && winner === '') {
         xTrips++
         console.log('x ' + xTrips)
+        console.log('boxes: ' + boxes)
         if (xTrips === 3) {
           winner = 'X'
           gameOver()
-        } else if (boxes === 0 && winner === '') {
-          winner = 'draw'
         }
       } else if (oChoices.includes(setCheck[i]) && winner === '') {
         oTrips++
         console.log('o ' + oTrips)
+        console.log('boxes: ' + boxes)
         if (oTrips === 3) {
           winner = 'O'
           gameOver()
-        } else if (boxes === 0 && winner === '') {
-          winner = 'draw'
         }
-      } else if (boxes === 0 && winner === 'draw') {
-        console.log(winner)
-        gameOver()
       }
     }
+    // if (winner === 'draw') {
+    //   console.log(winner)
+    //   gameOver()
+    // }
+  }
+  if (boxes === 0 && winner === '') {
+    winner = 'draw'
+    gameOver()
   }
 }
 
@@ -123,8 +126,8 @@ for (let i = 0; i < button.length; i++) {
       turn = 'X'
       whoTurn.innerText = turn
     }
-    winCheck()
     boxes--
+    winCheck()
   })
 }
 startButton.addEventListener('click', () => {

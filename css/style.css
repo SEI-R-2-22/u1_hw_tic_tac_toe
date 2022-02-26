@@ -10,43 +10,51 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-rows: 50px 1fr 50px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-size: 3vh;
+  /* font-size: 3vh; */
   background-image: url('../Notebook.jpg');
   background-size: cover;
+  background-position: fixed;
 }
 
-h1,
+header,
 .wrapper,
-.game-info,
-.start {
+.start,
+.scores {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-h1,
-.start {
+
+header,
+.start,
+.scores {
   grid-column: span 3;
 }
+header {
+  margin-top: 5vh;
+  height: 50px;
+  font-size: 5vh;
+}
 
-/* .rules-wrap {
-  height: 50vh;
-  width: 25vw;
-} */
 .game-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  height: 25%;
 }
 
 .turn {
-  display: inline-block;
+  display: inline;
+  margin: 0 auto;
+  font-size: 40px;
 }
 .wrapper {
-  height: 50vh;
+  flex-flow: column;
+  height: 50%;
 }
 .board {
   width: 50%;
@@ -55,6 +63,12 @@ h1,
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   border-radius: 2vh;
+}
+.score-card {
+  display: grid;
+  grid-template: 1fr 9fr / 1fr 1fr 1fr;
+  height: 25%;
+  margin: 0 5vw;
 }
 
 .btn {
@@ -82,11 +96,12 @@ h1,
 }
 
 .start {
-  width: 20vw;
-  font-size: 4vh;
-  margin-top: 2vh;
+  /* width: 20vw; */
+  font-size: 2vh;
+  /* margin-top: 2vh; */
+  margin-bottom: 5vh;
   padding: 2vh;
-  border: 1vh solid black;
+  border: 1vmin solid black;
   border-radius: 2vh;
   background: transparent;
   transition: 0.5s;
