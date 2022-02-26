@@ -41,3 +41,12 @@ button#reset {
   font-weight:bold;
   border-radius: 8px;
 }
+
+footer {
+  text-align:center;
+  font-size:2em;
+  font-weight:bold;
+}
+div#message {
+  border:solid thin black;
+}
