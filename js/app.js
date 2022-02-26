@@ -57,13 +57,13 @@ const gameOver = () => {
   if (winner === 'X') {
     xWins++
     whoTurn.innerText = 'X wins!  Game Over.  Play again!'
-    xScore.innerText = 'X: ' + xWins
+    xScore.innerText = 'X wins: ' + xWins
     startButton.innerText = 'Play again?'
     startButton.disabled = false
   } else if (winner === 'O') {
     oWins++
     whoTurn.innerText = 'O wins!  Game Over.  Play again!'
-    oScore.innerText = 'O: ' + oWins
+    oScore.innerText = 'O wins: ' + oWins
     startButton.innerText = 'Play again?'
     startButton.disabled = false
   } else if (winner === 'draw') {

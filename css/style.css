@@ -12,16 +12,13 @@ body {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   justify-content: center;
-  /* align-items: center; */
   height: 100vh;
-  /* font-size: 3vh; */
   background-image: url('../Notebook.jpg');
   background-size: cover;
   background-position: fixed;
 }
 
 header,
-/* .wrapper, */
 .start,
 .scores,
 .turn {
@@ -31,7 +28,6 @@ header,
 }
 
 header,
-.start,
 .scores {
   grid-column: 1 / -1;
 }
@@ -44,8 +40,7 @@ header {
 .game-info {
   display: flex;
   flex-flow: column-reverse;
-
-  height: 25%;
+  justify-content: flex-end;
 }
 .rules {
   font-size: 25px;
@@ -57,7 +52,6 @@ header {
   display: flex;
   flex-flow: column;
   align-items: center;
-  /* height: 50%; */
 }
 .board {
   width: 50%;
@@ -70,15 +64,14 @@ header {
   display: grid;
   grid-template: 1fr 9fr / 1fr 1fr 1fr;
   height: 25%;
-  /* margin: 0 3vw; */
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .btn {
   border: none;
   background: transparent;
-  font-size: 4vh;
-  aspect-ratio: 1;
+  font-size: 5vh;
+  min-height: 15vh;
   transition: 0.2s;
 }
 #tleft,
@@ -100,9 +93,7 @@ header {
 }
 
 .start {
-  /* width: 20vw; */
-  font-size: 2vh;
-  /* margin-top: 2vh; */
+  font-size: 3vh;
   margin-bottom: 5vh;
   padding: 2vh;
   border: 1vmin solid black;
