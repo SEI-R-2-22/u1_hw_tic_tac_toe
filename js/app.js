@@ -14,10 +14,10 @@ whosTurnIsIt[1] = 'O'
 let timer = null
 
 //variables for scoring
-var ScoreX = 0
-var ScoreO = 0
-var ScoreD = 0
-var whoWon = ''
+let ScoreX = 0
+let ScoreO = 0
+let ScoreD = 0
+let whoWon = ''
 ////////////////////////////////
 // Functions For Game Logic Here
 function startGame() {
@@ -98,8 +98,8 @@ function CheckForWinner() {
 
 function GameOver() {}
 function checkBoardForWinners() {
-  var result = false
-  var winner = 'D'
+  let result = false
+  let winner = 'D'
   //TODO:
   //game logic
   if (result) {
