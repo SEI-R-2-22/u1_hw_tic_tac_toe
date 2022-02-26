@@ -1,5 +1,6 @@
 // Global Variables Here
 const boardNode = document.querySelector('.ttt-board')
+const cells = document.querySelectorAll('.ttt-cell')
 // Generate an array of 9 empty string elements: ['', '', '', '', '', '', '', '', '']
 const boardArray = new Array(9).fill('')
 
@@ -12,7 +13,6 @@ const handleTurn = (e) => {
 
 ////////////////////////////////
 // Event Listeners Here
-const cells = document.querySelectorAll('.ttt-cell')
 for (let i = 0; i < cells.length; i++) {
   cells[i].addEventListener('click', handleTurn)
 }
