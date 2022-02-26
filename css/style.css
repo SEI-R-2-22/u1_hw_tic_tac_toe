@@ -1,1 +1,31 @@
+.gameContainer{
+    max-width: 450px;
+    margin :0 auto;
+}
 
+.container{
+    display: flex;
+    /* justify-content: flex-end;    */
+    flex-wrap: wrap;
+
+    
+}
+
+.pSquare{
+    width: 32%;
+    padding-bottom: 17%;
+    background-color: red;
+    flex: 0 32%;
+    margin: 2px;
+    text-align: center;
+    padding-top: 17%;
+}
+body{
+    background-color: blueviolet;
+}
+/* 
+https://tobiasahlin.com/blog/common-flexbox-patterns/
+
+some help i used with getting the boxes right
+
+*/
