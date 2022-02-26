@@ -1,1 +1,27 @@
+body {
+  background-color: darkgreen;
+}
 
+header {
+  text-align: center;
+}
+
+.space {
+  background-color: aqua;
+  height: auto;
+  margin: 1vh;
+}
+
+.selectX {
+}
+
+.selectO {
+}
+
+.board {
+  display: grid;
+  height: 66vh;
+  width: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
