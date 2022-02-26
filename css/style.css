@@ -1,1 +1,79 @@
-
+.game-cell {
+    width: 20vw;
+    height: 20vh;
+    background-color: rosybrown;
+    text-align: center; 
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gameboard {
+    display: grid;
+    width: 60vw;
+    height: 60vh;
+    gap: 0px;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+}
+.score-cell {
+    text-align: center; 
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+.scoreboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 60vw;
+    margin: auto;
+    justify-content: center;
+}
+#gc0 {
+    border-style: none solid solid none;
+    border-color: white;
+}
+#gc1 {
+    border-style: none solid solid solid;
+    border-color: white;
+}
+#gc2 {
+    border-style: none none solid solid;
+    border-color: white;
+}
+#gc3 {
+    border-style: solid solid solid none;
+    border-color: white;
+}
+#gc4 {
+    border-style: solid;
+    border-color: white;
+}
+#gc5 {
+    border-style: solid none solid solid;
+    border-color: white;
+}
+#gc6 {
+    border-style: solid solid none none;
+    border-color: white;
+}
+#gc7 {
+    border-style: solid solid none solid;
+    border-color: white;
+}
+#gc8 {
+    border-style: solid none none solid;
+    border-color: white;
+}
+body {
+    background-color: rosybrown;
+}
+h1 {
+   text-align: center; 
+   color: white;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
