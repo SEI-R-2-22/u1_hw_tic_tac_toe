@@ -17,7 +17,8 @@ const buildBoard = () => {
 buildBoard()
 
 const handleTurn = (e) => {
-  alert(`clicked cell with id ${e.target.id}!`)
+  const index = e.target.id.replace('ttt-cell-', '')
+  alert(`Clicked cell found at index ${index}!`)
 }
 
 ////////////////////////////////
