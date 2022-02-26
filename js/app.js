@@ -25,15 +25,16 @@ const arena = []
 
 for (let i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', () => {
-    squares[i].innerText = selectionArray[i]
     let position = parseInt(squares[i].getAttribute('sqr-position'))
-    let selection = selectionArray[i]
+    let selection = selectionArray.pop()
 
+    squares[i].innerText = selection
     arena[position] = selection
-    //arena[position].push(selection)
 
-    console.log(position)
     console.log(arena)
+    console.log(selectionArray)
+    console.log(selection)
+    console.log(position)
   })
 }
 
