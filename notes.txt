@@ -1,0 +1,13 @@
+each time a player clicks:
+  place the X/O
+  run a function to check for 3 in a row win condition
+    If win, done!
+    If not, next player.
+
+
+citations: 
+- https://codepen.io/chris__sev/pen/bYmpxw?editors=1100
+
+- https://medium.com/@DavideRama/removeeventlistener-and-anonymous-functions-ab9dbabd3e7b
+
+https://stackoverflow.com/questions/9251837/how-to-remove-all-listeners-in-an-element
