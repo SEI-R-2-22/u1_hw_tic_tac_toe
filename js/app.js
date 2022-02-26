@@ -113,6 +113,7 @@ const isBoardFull = () => {
 }
 ////////////////////////////////
 // Event Listeners Here
+const cells = document.querySelectorAll('.board-game div')
 
 
 
