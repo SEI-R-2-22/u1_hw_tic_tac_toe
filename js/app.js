@@ -1,6 +1,14 @@
 // Global Variables Here
 let board = document.querySelectorAll(".space"); //board becomes an array of the buttons
 let turn = 1;
+const firstRow = document.querySelectorAll("#firstRow");
+const secondRow = document.querySelectorAll("#secondRow");
+const thirdRow = document.querySelectorAll("#thirdRow");
+const firstColumn = document.querySelectorAll("#firstColumn");
+const secondColumn = document.querySelectorAll("#secondColumn");
+const thirdColumn = document.querySelectorAll("#thirdColumn");
+const firstDiag = document.querySelectorAll("#firstDiag");
+const secondDiag = document.querySelectorAll("#secondDiag");
 // let content = board[i].innerText;
 
 ////////////////////////////////
@@ -20,7 +28,7 @@ let turn = 1;
 ////////////////////////////////
 // Event Listeners Here
 
-//We're gonna loop through the array listening for clicks.  on clicks depending on turn (even vs. odd), add class that applies x or o. If space has a class of selectX or selectO already
+//We're gonna loop through the array listening for clicks.  on clicks depending on turn (even vs. odd), change innerText. If space has a class of selectX or selectO already
 for (i = 0; i < board.length; i++) {
   const content = board[i];
   board[i].addEventListener("click", () => {
@@ -41,6 +49,7 @@ for (i = 0; i < board.length; i++) {
       case 7:
       case 9:
         content.innerText = "X";
+
         turn += 1;
         // console.log(content);
         break;
@@ -58,3 +67,7 @@ for (i = 0; i < board.length; i++) {
   });
 }
 ////////////////////////////////
+
+//my thoughts on this function are to check the equality of innerText within each of these Arrays.  No idea how i'd get that done yet
+// checkWinner = () => {};
+// checkWinner(array);
