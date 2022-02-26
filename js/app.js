@@ -1,6 +1,6 @@
 // Global Variables Here
 
-let squareClick = document.querySelectorAll('.square')
+let squares = document.querySelectorAll('.square')
 const selectionArray = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x']
 let previousSelection = selectionArray[0]
 
@@ -23,10 +23,16 @@ const arena = []
 ////////////////////////////////
 // Event Listeners Here
 
-for (let i = 0; i < squareClick.length; i++) {
-  squareClick[i].addEventListener('click', () => {
-    squareClick[i].innerText = selectionArray[i]
-    arena.push(selectionArray[i])
+for (let i = 0; i < squares.length; i++) {
+  squares[i].addEventListener('click', () => {
+    squares[i].innerText = selectionArray[i]
+    let position = parseInt(squares[i].getAttribute('sqr-position'))
+    let selection = selectionArray[i]
+
+    arena[position] = selection
+    //arena[position].push(selection)
+
+    console.log(position)
     console.log(arena)
   })
 }
