@@ -13,6 +13,17 @@ const secondDiag = document.querySelectorAll("#secondDiag");
 
 ////////////////////////////////
 // Functions For Game Logic Here
+//my thoughts on this function are to check the equality of innerText within each of these Arrays.  No idea how i'd get that done yet
+checkWinner = (array) => {
+  for (i = 0; i < array.length; i++) {
+    let mark = array[i];
+    if (mark.innerText === "X" || "O");
+    {
+      console.log("WINNER!");
+    }
+  }
+};
+
 //clickButton will either add a class or do nothng
 // const clickButton = (turn) => {
 //   switch (turn) {
@@ -51,6 +62,7 @@ for (i = 0; i < board.length; i++) {
         content.innerText = "X";
 
         turn += 1;
+        checkWinner(firstRow);
         // console.log(content);
         break;
       case 2:
@@ -67,7 +79,3 @@ for (i = 0; i < board.length; i++) {
   });
 }
 ////////////////////////////////
-
-//my thoughts on this function are to check the equality of innerText within each of these Arrays.  No idea how i'd get that done yet
-// checkWinner = () => {};
-// checkWinner(array);
