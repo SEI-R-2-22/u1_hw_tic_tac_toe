@@ -1,1 +1,71 @@
+body {
+    background-color: black;
+    color: white;
+    max-width: 800px;
 
+}
+
+.container {
+    display: grid;
+    gap: 1px;
+    grid-template-areas: 
+    "a b c"
+    "d e f"
+    "g h i";
+    border-radius: 25px;
+    height: 500px;
+    width: 500px;
+    background-color: gray;
+    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+
+}
+
+.box {
+    background-color:darkslategray;
+    margin: 5px;
+    border-radius: 25px;
+    
+}
+
+.box0 {
+    grid-area: a;
+}
+
+.box1 {
+    grid-area: b;
+}
+
+.box2 {
+    grid-area: c;
+}
+
+.box3 {
+    grid-area: d;
+}
+
+.box4 {
+    grid-area: e;
+}
+
+.box5 {
+    grid-area: f;
+}
+
+.box6 {
+    grid-area: g;
+}
+
+.box7 {
+    grid-area: h;
+}
+
+.box8 {
+    grid-area: i;
+}
