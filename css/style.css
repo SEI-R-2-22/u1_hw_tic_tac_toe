@@ -1,1 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3vh;
+  color: black;
+  background-image: url('../Notebook.jpg');
+  background-size: cover;
+}
+
+.wrapper {
+  width: 50vh;
+  height: 50vh;
+}
+.board {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  /* gap: 1.1vh;
+  background-color: black;
+  border: 1.2vh solid black; */
+  border-radius: 2vh;
+}
+
+.btn {
+  border: none;
+  background: transparent;
+  /* border-radius: 2vh; */
+  /* border: 1.1vh solid black; */
+  font-size: 10vh;
+  font-family: 'Permanent Marker', cursive;
+  color: black;
+}
+#tleft,
+#tmid,
+#left,
+#mid {
+  border-right: 1.1vh solid black;
+  border-bottom: 1.1vh solid black;
+}
+
+#tright,
+#right {
+  border-bottom: 1.1vh solid black;
+}
+
+#bleft,
+#bmid {
+  border-right: 1.1vh solid black;
+}
+
+.start {
+  font-size: 4vh;
+  margin-top: 5vh;
+  padding: 2vh;
+  font-family: 'Permanent Marker', cursive;
+  border: 1vh solid black;
+  border-radius: 2vh;
+  background: transparent;
+}
