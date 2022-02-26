@@ -37,6 +37,7 @@ rSide {
 
 board {
   background-color: #226afa;
+  cursor: pointer;
 }
 
 footer {
@@ -56,4 +57,8 @@ footer {
 
 #blank {
   grid-column: span 3;
+}
+
+#done {
+  pointer-events: none;
 }
