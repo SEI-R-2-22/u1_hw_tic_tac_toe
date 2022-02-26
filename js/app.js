@@ -1,18 +1,27 @@
 // Global Variables Here
 
 let squareClick = document.querySelectorAll('.square')
-
 const selectionArray = ['x']
 let previousSelection = selectionArray[0]
 
 //let currentSelection = selectionArray.push(currentSelection)
 
-switch (previousSelection) {
-  case 'x':
-    selectionArray.push('o')
-  default:
-    selectionArray.push('x')
+if (previousSelection === 'x') {
+  let currentSelection = 'o'
+  selectionArray.push(currentSelection)
+} else {
+  let currentSelection = 'x'
+  selectionArray.push(currentSelection)
 }
+
+// switch (previousSelection) {
+//   case 'x':
+//     let currentSelection = 'o'
+//     selectionArray.push(currentSelection)
+//   case 'o':
+//     let currentSelection = 'x'
+//     selectionArray.push(currentSelection)
+// }
 
 console.log(selectionArray)
 
@@ -25,7 +34,7 @@ console.log(selectionArray)
 
 for (let i = 0; i < squareClick.length; i++) {
   squareClick[i].addEventListener('click', () => {
-    squareClick[i].innerText = 'X'
+    squareClick[i].innerText = selectionArray[i]
   })
 }
 
