@@ -24,6 +24,7 @@ const player2 = {
 
 let tie = 0
 let isTie = false
+let clickedLocation = 0
 
 //Create board game as an array: 3x3
 let boardGame = Array(3).fill().map(() => Array(3))
@@ -111,9 +112,18 @@ const isBoardFull = () => {
     }
     return isFull
 }
+//get location of clicl event
+const getLocation = (player) => {
+
+}
 ////////////////////////////////
 // Event Listeners Here
 const cells = document.querySelectorAll('.board-game div')
+for (let i = 0; i < cells.length; i++){
+    cells[i].addEventListener('click', () => {
+        clickedLocation = parseInt(cells[i].getAttribute('data-location'))
+    })
+}
 
 
 
