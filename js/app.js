@@ -14,7 +14,15 @@ const buildBoard = () => {
 
 buildBoard()
 
+const handleTurn = (e) => {
+  alert(`clicked cell with id ${e.target.id}!`)
+}
+
 ////////////////////////////////
 // Event Listeners Here
+const cells = document.querySelectorAll('.ttt-cell')
+for (let i = 0; i < cells.length; i++) {
+  cells[i].addEventListener('click', handleTurn)
+}
 
 ////////////////////////////////
