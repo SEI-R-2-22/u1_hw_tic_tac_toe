@@ -1,0 +1,72 @@
+// Global Variables Here
+player = {
+    sign: x,
+    score:0,
+    lastClicked: null,
+    isTurn : null,
+    isWiner : false,
+}
+board-game
+
+
+////////////////////////////////
+// Functions For Game Logic Here
+
+//initialize the boad game: board-game[][] = 0
+while (!isWiner && !isTie) {
+    player1 move
+    update the board
+    check if player1 win 
+        yes, isWiner = true
+        Return player1
+    player2 move
+    update the board
+    check if player2 win 
+        yes, isWiner = true
+        Return player2
+    check if board full
+        isTie = true
+}
+
+check(player){
+    //case 1: on a row
+    board-game[0][0] = board-game[0][1] =board-game[0][2]
+    //case 2: on a row
+    board-game[1][0] = board-game[1][1] =board-game[1][2]
+    //case 3: on a row
+    board-game[2][0] = board-game[2][1] =board-game[2][2]
+    //case 4: on a column
+    board-game[0][0] = board-game[1][0] =board-game[2][0]
+    //case 5: on a column
+    board-game[0][1] = board-game[1][1] =board-game[2][1]
+    //case 6: on a column
+    board-game[0][2] = board-game[1][2] =board-game[2][2]
+    //case 7: cross
+    board-game[0][0] = board-game[1][1] =board-game[2][2]
+    //case 8: cross
+    board-game[0][2] = board-game[1][1] =board-game[2][0]
+    return isWiner = true
+}
+
+update the board (player){
+    switch(player.lastClicked){
+        case 1: 
+            if (board-game[0][0] === 0)
+            board-game[0][0] = player.sign
+            player.isTurn = false
+            break
+        case 2: board-game[0][1] = player.sign
+            break
+            ...
+        case 9: board-game[2][2] = player.sign
+            break   
+    }
+}
+
+
+////////////////////////////////
+// Event Listeners Here
+
+
+
+////////////////////////////////
