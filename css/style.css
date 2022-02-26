@@ -6,6 +6,10 @@ header {
   text-align: center;
 }
 
+button {
+  font-size: 20vh;
+}
+
 .space {
   background-color: aqua;
   height: auto;
