@@ -5,6 +5,20 @@ const board = new Array(9).fill('')
 let isGameOver = false
 // By default, player X starts the game
 let currentPlayerToken = 'X'
+const gameStatusNotification = document.getElementById(
+  'game-status-notification'
+)
+
+const pathsToVictory = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8]
+]
 
 const isCellClaimed = (cell) => {
   // The innerText of a vacant cell is an empty string, which is falsy
@@ -21,7 +35,31 @@ const modifyBoardArray = (clickedCell) => {
   board[idx] = currentPlayerToken
 }
 
-const checkGameStatus = () => {}
+getIsXWinner = () => {
+  console.log('board:', board)
+  return pathsToVictory.some((pathToVictory) => {
+    return pathToVictory.every((element) => {
+      return board[element] === 'X'
+    })
+  })
+}
+
+getIsOWinner = () => {
+  console.log('board:', board)
+  return pathsToVictory.some((pathToVictory) => {
+    return pathToVictory.every((element) => {
+      return board[element] === 'O'
+    })
+  })
+}
+
+const checkGameStatus = () => {
+  if (getIsXWinner()) {
+    gameStatusNotification.innerText = 'Victory is yours, Player X!'
+  } else if (getIsOWinner()) {
+    gameStatusNotification.innerText = 'Victory is yours, Player O!'
+  }
+}
 
 const swapCurrentPlayer = () => {
   currentPlayerToken = currentPlayerToken === 'X' ? 'O' : 'X'
@@ -39,6 +77,7 @@ const handleTurn = (event) => {
   }
   claimCell(clickedCell)
   modifyBoardArray(clickedCell)
+  checkGameStatus()
   swapCurrentPlayer()
 }
 
