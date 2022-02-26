@@ -1,5 +1,7 @@
 // Global Variables Here
 const boardNode = document.querySelector('.ttt-board')
+// Generate an array of 9 empty string elements: ['', '', '', '', '', '', '', '', '']
+const boardArray = new Array(9).fill('')
 
 ////////////////////////////////
 // Functions For Game Logic Here
