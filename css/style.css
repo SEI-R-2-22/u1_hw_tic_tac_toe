@@ -30,3 +30,13 @@ h1 {
   border: 2px solid whitesmoke;
   cursor: pointer;
 }
+
+.x {
+  color: plum;
+  background-color: palegoldenrod;
+}
+
+.o {
+  color: white;
+  background-color: paleturquoise;
+}
