@@ -1,8 +1,33 @@
-body {
+html {
   margin: 0 0;
   padding: 0 0;
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 0;
+  padding: 0 0;
+  width: 100%;
+  height: 100%;
   background-image: url(https://getwallpapers.com/wallpaper/full/4/5/2/129368.jpg);
   background-size: cover;
+}
+h1 {
+  color: white;
+}
+
+.board-game {
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  width: 50%;
+  height: 60%;
+  background-color: white;
+}
+
+.cell {
+  border: 1px solid black;
 }
