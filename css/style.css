@@ -15,3 +15,15 @@ h1 {
   height: 300px;
   margin: 0 auto;
 }
+
+.ttt-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: plum;
+  font-size: 45px;
+  font-weight: bold;
+  border: 2px solid whitesmoke;
+  cursor: pointer;
+}
