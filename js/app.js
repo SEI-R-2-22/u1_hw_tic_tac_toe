@@ -23,7 +23,7 @@ const winEval = (position) => {
         let winner = arena[0]
         console.log(`${winner} has won!`)
       }
-    //break?
+      break
     case 1:
       if (arena[1] === arena[0] && arena[1] === arena[2]) {
         let winner = arena[1]
@@ -32,7 +32,7 @@ const winEval = (position) => {
         let winner = arena[1]
         console.log(`${winner} has won!`)
       }
-    //break?
+      break
     case 2:
       if (arena[2] === arena[0] && arena[2] === arena[1]) {
         let winner = arena[2]
@@ -44,7 +44,7 @@ const winEval = (position) => {
         let winner = arena[2]
         console.log(`${winner} has won!`)
       }
-    //break?
+      break
     case 3:
       if (arena[3] === arena[0] && arena[3] === arena[6]) {
         let winner = arena[3]
@@ -53,7 +53,7 @@ const winEval = (position) => {
         let winner = arena[3]
         console.log(`${winner} has won!`)
       }
-    //break?
+      break
     case 4:
       if (arena[4] === arena[1] && arena[4] === arena[7]) {
         let winner = arena[4]
@@ -68,7 +68,7 @@ const winEval = (position) => {
         let winner = arena[4]
         console.log(`${winner} has won!`)
       }
-    //break?
+      break
     case 5:
       if (arena[5] === arena[2] && arena[5] === arena[8]) {
         let winner = arena[5]
@@ -77,7 +77,7 @@ const winEval = (position) => {
         let winner = arena[5]
         console.log(`${winner} has won!`)
       }
-    //break?
+      break
     case 6:
       if (arena[6] === arena[0] && arena[6] === arena[3]) {
         let winner = arena[6]
@@ -89,7 +89,7 @@ const winEval = (position) => {
         let winner = arena[6]
         console.log(`${winner} has won!`)
       }
-    //break?
+      break
     case 7:
       if (arena[7] === arena[1] && arena[7] === arena[4]) {
         let winner = arena[7]
@@ -98,7 +98,7 @@ const winEval = (position) => {
         let winner = arena[7]
         console.log(`${winner} has won!`)
       }
-    //break?
+      break
     case 8:
       if (arena[8] === arena[2] && arena[8] === arena[5]) {
         let winner = arena[8]
@@ -110,7 +110,7 @@ const winEval = (position) => {
         let winner = arena[8]
         console.log(`${winner} has won!`)
       }
-    //break?
+      break
   }
 }
 
