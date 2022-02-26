@@ -5,21 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script defer src="js/app.js"></script>
 </head>
-<body>
+<body onLoad = 'playerCount()'>
+
+  <div class="grid-container">
+    <h1 id="gameHeader">Tic Tac Toe!</h1>
+      <!-- Build your game board, instructions, and score displays here! -->
+    <div class="tttContainer">
+
+      <button class="space1" onClick="ticTacToeBoard(1)"></button>
+      <button class="space2" onClick="ticTacToeBoard(2)"></button>
+      <button class="space3" onClick="ticTacToeBoard(3)"></button>
+      <button class="space4" onClick="ticTacToeBoard(4)"></button>
+      <button class="space5" onClick="ticTacToeBoard(5)"></button>
+      <button class="space6" onClick="ticTacToeBoard(6)"></button>
+      <button class="space7" onClick="ticTacToeBoard(7)"></button>
+      <button class="space8" onClick="ticTacToeBoard(8)"></button>
+      <button class="space9" onClick="ticTacToeBoard(9)"></button>
+    </div>
+
+      <div id = 'hideable' class = "gameFooter">
+        <button id="gameStart" onClick="startGame()">Start Game</button>
+        <button id="playerSelection" onClick="playerCount()">Click to Choose Number of Players: 1</button>
+      </div>
+
+      <div id="gameMessage" class="gameRight">
+        put game instructions here
+      </div>
+
+      <div id="gameTimer" class="gameBottom">
+        10
+      </div>
+
+      <div id="scoreBoard" class="gameScore">
+        <p>X has 0 wins</p>
+        <p>O has 0 wins</p>
+        <p>There has been 0 draw games</p>
+      </div>
+
+    
+
+
+
+
+
+
+
+    
+
   <!-- Build your game board, instructions, and score displays here! -->
-
-
-
-
-
-
-
-
-
-  
-
-  <!-- Build your game board, instructions, and score displays here! -->
-  <script type="text/javascript" src="js/app.js"></script>
+  </div>
 </body>
 </html>

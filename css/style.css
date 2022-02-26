@@ -1,1 +1,76 @@
+.space1 {
+  grid-area: boardOne;
+}
+.space2 {
+  grid-area: boardTwo;
+}
+.space3 {
+  grid-area: boardThree;
+}
+.space4 {
+  grid-area: boardFour;
+}
+.space5 {
+  grid-area: boardFive;
+}
+.space6 {
+  grid-area: boardSix;
+}
+.space7 {
+  grid-area: boardSeven;
+}
+.space8 {
+  grid-area: boardEight;
+}
+.space9 {
+  grid-area: boardNine;
+}
 
+.gameHeader {
+  grid-area: header;
+}
+
+.gameFooter {
+  grid-area: footerArea;
+}
+.tttContainer {
+  grid-area: gameGrid;
+  display: grid;
+  grid-template-areas:
+    'boardOne boardTwo boardThree'
+    'boardFour boardFive boardSix'
+    'boardSeven boardEight boardNine';
+  gap: 10px;
+  background-color: #3c75a3;
+  padding: 10px;
+}
+
+.gameRight {
+  grid-area: right;
+}
+.gameBottom {
+  grid-area: bottom;
+}
+.gameScore {
+  grid-area: scoreArea;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'gameGrid gameGrid gameGrid scoreArea scoreArea scoreArea'
+    'gameGrid gameGrid gameGrid right right right'
+    'gameGrid gameGrid gameGrid right right right'
+    'footerArea footerArea footerArea bottom bottom bottom';
+  gap: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
