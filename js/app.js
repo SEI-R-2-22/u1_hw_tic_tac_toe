@@ -5,17 +5,6 @@ const boardArray = new Array(9).fill('')
 
 ////////////////////////////////
 // Functions For Game Logic Here
-const buildBoard = () => {
-  for (let i = 0; i < 9; i++) {
-    const cell = document.createElement('div')
-    cell.classList.add('ttt-cell')
-    cell.setAttribute('id', `ttt-cell-${i}`)
-    boardNode.appendChild(cell)
-  }
-}
-
-buildBoard()
-
 const handleTurn = (e) => {
   const index = e.target.id.replace('ttt-cell-', '')
   alert(`Clicked cell found at index ${index}!`)
