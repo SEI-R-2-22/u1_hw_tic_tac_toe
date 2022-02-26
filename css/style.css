@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -9,8 +12,9 @@ body {
   grid-gap: 5px;
 
   margin: 0;
-  font-family: Helvetica;
+  font-family: 'Rock Salt', Helvetica;
   height: 100vh;
+  background-image: url('spacebkgd.jpg');
 }
 
 nav {
@@ -18,30 +22,32 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: 'Iceberg', serif;
 
   height: 100%;
-  background-color: #f03f3c;
+  background-color: none;
 }
 
 div {
   color: #ffffff;
   margin: 10px;
-  font-size: 20px;
+  font-size: 5em;
 }
 
 lSide,
 rSide {
-  background-color: #fae00c;
   grid-row: span 4;
 }
 
 board {
-  background-color: #226afa;
+  background-color: #848588;
   cursor: pointer;
+  font-size: 4em;
+  opacity: 50%;
 }
 
 footer {
-  background-color: #63d629;
+  background-color: none;
 }
 
 .flex-ctr {
@@ -57,6 +63,8 @@ footer {
 
 #blank {
   grid-column: span 3;
+  grid-row: span 1;
+  color: #ffffff;
 }
 
 #done {

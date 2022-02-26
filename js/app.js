@@ -85,8 +85,12 @@ for (let i = 0; i < allSquares.length; i++) {
     if (totalTurns >= 5) {
       winner = checkWin()
     }
-    if (winner !== '') {
-      blankSpace.innerText = `${winner} is the winner!`
+    if (winner !== '' || totalTurns === 9) {
+      if (winner !== '') {
+        blankSpace.innerText = `${winner} is the winner!`
+      } else {
+        blankSpace.innerText = `The game is a tie!`
+      }
 
       // Change the class of every square so that pointer events are turned off
       for (let j = 0; j < allSquares.length; j++) {
