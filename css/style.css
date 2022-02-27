@@ -60,6 +60,7 @@ h3 {
 .ttt-cell:hover {
   background-color: #ceafce;
   cursor: pointer;
+  color: white;
 }
 
 .x {
