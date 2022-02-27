@@ -25,14 +25,17 @@ const isCellClaimed = (cell) => {
   // The innerText of an occupied cell is 'X' or 'O', which is truthy,
   // and the innerText of a vacant cell is an empty string, which is falsy
   return !!cell.innerText
-}
-/* Claims the clicked cell for the current player by styling it according to their token */
+
+/* Claims the clicked cell for the current player by styling the DOM node according to their token */
 const claimCell = (clickedCell) => {
   clickedCell.classList.add(currentPlayerToken.toLowerCase())
   clickedCell.innerText = currentPlayerToken
 }
-/* Modifies the board array at the appropriate index to reflect the current player's token */
-const modifyBoardArray = (clickedCell) => {
+/* 
+ * Updates the array representation of the current state of the gameboard
+ * by placing the current player's token at the appropriate index  
+ */
+const modifyCurrentBoardState = (clickedCell) => {
   const idx = clickedCell.id.replace('ttt-cell-', '')
   board[idx] = currentPlayerToken
 }
@@ -88,10 +91,8 @@ const takeTurn = (e) => {
     alert('That cell has already been claimed! Please try again.')
     return
   }
-  // Modify the clicked cell DOM node
   claimCell(clickedCell)
-  // Modify the array representation of the current state of the gameboard
-  modifyBoardArray(clickedCell)
+  modifyCurrentBoardState(clickedCell)
   checkGameStatus()
   swapCurrentPlayer()
 }
