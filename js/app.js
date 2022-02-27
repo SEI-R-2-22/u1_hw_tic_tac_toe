@@ -23,7 +23,7 @@ const gameStatusNotification = document.getElementById(
   'game-status-notification'
 )
 const restartGameBtn = document.getElementById('restart-game-btn')
-
+// Nested array representation of possible winning combinations
 const pathsToVictory = [
   [0, 1, 2],
   [3, 4, 5],
