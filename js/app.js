@@ -10,6 +10,14 @@ let winner = undefined
 
 ////////////////////////////////
 // Functions For Game Logic Here
+let turnAnnouncement = () => {
+  let announcement = document.querySelector('.announcement')
+  announcement.innerText = `Its player's ${
+    selectionArray.length % 2 ? 'Xs' : 'Os'
+  } turn to play`
+}
+
+turnAnnouncement()
 
 const winEval = (position) => {
   switch (position) {
@@ -152,10 +160,9 @@ for (let i = 0; i < squares.length; i++) {
         storeClick[position] = 'Marked'
 
         winEval(position)
-
-        console.log(storeClick)
+        turnAnnouncement()
         //console.log(i)
-        // console.log(arena)
+
         // console.log(selectionArray)
         // console.log(selection)
         //console.log(position)
@@ -167,9 +174,3 @@ for (let i = 0; i < squares.length; i++) {
 ////////////////////////////////
 
 // I need to think about you some more: if (storeClick[position] === position) {
-
-let testArray = [0, undefined, 2, 3]
-
-if (testArray[1]) {
-  console.log('test worked')
-}
