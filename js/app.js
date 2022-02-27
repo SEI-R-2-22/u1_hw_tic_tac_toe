@@ -100,12 +100,12 @@ const swapCurrentPlayer = () => {
   }
 }
 
-const handleTurn = (event) => {
-  // Return early if the game is over or the cell is already claimed
+const handleTurn = (e) => {
+  // Return early if the game is over or if the cell is already taken
   if (isGameOver) {
     return
   }
-  const clickedCell = event.target
+  const clickedCell = e.target
   if (isCellClaimed(clickedCell)) {
     alert('That cell has already been claimed!')
     return
