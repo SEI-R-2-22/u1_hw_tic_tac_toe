@@ -14,7 +14,10 @@ img{
     width: 25em;
     border: solid black 3px;
     justify-content: space-between;
-    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: rgb(94, 93, 93);
+    padding: 12em 7em 2em 7em;
 }
 
 
@@ -22,7 +25,8 @@ img{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid black 3px;
+    border: solid black .5em;
     width: 7em;
     height: 7em;
+    background-color: white;
 }
