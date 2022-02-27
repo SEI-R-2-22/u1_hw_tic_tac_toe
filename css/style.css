@@ -5,49 +5,18 @@ html,
 body {
   margin: 0;
   padding: 0;
-  grid-template-columns: 10px 1fr 1fr 10px;
-  grid-template-rows: 10px 1fr 10px;
+  
 }
-
-body {
+.game-container {
   display: grid;
-  height: 100vh;
-  width: 100vw; 
-  background-color: rgb(185, 23, 158);
-}
-
-
-.left {  
+  margin: 10px;
   padding: 10px;
-  grid-row: 2 / 3;
-  grid-column: 2 / 3; 
-  background-color: red;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px;
+  grid-gap: 10px;
+  background-color: #2196F3;
 }
 
-.left-box {
-  width: 50%;
-  height: 50%;
-  position:relative;  
-  background-color: lime; 
-  top: 30%;
-  left: 20%;  
+.game-container  > div{
+  background-color: lightblue;
 }
-
-.right {  
-  padding: 10px;
-  background: pink;
-  grid-row:2 / 3;
-  grid-column: 3 / 4; 
-   
-}
-
-/* .right-box {
-  height: 100px;
-  width: 100px;
-  background-color: lime;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
