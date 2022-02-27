@@ -11,3 +11,7 @@ citations:
 - https://medium.com/@DavideRama/removeeventlistener-and-anonymous-functions-ab9dbabd3e7b
 
 https://stackoverflow.com/questions/9251837/how-to-remove-all-listeners-in-an-element
+
+fonts.google.com
+
+Background: https://thumbs.dreamstime.com/b/student-writing-paper-lined-three-hole-punched-9371371.jpg

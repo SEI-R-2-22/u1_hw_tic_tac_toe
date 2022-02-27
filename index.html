@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Build your game board, instructions, and score displays here! -->
+
+  <div class="bg-wrapper">
 
   <header>
     <h1>Tic Tac Toe</h1>
@@ -32,28 +37,34 @@
       </div>
  
     <aside>
-      
-      <h2>Current Player: <span id="player">X</span></h2>
-      <h5>Turn count: <span id="turn-count">0</span></h5>
 
-      <p>Score: </p>
-      <div>X</div><div>O</div><div>Ties</div>
+      <div class="score-wrapper">
+        <p>Score:</p>
+        <div id="score-label-x">X</div>
+        <div id="score-x">0</div>
+        <div id="score-label-o">O</div>
+        <div id="score-o">0</div>
+        <div  id="score-label-ties">Ties</div>
+        <div id="score-ties">0</div>
+      </div>
+
+      <h2>Current Player: <span id="player">X</span></h2>
+      <h5>Total play count: <span id="turn-count">0</span></h5>
 
       <button id="reset">Play again?</button>
+
+      <input type="checkbox" name="comp-player" id="comp-player" /> Enable computer player?
 
     </aside>
 
     </main>
-
-
 
   <footer>
     <div id="message"></div>
   </footer>
 
 
-
-
+</div> <!-- end bg-wrapper div -->
 
 
   

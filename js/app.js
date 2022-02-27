@@ -1,15 +1,25 @@
 // Global Variables Here
 let currentPlayer = "X";
-let turnCount = 0;
+let turnCount = -1;
 let currentGameTurnCount = 0;
 let isWinner = false;
-let gridSize = 3; /// FUTURE DEVELOPMENT could change size of board.
-let wins = {"playerX" : 0, "playerO" : 0, "ties" : 0};
+let gridSize = 3; /// FUTURE DEVELOPMENT could change size of board?
+let wins = {
+  "playerX" : 0, 
+  "playerO" : 0, 
+  "ties" : 0
+};
 
 const boxes = document.querySelectorAll('.square');
+const scoreBoxes = {
+  "playerX" : document.querySelector("#score-x"),
+  "playerO" : document.querySelector("#score-o"),
+  "ties" : document.querySelector("#score-ties")
+};
 const messageBar = document.querySelector('#message');
 const resetButton = document.querySelector('button#reset');
-resetButton.style.display = "none";
+  resetButton.style.display = "none";
+const compPlayerCheckbox = document.querySelector("#comp-player");
 
 const boxMatrix = [];
 
@@ -30,12 +40,16 @@ const startBoxMatrix = () => {
 const restart = () => {
   isWinner = false;
   currentGameTurnCount = 0;
-  messageBar.innerText = "";
+  resetButton.style.display = "none";
   messageBar.style.display = "none";
   stepTurnCount();
   startBoxMatrix();
   for (let i=0; i<boxes.length; i++) {
     boxes[i].innerText = "";  
+  }
+
+  if (compPlayerCheckbox.checked && currentPlayer == "O") {
+    stepTurnCount();
   }
 }
 const recordMove = (loc) => {
@@ -53,8 +67,12 @@ const stepTurnCount = () => {
   turnCount++;
   document.querySelector("#turn-count").innerText = turnCount;
 
-  if (turnCount % 2 == 0) currentPlayer = "X";
-  else if (turnCount % 2 == 1) currentPlayer = "O";
+  if (turnCount % 2 == 0) {
+    currentPlayer = "X";
+  }
+  else if (turnCount % 2 == 1) {
+    currentPlayer = "O";
+  }
   document.querySelector("#player").innerText = currentPlayer;
 }
 
@@ -92,13 +110,20 @@ const winCheck = () => {
   return false;
 }
 
-
-// function removeAllEventListeners() {
-//   const liveBoard = document.querySelector(".gameboard");
-//   const lockedBoard = liveBoard.cloneNode(true);
-//   liveBoard.parentNode.replaceChild(lockedBoard, liveBoard);
-// }
-
+// FUNCTIONS FOR COMPUTER PLAYER FUNCTIONALITY
+function findCurrentOpenSquares() {
+  const allSquares = Array.from(document.querySelectorAll(".square"));
+  const openSquares = allSquares.filter(n => n.innerText == "");
+  return openSquares;
+}
+function computerTurn() {
+  const openSquaresNodes = findCurrentOpenSquares();
+  if (compPlayerCheckbox.checked && currentPlayer == "O") {
+    let rand = Math.floor(Math.random() * openSquaresNodes.length);
+    let randTime = Math.floor(Math.random() * 1000);
+    setTimeout(() => { openSquaresNodes[rand].click(); }, 200+randTime);
+  }
+}
 ////////////////////////////////
 // Event Listeners Here
 for (let i=0; i < boxes.length; i++) {
@@ -108,18 +133,14 @@ for (let i=0; i < boxes.length; i++) {
     const thisId = boxes[i].getAttribute("id");
     let thisBox = document.querySelector('#'+thisId);
     if (isWinner) {
-      alert("The game is over. Restart to play.");
     }
     else if (thisBox.innerText !== "") {
-      alert(`That box is full. Choose another box.`);
     }
     else {
-      thisBox.innerText = currentPlayer;
-      
-      recordMove(thisId); //NEED TO WRITE THIS: LOOP THROUGH BOX MATRIX UNTIL FIND ID VALUE, THEN REPLACE IT WITH CURRENT PLAYER.
+      if (currentPlayer == "X") thisBox.innerHTML = `<span class="red">${currentPlayer}</span>`;
+      else if (currentPlayer == "O") thisBox.innerHTML = `<span class="blue">${currentPlayer}</span>`;
 
-  //    console.log(boxMatrix);
-      //boxes[i].removeEventListener('click',sqClick);
+      recordMove(thisId); 
 
       let winner = winCheck();
       if (winner) {
@@ -127,17 +148,27 @@ for (let i=0; i < boxes.length; i++) {
         messageBar.innerText = `Winner: ${winner}!`;
         isWinner = true;
         resetButton.style.display = "block";
-        if (winner == "X") wins.playerX += 1;
-        else if (winner == "O") wins.playerO += 1;
-        //removeAllEventListeners(); 
+        
+        if (winner == "X") {
+          wins.playerX += 1;
+          scoreBoxes.playerX.innerText = wins.playerX;        
+        }
+        else if (winner == "O") {
+          wins.playerO += 1;
+          scoreBoxes.playerO.innerText = wins.playerO;
+        }
       } else if (currentGameTurnCount == 9) {
         resetButton.style.display = "block";
         wins.ties += 1;
-        console.log("ties = ",wins.ties);
         messageBar.style.display = "block";
         messageBar.innerText = "It's a tie. Play again!";
+        scoreBoxes.ties.innerText = wins.ties;
       }
-      else stepTurnCount();
+      else {
+        stepTurnCount();
+        computerTurn();
+      }
+
     }
   });
   
@@ -145,5 +176,11 @@ for (let i=0; i < boxes.length; i++) {
 
 resetButton.addEventListener('click', restart);
 
+compPlayerCheckbox.addEventListener('click',computerTurn);
+
 ////////////////////////////////
+
+//// ONCE ALL SCRIPT IS PARSED, 
+//// ACTUALLY START THE GAME:
 restart();
+
