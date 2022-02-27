@@ -29,12 +29,44 @@ h1 {
 }
 
 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   border: 1px solid black;
-  text-align: center;
   font-size: xx-large;
-  color: cyan;
+  color: black;
+}
+
+.panel {
+  width: 50%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.score {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .score div {
   color: white;
+}
+
+.player1,
+.player2,
+.tie {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  flex: 1;
+}
+
+.play-again {
+  margin-bottom: 20px;
 }

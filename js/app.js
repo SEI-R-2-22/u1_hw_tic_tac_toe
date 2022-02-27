@@ -1,17 +1,10 @@
 // Global Variables Here
 const cells = document.querySelectorAll('.board-game div')
-const player1Score = document.querySelector('.player1')
-const player2Score = document.querySelector('.player2')
-const tie = document.querySelector('.tie')
+const player1Score = document.querySelector('.player1 .point')
+const player2Score = document.querySelector('.player2 .point')
+const tie = document.querySelector('.tie .point')
 
-
-// const player = {
-//     sign: '',
-//     score: 0,
-//     lastClicked: 0,
-//     isWiner: false
-// }
-
+//Construct the first player object
 const player1 = {
     sign: 'X',
     score: 0,
@@ -19,6 +12,7 @@ const player1 = {
     isWiner : false,
 }
 
+//Construct the second player object
 const player2 = {
     sign: 'O',
     score: 0,
@@ -29,7 +23,7 @@ const player2 = {
 
 
 let isTie = false
-let clickedLocation = 0
+// let clickedLocation = 0
 let turn = 1
 //Create board game as an array: 3x3
 let boardGame = Array(3).fill().map(() => Array(3))
@@ -87,6 +81,7 @@ const updateScore = (player) => {
 const updateTie = () => {
     let numOfTie = parseInt(tie.innerText)
     tie.innerText = (++numOfTie).toString()
+    isTie = true
 }
 //clear the board game
 const clearBoard = () => {
@@ -102,8 +97,9 @@ const clearBoard = () => {
     player1.lastClicked = 0
     player2.isWiner = false
     player2.lastClicked = 0
+    isTie = false
     turn = 1
-
+    addEvents()
 }
 
 //Update the board
@@ -184,111 +180,56 @@ const updateHtml = (player) => {
     cells[player.lastClicked - 1].innerText = player.sign
 }
 
-
-////////////////////////////////
-// Event Listeners Here
-for (let i = 0; i < cells.length; i++){
-    cells[i].addEventListener('click', () => {
+const playGame = (Element) => {
+    if (player1.isWiner || player2.isWiner || isTie) {
+        return
+    } else {
         if (turn === 1){
-            player1.lastClicked = parseInt(cells[i].dataset.location)
+            player1.lastClicked = parseInt(Element.dataset.location)
             console.log(player1.lastClicked + " player1")
             if (updateBoardGame(player1)) {                    
                 updateHtml(player1)
                 if (checkWinner(player1)) {
-                    updateScore(player1)
-                    clearBoard()                    
+                    updateScore(player1)                
                 } else if (isBoardFull()) {
-                    updateTie()
-                    clearBoard()                    
+                    updateTie()                 
                 }
                 turn = 2
             } else if (isBoardFull()) {
-                updateTie()
-                clearBoard()                
-            }
-                
-            // while (!updateBoardGame(player1)) {  
-            //     if (isBoardFull) {
-            //         updateTie()
-            //         clearBoard()
-            //         break
-            //     }           
-            // }
-            
-            //check if player1 win
-            
-            // do {
-            //     if (updateBoardGame(player1)) {
-                    
-            //         updateHtml(player1)
-            //         if (checkWinner(player1)) {
-            //             updateScore(player1)
-            //             clearBoard()
-            //             break
-            //         }
-            //         turn = 2
-            //     } else if (isBoardFull()) {
-            //         updateTie()
-            //         clearBoard()
-            //         break
-            //     }
-            // } while (turn === 1)
-        
-            // turn = 2
+                updateTie()           
+            }            
         } else if (turn === 2) {
-            player2.lastClicked = parseInt(cells[i].dataset.location)
+            player2.lastClicked = parseInt(Element.dataset.location)
             console.log(player2.lastClicked + " player2")
-
             if (updateBoardGame(player2)) {                    
                 updateHtml(player2)
                 if (checkWinner(player2)) {
-                    updateScore(player2)
-                    clearBoard()                            
+                    updateScore(player2)                         
                 } else if (isBoardFull()) {
-                    updateTie()
-                    clearBoard()                            
+                    updateTie()                          
                 }
                 turn = 1
             } else if (isBoardFull()) {
-                updateTie()
-                clearBoard()                        
+                updateTie()                    
             }
-
-            // while (!updateBoardGame(player2)) {       
-            //     if (isBoardFull) {
-            //         updateTie()
-            //         clearBoard()
-            //         break
-            //     }     
-            // }
-            
-            // updateHtml(player2)
-            // //check if player2 win
-            // if (checkWinner(player2)) {
-            //     updateScore(player2)
-            //     clearBoard()
-            // }
-            // turn = 1
-            // do {
-            //     if (updateBoardGame(player2)) {
-                    
-            //         updateHtml(player2)
-            //         if (checkWinner(player2)) {
-            //             updateScore(player2)
-            //             clearBoard()
-            //             break
-            //         }
-            //         turn = 1
-            //     } else if (isBoardFull()) {
-            //         updateTie()
-            //         clearBoard()
-            //         break
-            //     }
-            // } while (turn === 2)
         }
-    })
+    }
 }
 
+////////////////////////////////
+// Event Listeners Here
 
+//Add event listener to the board game
+const addEvents = () => {
+    for (let i = 0; i < cells.length; i++){
+        cells[i].addEventListener('click', playGame.bind(null, cells[i]))
+    }
+}
+
+//Add event listener to the play-aagain button
+const playAgain = document.querySelector('.play-again button')
+playAgain.addEventListener('click', clearBoard)
+//Game starts from here
+addEvents()
 
 ////////////////////////////////
