@@ -69,7 +69,8 @@ h1 {
 }
 
 #restart-game-btn {
-  background-color: lightsteelblue;
+  color: white;
+  background-color: lightblue;
   border: none;
   border-radius: 7px;
   cursor: pointer;
