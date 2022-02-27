@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+#container {
+  height: inherit;
+  display: grid;
+  grid-template: 100px 1fr 3fr 1fr / 1fr 3fr 1fr;
+}
+
+header {
+  display: grid;
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+
+  justify-items: center;
+  align-items: center;
+
+  border: 1px solid black;
+}
+
+header h1 {
+  font-size: 3em;
+  background: -webkit-linear-gradient(#337, #6c4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main {
+  grid-column: 1 / 4;
+  grid-row: 2 / 5;
+}
+
+/* Banner on the top with Players */
+#message {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  justify-items: center;
+  align-items: center;
+  height: 15vh;
+  width: 100vw;
+
+  font-size: 2em;
+  border: solid 1px black;
+}
+
+/* #banner {
+  animation: type 5s steps(5, end);
+}
+
+@keyframes type {
+  from {
+    width: 100px;
+  }
+} */
+
+/* ------------------------------------ */
+
+#animation {
+  display: grid;
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+
+  width: 100vw;
+  justify-content: space-between;
+}
+
+.xo {
+  display: grid;
+  grid-row: 1 / 2;
+  /* border: 1px solid black; */
+  /* align-self: end; */
+}
+
+#x {
+  animation: bigX 3s infinite;
+}
+
+#o {
+  animation: bigO 3s infinite;
+}
+
+@keyframes bigX {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(800px);
+  }
+}
+
+@keyframes bigO {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-800px);
+  }
+}
+/* --------------------------------- */
+
+/* banner message */
+
+/* -------------------------------- */
+#gameboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  margin: 0 auto;
+  /* border: 1px solid black; */
+  height: 60vh;
+  width: 60vw;
+}
+
+#gameboard div {
+  display: grid;
+  text-align: center;
+  align-items: center;
+
+  font-size: 10em;
+  border: 1px dotted red;
+}
+
+#gameboard div:hover {
+  border: 5px green solid;
+  cursor: pointer;
+}
+
+#playagain {
+  margin: 50px 0;
+}
+
+#againText {
+  margin: 0 auto;
+  width: fit-content;
+  padding: 5px 15px;
+}
+
+#againText:hover {
+  border: 2px green solid;
+  border-radius: 20px;
+}
