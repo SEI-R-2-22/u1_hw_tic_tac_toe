@@ -12,6 +12,9 @@ body {
 }
 
 h1 {
+  color: lightgoldenrodyellow;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
   font-size: 50px;
   font-family: 'Oxygen', sans-serif;
   text-align: center;
