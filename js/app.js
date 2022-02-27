@@ -1,7 +1,7 @@
 // Global Variables Here
 const gameStatus = document.querySelector('.playerInfo')
 let crntPlayer = 'Player 1 - X'
-
+let turnCount = 0
 
 /*selecting each box to place an x */
 let box1 = document.querySelector('.tLft')
@@ -14,9 +14,20 @@ let box7 = document.querySelector('.bLft')
 let box8 = document.querySelector('.bMid')
 let box9 = document.querySelector('.bRgt')
 
-const printBox = () => {
- document.getElementById('print').innerHTML = "X"   
+const printBox = (box) => {
+    console.log('hi');
+    if (turnCount % 2 === 0) {
+        document.getElementById(box).innerHTML = "X";
+    } else {
+        document.getElementById(box).innerHTML = "O";
+    }
+    turnCount++
 }
+const resetGame = () => {
+    turnCount = 0;2
+    console.log(turnCount);
+}
+
 
 ////////////////////////////////
 // Functions For Game Logic Here
