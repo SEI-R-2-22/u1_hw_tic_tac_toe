@@ -15,10 +15,11 @@ const startGame = () => {
     box.addEventListener('click', () => {
       //check if move has been play or not.
       if (
-        !(
-          playerOneMoves.includes(box.getAttribute('data-value')) ||
-          playerTwoMoves.includes(box.getAttribute('data-value'))
-        )
+        box.innerHTML === ''
+        // !(
+        //   playerOneMoves.includes(box.getAttribute('data-value')) ||
+        //   playerTwoMoves.includes(box.getAttribute('data-value'))
+        // )
       ) {
         //determine who's move it is currently.
         if (moveCounter % 2 === 0) {
@@ -94,12 +95,6 @@ const checkWinner = (playerMoves) => {
   } else return false
 }
 
-//check player moves, if the box has been click. alert box has been played.
-// const checkMove = (player1Moves, player2Moves) => {
-//   if (
-//     playerOneMoves.includes(box.getAttribute('data-value')) ||
-//     playerTwoMoves.includes(box.getAttribute('data-value'))
-//   ) {
-//     return true
-//   } else return false
+// const checkMoves = () => {
+//   if()
 // }
