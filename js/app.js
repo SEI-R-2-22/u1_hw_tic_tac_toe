@@ -40,7 +40,7 @@ const isCellClaimed = (cell) => {
   // and the innerText of a vacant cell is an empty string, which is falsy
   return !!cell.innerText
 }
-/* Enables current player to claim the clicked cell by styling it according to their token */
+/* Claims the clicked cell for the current player by styling it according to their token */
 const claimCell = (clickedCell) => {
   clickedCell.classList.add(currentPlayerToken.toLowerCase())
   clickedCell.innerText = currentPlayerToken
