@@ -114,7 +114,7 @@ const winEval = (position) => {
       break
   }
 }
-
+//
 // Below was used to switch x and o, not sure if I needed it.
 // if (previousSelection === 'x') {
 //   let currentSelection = 'o'
@@ -127,25 +127,49 @@ const winEval = (position) => {
 ////////////////////////////////
 // Event Listeners Here
 
+let storeClick = [
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined
+]
+
 for (let i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', () => {
     if (!winner) {
       let position = parseInt(squares[i].getAttribute('sqr-position'))
-      let selection = selectionArray.pop()
 
-      squares[i].innerText = selection
-      arena[position] = selection
+      if (!storeClick[position]) {
+        let selection = selectionArray.pop()
 
-      winEval(position)
+        squares[i].innerText = selection
+        arena[position] = selection
+        storeClick[position] = 'Marked'
 
-      //console.log(i)
+        winEval(position)
 
-      // console.log(arena)
-      // console.log(selectionArray)
-      // console.log(selection)
-      console.log(position)
+        console.log(storeClick)
+        //console.log(i)
+        // console.log(arena)
+        // console.log(selectionArray)
+        // console.log(selection)
+        //console.log(position)
+      }
     }
   })
 }
 
 ////////////////////////////////
+
+// I need to think about you some more: if (storeClick[position] === position) {
+
+let testArray = [0, undefined, 2, 3]
+
+if (testArray[1]) {
+  console.log('test worked')
+}
