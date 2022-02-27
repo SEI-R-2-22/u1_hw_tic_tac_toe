@@ -30,4 +30,9 @@ img{
     height: 7em;
     background-color: white;
 }
+.a {
+    display: flex;
+    flex-direction: row;
+    font-size: 5em;
 
+}

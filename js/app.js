@@ -21,9 +21,14 @@ playerChoice = () => {
     switch(boxes){
         case sZer:
             sZer.style.color = 'blue'
+            break;
+        
     }
 }
 
+let chngSq = () => {
+    
+}
 
 ////////////////////////////////
 // Event Listeners Here
