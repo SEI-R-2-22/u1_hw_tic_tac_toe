@@ -62,22 +62,6 @@ getIsGameWon = () => {
   })
 }
 
-// getIsXWinner = () => {
-//   return pathsToVictory.some((pathToVictory) => {
-//     return pathToVictory.every((element) => {
-//       return board[element] === 'X'
-//     })
-//   })
-// }
-
-// getIsOWinner = () => {
-//   return pathsToVictory.some((pathToVictory) => {
-//     return pathToVictory.every((element) => {
-//       return board[element] === 'O'
-//     })
-//   })
-// }
-
 const getIsGameTied = () => {
   return !getIsGameWon() && board.every((cell) => cell !== '')
 }
