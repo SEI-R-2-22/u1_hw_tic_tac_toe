@@ -53,6 +53,10 @@ h1 {
   font-size: 40px;
   font-weight: bold;
   border: 2px solid lavender;
+}
+
+.ttt-cell:hover {
+  background-color: #ceafce;
   cursor: pointer;
 }
 
