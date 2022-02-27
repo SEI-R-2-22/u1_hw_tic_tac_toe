@@ -79,7 +79,7 @@ const swapCurrentPlayer = () => {
   }
 }
 
-const handleTurn = (e) => {
+const takeTurn = (e) => {
   // Return early if the game is over or if the cell is already taken
   if (isGameOver) {
     return
@@ -108,9 +108,9 @@ const resetGameDefaults = () => {
   unclaimCells()
   clearNotifications()
 }
-
+// Attach click event listeners
 for (let i = 0; i < cells.length; i++) {
-  cells[i].addEventListener('click', handleTurn)
+  cells[i].addEventListener('click', takeTurn)
 }
 
 restartGameBtn.addEventListener('click', resetGameDefaults)
