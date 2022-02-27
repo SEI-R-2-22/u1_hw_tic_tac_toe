@@ -28,7 +28,8 @@ header,
 }
 
 header,
-.scores {
+.scores,
+.reset {
   grid-column: 1 / -1;
 }
 header {
@@ -62,9 +63,11 @@ header {
 }
 .score-card {
   display: grid;
-  grid-template: 1fr 9fr / 1fr 1fr 1fr;
-  height: 25%;
+  grid-template: 0.5fr 0.5fr 1fr / 1fr 1fr 1fr;
+  /* height: 25%; */
   font-size: 30px;
+  justify-items: center;
+  align-items: start;
 }
 
 .btn {
@@ -96,13 +99,21 @@ header {
   font-size: 3vh;
   margin-bottom: 5vh;
   padding: 2vh;
-  border: 1vmin solid black;
+  border: 3px solid black;
   border-radius: 2vh;
   background: transparent;
   transition: 0.5s;
 }
-
+.reset {
+  font-size: 2.5vh;
+  padding: 2vh;
+  border: 3px solid black;
+  border-radius: 2vh;
+  background: transparent;
+  transition: 0.5s;
+}
 .start:hover,
-.btn:hover {
+.btn:hover,
+.reset:hover {
   background: rgba(255, 255, 255, 0.4);
 }

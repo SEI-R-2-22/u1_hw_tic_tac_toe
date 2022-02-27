@@ -5,6 +5,8 @@ const whoTurn = document.querySelector('.who')
 const xScore = document.querySelector('.x-score')
 const oScore = document.querySelector('.o-score')
 const drawTotal = document.querySelector('.draw-total')
+const resetButton = document.querySelector('.reset')
+const timer = document.querySelector('.timer')
 const winArrays = [
   [0, 1, 2],
   [3, 4, 5],
@@ -101,7 +103,25 @@ const winCheck = () => {
     gameOver()
   }
 }
+const resetScores = () => {
+  xWins = 0
+  xScore.innerText = 'X wins: ' + xWins
+  oWins = 0
+  oScore.innerText = 'O wins: ' + oWins
+  draws = 0
+  drawTotal.innerText = 'Draws: ' + draws
+}
 
+// const countDown = () => {
+//   let time = 10
+//   const stopWatch = () => {
+//     time = time - 1;
+//   }
+//   while(time > 0){
+//     timer.innerText = time
+//     setTimeout(stopWatch, 1000)
+
+// }
 ////////////////////////////////
 // Event Listeners Here
 for (let i = 0; i < button.length; i++) {
@@ -125,5 +145,9 @@ startButton.addEventListener('click', () => {
   startGame()
   startButton.disabled = true
   startButton.innerText = 'Have fun!'
+})
+
+resetButton.addEventListener('click', () => {
+  resetScores()
 })
 ////////////////////////////////
