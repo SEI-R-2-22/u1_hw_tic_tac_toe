@@ -4,6 +4,7 @@ let squares = document.querySelectorAll('.square')
 const selectionArray = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x']
 let previousSelection = selectionArray[0]
 const arena = []
+let winner = undefined
 
 //let currentSelection = selectionArray.push(currentSelection)
 
@@ -14,7 +15,7 @@ const winEval = (position) => {
   switch (position) {
     case 0:
       if (arena[0] === arena[1] && arena[0] === arena[2]) {
-        let winner = arena[0]
+        winner = arena[0]
         console.log(`${winner} has won!`)
       } else if (arena[0] === arena[3] && arena[0] === arena[6]) {
         let winner = arena[0]
@@ -128,20 +129,22 @@ const winEval = (position) => {
 
 for (let i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', () => {
-    let position = parseInt(squares[i].getAttribute('sqr-position'))
-    let selection = selectionArray.pop()
+    if (!winner) {
+      let position = parseInt(squares[i].getAttribute('sqr-position'))
+      let selection = selectionArray.pop()
 
-    squares[i].innerText = selection
-    arena[position] = selection
+      squares[i].innerText = selection
+      arena[position] = selection
 
-    winEval(position)
+      winEval(position)
 
-    //console.log(i)
+      //console.log(i)
 
-    // console.log(arena)
-    // console.log(selectionArray)
-    // console.log(selection)
-    console.log(position)
+      // console.log(arena)
+      // console.log(selectionArray)
+      // console.log(selection)
+      console.log(position)
+    }
   })
 }
 
