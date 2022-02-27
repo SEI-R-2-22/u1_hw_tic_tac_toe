@@ -1,1 +1,15 @@
+.sqr {
+    height: 80px;
+    width: 80px;
+    border: 3px solid /*change color*/#444444;
+    cursor: pointer;
+    line-height: 80px;
+    font-size: 50px;
+}
 
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 300px;
+    margin: 40px, auto;
+}
