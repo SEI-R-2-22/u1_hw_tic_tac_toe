@@ -29,9 +29,11 @@ const checkWinner = (winCon) => {
         console.log('Player O Wins')
         document.getElementById('playerInfo').innerHTML = "Player O WINS!! Reset to play again.";
         document.querySelectorAll('.sqr').forEach(button => button.disabled = true);
+} else if (turnCount === 9 && checkX === false && checkO ===false) {
+    document.getElementById('playerInfo').innerHTML = "This game ended in a tie. Reset to play again.";
+}}
 }
-}
-}
+
 const printBox = (box) => {
     if (turnCount % 2 === 0) {
         document.getElementById(box).innerHTML = "X";
