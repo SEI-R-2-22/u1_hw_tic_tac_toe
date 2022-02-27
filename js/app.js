@@ -1,17 +1,15 @@
-// This NodeList of div.ttt-cell elements can be accessed once the board is built
+// Global variables that store a NodeList of DOM elements or individual DOM nodes
 const cells = document.querySelectorAll('.ttt-cell')
-// Stores a representation of the initial state of the board: an array of 9 empty string elements
-let board = new Array(9).fill('')
-// Global variables that describe the default initial game state
+const turnNotification = document.getElementById('turn-heading')
+const gameStatusNotification = document.getElementById('game-status-heading')
+const restartGameButton = document.getElementById('restart-game-btn')
+// Global variables that describe the initial game state or internal game logic
 let isGameOver = false
 let currentPlayerToken = 'X'
-// Global variables related to game notifications/settings
-const turnNotification = document.getElementById('turn-notification')
-const gameStatusNotification = document.getElementById(
-  'game-status-notification'
-)
-const restartGameBtn = document.getElementById('restart-game-btn')
-// Nested array representation of possible winning combinations
+// A representation of the initial state of the gameboard: an array of 9 empty string elements
+const defaultBoardState = new Array(9).fill('')
+let currentBoardState = [...defaultBoardState]
+// A nested array representation of all possible winning combinations
 const pathsToVictory = [
   [0, 1, 2],
   [3, 4, 5],
@@ -80,16 +78,19 @@ const swapCurrentPlayer = () => {
 }
 
 const takeTurn = (e) => {
-  // Return early if the game is over or if the cell is already taken
+  // Return early if the game is won or tied
   if (isGameOver) {
     return
   }
   const clickedCell = e.target
+  // Return early if the desired spot is already taken
   if (isCellClaimed(clickedCell)) {
-    alert('That cell has already been claimed!')
+    alert('That cell has already been claimed! Please try again.')
     return
   }
+  // Modify the clicked cell DOM node
   claimCell(clickedCell)
+  // Modify the array representation of the current state of the gameboard
   modifyBoardArray(clickedCell)
   checkGameStatus()
   swapCurrentPlayer()
