@@ -18,19 +18,29 @@ const checkWinner = (winCon) => {
 
     const checkX = winCon.every(element => 
         {return xArray.includes(element);});
-    if (checkX === true) {console.log('Player X Wins')} 
+    if (checkX === true) {
+        document.getElementById('playerInfo').innerHTML = "Player X WINS!! Reset to play again.";
+        document.querySelectorAll('.sqr').forEach(button => button.disabled = true);
+        console.log('player x wins')
+    } 
     else {const checkO = winCon.every(element => 
         {return oArray.includes(element);});
-    if (checkO === true) {console.log('Player O Wins')}}
+    if (checkO === true) {
+        console.log('Player O Wins')
+        document.getElementById('playerInfo').innerHTML = "Player O WINS!! Reset to play again.";
+        document.querySelectorAll('.sqr').forEach(button => button.disabled = true);
 }
-
+}
+}
 const printBox = (box) => {
     if (turnCount % 2 === 0) {
         document.getElementById(box).innerHTML = "X";
         xArray.push(box)
+        document.getElementById('playerInfo').innerHTML = "It is Player O's turn";
         console.log(xArray)
     } else {
         document.getElementById(box).innerHTML = "O";
+        document.getElementById('playerInfo').innerHTML = "It is Player X's turn";
         oArray.push(box)
         console.log(oArray)
     }
@@ -46,12 +56,15 @@ const printBox = (box) => {
     checkWinner(winCon8)
     }
 
+
+
  
 
 const resetGame = () => {
     turnCount = 0;
     document.querySelectorAll('.sqr').forEach(button => button.innerHTML = "");
     document.querySelectorAll('.sqr').forEach(button => button.disabled = false);
+    document.getElementById('playerInfo').innerHTML = "Player X begins";
     xArray = []
     oArray = []
   }
