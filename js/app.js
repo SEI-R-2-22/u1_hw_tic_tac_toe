@@ -1,15 +1,3 @@
-const boardNode = document.querySelector('.ttt-board')
-/* Dynamically generates 3x3 tic-tac-toe board */
-const buildBoard = () => {
-  for (let i = 0; i < 9; i++) {
-    const cellNode = document.createElement('div')
-    cellNode.classList.add('ttt-cell')
-    cellNode.setAttribute('id', `ttt-cell-${i}`)
-    boardNode.appendChild(cellNode)
-  }
-}
-buildBoard()
-
 // This NodeList of div.ttt-cell elements can be accessed once the board is built
 const cells = document.querySelectorAll('.ttt-cell')
 // Stores a representation of the initial state of the board: an array of 9 empty string elements
@@ -105,19 +93,6 @@ const handleTurn = (e) => {
   modifyBoardArray(clickedCell)
   checkGameStatus()
   swapCurrentPlayer()
-}
-/* Unclaims cells by clearing styles specific to a particular token */
-unclaimCells = () => {
-  for (let i = 0; i < cells.length; i++) {
-    const cellNode = cells[i]
-    cellNode.innerText = ''
-    if (cellNode.classList.contains('x')) {
-      cellNode.classList.remove('x')
-    }
-    if (cellNode.classList.contains('o')) {
-      cellNode.classList.remove('o')
-    }
-  }
 }
 
 const clearNotifications = () => {
