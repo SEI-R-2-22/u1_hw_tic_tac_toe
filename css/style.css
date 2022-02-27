@@ -12,9 +12,7 @@ body {
 }
 
 h1 {
-  color: lightgoldenrodyellow;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: black;
+  color: #ceafce;
   font-size: 50px;
   text-align: center;
   margin: 10px 0;
