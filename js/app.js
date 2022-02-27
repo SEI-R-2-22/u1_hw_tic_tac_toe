@@ -1,14 +1,27 @@
-// Stores NodeList of div.ttt-cell elements
+const boardNode = document.querySelector('.ttt-board')
+/* Dynamically generates 3x3 tic-tac-toe board */
+const buildBoard = () => {
+  for (let i = 0; i < 9; i++) {
+    const cellNode = document.createElement('div')
+    cellNode.classList.add('ttt-cell')
+    cellNode.setAttribute('id', `ttt-cell-${i}`)
+    boardNode.appendChild(cellNode)
+  }
+}
+buildBoard()
+
+// This NodeList of div.ttt-cell elements can be accessed once the board is built
 const cells = document.querySelectorAll('.ttt-cell')
-// Stores a representation of the initial state of the game board: an array of 9 empty string elements
+// Stores a representation of the initial state of the board: an array of 9 empty string elements
 let board = new Array(9).fill('')
+// Global variables that describe the default initial game state
 let isGameOver = false
-// By default, player X starts the game
 let currentPlayerToken = 'X'
+// Global variables related to game notifications/settings
+const turnNotification = document.getElementById('turn-notification')
 const gameStatusNotification = document.getElementById(
   'game-status-notification'
 )
-const turnNotification = document.getElementById('turn-notification')
 const restartGameBtn = document.getElementById('restart-game-btn')
 
 const pathsToVictory = [
