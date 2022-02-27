@@ -8,22 +8,34 @@
     /* justify-content: flex-end;    */
     flex-wrap: wrap;
 
-    
-}
 
+}
+.gFooter{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+}
+.gFooterChild{
+    width: 49%;
+    text-align: center;
+
+}
 .pSquare{
     width: 32%;
     padding-bottom: 17%;
-    background-color: red;
+    background-color: rgb(134, 125, 125);
     flex: 0 32%;
     margin: 2px;
     text-align: center;
     padding-top: 17%;
+    border: 1px solid black;
+    border-radius: 30px;
+    font-size: 40px;
 }
 body{
     background-color: blueviolet;
 }
-/* 
+/*
 https://tobiasahlin.com/blog/common-flexbox-patterns/
 
 some help i used with getting the boxes right
