@@ -51,13 +51,13 @@ const modifyBoardArray = (clickedCell) => {
   board[idx] = currentPlayerToken
 }
 
-getWinnerExists = () => {
+getIsGameWon = () => {
   return pathsToVictory.some((pathToVictory) => {
     const [index1, index2, index3] = pathToVictory
     return (
       board[index1] &&
       board[index1] === board[index2] &&
-      board[index2] === board[index3]
+      board[index1] === board[index3]
     )
   })
 }
@@ -78,16 +78,16 @@ getWinnerExists = () => {
 //   })
 // }
 
-const getIsTieGame = () => {
-  return !getWinnerExists() && board.every((cell) => cell !== '')
+const getIsGameTied = () => {
+  return !getIsGameWon() && board.every((cell) => cell !== '')
 }
 
 const checkGameStatus = () => {
-  if (getWinnerExists()) {
+  if (getIsGameWon()) {
     isGameOver = true
     turnNotification.innerText = ''
     gameStatusNotification.innerText = `Victory is yours, Player ${currentPlayerToken}!`
-  } else if (getIsTieGame()) {
+  } else if (getIsGameTied()) {
     isGameOver = true
     turnNotification.innerText = ''
     gameStatusNotification.innerText = 'Tie game!'
