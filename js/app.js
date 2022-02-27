@@ -46,7 +46,7 @@ getIsGameWon = () => {
     return (
       board[index1] &&
       board[index1] === board[index2] &&
-      board[index1] === board[index3]
+      board[index2] === board[index3]
     )
   })
 }
