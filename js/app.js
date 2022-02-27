@@ -37,9 +37,13 @@ const sayHello =() => {
 }
 
 const btnBoard = document.getElementsByClassName('btn')
+const btnBoardO = document.getElementsByClassName('btnO')
 
 for (let i = 0; i < 8; i++) {
     btnBoard[i].addEventListener('click', sayHello)
+}
+for (let i = 0; i < 8; i++) {
+    btnBoardO[i].addEventListener('click', sayHello)
 }
 
 

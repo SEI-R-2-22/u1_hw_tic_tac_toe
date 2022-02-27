@@ -23,16 +23,27 @@ img{
 
 .sqr{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     border: solid black .5em;
     width: 7em;
     height: 7em;
     background-color: white;
+    flex-wrap: wrap;
 }
 .a {
     display: flex;
     flex-direction: row;
-    font-size: 5em;
+    font-size: 6em;
+    justify-item: center;
+    align-items: center;
+
+}
+.btn, .btnO{
+    font-size: 5px;
+    
+}
+.snd{
+    border-bottom: 0em;
 
 }
