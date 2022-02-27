@@ -8,6 +8,10 @@
 
 ////////////////////////////////
 
+let message = document.querySelector('.turnMessage')
+
+let reset = document.querySelector('.reset')
+
 let box0 = document.querySelector('#square0')
 let box1 = document.querySelector('#square1')
 let box2 = document.querySelector('#square2')
@@ -42,10 +46,12 @@ box0.addEventListener('click', () => {
         box0.innerHTML = 'X'
         winnerBoard[0] = 1
         squaresFilled++
+        message.innerHTML = "O's Turn"
       } else if (!xTurn) {
         box0.innerHTML = 'O'
         winnerBoard[0] = -1
         squaresFilled++
+        message.innerHTML = "X's Turn"
       }
       xTurn = !xTurn
       checkWin()
@@ -61,10 +67,12 @@ box1.addEventListener('click', () => {
         box1.innerHTML = 'X'
         winnerBoard[1] = 1
         squaresFilled++
+        message.innerHTML = "O's Turn"
       } else if (!xTurn) {
         box1.innerHTML = 'O'
         winnerBoard[1] = -1
         squaresFilled++
+        message.innerHTML = "X's Turn"
       }
       xTurn = !xTurn
       checkWin()
@@ -80,10 +88,12 @@ box2.addEventListener('click', () => {
         box2.innerHTML = 'X'
         winnerBoard[2] = 1
         squaresFilled++
+        message.innerHTML = "O's Turn"
       } else if (!xTurn) {
         box2.innerHTML = 'O'
         winnerBoard[2] = -1
         squaresFilled++
+        message.innerHTML = "X's Turn"
       }
       xTurn = !xTurn
       checkWin()
@@ -99,10 +109,12 @@ box3.addEventListener('click', () => {
         box3.innerHTML = 'X'
         winnerBoard[3] = 1
         squaresFilled++
+        message.innerHTML = "O's Turn"
       } else if (!xTurn) {
         box3.innerHTML = 'O'
         winnerBoard[3] = -1
         squaresFilled++
+        message.innerHTML = "X's Turn"
       }
       xTurn = !xTurn
       checkWin()
@@ -118,10 +130,12 @@ box4.addEventListener('click', () => {
         box4.innerHTML = 'X'
         winnerBoard[4] = 1
         squaresFilled++
+        message.innerHTML = "O's Turn"
       } else if (!xTurn) {
         box4.innerHTML = 'O'
         winnerBoard[4] = -1
         squaresFilled++
+        message.innerHTML = "X's Turn"
       }
       xTurn = !xTurn
       checkWin()
@@ -137,10 +151,12 @@ box5.addEventListener('click', () => {
         box5.innerHTML = 'X'
         winnerBoard[5] = 1
         squaresFilled++
+        message.innerHTML = "O's Turn"
       } else if (!xTurn) {
         box5.innerHTML = 'O'
         winnerBoard[5] = -1
         squaresFilled++
+        message.innerHTML = "X's Turn"
       }
       xTurn = !xTurn
       checkWin()
@@ -156,10 +172,12 @@ box6.addEventListener('click', () => {
         box6.innerHTML = 'X'
         winnerBoard[6] = 1
         squaresFilled++
+        message.innerHTML = "O's Turn"
       } else if (!xTurn) {
         box6.innerHTML = 'O'
         winnerBoard[6] = -1
         squaresFilled++
+        message.innerHTML = "X's Turn"
       }
       xTurn = !xTurn
       checkWin()
@@ -175,10 +193,12 @@ box7.addEventListener('click', () => {
         box7.innerHTML = 'X'
         winnerBoard[7] = 1
         squaresFilled++
+        message.innerHTML = "O's Turn"
       } else if (!xTurn) {
         box7.innerHTML = 'O'
         winnerBoard[7] = -1
         squaresFilled++
+        message.innerHTML = "X's Turn"
       }
       xTurn = !xTurn
       checkWin()
@@ -194,10 +214,12 @@ box8.addEventListener('click', () => {
         box8.innerHTML = 'X'
         winnerBoard[8] = 1
         squaresFilled++
+        message.innerHTML = "O's Turn"
       } else if (!xTurn) {
         box8.innerHTML = 'O'
         winnerBoard[8] = -1
         squaresFilled++
+        message.innerHTML = "X's Turn"
       }
       xTurn = !xTurn
       checkWin()
@@ -232,10 +254,13 @@ function checkWin() {
     winner = true
     winnerMessage.innerHTML = 'Player O wins!'
   } else if (squaresFilled === 9) {
+    message.innerHTML = ''
     winner = true
     winnerMessage.innerHTML = "It's a tie! Would you like to reset the game?"
   }
 }
+
+reset.addEventListener('click', () => {})
 
 // box1.innerHTML === 'X' && box
 // box1 === box2, box3 === 'X'
