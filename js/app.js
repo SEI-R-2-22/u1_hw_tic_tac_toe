@@ -25,6 +25,8 @@ let oWins = 0
 let draws = 0
 let xChoices = []
 let oChoices = []
+let countDownTimer = 0
+let time = 10
 
 for (let i = 0; i < button.length; i++) {
   button[i].innerText = ''
@@ -50,6 +52,8 @@ const startGame = () => {
     turn = 'O'
     whoTurn.innerText = 'O goes first!'
   }
+  startButton.innerText = 'Turn time: ' + time
+  countDown()
 }
 
 const gameOver = () => {
@@ -111,17 +115,31 @@ const resetScores = () => {
   draws = 0
   drawTotal.innerText = 'Draws: ' + draws
 }
+const simpleAI = () => {
+  let randomSquare = Math.floor(Math.random() * 9)
+  if (button[randomSquare].disabled === false) {
+    button[randomSquare].click()
+  } else {
+    simpleAI()
+  }
+}
+const countDown = () => {
+  // let time = 10
+  countDownTimer = setInterval(() => {
+    time--
+    startButton.innerText = 'Turn time: ' + time
+    if (time === 0) {
+      clearInterval(countDownTimer)
+      simpleAI()
+    }
+  }, 1000)
+}
 
-// const countDown = () => {
-//   let time = 10
-//   const stopWatch = () => {
-//     time = time - 1;
-//   }
-//   while(time > 0){
-//     timer.innerText = time
-//     setTimeout(stopWatch, 1000)
+const resetTimer = () => {
+  time = 10
+  clearInterval(countDownTimer)
+}
 
-// }
 ////////////////////////////////
 // Event Listeners Here
 for (let i = 0; i < button.length; i++) {
@@ -137,14 +155,18 @@ for (let i = 0; i < button.length; i++) {
       turn = 'X'
       whoTurn.innerText = 'Xs turn'
     }
+    resetTimer()
     boxes--
+    // clearInterval(countDownTimer)
     winCheck()
+    if (boxes >= 0 && winner === '') {
+      countDown()
+    }
   })
 }
 startButton.addEventListener('click', () => {
   startGame()
   startButton.disabled = true
-  startButton.innerText = 'Have fun!'
 })
 
 resetButton.addEventListener('click', () => {

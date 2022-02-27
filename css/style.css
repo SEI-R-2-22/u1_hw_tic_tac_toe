@@ -20,8 +20,7 @@ body {
 
 header,
 .start,
-.scores,
-.turn {
+.scores {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +33,7 @@ header,
 }
 header {
   margin-top: 5vh;
-  margin-bottom: 3vh;
+  /* margin-bottom: 3vh; */
   font-size: 3.5vh;
 }
 
@@ -45,9 +44,15 @@ header {
 }
 .rules {
   font-size: 25px;
+  padding-left: 25px;
 }
+
+/* .rules h3 {
+  font-size: 30px;
+  justify-content: center;
+} */
 .turn {
-  font-size: 40px;
+  font-size: 30px;
 }
 .wrapper {
   display: flex;
@@ -97,7 +102,6 @@ header {
 
 .start {
   font-size: 3vh;
-  margin-bottom: 5vh;
   padding: 2vh;
   border: 3px solid black;
   border-radius: 2vh;

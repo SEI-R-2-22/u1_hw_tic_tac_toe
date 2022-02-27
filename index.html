@@ -13,17 +13,20 @@
 </header>
     <div class="game-info">
       <div class="rules">
-        <p>"Welcome to Tic-Tac-Toe.  The rules are simple.  Two players, X and O, alternate turns until one player has three in a row.  If there are no boxes, and neither player has three in a row, the game is a tie.</p>
+        <h3>Rules:</h3>
+        <p>Two players, X and O, alternate turns until one player has three in a row.  If there are no boxes, and neither player has three in a row, the game is a tie.  You will have ten seconds to make a choice, otherwise the computer will pick a box for you</p>
       </div>
-      <div class="turn">
-        
+      <!-- <div class="turn">
         <h4 class="who"></h4>
-      </div>
+      </div> -->
     </div>
 
 
 <div class="wrapper">
   <button class="start">Press to play!</button>
+  <div class="turn">
+    <h4 class="who"></h4>
+  </div>
   <div class="board">
     <button class="btn" id="tleft"></button>
     <button class="btn" id="tmid"></button>
@@ -43,7 +46,6 @@
   <div class="o-score">O wins: 0</div>
   <div class="draw-total">Draws: 0</div>
   <button class="reset">Press to Reset Scores</button>
-  <div class="timer"></div>
 </div>
 
   <!-- Build your game board, instructions, and score displays here! -->
