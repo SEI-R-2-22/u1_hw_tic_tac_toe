@@ -133,3 +133,31 @@ footer {
 div#message {
     font-family: 'Permanent Marker', cursive;
 }
+
+@media screen and (max-width:600px)  {
+  main {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+  }
+  .gameboard {
+    width:90vw;
+    height:90vw;
+    margin: 0 auto 16px auto;
+  }
+  aside {
+    width:90vw;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+  }
+  aside .info-wrapper {
+    margin: 0;
+    border:solid thin red;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  } aside .info-wrapper * {
+    margin: 5px auto;
+  }
+}
