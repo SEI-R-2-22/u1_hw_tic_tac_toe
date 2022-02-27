@@ -20,3 +20,14 @@ body {
 .game-container  > div{
   background-color: lightblue;
 }
+
+.active-player {
+  opacity: 1;
+}
+
+.game-winner-banner > h1{
+  opacity: 0;
+  display: block;
+  position: relative;
+  font-size: 6rem;  
+}

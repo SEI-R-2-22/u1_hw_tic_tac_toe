@@ -5,20 +5,31 @@ let activePlayer = 'x'
 const activePlayerDisplay = document.querySelector('.active-player')
 const resetButton = document.querySelector('.reset')
 let winnerDeclared = false
+let winnerBanner = document.querySelector('.game-winner-banner h1')
 
 ////////////////////////////////
 // Functions For Game Logic Here
 let resetGame = () => {
   for (let i = 0; i < gameSquares.length; i++) {
     gameSquares[i].innerHTML = ''
-    activePlayer = 'x'
-    activePlayerDisplay.innerHTML = 'The active player is X'
-    winnerDeclared = false
     if (gameSquares[i].classList[1] !== 'empty') {
       gameSquares[i].classList.add('empty')
     }
   }
+  winnerBanner.style.opacity = 0
+  activePlayer = 'x'
+  activePlayerDisplay.innerHTML = 'The active player is X'
+  activePlayerDisplay.style.opacity = 1
+  winnerDeclared = false
 }
+let declareWinner = () => {
+  winnerDeclared = true
+  activePlayerDisplay.style.opacity = 0
+  winnerBanner.innerHTML = `${activePlayer} wins!`
+  winnerBanner.style.opacity = 1
+  console.log('Joe wins')
+}
+
 let checkWinner = () => {
   if (
     (gameSquares[0].innerHTML === 'x' &&
@@ -46,8 +57,7 @@ let checkWinner = () => {
       gameSquares[4].innerHTML === 'x' &&
       gameSquares[2].innerHTML === 'x')
   ) {
-    alert('x is the winner!')
-    winnerDeclared = true
+    declareWinner()
   } else if (
     (gameSquares[0].innerHTML === 'o' &&
       gameSquares[1].innerHTML === 'o' &&
@@ -74,8 +84,7 @@ let checkWinner = () => {
       gameSquares[4].innerHTML === 'o' &&
       gameSquares[2].innerHTML === 'o')
   ) {
-    alert('o is the winner!')
-    winnerDeclared = true
+    declareWinner()
   } else if (
     gameSquares[0].classList[1] !== 'empty' &&
     gameSquares[1].classList[1] !== 'empty' &&
