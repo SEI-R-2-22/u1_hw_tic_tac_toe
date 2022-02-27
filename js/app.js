@@ -52,7 +52,7 @@ getIsGameWon = () => {
 }
 
 const getIsGameTied = () => {
-  return !getIsGameWon() && !board.includes('')
+  return !getIsGameWon() && currentBoardState.every(spot => spot !== '')
 }
 
 const endGame = (victorious = true) => {
