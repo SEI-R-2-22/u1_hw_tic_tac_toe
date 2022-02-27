@@ -9,21 +9,37 @@ const secondColumn = document.querySelectorAll("#secondColumn");
 const thirdColumn = document.querySelectorAll("#thirdColumn");
 const firstDiag = document.querySelectorAll("#firstDiag");
 const secondDiag = document.querySelectorAll("#secondDiag");
+const whosTurn = document.querySelector("h2");
 // let content = board[i].innerText;
 
 ////////////////////////////////
 // Functions For Game Logic Here
 //my thoughts on this function are to check the equality of innerText within each of these Arrays.  No idea how i'd get that done yet
-checkWinner = (array) => {
-  for (i = 0; i < array.length; i++) {
-    // let mark = array[i];
-    // console.log(mark);
-    if (array[i].innerText === "X" || "O") {
-      console.log("WINNER!");
-    }
+const checkWinner = (array) => {
+  let box1 = array[0];
+  let box2 = array[1];
+  let box3 = array[2];
+  let box4 = array[3];
+  let box5 = array[4];
+  let box6 = array[5];
+  let box7 = array[6];
+  let box8 = array[7];
+  let box9 = array[8];
+
+  // console.log(box1);
+  if (
+    (box1.innerText === box2.innerText && box3.innerText) ||
+    (box4.innerText === box5.innerText && box6.innerText) ||
+    (box7.innerText === box8.innerText && box9.innerText) ||
+    (box1.innerText === box4.innerText && box7.innerText) ||
+    (box2.innerText === box5.innerText && box8.innerText) ||
+    (box3.innerText === box6.innerText && box9.innerText) ||
+    (box1.innerText === box5.innerText && box9.innerText) ||
+    (box7.innerText === box5.innerText && box3.innerText)
+  ) {
+    whosTurn.innerText = "WINNER!";
   }
 };
-
 //clickButton will either add a class or do nothng
 // const clickButton = (turn) => {
 //   switch (turn) {
@@ -68,15 +84,15 @@ for (i = 0; i < board.length; i++) {
           // if ((content.innerText = "X" || "O")) {
           // } else {
           // stat = "yes";
-
+          whosTurn.innerText = "O goes!";
           content.innerText = "X";
-
+          // checkWinner(firstRow);
           // }
           // content.innerText = "X";
           // turn += 1;
           // // }
 
-          // checkWinner(firstRow);
+          checkWinner(board);
           // console.log(content);
           break;
         case 2:
@@ -86,7 +102,9 @@ for (i = 0; i < board.length; i++) {
           ++turn;
           // if ((content.innerText = "X" || "O")) {
           // } else {
+          whosTurn.innerText = "X goes!";
           content.innerText = "O";
+          checkWinner(board);
           // stat = "yes";
           // }
 
