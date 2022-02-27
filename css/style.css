@@ -69,11 +69,12 @@ h1 {
 }
 
 #restart-game-btn {
-  background-color: lavender;
+  background-color: lightblue;
   border: none;
-  border-radius: 6px;
+  border-radius: 7px;
   cursor: pointer;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 15px;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: bold;
   padding: 10px;
+  margin: 10px;
 }
