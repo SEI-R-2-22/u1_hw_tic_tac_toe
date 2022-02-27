@@ -66,15 +66,21 @@ const getIsGameTied = () => {
   return !getIsGameWon() && !board.includes('')
 }
 
+const endGame = (victorious = true) => {
+  isGameOver = true
+  turnNotification.innerText = ''
+  if (victorious) {
+    gameStatusNotification.innerText = `Victory is yours, Player ${currentPlayerToken}!`
+  } else {
+    gameStatusNotification.innerText = "It's a tie!"
+  }
+}
+
 const checkGameStatus = () => {
   if (getIsGameWon()) {
-    isGameOver = true
-    turnNotification.innerText = ''
-    gameStatusNotification.innerText = `Victory is yours, Player ${currentPlayerToken}!`
+    endGame()
   } else if (getIsGameTied()) {
-    isGameOver = true
-    turnNotification.innerText = ''
-    gameStatusNotification.innerText = 'Tie game!'
+    endGame(false)
   }
 }
 
