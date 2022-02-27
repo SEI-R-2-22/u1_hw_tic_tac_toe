@@ -4,44 +4,64 @@ let gameBox = document.querySelector(".container");
 let boxes = []
 let tCount = 0;
 let gameOver = false;
+let aiOn = false;
 let gStatus = document.querySelector('#player');
 gStatus.innerText = `It is ${players[0]}'s turn!`;
 
-console.log(gameBox);
+
+//console.log(gameBox);
 let uBoxes = () =>{
     boxes = [];                                             // neeed to empty array in order to not keep adding more than 9 boxes
     for(let i = 1; i < 10; i++){
         let box = document.querySelector("#box"+i);
         boxes.push(box.innerText);
-        console.log(`${box.innerText} is in ${box.id}`);
-    }       
+    }
 }
 
-////////////////////////////////
 // Functions For Game Logic Here
 
-let checkIfEmpty = (a,b,c) =>{
-
-    console.log("CHECK EMTPY LOOP START")
-    if(a.length >0 && b.length > 0, c.length > 0){
-        //alert(`Bxs full ${a},${b},${c}`);
-        return true;
-    }else{
-        //alert(`Bxs empty ${a},${b},${c}`);
-        return false;
+let aiPlay = () =>{
+    let openIndex = [];
+    let cBoxes = [];
+    for(let i = 1; i < 10; i++){
+        let box = document.querySelector("#box"+i);
+        cBoxes.push(box.innerText);
     }
 
+    for(let i = 0; i < cBoxes.length; i++){
+        if(cBoxes[i] === ""){
+            openIndex.push(i);
+        }
+    }
+    let aiChoice = Math.floor(Math.random()*openIndex.length)+1;
+    let boxChoiceId = `#box${aiChoice}`;
+    console.log(`AI choice Array ${aiChoice}`);
+    console.log(`Boxes Array ${boxes}`);
+    console.log(`empty index Array ${openIndex}`);
+
+    document.querySelector(boxChoiceId).innerText = players[tCount];
 }
-let tieTest = (gArray) =>{// if any of the boxes are empty then the game isnt over
+
+// this is really a check if win condition
+let checkIfEmpty = (a,b,c) =>{
+    if(a.length >0 && b.length > 0, c.length > 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+// if any of the boxes are empty then the game isnt over
+let tieTest = (gArray) =>{
     for(let i = 0; i < gArray.length; i++){
         if(boxes[i] === ""){
             return false;
         }
     }
     return true;
-} 
+}
 
-let winTest = () =>{  
+let winTest = () =>{
     uBoxes();
     //Row win condition
     if (boxes[0] === boxes[1] && boxes[0] === boxes[2] ){
@@ -90,11 +110,11 @@ let winTest = () =>{
             gStatus.innerText = `${boxes[2]} wins via left bottom to right top!`;
             gameOver = true;
         }
-    }else if(!gameOver){ 
+    }else if(!gameOver){
         ///////////TIE CONDITIONS
         if(tieTest(boxes)){
             gStatus.innerText = "ITS A TIE!";
-        gameOver = true;
+            gameOver = true;
         }
     }else{
         console.log("Next turn");
@@ -109,12 +129,16 @@ document.addEventListener('click',(e) =>{
         if(!gameOver){
             if(e.target.innerText.length < 1){
                 e.target.innerText = players[tCount];
+                console.log(e.target.id);
                 tCount++;
+                if(aiOn){
+                    aiPlay();
+                    tCount++;
+                }
                 document.querySelector('#player').innerText = `It is ${players[tCount]}'s turn!`;
-
             }
             winTest();
-            console.log(`you clicked ${e.target.id}`)
+
         }
     };
     if(e.target.id === 'reset'){
@@ -126,6 +150,15 @@ document.addEventListener('click',(e) =>{
         tCount = 0;
         gameOver = false;
     }
+    if(e.target.id === 'aiToggle'){
+        aiOn = !aiOn;
+        if(aiOn){
+            document.querySelector("#aiStatus").innerText = "AI is on";
+        }else{
+            document.querySelector("#aiStatus").innerText = "AI is off";
+        }
+    }
+
 })
 
 ////////////////////////////////
@@ -134,4 +167,4 @@ document.addEventListener('click',(e) =>{
 ////////////////////////////////
 ////////////////////////////////
 
-//https://gomakethings.com/why-event-delegation-is-a-better-way-to-listen-for-events-in-vanilla-js/ 
+//https://gomakethings.com/why-event-delegation-is-a-better-way-to-listen-for-events-in-vanilla-js/
