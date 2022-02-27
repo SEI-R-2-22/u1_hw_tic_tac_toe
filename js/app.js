@@ -1,12 +1,12 @@
-// Global variables that store a NodeList of DOM elements or individual DOM nodes
+// Global variables that store a NodeList or individual DOM nodes
 const cells = document.querySelectorAll('.ttt-cell')
 const turnNotification = document.getElementById('turn-heading')
 const gameStatusNotification = document.getElementById('game-status-heading')
 const restartGameButton = document.getElementById('restart-game-btn')
-// Global variables that describe the initial game state or internal game logic
+// Global variables that describe the initial game state
 let isGameOver = false
 let currentPlayerToken = 'X'
-// A representation of the initial state of the gameboard: an array of 9 empty string elements
+// Stores a representation of the initial state of the gameboard: an array of 9 empty string elements
 const defaultBoardState = new Array(9).fill('')
 let currentBoardState = [...defaultBoardState]
 // A nested array representation of all possible winning combinations
@@ -21,17 +21,19 @@ const pathsToVictory = [
   [2, 5, 8]
 ]
 
+/* Returns true if the given cell is occupied and false if not */
 const isCellClaimed = (cell) => {
   // The innerText of an occupied cell is 'X' or 'O', which is truthy,
   // and the innerText of a vacant cell is an empty string, which is falsy
   return !!cell.innerText
 }
 
-/* Claims the clicked cell for the current player by styling the DOM node according to their token */
+/* Enables the current player to claim the clicked cell by styling the DOM node according to their token */
 const claimCell = (clickedCell) => {
   clickedCell.classList.add(currentPlayerToken.toLowerCase())
   clickedCell.innerText = currentPlayerToken
 }
+
 /*
  * Updates the array representation of the current state of the gameboard
  * by placing the current player's token at the appropriate index
@@ -41,6 +43,7 @@ const modifyCurrentBoardState = (clickedCell) => {
   currentBoardState[idx] = currentPlayerToken
 }
 
+/* Returns true if either player has won the game */
 getIsGameWon = () => {
   return pathsToVictory.some((pathToVictory) => {
     const [index1, index2, index3] = pathToVictory
@@ -52,10 +55,12 @@ getIsGameWon = () => {
   })
 }
 
+/* Returns true if the game is tied */
 const getIsGameTied = () => {
   return !getIsGameWon() && currentBoardState.every((spot) => spot !== '')
 }
 
+/* Marks the game as over and displays the game result */
 const endGame = (victorious = true) => {
   isGameOver = true
   turnNotification.innerText = ''
@@ -66,6 +71,7 @@ const endGame = (victorious = true) => {
   }
 }
 
+/* Determines the status of the game, handling a victory or a draw */
 const checkGameStatus = () => {
   if (getIsGameWon()) {
     endGame()
@@ -74,6 +80,7 @@ const checkGameStatus = () => {
   }
 }
 
+/* Switches the current player at the end of each turn */
 const swapCurrentPlayer = () => {
   currentPlayerToken = currentPlayerToken === 'X' ? 'O' : 'X'
   if (!isGameOver) {
@@ -81,6 +88,7 @@ const swapCurrentPlayer = () => {
   }
 }
 
+/* Handles the player's turn when a cell is clicked */
 const takeTurn = (e) => {
   // Return early if the game is won or tied
   if (isGameOver) {
@@ -98,6 +106,7 @@ const takeTurn = (e) => {
   swapCurrentPlayer()
 }
 
+/* Clears or resets the headings that display the current player's turn and game status */
 const clearNotifications = () => {
   turnNotification.innerText = 'Take your turn, Player X!'
   gameStatusNotification.innerText = ''
