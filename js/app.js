@@ -25,15 +25,16 @@ const isCellClaimed = (cell) => {
   // The innerText of an occupied cell is 'X' or 'O', which is truthy,
   // and the innerText of a vacant cell is an empty string, which is falsy
   return !!cell.innerText
+}
 
 /* Claims the clicked cell for the current player by styling the DOM node according to their token */
 const claimCell = (clickedCell) => {
   clickedCell.classList.add(currentPlayerToken.toLowerCase())
   clickedCell.innerText = currentPlayerToken
 }
-/* 
+/*
  * Updates the array representation of the current state of the gameboard
- * by placing the current player's token at the appropriate index  
+ * by placing the current player's token at the appropriate index
  */
 const modifyCurrentBoardState = (clickedCell) => {
   const idx = clickedCell.id.replace('ttt-cell-', '')
@@ -52,7 +53,7 @@ getIsGameWon = () => {
 }
 
 const getIsGameTied = () => {
-  return !getIsGameWon() && currentBoardState.every(spot => spot !== '')
+  return !getIsGameWon() && currentBoardState.every((spot) => spot !== '')
 }
 
 const endGame = (victorious = true) => {
