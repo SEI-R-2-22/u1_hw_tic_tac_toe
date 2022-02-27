@@ -5,6 +5,12 @@ const player2Score = document.querySelector('.player2')
 const tie = document.querySelector('.tie')
 
 
+// const player = {
+//     sign: '',
+//     score: 0,
+//     lastClicked: 0,
+//     isWiner: false
+// }
 
 const player1 = {
     sign: 'X',
@@ -186,39 +192,99 @@ for (let i = 0; i < cells.length; i++){
         if (turn === 1){
             player1.lastClicked = parseInt(cells[i].dataset.location)
             console.log(player1.lastClicked + " player1")
-            while (!updateBoardGame(player1)) {  
-                if (isBoardFull) {
+            if (updateBoardGame(player1)) {                    
+                updateHtml(player1)
+                if (checkWinner(player1)) {
+                    updateScore(player1)
+                    clearBoard()                    
+                } else if (isBoardFull()) {
                     updateTie()
-                    clearBoard()
-                    break
-                }           
+                    clearBoard()                    
+                }
+                turn = 2
+            } else if (isBoardFull()) {
+                updateTie()
+                clearBoard()                
             }
-            updateHtml(player1)
+                
+            // while (!updateBoardGame(player1)) {  
+            //     if (isBoardFull) {
+            //         updateTie()
+            //         clearBoard()
+            //         break
+            //     }           
+            // }
+            
             //check if player1 win
-            if (checkWinner(player1)) {
-                updateScore(player1)
-                clearBoard()
-            }
+            
+            // do {
+            //     if (updateBoardGame(player1)) {
+                    
+            //         updateHtml(player1)
+            //         if (checkWinner(player1)) {
+            //             updateScore(player1)
+            //             clearBoard()
+            //             break
+            //         }
+            //         turn = 2
+            //     } else if (isBoardFull()) {
+            //         updateTie()
+            //         clearBoard()
+            //         break
+            //     }
+            // } while (turn === 1)
         
-            turn = 2
-        } else {
+            // turn = 2
+        } else if (turn === 2) {
             player2.lastClicked = parseInt(cells[i].dataset.location)
             console.log(player2.lastClicked + " player2")
-            while (!updateBoardGame(player2)) {       
-                if (isBoardFull) {
+
+            if (updateBoardGame(player2)) {                    
+                updateHtml(player2)
+                if (checkWinner(player2)) {
+                    updateScore(player2)
+                    clearBoard()                            
+                } else if (isBoardFull()) {
                     updateTie()
-                    clearBoard()
-                    break
-                }     
+                    clearBoard()                            
+                }
+                turn = 1
+            } else if (isBoardFull()) {
+                updateTie()
+                clearBoard()                        
             }
+
+            // while (!updateBoardGame(player2)) {       
+            //     if (isBoardFull) {
+            //         updateTie()
+            //         clearBoard()
+            //         break
+            //     }     
+            // }
             
-            updateHtml(player2)
-            //check if player2 win
-            if (checkWinner(player2)) {
-                updateScore(player2)
-                clearBoard()
-            }
-            turn = 1
+            // updateHtml(player2)
+            // //check if player2 win
+            // if (checkWinner(player2)) {
+            //     updateScore(player2)
+            //     clearBoard()
+            // }
+            // turn = 1
+            // do {
+            //     if (updateBoardGame(player2)) {
+                    
+            //         updateHtml(player2)
+            //         if (checkWinner(player2)) {
+            //             updateScore(player2)
+            //             clearBoard()
+            //             break
+            //         }
+            //         turn = 1
+            //     } else if (isBoardFull()) {
+            //         updateTie()
+            //         clearBoard()
+            //         break
+            //     }
+            // } while (turn === 2)
         }
     })
 }
