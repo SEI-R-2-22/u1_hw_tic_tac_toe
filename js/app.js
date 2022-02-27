@@ -1,5 +1,5 @@
 // Global Variables Here
-let board = document.querySelectorAll(".space"); //board becomes an array of the buttons
+const board = document.querySelectorAll(".space"); //board becomes an array of the buttons
 let turn = 1;
 const firstRow = document.querySelectorAll("#firstRow");
 const secondRow = document.querySelectorAll("#secondRow");
@@ -16,9 +16,9 @@ const secondDiag = document.querySelectorAll("#secondDiag");
 //my thoughts on this function are to check the equality of innerText within each of these Arrays.  No idea how i'd get that done yet
 checkWinner = (array) => {
   for (i = 0; i < array.length; i++) {
-    let mark = array[i];
-    if (mark.innerText === "X" || "O");
-    {
+    // let mark = array[i];
+    // console.log(mark);
+    if (array[i].innerText === "X" || "O") {
       console.log("WINNER!");
     }
   }
@@ -52,29 +52,52 @@ for (i = 0; i < board.length; i++) {
     // else {
     //     content= 'X';
     // }
+    // if ((content.innerText = "X" || "O")) {
+    //   console.log("already selected");
+    // } else {
+    // let stat = content.getAttribute("isClicked");
+    // console.log(stat);
+    if (content.innerText === "") {
+      switch (turn) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 9:
+          ++turn;
+          // if ((content.innerText = "X" || "O")) {
+          // } else {
+          // stat = "yes";
 
-    switch (turn) {
-      case 1:
-      case 3:
-      case 5:
-      case 7:
-      case 9:
-        content.innerText = "X";
+          content.innerText = "X";
 
-        turn += 1;
-        checkWinner(firstRow);
-        // console.log(content);
-        break;
-      case 2:
-      case 4:
-      case 6:
-      case 8:
-        content.innerText = "O";
-        turn += 1;
-        // console.log(content);
-        break;
+          // }
+          // content.innerText = "X";
+          // turn += 1;
+          // // }
+
+          // checkWinner(firstRow);
+          // console.log(content);
+          break;
+        case 2:
+        case 4:
+        case 6:
+        case 8:
+          ++turn;
+          // if ((content.innerText = "X" || "O")) {
+          // } else {
+          content.innerText = "O";
+          // stat = "yes";
+          // }
+
+          // console.log(content);
+          break;
+      }
+    } else {
+      console.log("already clicked");
     }
 
+    // }
     //   console.log(score);
   });
 }
