@@ -143,11 +143,8 @@ const resetGameDefaults = () => {
   clearNotifications()
 }
 
-////////////////////////////////
-// Event Listeners Here
 for (let i = 0; i < cells.length; i++) {
   cells[i].addEventListener('click', handleTurn)
 }
 
 restartGameBtn.addEventListener('click', resetGameDefaults)
-////////////////////////////////
