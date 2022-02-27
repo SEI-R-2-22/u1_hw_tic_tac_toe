@@ -11,39 +11,44 @@ const playerTwoMoves = []
 const startGame = () => {
   // const boxes = gameBoxes.slice()
 
-  gameBoxes.forEach((box) => {
-    box.addEventListener('click', () => {
-      //check if move has been play or not.
-      if (
-        box.innerHTML === ''
-        // !(
-        //   playerOneMoves.includes(box.getAttribute('data-value')) ||
-        //   playerTwoMoves.includes(box.getAttribute('data-value'))
-        // )
-      ) {
+  for (let i = 0; i < gameBoxes.length; i++) {
+    gameBoxes[i].addEventListener('click', () => {
+      if (gameBoxes[i].innerHTML === '') {
         //determine who's move it is currently.
-        if (moveCounter % 2 === 0) {
-          box.innerHTML = 'O'
-          playerOneMoves.push(box.getAttribute('data-value'))
+        if (moveCounter === undefined) {
+          return
+        } else if (moveCounter % 2 === 0) {
+          gameBoxes[i].innerHTML = 'O'
+          gameBoxes[i].style.backgroundColor = 'red'
+          playerOneMoves.push(gameBoxes[i].getAttribute('data-value'))
+          moveCounter++
           if (checkWinner(playerOneMoves)) {
-            alert('Player 1 Wins')
+            message.innerText = 'Player One Wins the Game'
+            moveCounter = undefined
+            return
+          } else if (moveCounter === 9) {
+            message.innerText = 'DRAW GAME'
             return
           }
-          moveCounter++
+          message.innerHTML = "Player Two's move"
         } else {
-          box.innerHTML = 'X'
-          playerTwoMoves.push(box.getAttribute('data-value'))
+          gameBoxes[i].innerHTML = 'X'
+          gameBoxes[i].style.backgroundColor = 'green'
+          playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
+          moveCounter++
           if (checkWinner(playerTwoMoves)) {
-            alert('Player 2 Wins.')
+            message.innerText = 'Player Two wins the Game'
+            moveCounter = undefined
+            return
+          } else if (moveCounter === 9) {
+            message.innerText = 'DRAW GAME'
             return
           }
-          moveCounter++
+          message.innerText = "Player One's Move"
         }
-      } else {
-        alert('move is played, pick another move')
       }
     })
-  })
+  }
 }
 
 startGame()
@@ -52,49 +57,118 @@ startGame()
 const resetGame = () => {
   gameBoxes.forEach((box) => {
     box.innerHTML = ''
+    box.style.backgroundColor = 'rgb(159, 162, 164)'
   })
+  message.innerText = 'Player One Goes First'
   playerOneMoves.length = 0
   playerTwoMoves.length = 0
+  moveCounter = 0
   startGame()
 }
 playAgain.addEventListener('click', resetGame)
 
-//check for winner
+// check for winner
 const checkWinner = (playerMoves) => {
-  // "012, 345, 678"
-  // "036, 147, 258"
-  // "048, 246,
-  //const winSeq = ['012', '345', '678', '036', '147', '258', '048', '246']
-  if (
-    (playerMoves.includes('0') &&
-      playerMoves.includes('1') &&
-      playerMoves.includes('2')) ||
-    (playerMoves.includes('3') &&
-      playerMoves.includes('4') &&
-      playerMoves.includes('5')) ||
-    (playerMoves.includes('6') &&
-      playerMoves.includes('7') &&
-      playerMoves.includes('8')) ||
-    (playerMoves.includes('0') &&
-      playerMoves.includes('3') &&
-      playerMoves.includes('6')) ||
-    (playerMoves.includes('1') &&
-      playerMoves.includes('4') &&
-      playerMoves.includes('7')) ||
-    (playerMoves.includes('0') &&
-      playerMoves.includes('4') &&
-      playerMoves.includes('8')) ||
-    (playerMoves.includes('2') &&
-      playerMoves.includes('5') &&
-      playerMoves.includes('8')) ||
-    (playerMoves.includes('2') &&
-      playerMoves.includes('4') &&
-      playerMoves.includes('6'))
-  ) {
-    return true
-  } else return false
+  const winSeq = [
+    ['1', '2', '0'],
+    ['3', '4', '5'],
+    ['6', '7', '8'],
+    ['0', '3', '6'],
+    ['1', '4', '7'],
+    ['2', '5', '8'],
+    ['0', '4', '8'],
+    ['2', '4', '6']
+  ]
+  let winNumOne = ''
+  let winNumTwo = ''
+  let winNumThree = ''
+  for (let i = 0; i < winSeq.length; i++) {
+    let checkSeq = winSeq[i]
+    winNumOne = checkSeq[0]
+    winNumTwo = checkSeq[1]
+    winNumThree = checkSeq[2]
+
+    if (
+      playerMoves.includes(winNumOne) &&
+      playerMoves.includes(winNumTwo) &&
+      playerMoves.includes(winNumThree)
+    ) {
+      return true
+    }
+  }
 }
 
-// const checkMoves = () => {
-//   if()
+const winningSeq = (playerMoves) => {
+  const winSeq = [
+    ['1', '2', '0'],
+    ['3', '4', '5'],
+    ['6', '7', '8'],
+    ['0', '3', '6'],
+    ['1', '4', '7'],
+    ['2', '5', '8'],
+    ['0', '4', '8'],
+    ['2', '4', '6']
+  ]
+  let winNumOne = ''
+  let winNumTwo = ''
+  let winNumThree = ''
+  for (let i = 0; i < winSeq.length; i++) {
+    let checkSeq = winSeq[i]
+    winNumOne = checkSeq[0]
+    winNumTwo = checkSeq[1]
+    winNumThree = checkSeq[2]
+
+    if (
+      playerMoves.includes(winNumOne) &&
+      playerMoves.includes(winNumTwo) &&
+      playerMoves.includes(winNumThree)
+    ) {
+      return checkSeq
+    }
+  }
+
+  // if (
+  //   (playerMoves.includes('0') &&
+  //     playerMoves.includes('1') &&
+  //     playerMoves.includes('2')) ||
+  //   (playerMoves.includes('3') &&
+  //     playerMoves.includes('4') &&
+  //     playerMoves.includes('5')) ||
+  //   (playerMoves.includes('6') &&
+  //     playerMoves.includes('7') &&
+  //     playerMoves.includes('8')) ||
+  //   (playerMoves.includes('0') &&
+  //     playerMoves.includes('3') &&
+  //     playerMoves.includes('6')) ||
+  //   (playerMoves.includes('1') &&
+  //     playerMoves.includes('4') &&
+  //     playerMoves.includes('7')) ||
+  //   (playerMoves.includes('0') &&
+  //     playerMoves.includes('4') &&
+  //     playerMoves.includes('8')) ||
+  //   (playerMoves.includes('2') &&
+  //     playerMoves.includes('5') &&
+  //     playerMoves.includes('8')) ||
+  //   (playerMoves.includes('2') &&
+  //     playerMoves.includes('4') &&
+  //     playerMoves.includes('6'))
+  // ) {
+  //   return true
+  // } else {
+  //   return false
+  // }
+}
+
+// const drawGame = (moves) => {
+//   if(moves === 9)
+// }
+const activePlayer = (player) => {
+  player.classList.add('shake')
+}
+const inactivePlayer = (player) => {
+  player.classList.remove('shake')
+}
+
+// const boxColorChange = (box) => {
+//   box.style.backgroundColor = 'red'
 // }

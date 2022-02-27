@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Festive&family=Lora:wght@500&family=Oxygen&display=swap');
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -9,6 +11,10 @@ body {
 }
 
 #container {
+  background-image: url('../image/XO.jpeg');
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: inherit;
   display: grid;
   grid-template: 100px 1fr 3fr 1fr / 1fr 3fr 1fr;
@@ -52,11 +58,87 @@ main {
   border: solid 1px black;
 }
 
-/* #banner {
-  animation: type 5s steps(5, end);
+#banner {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: white;
+  animation: blink 5s infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-@keyframes type {
+.shake {
+  animation: shake 0.82s infinite cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+#player1 {
+  background: rgb(174, 175, 238);
+  background: linear-gradient(
+    90deg,
+    rgba(174, 175, 238, 1) 0%,
+    rgba(51, 118, 196, 1) 13%
+  );
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+#player2 {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+/* @keyframes type {
   from {
     width: 100px;
   }
@@ -81,28 +163,37 @@ main {
 }
 
 #x {
-  animation: bigX 3s infinite;
+  animation: bigX 5s infinite;
 }
 
 #o {
-  animation: bigO 3s infinite;
+  animation: bigO 5s infinite;
 }
 
 @keyframes bigX {
-  from {
+  0%,
+  100% {
+    transform: translateX(0vw);
+  }
+  50% {
+    transform: translateX(50vw);
+  }
+
+  /* from {
     transform: translateX(0);
   }
   to {
     transform: translateX(800px);
-  }
+  } */
 }
 
 @keyframes bigO {
-  from {
+  0%,
+  100% {
     transform: translateX(0);
   }
-  to {
-    transform: translateX(-800px);
+  50% {
+    transform: translateX(-50vw);
   }
 }
 /* --------------------------------- */
@@ -111,6 +202,7 @@ main {
 
 /* -------------------------------- */
 #gameboard {
+  background-color: rgb(159, 162, 164);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -119,6 +211,9 @@ main {
   /* border: 1px solid black; */
   height: 60vh;
   width: 60vw;
+
+  font-family: 'Dancing Script', cursive;
+  border: 1px solid black;
 }
 
 #gameboard div {
@@ -143,9 +238,11 @@ main {
   margin: 0 auto;
   width: fit-content;
   padding: 5px 15px;
+  cursor: pointer;
 }
 
 #againText:hover {
   border: 2px green solid;
   border-radius: 20px;
+  background-color: goldenrod;
 }
