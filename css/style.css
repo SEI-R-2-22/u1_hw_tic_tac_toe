@@ -15,6 +15,7 @@ h1 {
   font-size: 50px;
   font-family: 'Oxygen', sans-serif;
   text-align: center;
+  margin: 10px 0;
 }
 
 .game-wrapper {
