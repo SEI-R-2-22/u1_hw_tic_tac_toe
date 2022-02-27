@@ -36,7 +36,8 @@ const pathsToVictory = [
 ]
 
 const isCellClaimed = (cell) => {
-  // The innerText of a vacant cell is an empty string, which is falsy
+  // The innerText of an occupied cell is 'X' or 'O', which is truthy,
+  // and the innerText of a vacant cell is an empty string, which is falsy
   return !!cell.innerText
 }
 /* Enables current player to claim the clicked cell by styling it according to their token */
