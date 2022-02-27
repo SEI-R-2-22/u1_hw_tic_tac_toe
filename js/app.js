@@ -63,7 +63,7 @@ getIsGameWon = () => {
 }
 
 const getIsGameTied = () => {
-  return !getIsGameWon() && board.every((cell) => cell !== '')
+  return !getIsGameWon() && !board.includes('')
 }
 
 const checkGameStatus = () => {
