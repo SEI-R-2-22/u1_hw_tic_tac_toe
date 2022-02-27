@@ -101,12 +101,12 @@ const clearNotifications = () => {
   gameStatusNotification.innerText = ''
 }
 
-/* Initializes a brand new game by resetting the default game state */
+/* Restores the default initial game state */
 const resetGameDefaults = () => {
   isGameOver = false
   currentPlayerToken = 'X'
-  board = new Array(9).fill('')
-  unclaimCells()
+  currentBoardState = [...defaultBoardState]
+  clearCells()
   clearNotifications()
 }
 // Attach click event listeners
