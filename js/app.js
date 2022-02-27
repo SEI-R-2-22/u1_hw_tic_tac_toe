@@ -37,7 +37,7 @@ const claimCell = (clickedCell) => {
  */
 const modifyCurrentBoardState = (clickedCell) => {
   const idx = clickedCell.id.replace('ttt-cell-', '')
-  board[idx] = currentPlayerToken
+  currentBoardState[idx] = currentPlayerToken
 }
 
 getIsGameWon = () => {
