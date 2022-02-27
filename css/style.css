@@ -40,3 +40,13 @@ h1 {
   color: white;
   background-color: paleturquoise;
 }
+
+#restart-game-btn {
+  background-color: lavender;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  padding: 10px;
+}
