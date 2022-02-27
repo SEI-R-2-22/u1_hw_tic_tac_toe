@@ -44,9 +44,9 @@ getIsGameWon = () => {
   return pathsToVictory.some((pathToVictory) => {
     const [index1, index2, index3] = pathToVictory
     return (
-      board[index1] &&
-      board[index1] === board[index2] &&
-      board[index2] === board[index3]
+      currentBoardState[index1] &&
+      currentBoardState[index1] === currentBoardState[index2] &&
+      currentBoardState[index2] === currentBoardState[index3]
     )
   })
 }
