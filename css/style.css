@@ -14,4 +14,24 @@
   border: 1px solid black;
   min-width: 100px;
   min-height: 100px;
+  align-items: center;
+  justify-content: center;
+  font-size: 75px;
+  cursor: pointer;
+}
+
+#square0 #square1 #square2 {
+  border-top: none;
+}
+
+#square6 #square7 #square8 {
+  border-bottom: none;
+}
+
+#square2 #square5 #square8 {
+  border-right: none;
+}
+
+#square0 #square3 #square6 {
+  border-left: none;
 }
