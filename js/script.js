@@ -11,6 +11,12 @@ const bigX = new Audio('../sound/X.wav')
 const winSound = new Audio('../sound/winner.wav')
 const drawSound = new Audio('../sound/draw.wav')
 
+//var needed to track player moves
+const boxesLength = gameBoxes.length
+let moveCounter = 0
+const playerOneMoves = []
+const playerTwoMoves = []
+
 //selection btw player 2 or AI
 let ai = 0
 player2.addEventListener('click', () => {
@@ -23,14 +29,11 @@ player2.addEventListener('click', () => {
     player2.innerHTML = 'AI'
     player2.style.backgroundColor = 'grey'
     ai++
+    if (moveCounter > 0) {
+      randomPlay()
+    }
   }
 })
-
-//var needed to track player moves
-const boxesLength = gameBoxes.length
-let moveCounter = 0
-const playerOneMoves = []
-const playerTwoMoves = []
 
 //main game function
 const startGame = () => {
