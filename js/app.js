@@ -1,5 +1,5 @@
 // Global Variables Here
-//console.log('Human player')
+
 let turnX = 1
 let firstTurn = 1
 let totalTurns = 0
@@ -26,23 +26,9 @@ const oWins = document.querySelector('#o-wins')
 let xWinTotal = 0
 let drawTotal = 0
 let oWinTotal = 0
-const computerButtonText = document.querySelector('#btn3')
-const computerHeadingText = document.querySelector('#opponent')
-let computerOpponent = -1
 
 ////////////////////////////////
 // Functions For Game Logic Here
-
-// const computerPlayerText = () => {
-//   computerOpponent *= -1
-//   if (computerOpponent < 0) {
-//     computerButtonText.innerText = 'Play against Human'
-//     computerHeadingText.innerText = 'Human vs Computer'
-//   } else {
-//     computerButtonText.innerText = 'Play against Computer'
-//     computerHeadingText.innerText = 'Human vs Human'
-//   }
-// }
 
 const resetWinTotals = () => {
   xWinTotal = 0
@@ -111,7 +97,6 @@ const checkWin = () => {
 
   // These will only be executed if neither X nor O has won
   // Both of these commands reset picks and squareNums to empty arrays
-
   picks.splice(0, 9)
   squareNums.splice(0, squareNums.length)
   return ''
@@ -127,10 +112,6 @@ btn.addEventListener('click', () => {
 btn2.addEventListener('click', () => {
   resetWinTotals()
 })
-
-// btn3.addEventListener('click', () => {
-//   computerPlayerText()
-// })
 
 for (let i = 0; i < allSquares.length; i++) {
   allSquares[i].addEventListener('click', function () {
@@ -149,6 +130,7 @@ for (let i = 0; i < allSquares.length; i++) {
       if (blankSpace.innerText === 'Already picked!') {
         blankSpace.innerText = ''
       }
+
       turnX *= -1
       turnText.innerText = turnX > 0 ? 'X' : 'O'
       totalTurns++

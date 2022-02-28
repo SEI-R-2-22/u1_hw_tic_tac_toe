@@ -8,17 +8,15 @@
 </head>
 <body>
     <nav>
-      <div>Tic-Tac-Toe</div>
+      <div id="title">Tic-Tac-Toe</div>
     </nav>
-    <aside class="flex-ctr" id="left">
-      <section id="left-grid"><p>Current Turn:</p>
-      <p id="turn">X</p>
-      <p id = "opponent">Human vs Human</p>
-      </section>
+    <aside id="left-sidebar">
+      <div>Current Turn:</div>
+      <div id="turn">X</div>
     </aside>
     <aside class="flex-ctr" id="blank"></aside>
-    <aside class="flex-ctr" id="right">
-      <section id = "right-grid">
+    <aside class="flex-ctr" id="right-sidebar">
+      <section id = "win-count-grid">
         <p class="counter">Win Counter</p>
         <p>X</p>
         <p>Draw</p>
@@ -40,8 +38,7 @@
     <board class="flex-ctr square"></board>
 
     <footer class="flex-ctr"><button id = "btn">Play Again</button>
-    <button id = 'btn2'>Reset Win Totals</button>
-    <button id = 'btn3'>Play Against Computer</button></footer>
+    <button id = 'btn2'>Reset Win Totals</button></footer>
   
   <!-- Build your game board, instructions, and score displays here! -->
   <script type="text/javascript" src="js/app.js"></script>
