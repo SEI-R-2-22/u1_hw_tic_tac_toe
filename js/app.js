@@ -7,8 +7,8 @@ const resetButton = document.querySelector('.reset')
 let winnerDeclared = false
 let winnerBanner = document.querySelector('.game-winner-banner h1')
 let playCount = 0
-
 ////////////////////////////////
+
 // Functions For Game Logic Here
 let resetGame = () => {
   for (let i = 0; i < gameSquares.length; i++) {
