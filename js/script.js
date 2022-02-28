@@ -36,8 +36,9 @@ const startGame = () => {
         //if the moveCounter is undedfined, it means the game is over. return without doing anything.
         if (moveCounter === undefined) {
           return
-        } else if (moveCounter % 2 === 0) {
-          // if movecounter%2 = 0 that means it is the first players turn.
+        }
+        // if movecounter%2 = 0 that means it is the first players turn.
+        else if (moveCounter % 2 === 0) {
           //add a O and change background color to the box that is clicked
           gameBoxes[i].innerHTML = 'O'
           gameBoxes[i].style.backgroundColor = '#ffe4e6'
@@ -45,18 +46,16 @@ const startGame = () => {
           playerOneMoves.push(gameBoxes[i].getAttribute('data-value'))
           //increment movecounter to indicate next player move
           moveCounter++
-          message.innerHTML = "Player Two's move"
-          //check to see if player win or not.
-          winner(playerOneMoves, 'Player1')
           //display the next players move
-
+          message.innerHTML = "Player Two's move"
+          //check for winner
+          winner(playerOneMoves, 'Player1')
           //Check to see if AI is selected, if it is, AI will play
           if (player2.innerHTML === 'AI' && moveCounter != undefined) {
             randomPlay()
           }
         } else if (moveCounter % 2 != 0 && player2.innerHTML === 'Player2') {
           //add a O and change background color to the box that is clicked
-
           gameBoxes[i].innerHTML = 'X'
           gameBoxes[i].style.backgroundColor = '#dbeafe'
           //keep track of the box that was clicked.
@@ -64,6 +63,7 @@ const startGame = () => {
           moveCounter++
           //check to see if player win or not.
           message.innerText = "Player One's Move"
+          //check for winner
           winner(playerTwoMoves, 'Player2')
         }
       }
