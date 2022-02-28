@@ -1,7 +1,8 @@
 body {
   background-color: darkcyan;
-  font-size: 80px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 header {
@@ -13,21 +14,20 @@ header {
 
 .space {
   background-color: rgb(105, 81, 117);
-  /* height: auto; */
   margin: 0.5vh;
   font-size: 20vh;
   color: darkcyan;
-  text-align: center;
-  vertical-align: center;
+  line-height: 15vh;
+  vertical-align: middle;
 }
 
 .board {
   display: grid;
 
-  grid-template-columns: 23vh 23vh 23vh;
-  grid-template-rows: 23vh 23vh 23vh;
+  grid-template-columns: 22vh 22vh 22vh;
+  grid-template-rows: 22vh 22vh 22vh;
   justify-content: center;
-  vertical-align: center;
+  /* vertical-align: center; */
 }
 
 #reset {
@@ -40,6 +40,7 @@ header {
   display: flex;
   justify-content: space-around;
   padding: 10px;
+  font-size: 25px;
 }
 #wipeScore {
   height: 6vh;
