@@ -6,7 +6,6 @@ let drawScore = 0
 let rounds = 0
 let whoStarts = 1
 let player1Turn = true
-let winner = false
 let square = document.querySelectorAll('.game-square')
 
 
@@ -78,7 +77,6 @@ const winCases = () => {
             }
             resetGame()
             showButton()
-            winner = true
     }else if(
         (ticTacToe[0] == 2 && ticTacToe[1] == 2 && ticTacToe[2] == 2) ||
         (ticTacToe[3] == 2 && ticTacToe[4] == 2 && ticTacToe[5] == 2) ||
@@ -98,14 +96,12 @@ const winCases = () => {
             }
             resetGame()
             showButton()
-            winner = true
     }else if(rounds === 9){
         document.querySelector('.message').innerText = `Draw`
         drawScore++
         document.querySelector(`#drawScore`).innerText = drawScore
         resetGame()
         showButton()
-        winner = true
     }
 }
 
