@@ -6,6 +6,20 @@ const playAgain = document.querySelector('#againText')
 const gameBoxes = document.querySelectorAll('.gamebox')
 const scoreList = document.querySelector('#scoreList')
 
+//selection btw player 2 or AI
+let ai = 0
+player2.addEventListener('click', () => {
+  if (ai % 2 === 0) {
+    player2.innerHTML = 'Player2'
+    player2.style.backgroundColor = 'white'
+    ai++
+  } else {
+    player2.innerHTML = 'AI'
+    player2.style.backgroundColor = 'blue'
+    ai++
+  }
+})
+
 //var needed to track player moves
 const boxesLength = gameBoxes.length
 let moveCounter = 0
@@ -50,7 +64,12 @@ const startGame = () => {
           }
           //display the next players move
           message.innerHTML = "Player Two's move"
-        } else {
+
+          //Check to see if AI is selected, if it is, AI will play
+          if (player2.innerHTML === 'AI') {
+            randomPlay()
+          }
+        } else if (moveCounter % 2 != 0 && player2.innerHTML === 'Player2') {
           //add a O and change background color to the box that is clicked
 
           gameBoxes[i].innerHTML = 'X'
@@ -94,7 +113,8 @@ const resetGame = () => {
     box.classList.remove('shake')
   })
   //return the message back to original message.
-  message.innerText = 'Player One Goes First'
+  message.innerText = 'Select Player 2 Option'
+  player2.innerHTML = 'Player2/AI'
   //reset player move tracker to 0
   playerOneMoves.length = 0
   playerTwoMoves.length = 0
@@ -169,11 +189,6 @@ const winningSeq = (playerMoves) => {
   }
 }
 
-const a = ['0', '2', '1']
-
-// const drawGame = (moves) => {
-//   if(moves === 9)
-// }
 const activePlayer = (player) => {
   player.classList.add('shake')
 }
@@ -184,40 +199,46 @@ const addScoreBoard = (player) => {
   scoreList.appendChild(li)
 }
 
-// const boxColorChange = (box) => {
-//   box.style.backgroundColor = 'red'
-// }
+//introduce AI placing the game as 2nd player.
+const randomPlay = () => {
+  let second = 5
 
-// const randomPlay = (player, sign, num) => {
-//   let second = 5
+  const timed = setInterval(() => {
+    second -= 1
+    player2.innerHTML = `AI time ${second}`
+    if (second <= 0) {
+      makeMove('X')
+      second = 5
+      player2.innerHTML = 'AI'
+      clearInterval(timed)
+      if (checkWinner(playerTwoMoves)) {
+        // if player win. change the banner message and make movecounter undefine.
+        message.innerText = 'Player Two wins the Game'
+        const winningNumber = winningSeq(playerTwoMoves)
+        addScoreBoard('AI')
+        for (let i = 0; i < winningNumber.length; i++) {
+          gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
+          activePlayer(gameBoxes[winningNumber[i]])
+        }
+        moveCounter = undefined
+        return
+      } else if (moveCounter === 9) {
+        // if movecounter === 9 the game is a draw.
+        message.innerText = 'DRAW GAME'
+        return
+      }
+    }
+  }, 1000)
+}
 
-//   const timed = setInterval(() => {
-//     second -= 1
-//     player.innerHTML = second
-//     for (let i = 0; i < boxesLength; i++) {
-//       gameBoxes[i].addEventListener('click', () => {
-//         // clearInterval(timed)
-//         second = 5
-//         player.innerHTML = `Player${num}`
-//       })
-//       for (let i = 0; i < gameBoxes.length; i++) {
-//         if (gameBoxes[i].innerHTML === '') {
-//           gameBoxes[i].innerHTML = sign
-//           player.innerHTML = `Player${num}`
-//           if (moveCounter % 2 === 0) {
-//             playerOneMoves.push(gameBoxes[i].getAttribute('data-value'))
-//           } else {
-//             playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
-//           }
-//           second = 5
-//           moveCounter++
-//           return
-//         }
-//       }
-//     }
-//   }, 1000)
-// }
-
-// for (let i = 0; i < boxesLength; i++) {
-//   gameBoxes[i].addEventListener('click', randomPlay)
-// }
+const makeMove = (sign) => {
+  for (let i = 0; i < boxesLength; i++) {
+    if (gameBoxes[i].innerHTML === '') {
+      gameBoxes[i].innerHTML = sign
+      gameBoxes[i].style.backgroundColor = '#dbeafe'
+      playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
+      moveCounter++
+      return
+    }
+  }
+}

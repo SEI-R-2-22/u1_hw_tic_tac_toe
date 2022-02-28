@@ -127,6 +127,7 @@ main {
   background-color: #dbeafe;
   border-radius: 20px;
   padding: 10px 20px;
+  cursor: pointer;
 }
 
 /* @keyframes type {
@@ -227,7 +228,8 @@ main {
   text-align: center;
   align-items: center;
 
-  font-size: 10em;
+  height: 20vh;
+  font-size: 8rem;
   border: 1px dotted red;
 }
 
@@ -255,4 +257,10 @@ main {
   border: 2px green solid;
   border-radius: 20px;
   background-color: goldenrod;
+}
+
+@media screen and (min-height: 50vh) {
+  #gameboard div {
+    font-size: 5rem;
+  }
 }
