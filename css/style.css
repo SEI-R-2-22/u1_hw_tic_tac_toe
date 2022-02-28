@@ -29,7 +29,17 @@ header {
   justify-items: center;
   align-items: center;
 
-  border: 1px solid black;
+  position: relative;
+  animation: slide-in 2s ease-in-out forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
 header h1 {
@@ -72,7 +82,7 @@ main {
   border-radius: 20px;
   padding: 10px 20px;
   color: white;
-  animation: blink 5s infinite;
+  animation: blink 5s infinite ease-in;
 }
 @keyframes blink {
   0% {
@@ -123,19 +133,26 @@ main {
   background-color: #ffe4e6;
   border-radius: 20px;
   padding: 10px 20px;
+
+  opacity: 0;
+  animation: fade 2s forwards;
 }
 #player2 {
   background-color: #dbeafe;
   border-radius: 20px;
   padding: 10px 20px;
   cursor: pointer;
+  animation: fade 4s ease-in forwards;
 }
 
-/* @keyframes type {
-  from {
-    width: 100px;
+@keyframes fade {
+  0% {
+    opacity: 0;
   }
-} */
+  100% {
+    opacity: 1;
+  }
+}
 
 /* ------------------------------------ */
 
@@ -205,6 +222,8 @@ main {
   margin-top: 20px;
   color: white;
   text-decoration: underline;
+  opacity: 0;
+  animation: fade 4s ease-in forwards;
 }
 #scoreBoard ol li {
   margin: 20px 0 0 30px;
@@ -224,6 +243,8 @@ main {
 
   font-family: 'Dancing Script', cursive;
   border: 1px solid black;
+  opacity: 0;
+  animation: fade 4s ease-in forwards;
 }
 
 #gameboard div {
@@ -254,6 +275,8 @@ main {
   cursor: pointer;
   background-color: rgb(27, 157, 85);
   border-radius: 20px;
+  opacity: 0;
+  animation: fade 4s ease-in forwards;
 }
 
 #againText:hover {
