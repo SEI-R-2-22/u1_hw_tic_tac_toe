@@ -1,1 +1,46 @@
+body {
+  text-align: center;
+  font-family: fantasy;
+  margin: 0;
+  background-color: antiquewhite;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
 
+.count {
+  display: flex;
+  justify-content: space-around;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  justify-content: center;
+}
+
+.block {
+  border: black solid;
+  padding: 100px;
+  text-align: center;
+  background-size: cover;
+}
+
+.cross {
+  background-image: url('https://www.freeiconspng.com/uploads/black-x-png-27.png');
+}
+
+.circle {
+  background-image: url('https://www.freepnglogos.com/uploads/circle-png/circle-outline-blank-png-icon-download-16.png');
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.resetButton {
+  width: 100%;
+  background-color: antiquewhite;
+  height: 25px;
+  border-radius: 3px;
+}
