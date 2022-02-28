@@ -1,1 +1,78 @@
+/* body {
+  color: rgb(39, 33, 116);
+  margin: 0;
+  font-family: Helvetica;
+}
 
+.container {
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.gridTac {
+  background: pink;
+  background-image: url('https://media.giphy.com/media/xT77XUHgj7vDdnbiFi/giphy.gif');
+  justify-content: center;
+  padding: 30px;
+}
+
+/* referenced CSS grid tutorials from Net Ninja:https://www.youtube.com/watch?v=d-MHl_Q_hp8&list=PL4cUxeGkcC9itC4TxYMzFCfveyutyPOCY&index=2 */
+/* .gridTac:nth-child(even) {
+  background: red;
+  justify-content: center;
+/* } */
+
+body {
+  background-image: url(https://media.giphy.com/media/ENkG4zPtIPo7C/giphy.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+div.grid {
+  text-align: center;
+}
+
+div.board {
+  display: grid;
+  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3, 100px);
+  background-color: #b2c7cb;
+  color: white;
+  outline-width: thin;
+  margin-top: 5px;
+}
+
+button.btn {
+  background-color: pink;
+  color: white;
+}
+
+div {
+  border: 1px solid white;
+  font-size: 75px;
+  text-align: center;
+  margin-bottom: -3px;
+  margin-left: -3px;
+}
+
+h1 {
+  background: pink;
+  padding: 12px;
+  margin-top: 200px;
+  color: white;
+}
+h2 {
+  padding: 15px;
+  margin: 10px;
+}
+button {
+  margin-top: 20px;
+  padding: 12px;
+}
