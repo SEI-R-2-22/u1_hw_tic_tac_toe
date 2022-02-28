@@ -3,35 +3,72 @@
   margin: 0;
 }
 
+h1 {
+  text-align: center;
+  padding: 20px 0 50px 0;
+}
 .gameBoard {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   max-width: 300px;
+  padding: 0 0 20px 0;
+  margin: auto;
 }
 
 .square {
-  border: 1px solid black;
+  border: 2px solid black;
   min-width: 100px;
   min-height: 100px;
   align-items: center;
   justify-content: center;
   font-size: 75px;
   cursor: pointer;
+  text-align: center;
 }
 
-#square0 #square1 #square2 {
+.scoreBoard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border: 1px solid black;
+  max-width: 150px;
+}
+
+.board {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.turnMessage {
+  padding: 10px;
+}
+
+#square0,
+#square1,
+#square2 {
   border-top: none;
 }
 
-#square6 #square7 #square8 {
+#square6,
+#square7,
+#square8 {
   border-bottom: none;
 }
 
-#square2 #square5 #square8 {
+#square2,
+#square5,
+#square8 {
   border-right: none;
 }
 
-#square0 #square3 #square6 {
+#square0,
+#square3,
+#square6 {
   border-left: none;
+}
+
+.reset {
+  padding: 5px;
+  margin: 10px;
 }
