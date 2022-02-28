@@ -67,11 +67,18 @@ h1 {
   flex: 1;
 }
 
-.play-again {
-  margin-bottom: 20px;
-}
-
 .notification {
   color: white;
   margin-top: 20px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.play-again,
+.reset {
+  margin-bottom: 20px;
 }

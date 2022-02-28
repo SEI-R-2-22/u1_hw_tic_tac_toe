@@ -4,6 +4,8 @@ const player1Score = document.querySelector('.player1 .point')
 const player2Score = document.querySelector('.player2 .point')
 const tie = document.querySelector('.tie .point')
 const notification = document.querySelector('.notification')
+const playAgain = document.querySelector('.play-again')
+const resetButton = document.querySelector('.reset')
 
 //ask for player  name
 const user1 = prompt('Name of player 1: ')
@@ -34,7 +36,7 @@ let isTie = false
 let turn = 1
 //Create board game as an array: 3x3
 let boardGame = Array(3).fill().map(() => Array(3))
-//Initialize the value of the board to 0
+//Initialize the value of the board to null
 for (let i = 0; i < 3; i++){
     for (let j = 0; j < 3; j++) {
         boardGame[i][j] = null
@@ -183,9 +185,32 @@ const isBoardFull = () => {
     }
     return isFull
 }
+
 //update html file 
 const updateHtml = (player) => {
     cells[player.lastClicked - 1].innerText = player.sign
+}
+
+//Notification
+const updateNotification = () => {
+    if (player1.isWiner) {
+        notification.innerText = user1 + ' wins'
+    } else if (player2.isWiner) {
+        notification.innerText = user2 + ' wins'
+    } else if (isTie){
+        notification.innerText = 'We have a tie'
+    } else if (turn === 1){
+        notification.innerText = "Your move, " + user1
+    } else if (turn === 2) {
+        notification.innerText = "Your move, " + user2
+    } else {
+        notification.innerText = "Let's play!"
+    }
+}
+
+//Reset button is used to reload the page
+const reset = () => {
+    location.reload()
 }
 
 //When the board game is clicked, playGame() function will be activate, update the board game, check if the player win and update player's score
@@ -233,23 +258,6 @@ const playGame = (Element) => {
     }
 }
 
-//announcement
-const updateNotification = () => {
-    if (player1.isWiner) {
-        notification.innerText = user1 + ' wins'
-    } else if (player2.isWiner) {
-        notification.innerText = user2 + ' wins'
-    } else if (isTie){
-        notification.innerText = 'We have a tie'
-    } else if (turn === 1){
-        notification.innerText = "Your move, " + user1
-    } else if (turn === 2) {
-        notification.innerText = "Your move, " + user2
-    } else {
-        notification.innerText = "Let's play!"
-    }
-}
-
 
 ////////////////////////////////
 // Event Listeners Here
@@ -262,8 +270,11 @@ const addEvents = () => {
 }
 
 //Add event listener to the play-aagain button
-const playAgain = document.querySelector('.play-again button')
 playAgain.addEventListener('click', clearBoard)
+
+//Add event listerner to the reset button
+resetButton.addEventListener('click', reset)
+
 //Game starts from here
 updateNotification()
 addEvents()
