@@ -1,1 +1,22 @@
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: whitesmoke;
+  background-color: black;
+  text-align: center;
+}
 
+h2 {
+  text-decoration: underline;
+  text-align: center;
+}
+
+.box {
+  min-width: 100px;
+  min-height: 100px;
+  text-align: center;
+  vertical-align: center;
+  background: whitesmoke;
+  cursor: pointer;
+  font-size: 75px;
+  color: black;
+}

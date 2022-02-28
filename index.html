@@ -3,23 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tic-Tac-Toe</title>
+  <title>Tic-Tac-Toe Classic</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script defer type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
   <!-- Build your game board, instructions, and score displays here! -->
+  <h1>Tic-Tac-Toe Classic</h1>
+  <h2 id='status'>Results</h2>
+
+<table align="center">
+  <tr>
+    <td><div class="box" id="0"></div></td>
+    <td><div class="box" id="1"></div></td>
+    <td><div class="box" id="2"></div></td>
+  </tr>
+  <tr>
+    <td><div class="box" id="3"></div></td>
+    <td><div class="box" id="4"></div></td>
+    <td><div class="box" id="5"></div></td>
+  </tr>
+  <tr>
+    <td><div class="box" id="6"></div></td>
+    <td><div class="box" id="7"></div></td>
+    <td><div class="box" id="8"></div></td>
+  </tr>
+</table>
 
 
 
-
-
-
-
-
-
+  <button id="play">Play</button>
+  <button id="replay">Replay</button>
   
-
+  <h3 id="player">Turn: X</h3>
+  <h2>How to Begin</h2>
+  <h3>Press 'Play' to begin. Player One begins by clicking one of the white boxes to place an X. It is then Player 2 who will have the next turn--click a box to place an O. The game will go on in this manner until one player has three in a row or a drawed game results. </h3>
   <!-- Build your game board, instructions, and score displays here! -->
-  <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
