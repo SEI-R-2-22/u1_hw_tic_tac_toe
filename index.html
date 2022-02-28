@@ -21,18 +21,22 @@
 
     <main>
 
-      <div class="gameboard">
+      <div class="gameboard-wrapper">
+        <div class="gameboard">
 
-        <div class ="square" id="a1"></div>
-        <div class ="square" id="b1"></div>
-        <div class ="square" id="c1"></div>
-        <div class ="square" id="a2"></div>
-        <div class ="square" id="b2"></div>
-        <div class ="square" id="c2"></div>
-        <div class ="square" id="a3"></div>
-        <div class ="square" id="b3"></div>
-        <div class ="square" id="c3"></div>
+          <div class ="square" id="a1"></div>
+          <div class ="square" id="b1"></div>
+          <div class ="square" id="c1"></div>
+          <div class ="square" id="a2"></div>
+          <div class ="square" id="b2"></div>
+          <div class ="square" id="c2"></div>
+          <div class ="square" id="a3"></div>
+          <div class ="square" id="b3"></div>
+          <div class ="square" id="c3"></div>
 
+        </div>
+
+        <div id="message">Message</div>
 
       </div>
  
@@ -54,18 +58,23 @@
         <button id="reset">Play again?</button>
 
         <div>
-          <input type="checkbox" name="comp-player" id="comp-player" /> Enable computer player?
+          <input type="checkbox" name="comp-player" id="comp-player" /> <label for="comp-player">Enable computer player?</label>
         </div>
 
-        <h5>Total play count: <span id="turn-count">0</span></h5>
+        <div class="grid-size-input-wrapper">
+          Make it harder?<br />
+          Grid size: <input id="grid-size-select" type="number" min="3" max="9" value="3" /><button id="grid-size-btn">Go</button>
+        </div>
+
+        <!-- <h5>Total play count: <span id="turn-count">0</span></h5> -->
       </div>
 
     </aside>
 
     </main>
 
+
   <footer>
-    <div id="message"></div>
   </footer>
 
 

@@ -1,10 +1,3 @@
-each time a player clicks:
-  place the X/O
-  run a function to check for 3 in a row win condition
-    If win, done!
-    If not, next player.
-
-
 citations: 
 - https://codepen.io/chris__sev/pen/bYmpxw?editors=1100
 

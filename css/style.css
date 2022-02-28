@@ -5,18 +5,20 @@ html, body {
   padding:0;
 }
 
-.gameboard, #player, #score-label-x, #score-label-o {
+.gameboard, #player, #score-label-x, #score-label-o, h1 {
   font-family: 'Permanent Marker', cursive;
 }
 
 h1 {
   text-decoration: underline;
+  font-size:40px;
+  margin-bottom: 0px;
 }
 
 .bg-wrapper {
   border:solid thin white;
   margin:0 auto;
-  height:100%;
+  height:100vh;
   max-width:1200px;
   background-image: url("https://b.rgbimg.com/users/x/xy/xymonau/600/mTh52ri.jpg");
   background-position-y: -45px;
@@ -32,6 +34,34 @@ main {
   flex-direction:row;
   justify-content:center;
   align-items: center;
+}
+
+.gameboard-wrapper {
+  position: relative;
+  display: flex;
+}
+#message {
+  position: absolute;
+  display:  flex;
+  flex-direction: column;
+  justify-content: center;
+  top: -200%;
+  left: -200%;
+  background-color: rgba(149, 168, 175,.5);
+  text-align: center;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 250ms linear;
+  transform: translate(200%, 200%);
+
+  font-family: 'Permanent Marker', cursive;
+  text-align:center;
+  font-size:2em;
+  font-weight:bold;
+
+  height: 100%;
+  width: 100%;
 }
 
 .gameboard {
@@ -125,16 +155,24 @@ button#reset {
   color:white;
 }
 
-footer {
-  text-align:center;
-  font-size:2em;
+label {
+  font-size:smaller;
+}
+.grid-size-input-wrapper, .grid-size-input-wrapper * {
+  font-size: .8em;
   font-weight:bold;
 }
-div#message {
-    font-family: 'Permanent Marker', cursive;
+
+footer {
 }
 
+
+
 @media screen and (max-width:600px)  {
+  .bg-wrapper {
+    height: 100vh;
+    background-size:auto 100%;
+  }
   main {
     display: flex;
     flex-direction:column;
@@ -160,4 +198,29 @@ div#message {
   } aside .info-wrapper * {
     margin: 5px auto;
   }
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    margin: 8px auto 0 auto;
+  }
+  main {
+    align-items: flex-start;
+  }
+  .bg-wrapper {
+    height:100vh;
+  }
+  .gameboard-wrapper {
+    max-height: 90vh;
+  }
+  .gameboard {
+    margin-top:0;
+    max-height: 75vh;
+    max-width: 75vh;
+  }
+  aside, aside * {
+    font-size: smaller;
+    max-height:60vh;
+  }
+  
 }
