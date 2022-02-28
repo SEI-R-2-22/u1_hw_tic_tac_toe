@@ -6,6 +6,7 @@ const playAgain = document.querySelector('#againText')
 const gameBoxes = document.querySelectorAll('.gamebox')
 
 //var needed to track player moves
+const boxesLength = gameBoxes.length
 let moveCounter = 0
 const playerOneMoves = []
 const playerTwoMoves = []
@@ -20,12 +21,12 @@ const startGame = () => {
         //if the moveCounter is undedfined, it means the game is over. return without doing anything.
         if (moveCounter === undefined) {
           return
-        }
-        // if movecounter%2 = 0 that means it is the first players turn.
-        else if (moveCounter % 2 === 0) {
+        } else if (moveCounter % 2 === 0) {
+          // if movecounter%2 = 0 that means it is the first players turn.
           //add a O and change background color to the box that is clicked
+
           gameBoxes[i].innerHTML = 'O'
-          gameBoxes[i].style.backgroundColor = 'red'
+          gameBoxes[i].style.backgroundColor = '#ffe4e6'
           //keep track of the box that was clicked.
           playerOneMoves.push(gameBoxes[i].getAttribute('data-value'))
           //increment movecounter to indicate next player move
@@ -34,6 +35,11 @@ const startGame = () => {
           if (checkWinner(playerOneMoves)) {
             // if player win. change the banner message and make movecounter undefine.
             message.innerText = 'Player One Wins the Game'
+            const winningNumber = winningSeq(playerOneMoves)
+            for (let i = 0; i < winningNumber.length; i++) {
+              gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
+              activePlayer(gameBoxes[winningNumber[i]])
+            }
             moveCounter = undefined
             return
           } else if (moveCounter === 9) {
@@ -45,8 +51,9 @@ const startGame = () => {
           message.innerHTML = "Player Two's move"
         } else {
           //add a O and change background color to the box that is clicked
+          randomPlay(player2, 'X')
           gameBoxes[i].innerHTML = 'X'
-          gameBoxes[i].style.backgroundColor = 'green'
+          gameBoxes[i].style.backgroundColor = '#dbeafe'
           //keep track of the box that was clicked.
           playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
           moveCounter++
@@ -54,6 +61,11 @@ const startGame = () => {
           if (checkWinner(playerTwoMoves)) {
             // if player win. change the banner message and make movecounter undefine.
             message.innerText = 'Player Two wins the Game'
+            const winningNumber = winningSeq(playerTwoMoves)
+            for (let i = 0; i < winningNumber.length; i++) {
+              gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
+              activePlayer(gameBoxes[winningNumber[i]])
+            }
             moveCounter = undefined
             return
           } else if (moveCounter === 9) {
@@ -77,6 +89,7 @@ const resetGame = () => {
   gameBoxes.forEach((box) => {
     box.innerHTML = ''
     box.style.backgroundColor = 'rgb(159, 162, 164)'
+    box.classList.remove('shake')
   })
   //return the message back to original message.
   message.innerText = 'Player One Goes First'
@@ -124,35 +137,38 @@ const checkWinner = (playerMoves) => {
   }
 }
 
-// const winningSeq = (playerMoves) => {
-//   const winSeq = [
-//     ['1', '2', '0'],
-//     ['3', '4', '5'],
-//     ['6', '7', '8'],
-//     ['0', '3', '6'],
-//     ['1', '4', '7'],
-//     ['2', '5', '8'],
-//     ['0', '4', '8'],
-//     ['2', '4', '6']
-//   ]
-//   let winNumOne = ''
-//   let winNumTwo = ''
-//   let winNumThree = ''
-//   for (let i = 0; i < winSeq.length; i++) {
-//     let checkSeq = winSeq[i]
-//     winNumOne = checkSeq[0]
-//     winNumTwo = checkSeq[1]
-//     winNumThree = checkSeq[2]
+const winningSeq = (playerMoves) => {
+  const winSeq = [
+    ['1', '2', '0'],
+    ['3', '4', '5'],
+    ['6', '7', '8'],
+    ['0', '3', '6'],
+    ['1', '4', '7'],
+    ['2', '5', '8'],
+    ['0', '4', '8'],
+    ['2', '4', '6']
+  ]
+  let winNumOne = ''
+  let winNumTwo = ''
+  let winNumThree = ''
+  for (let i = 0; i < winSeq.length; i++) {
+    let checkSeq = winSeq[i]
+    winNumOne = checkSeq[0]
+    winNumTwo = checkSeq[1]
+    winNumThree = checkSeq[2]
 
-//     if (
-//       playerMoves.includes(winNumOne) &&
-//       playerMoves.includes(winNumTwo) &&
-//       playerMoves.includes(winNumThree)
-//     ) {
-//       return checkSeq
-//     }
-//   }
-// }
+    if (
+      playerMoves.includes(winNumOne) &&
+      playerMoves.includes(winNumTwo) &&
+      playerMoves.includes(winNumThree)
+    ) {
+      return checkSeq
+    }
+  }
+}
+
+const a = ['0', '2', '1']
+console.log(winningSeq(a))
 
 // const drawGame = (moves) => {
 //   if(moves === 9)
@@ -160,10 +176,54 @@ const checkWinner = (playerMoves) => {
 const activePlayer = (player) => {
   player.classList.add('shake')
 }
-const inactivePlayer = (player) => {
-  player.classList.remove('shake')
-}
 
 // const boxColorChange = (box) => {
 //   box.style.backgroundColor = 'red'
 // }
+
+const randomPlay = () => {
+  let second = 5
+  let player = ''
+  let sign = ''
+  let num = undefined
+
+  const timed = setInterval(() => {
+    second -= 1
+    player.innerHTML = second
+    for (let i = 0; i < gameBoxes.length; i++) {
+      gameBoxes[i].addEventListener('click', () => {
+        // clearInterval(timed)
+        player.innerHTML = `Player${num}`
+      })
+      if (second < 0) {
+        if (moveCounter % 2 === 0) {
+          player = player1
+          sign = 'O'
+          num = 1
+        } else {
+          player = player2
+          sign = 'X'
+          num = 2
+        }
+        for (let i = 0; i < gameBoxes.length; i++) {
+          if (gameBoxes[i].innerHTML === '') {
+            gameBoxes[i].innerHTML = sign
+            player.innerHTML = `Player${num}`
+            if (moveCounter % 2 === 0) {
+              playerOneMoves.push(gameBoxes[i].getAttribute('data-value'))
+            } else {
+              playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
+            }
+            second = 5
+            moveCounter++
+            return
+          }
+        }
+      }
+    }
+  }, 1000)
+}
+
+for (let i = 0; i < boxesLength; i++) {
+  gameBoxes[i].addEventListener('click', randomPlay)
+}

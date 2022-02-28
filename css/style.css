@@ -87,7 +87,7 @@ main {
 }
 
 .shake {
-  animation: shake 0.82s infinite cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  animation: shake 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
@@ -117,23 +117,12 @@ main {
 }
 
 #player1 {
-  background: rgb(174, 175, 238);
-  background: linear-gradient(
-    90deg,
-    rgba(174, 175, 238, 1) 0%,
-    rgba(51, 118, 196, 1) 13%
-  );
+  background-color: #ffe4e6;
   border-radius: 20px;
   padding: 10px 20px;
 }
 #player2 {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background-color: #dbeafe;
   border-radius: 20px;
   padding: 10px 20px;
 }
@@ -239,6 +228,8 @@ main {
   width: fit-content;
   padding: 5px 15px;
   cursor: pointer;
+  background-color: rgb(27, 157, 85);
+  border-radius: 20px;
 }
 
 #againText:hover {
