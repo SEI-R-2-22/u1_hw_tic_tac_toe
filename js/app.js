@@ -32,7 +32,6 @@ const checkWinner = (array) => {
   let box7 = array[6];
   let box8 = array[7];
   let box9 = array[8];
-  // console.log(box1);
   if (
     (box1.classList.contains("x") &&
       box2.classList.contains("x") &&
@@ -102,16 +101,8 @@ const checkWinner = (array) => {
         xDisplay.innerText = `X: ${xScore}`;
         console.log(xScore);
         break;
-      // console.log(winner);
-      // for (i = 0; i < board.length; i++) {
-      //   board[i].disable = true;
-      // }
     }
   }
-  //   winner === "yes";
-  // } else if ((turn = 9)) {
-  //   whosTurn.innerText = "It's a draw!";
-  // }
 };
 
 ////////////////////////////////
@@ -143,13 +134,10 @@ for (i = 0; i < board.length; i++) {
         case 6:
         case 8:
           ++turn;
-          // console.log(turn);
 
           whosTurn.innerText = "X goes!";
           content.innerText = "O";
           content.classList.add("o");
-
-          // content.disabled = true;
 
           checkWinner(board);
 
