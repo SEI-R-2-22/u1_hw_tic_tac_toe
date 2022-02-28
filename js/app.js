@@ -24,6 +24,7 @@ let box8 = document.querySelector('#square8')
 
 let xTurn = true
 
+let click0 = false
 let click1 = false
 let click2 = false
 let click3 = false
@@ -32,7 +33,6 @@ let click5 = false
 let click6 = false
 let click7 = false
 let click8 = false
-let click9 = false
 
 let winner = false
 let winnerMessage = document.querySelector('.winner')
@@ -41,7 +41,7 @@ let squaresFilled = 0
 
 box0.addEventListener('click', () => {
   if (winner === false) {
-    if (click1 === false) {
+    if (click0 === false) {
       if (xTurn) {
         box0.innerHTML = 'X'
         winnerBoard[0] = 1
@@ -55,14 +55,14 @@ box0.addEventListener('click', () => {
       }
       xTurn = !xTurn
       checkWin()
-      click1 = true
+      click0 = true
     }
   }
 })
 
 box1.addEventListener('click', () => {
   if (winner === false) {
-    if (click2 === false) {
+    if (click1 === false) {
       if (xTurn) {
         box1.innerHTML = 'X'
         winnerBoard[1] = 1
@@ -76,14 +76,14 @@ box1.addEventListener('click', () => {
       }
       xTurn = !xTurn
       checkWin()
-      click2 = true
+      click1 = true
     }
   }
 })
 
 box2.addEventListener('click', () => {
   if (winner === false) {
-    if (click3 === false) {
+    if (click2 === false) {
       if (xTurn) {
         box2.innerHTML = 'X'
         winnerBoard[2] = 1
@@ -97,14 +97,14 @@ box2.addEventListener('click', () => {
       }
       xTurn = !xTurn
       checkWin()
-      click3 = true
+      click2 = true
     }
   }
 })
 
 box3.addEventListener('click', () => {
   if (winner === false) {
-    if (click4 === false) {
+    if (click3 === false) {
       if (xTurn) {
         box3.innerHTML = 'X'
         winnerBoard[3] = 1
@@ -118,14 +118,14 @@ box3.addEventListener('click', () => {
       }
       xTurn = !xTurn
       checkWin()
-      click4 = true
+      click3 = true
     }
   }
 })
 
 box4.addEventListener('click', () => {
   if (winner === false) {
-    if (click5 === false) {
+    if (click4 === false) {
       if (xTurn) {
         box4.innerHTML = 'X'
         winnerBoard[4] = 1
@@ -139,14 +139,14 @@ box4.addEventListener('click', () => {
       }
       xTurn = !xTurn
       checkWin()
-      click5 = true
+      click4 = true
     }
   }
 })
 
 box5.addEventListener('click', () => {
   if (winner === false) {
-    if (click6 === false) {
+    if (click5 === false) {
       if (xTurn) {
         box5.innerHTML = 'X'
         winnerBoard[5] = 1
@@ -160,14 +160,14 @@ box5.addEventListener('click', () => {
       }
       xTurn = !xTurn
       checkWin()
-      click6 = true
+      click5 = true
     }
   }
 })
 
 box6.addEventListener('click', () => {
   if (winner === false) {
-    if (click7 === false) {
+    if (click6 === false) {
       if (xTurn) {
         box6.innerHTML = 'X'
         winnerBoard[6] = 1
@@ -181,14 +181,14 @@ box6.addEventListener('click', () => {
       }
       xTurn = !xTurn
       checkWin()
-      click7 = true
+      click6 = true
     }
   }
 })
 
 box7.addEventListener('click', () => {
   if (winner === false) {
-    if (click8 === false) {
+    if (click7 === false) {
       if (xTurn) {
         box7.innerHTML = 'X'
         winnerBoard[7] = 1
@@ -202,14 +202,14 @@ box7.addEventListener('click', () => {
       }
       xTurn = !xTurn
       checkWin()
-      click8 = true
+      click7 = true
     }
   }
 })
 
 box8.addEventListener('click', () => {
   if (winner === false) {
-    if (click9 === false) {
+    if (click8 === false) {
       if (xTurn) {
         box8.innerHTML = 'X'
         winnerBoard[8] = 1
@@ -223,44 +223,97 @@ box8.addEventListener('click', () => {
       }
       xTurn = !xTurn
       checkWin()
-      click9 = true
+      click8 = true
     }
   }
 })
 
 function checkWin() {
-  if (
-    winnerBoard[0] + winnerBoard[1] + winnerBoard[2] === 3 ||
-    winnerBoard[0] + winnerBoard[4] + winnerBoard[8] === 3 ||
-    winnerBoard[0] + winnerBoard[3] + winnerBoard[6] === 3 ||
-    winnerBoard[1] + winnerBoard[4] + winnerBoard[7] === 3 ||
-    winnerBoard[2] + winnerBoard[5] + winnerBoard[8] === 3 ||
-    winnerBoard[2] + winnerBoard[4] + winnerBoard[6] === 3 ||
-    winnerBoard[3] + winnerBoard[4] + winnerBoard[5] === 3 ||
-    winnerBoard[6] + winnerBoard[7] + winnerBoard[8] === 3
-  ) {
-    winner = true
-    winnerMessage.innerHTML = 'Player X wins!'
-  } else if (
-    winnerBoard[0] + winnerBoard[1] + winnerBoard[2] === -3 ||
-    winnerBoard[0] + winnerBoard[4] + winnerBoard[8] === -3 ||
-    winnerBoard[0] + winnerBoard[3] + winnerBoard[6] === -3 ||
-    winnerBoard[1] + winnerBoard[4] + winnerBoard[7] === -3 ||
-    winnerBoard[2] + winnerBoard[5] + winnerBoard[8] === -3 ||
-    winnerBoard[2] + winnerBoard[4] + winnerBoard[6] === -3 ||
-    winnerBoard[3] + winnerBoard[4] + winnerBoard[5] === -3 ||
-    winnerBoard[6] + winnerBoard[7] + winnerBoard[8] === -3
-  ) {
-    winner = true
-    winnerMessage.innerHTML = 'Player O wins!'
-  } else if (squaresFilled === 9) {
-    message.innerHTML = ''
-    winner = true
-    winnerMessage.innerHTML = "It's a tie! Would you like to reset the game?"
+  // checks for row wins
+  for (let rows = 0; rows <= 6; rows += 3) {
+    if (
+      winnerBoard[rows] + winnerBoard[rows + 1] + winnerBoard[rows + 2] ===
+      3
+    ) {
+      winner = true
+      winnerMessage.innerHTML = 'Player X Wins!'
+      message.style.display = 'none'
+    } else if (
+      winnerBoard[rows] + winnerBoard[rows + 1] + winnerBoard[rows + 2] ===
+      -3
+    ) {
+      winner = true
+      winnerMessage.innerHTML = 'Player O Wins!'
+      message.style.display = 'none'
+    }
+  }
+  //check for column wins
+  for (let columns = 0; columns <= 2; columns++) {
+    if (
+      winnerBoard[columns] +
+        winnerBoard[columns + 3] +
+        winnerBoard[columns + 6] ===
+      3
+    ) {
+      winner = true
+      winnerMessage.innerHTML = 'Player X Wins!'
+      message.style.display = 'none'
+    } else if (
+      winnerBoard[columns] +
+        winnerBoard[columns + 3] +
+        winnerBoard[columns + 6] ===
+      -3
+    ) {
+      winner = true
+      winnerMessage.innerHTML = 'Player O Wins!'
+      message.style.display = 'none'
+    }
+    //check for diagonal wins
+    if (
+      winnerBoard[0] + winnerBoard[4] + winnerBoard[8] === 3 ||
+      winnerBoard[2] + winnerBoard[4] + winnerBoard[6] === 3
+    ) {
+      winner = true
+      winnerMessage.innerHTML = 'Player X Wins!'
+      message.style.display = 'none'
+    } else if (
+      winnerBoard[0] + winnerBoard[4] + winnerBoard[8] === -3 ||
+      winnerBoard[2] + winnerBoard[4] + winnerBoard[6] === -3
+    ) {
+      winner = true
+      winnerMessage.innerHTML = 'Player O Wins!'
+      message.style.display = 'none'
+      //check for ties
+    } else if (squaresFilled === 9) {
+      message.innerHTML = ''
+      winner = true
+      winnerMessage.innerHTML = "It's a tie! Would you like to reset the game?"
+      message.style.display = 'none'
+    }
   }
 }
 
-reset.addEventListener('click', () => {})
+reset.addEventListener('click', () => {
+  let boxes = document.querySelectorAll('.square')
 
-// box1.innerHTML === 'X' && box
-// box1 === box2, box3 === 'X'
+  for (let i = 0; i < boxes.length; i++) {
+    boxes[i].innerHTML = ''
+  }
+
+  click0 = false
+  click1 = false
+  click2 = false
+  click3 = false
+  click4 = false
+  click5 = false
+  click6 = false
+  click7 = false
+  click8 = false
+
+  winner = false
+  winnerMessage.innerHTML = ''
+  winnerBoard = ['', '', '', '', '', '', '', '', '']
+  squaresFilled = 0
+
+  message.style.display = 'block'
+})
