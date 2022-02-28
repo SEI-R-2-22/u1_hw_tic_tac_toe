@@ -133,9 +133,19 @@ const resetGameDefaults = () => {
   clearCells()
   clearNotifications()
 }
+
+/* Restores the initial game scores of 0 */
+const resetScores = () => {
+  xWinCount = 0
+  oWinCount = 0
+  xScoreSpan.innerText = xWinCount
+  oScoreSpan.innerText = oWinCount
+}
+
 // Attach click event listeners
 for (let i = 0; i < cells.length; i++) {
   cells[i].addEventListener('click', takeTurn)
 }
 
 restartGameButton.addEventListener('click', resetGameDefaults)
+resetScoresButton.addEventListener('click', resetScores)
