@@ -20,7 +20,6 @@ header {
 
 .board {
   display: grid;
-
   grid-template-columns: 22vh 22vh 22vh;
   grid-template-rows: 22vh 22vh 22vh;
   justify-content: center;

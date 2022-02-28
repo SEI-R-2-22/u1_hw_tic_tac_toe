@@ -9,7 +9,6 @@ const reset = document.querySelector("#reset");
 const clearScore = document.querySelector("#wipeScore");
 let xDisplay = document.querySelector("#xPoints");
 let oDisplay = document.querySelector("#oPoints");
-// let content = board[i].innerText;
 
 ////////////////////////////////
 // Functions For Game Logic Here
@@ -111,12 +110,10 @@ for (i = 0; i < board.length; i++) {
         case 5:
         case 7:
           ++turn;
-          // console.log(turn);
 
           whosTurn.innerText = "O goes!";
           content.innerText = "X";
           content.classList.add("x");
-          // content.disabled = true;
 
           checkWinner(board);
 
@@ -139,7 +136,6 @@ for (i = 0; i < board.length; i++) {
           whosTurn.innerText = "It's a draw!";
           content.innerText = "X";
           content.classList.add("x");
-          // content.disabled = true;
           checkWinner(board);
           break;
       }
