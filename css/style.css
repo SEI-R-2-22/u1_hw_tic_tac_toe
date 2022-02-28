@@ -1,1 +1,86 @@
+#main-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+#score-board {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 
+#score-board div {
+    padding: 4px;
+}
+
+.score-line {
+    background-color: black;
+    width: 5%;
+    height: 10rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    font-size: 7em;
+}
+
+#restart {
+    opacity: 0;
+}
+
+body {
+    text-align: center;
+}
+.square, .unused{
+    width: 30%;
+    height: 30%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#top-left {
+    border-right: 10px solid white;
+    border-bottom: 10px solid white;
+}
+
+#top-center{
+    border-bottom: 10px solid white;
+}
+#top-right {
+    border-left: 10px solid white;
+    border-bottom: 10px solid white;
+}
+
+#middle-left {
+    border-right: 10px solid white;
+}
+
+#middle-right {
+    border-left: 10px solid white;
+}
+
+#bottom-left {
+    border-top: 10px solid white;
+    border-right: 10px solid white;
+}
+
+#bottom-right {
+    border-top: 10px solid white;
+    border-left: 10px solid white;
+}
+
+#bottom-center {
+    border-top: 10px solid white;
+}
