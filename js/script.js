@@ -218,7 +218,7 @@ const randomPlay = () => {
         // if player win. change the banner message and make movecounter undefine.
         message.innerText = 'Player Two wins the Game'
         const winningNumber = winningSeq(playerTwoMoves)
-        addScoreBoard('AI')
+        addScoreBoard('AI Wins')
         for (let i = 0; i < winningNumber.length; i++) {
           gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
           activePlayer(gameBoxes[winningNumber[i]])
