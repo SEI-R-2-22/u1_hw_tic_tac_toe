@@ -1,5 +1,6 @@
 // Global Variables Here
 const board = document.querySelectorAll(".space"); //board becomes an array of the buttons
+const blanks = document.querySelectorAll(".blank");
 let turn = 1;
 let winner = 0;
 let xScore = 0;
@@ -13,6 +14,7 @@ let oDisplay = document.querySelector("#oPoints");
 ////////////////////////////////
 // Functions For Game Logic Here
 //my thoughts on this function are to check the equality of innerText within each of these Arrays.  No idea how i'd get that done yet
+
 const checkWinner = (array) => {
   let box1 = array[0];
   let box2 = array[1];
@@ -82,7 +84,6 @@ const checkWinner = (array) => {
       case 7:
         oScore += 1;
         oDisplay.innerText = `O: ${oScore}`;
-        console.log(oScore);
         break;
       case 2:
       case 4:
@@ -90,11 +91,14 @@ const checkWinner = (array) => {
       case 8:
         xScore += 1;
         xDisplay.innerText = `X: ${xScore}`;
-        console.log(xScore);
         break;
     }
   }
 };
+
+// const computerClick = (array) => {
+//   array[Math.floor(Math.random() * array.length)].click();
+// }; this doesnt really work.  i dont know why its inconsistent
 
 ////////////////////////////////
 // Event Listeners Here
@@ -114,8 +118,11 @@ for (i = 0; i < board.length; i++) {
           whosTurn.innerText = "O goes!";
           content.innerText = "X";
           content.classList.add("x");
+          content.classList.remove("blank");
 
           checkWinner(board);
+
+          // computerClick(blanks); doesn't really work
 
           break;
         case 2:
@@ -127,6 +134,7 @@ for (i = 0; i < board.length; i++) {
           whosTurn.innerText = "X goes!";
           content.innerText = "O";
           content.classList.add("o");
+          content.classList.remove("blank");
 
           checkWinner(board);
 
@@ -136,6 +144,7 @@ for (i = 0; i < board.length; i++) {
           whosTurn.innerText = "It's a draw!";
           content.innerText = "X";
           content.classList.add("x");
+          content.classList.remove("blank");
           checkWinner(board);
           break;
       }
@@ -154,6 +163,7 @@ reset.addEventListener("click", () => {
     turn = 1;
     content.classList.remove("x");
     content.classList.remove("o");
+    content.classList.add("blank");
     whosTurn.innerText = "X goes!";
     winner = 0;
   }
