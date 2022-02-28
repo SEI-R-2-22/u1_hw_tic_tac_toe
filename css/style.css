@@ -9,15 +9,12 @@ header {
   text-align: center;
 }
 
-/* button {
-   */
-
 .space {
   background-color: rgb(105, 81, 117);
   margin: 0.5vh;
   font-size: 20vh;
   color: darkcyan;
-  line-height: 15vh;
+  line-height: 210px;
   vertical-align: middle;
 }
 
@@ -27,7 +24,6 @@ header {
   grid-template-columns: 22vh 22vh 22vh;
   grid-template-rows: 22vh 22vh 22vh;
   justify-content: center;
-  /* vertical-align: center; */
 }
 
 #reset {
