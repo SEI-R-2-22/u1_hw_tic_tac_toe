@@ -57,7 +57,7 @@ function playerCount() {
   let pS = document.getElementById('playerSelection')
   pS.innerHTML =
     'Click to Choose Number of Players: ' +
-    (isTwoPlayer ? '1p v 2p' : '1p v Cpu')
+    (isTwoPlayer ? 'Human vs Human' : 'Human vs Machine')
 }
 
 function userCellSelection(spaceValue) {
@@ -201,8 +201,8 @@ function getBoardData() {
   let boardDict = []
 
   for (let i = 0; i < 9; i++) {
-    var key = i + 1
-    var boardVal = document.getElementsByClassName('space' + key)[0].innerHTML
+    let key = i + 1
+    let boardVal = document.getElementsByClassName('space' + key)[0].innerHTML
     //console.log('val: ' + boardVal)
     boardDict[key] = boardVal
   }
@@ -278,8 +278,8 @@ function findRandomEmptyCell() {
   let spaceValue = 0
   let emptyCells = []
   for (let i = 0; i < 9; i++) {
-    var key = i + 1
-    var boardVal = document.getElementsByClassName('space' + key)[0].innerHTML
+    let key = i + 1
+    let boardVal = document.getElementsByClassName('space' + key)[0].innerHTML
 
     if (boardVal === '') {
       // cell is empty

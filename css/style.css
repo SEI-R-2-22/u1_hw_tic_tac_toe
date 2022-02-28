@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Monofett&family=Neonderthaw&family=Short+Stack&display=swap');
+
+#gameHeader {
+  grid-column: span 6;
+  text-align: center;
+  color: #7f5539;
+  font-family: 'Monofett', cursive;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+/* #gameHeader.text-heading-defaullt {
+  font-family: 'Neonderthaw', cursive !important;
+  font-family: 'Short Stack', cursive !important;
+} */
+
+body {
+  background-color: rgba(255, 253, 208, 0.5);
+  background-image: url(https://i.etsystatic.com/13679384/r/il/44f807/3319015278/il_340x270.3319015278_6v3c.jpg);
+  font-family: 'Neonderthaw', cursive;
+  font-family: 'Short Stack', cursive;
+  color: #9c6644;
+}
 .space1 {
   grid-area: boardOne;
 }
@@ -40,19 +63,29 @@
     'boardOne boardTwo boardThree'
     'boardFour boardFive boardSix'
     'boardSeven boardEight boardNine';
-  gap: 10px;
-  background-color: #3c75a3;
-  padding: 10px;
+  gap: 5px;
+  background-color: #dd8623;
+  padding: 1px;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  vertical-align: middle;
+  justify-content: center;
+  clear: both;
+  border-right-style: solid;
 }
 
 .gameRight {
   grid-area: right;
+  background-color: rgba(0, 0, 0, 0);
 }
 .gameBottom {
   grid-area: bottom;
+  background-color: rgba(0, 0, 0, 0);
 }
 .gameScore {
   grid-area: scoreArea;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 10px;
 }
 
 .grid-container {
@@ -64,15 +97,21 @@
     'gameGrid gameGrid gameGrid right right right'
     'footerArea footerArea footerArea bottom bottom bottom';
   gap: 10px;
-  background-color: #2196f3;
+  /* background-image: url(https://i.pinimg.com/736x/e0/21/ac/e021acd0aca668961eddfc3051bdbd82.jpg); */
   padding: 10px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .grid-container > div {
-  background-color: #ffffffcc;
+  background-color: rgba(0, 0, 0, 0);
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
+  margin-bottom: auto;
   font-size: 30px;
+  vertical-align: middle;
+  justify-content: center;
+  clear: both;
+  border-right-style: solid;
 }
 
 .space1,
@@ -84,5 +123,21 @@
 .space7,
 .space8,
 .space9 {
-  color: rgb(0, 10, 7);
+  color: #ddb892;
 }
+
+/* #hideable {
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+#gameStart {
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px 150px;
+  vertical-align: middle;
+  justify-content: center;
+  clear: both;
+  border-right-style: solid;
+} */
