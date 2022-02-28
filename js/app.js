@@ -55,6 +55,8 @@ function checkCombo(boxes) {
     button3.innerHTML == 'X'
   ) {
     alert('Player 2 Wins!')
+    player = 3
+    endGame()
   } else if (
     button1.innerHTML == 'O' &&
     button2.innerHTML == 'O' &&
@@ -180,6 +182,27 @@ function test() {
     }
   }
 }
+
+function remove() {
+  buttons.removeAttribute('onclick')
+}
+
+function endGame() {
+  if (player === 3) {
+    document.getElementById('box1').removeAttribute('onclick')
+    document.getElementById('box2').removeAttribute('onclick')
+    document.getElementById('box3').removeAttribute('onclick')
+    document.getElementById('box4').removeAttribute('onclick')
+    document.getElementById('box5').removeAttribute('onclick')
+    document.getElementById('box6').removeAttribute('onclick')
+    document.getElementById('box7').removeAttribute('onclick')
+    document.getElementById('box8').removeAttribute('onclick')
+    document.getElementById('box9').removeAttribute('onclick')
+  }
+}
+
+// Finish adding player = 3 & endgame function to alerts
+
 //////////////
 // Event Listeners Here
 
