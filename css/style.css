@@ -1,16 +1,24 @@
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.everything {
   background-image: url(https://2.bp.blogspot.com/-cQDXA9p2fRg/V2mprPYKoHI/AAAAAAAABTc/vOQUZ0knmwEKg-0xxxIUNUFWXBkfqZAugCLcB/s1600/whiteboard.jpg);
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   font-family: 'Caveat', cursive;
   width: 100vw;
+  height: 100vh;
+  margin: 30px 15px;
 }
 
 .title {
   color: rgb(40, 77, 140);
   font-size: 70px;
 
-  margin: 30px 0 0 40px;
+  margin: 3% 0 0 3%;
 }
 
 .whiteboard {
@@ -23,14 +31,16 @@ h2 {
   font-size: 30px;
 }
 
-.reset-button {
-  margin: 200px;
+button {
+  font-family: 'Caveat', cursive;
+  margin: 5% 0 0 30%;
 }
 
 .board {
   display: grid;
   grid-template-columns: 125px 125px 125px;
   grid-template-rows: 125px 125px 125px;
+  margin: 3% 10% 0 0;
 }
 
 .square {
@@ -48,42 +58,74 @@ h2 {
 #a {
   /* border-style: solid;
   border-width: 2px; */
-  border-right: solid black 2px;
-  border-bottom: solid black 2px;
+  border-right: solid rgba(0, 0, 0, 0.475) 4px;
+  border-bottom: solid rgba(0, 0, 0, 0.475) 4px;
+  text-align: center;
+  line-height: 210px;
 }
 
 #b {
-  border-bottom: solid black 2px;
+  border-bottom: solid rgba(0, 0, 0, 0.475) 4px;
+  text-align: center;
+  line-height: 210px;
 }
 
 #c {
-  border-left: solid black 2px;
-  border-bottom: solid black 2px;
+  border-left: solid rgba(0, 0, 0, 0.475) 4px;
+  border-bottom: solid rgba(0, 0, 0, 0.475) 4px;
+  text-align: center;
+  line-height: 210px;
 }
 
 #d {
-  border-right: solid black 2px;
-  border-bottom: solid black 2px;
+  border-right: solid rgba(0, 0, 0, 0.475) 4px;
+  border-bottom: solid rgba(0, 0, 0, 0.475) 4px;
+  text-align: center;
+  line-height: 210px;
 }
 
 #e {
-  border-bottom: solid black 2px;
+  border-bottom: solid rgba(0, 0, 0, 0.475) 4px;
+  text-align: center;
+  line-height: 210px;
 }
 
 #f {
-  border-left: solid black 2px;
-  border-bottom: solid black 2px;
+  border-left: solid rgba(0, 0, 0, 0.475) 4px;
+  border-bottom: solid rgba(0, 0, 0, 0.475) 4px;
+  text-align: center;
+  line-height: 210px;
 }
 
 #g {
-  border-right: solid black 2px;
+  border-right: solid rgba(0, 0, 0, 0.475) 4px;
+  text-align: center;
+  line-height: 210px;
 }
 
 #h {
-  border-right: solid black 2px;
+  text-align: center;
+  line-height: 210px;
+}
+
+#i {
+  border-left: solid rgba(0, 0, 0, 0.475) 4px;
+  text-align: center;
+  line-height: 210px;
 }
 
 img {
   width: 100px;
   height: 100px;
+}
+
+.scoreBoard {
+  margin: 10% 0 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.winnerAnnouncement {
+  height: 100px;
+  margin: 0;
 }

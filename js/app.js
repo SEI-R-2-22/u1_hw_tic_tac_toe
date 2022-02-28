@@ -31,7 +31,7 @@ const ticTacToe = () => {
 
   let winnerAnnouncement = (winner) => {
     let announcement = document.querySelector('.winnerAnnouncement')
-    announcement.innerText = `${winner} has won!`
+    announcement.innerHTML = `${winner} has won!`
   }
 
   let catsGame = () => {
