@@ -1,13 +1,15 @@
 // Global Variables Here
-let players = ["X","O","X","O","X","O","X","O","X"];
+let players = ["X","O","X","O","X","O","X","O","X"]
 let gameBox = document.querySelector(".container");
-let boxes = [];
+let boxes = []
 let tCount = 0;
 let gameOver = false;
 let aiOn = false;
 let gStatus = document.querySelector('#player');
 gStatus.innerText = `It is ${players[0]}'s turn!`;
-// Functions For Game Logic Here
+
+
+//console.log(gameBox);
 let uBoxes = () =>{
     boxes = [];                                             // neeed to empty array in order to not keep adding more than 9 boxes
     for(let i = 1; i < 10; i++){
@@ -15,6 +17,13 @@ let uBoxes = () =>{
         boxes.push(box.innerText);
     }
 }
+
+// Functions For Game Logic Here
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 let aiPlay = () =>{
     let openIndex = [];
     let cBoxes = [];
@@ -22,6 +31,7 @@ let aiPlay = () =>{
         let box = document.querySelector("#box"+i);
         cBoxes.push(box.innerText);
     }
+
     for(let i = 0; i < cBoxes.length; i++){
         if(cBoxes[i] === ""){
             openIndex.push(i);
@@ -30,7 +40,12 @@ let aiPlay = () =>{
     let aiChoice = Math.floor(Math.random()*openIndex.length);// This give me a number between 0 and length of index
     let boxChoiceId = `#box${openIndex[aiChoice]+1}`;
     document.querySelector(boxChoiceId).innerText = players[tCount];
+    tCount++;
+    document.querySelector('#player').innerText = `It is ${players[tCount]}'s turn!`;
+    winTest();
+
 }
+
 // this is really a check if win condition
 let checkIfEmpty = (a,b,c) =>{
     if(a.length >0 && b.length > 0, c.length > 0){
@@ -39,6 +54,7 @@ let checkIfEmpty = (a,b,c) =>{
         return false;
     }
 }
+
 // if any of the boxes are empty then the game isnt over
 let tieTest = (gArray) =>{
     for(let i = 0; i < gArray.length; i++){
@@ -48,7 +64,7 @@ let tieTest = (gArray) =>{
     }
     return true;
 }
-//check if there is a winner after every turn
+
 let winTest = () =>{
     uBoxes();
     //Row win condition
@@ -68,7 +84,9 @@ let winTest = () =>{
             gameOver = true;
         }
     }
+
     //Column win condition
+
     else if (boxes[0] === boxes[3] && boxes[0] === boxes[6] ){
         if  (checkIfEmpty(boxes[0],boxes[3],boxes[6])){
             gStatus.innerText = `${boxes[0]} wins via left column`;
@@ -97,7 +115,7 @@ let winTest = () =>{
             gameOver = true;
         }
     }else if(!gameOver){
-    //Tie conditions
+        ///////////TIE CONDITIONS
         if(tieTest(boxes)){
             gStatus.innerText = "ITS A TIE!";
             gameOver = true;
@@ -114,16 +132,17 @@ async function gameStart (){
                     e.target.innerText = players[tCount];
                     console.log(e.target.id);
                     tCount++;
-                    winTest();
-                    if(aiOn && !gameOver){                       
-                        aiPlay();
-                        tCount++;
-                    }
+                    
                     if(players.length !== tCount){
                         document.querySelector('#player').innerText = `It is ${players[tCount]}'s turn!`;
                     }
+                    winTest();
+                    if(aiOn && !gameOver){
+                        setTimeout(aiPlay,500);
+                    }
+                    
                 }
-                winTest();
+                
     
             }
         };
