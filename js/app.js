@@ -1,4 +1,6 @@
+
 const statusDisplay = document.querySelector(".game-status");
+
 
 let gameActive = true
 let currentPlayer = "X"
@@ -10,6 +12,7 @@ const drawMessage = () =>
 `Game is a draw`
 const currentPlayerTurn = () =>
 `its ${currentPlayer} turn`
+
 
 statusDisplay.innerHTML = currentPlayerTurn()
 
@@ -24,6 +27,7 @@ const winningConditions = [
     [2, 4, 6]
 ]
 
+
 function chooseCellPlayed(clickedCell, clickedCellIndex) {
     gamePlay[clickedCellIndex] = currentPlayer
     clickedCell.innerHTML = currentPlayer
@@ -33,6 +37,7 @@ function choosePlayerChanged () {
     currentPlayer = currentPlayer === "X" ? "O" : "X"
     statusDisplay.innerHTML = currentPlayerTurn()
 }
+
 
 function chooseResultCheck() {
     let roundWon = false
@@ -56,6 +61,7 @@ if (roundWon) {
     gameActive = false;
     return;
 }
+
 
 let roundDraw = !gamePlay.includes("")
 if (roundDraw) {
