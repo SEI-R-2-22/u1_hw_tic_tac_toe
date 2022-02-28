@@ -12,13 +12,40 @@ body{
     margin: 0 auto; 
 }
 
-button{
-    margin-top: 20px;
-    opacity: 0;
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 h1{
     text-align: center;
+    display: inline;
+
+}
+
+.btn{
+    margin-top: 20px;
+    opacity: 0;
+}
+
+.game-area{
+    display: grid;
+    grid-template-rows: repeat(3, 3rem);
+    grid-template-columns: repeat(3, 3rem);
+    justify-self: center;
+    font-size: xx-large;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.main-stage{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
 }
 
 .message{
@@ -38,23 +65,6 @@ h1{
 	100% {
 		transform: scale(0.95);
 	}
-}
-
-.game-area{
-    display: grid;
-    grid-template-rows: repeat(3, 3rem);
-    grid-template-columns: repeat(3, 3rem);
-    justify-self: center;
-    font-size: xx-large;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.main-stage{
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
 }
 
 .result, h3{
