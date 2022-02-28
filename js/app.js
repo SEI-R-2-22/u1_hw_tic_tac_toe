@@ -38,7 +38,7 @@ let turn = 1
 let user1 = 'Player 1'
 let user2 = 'Computer'
 let gameMode = 1
-const delayInMilliseconds = 2000
+const delayInMilliseconds = 1000
 
 //Create board game as an array: 3x3
 let boardGame = Array(3).fill().map(() => Array(3))
@@ -237,7 +237,9 @@ const updateNotification = () => {
             notification.innerText = 'We have a tie'
         } else if (turn === 1){
             notification.innerText = "Your move, " + user1
-        } else {
+        } else if (turn === 2){
+            notification.innerText = "Your move, " + user2
+        }else {
             notification.innerText = "Let's play!"
         }  
     } else {
@@ -270,10 +272,10 @@ const generateAClick = () => {
 const computerMove = () => {
     let isBoardUpdated
             do {                
-                setTimeout(computer.lastClicked =generateAClick(), delayInMilliseconds)//Delay 1 second
+                computer.lastClicked = generateAClick()
                 console.log(computer.lastClicked + "computer")
                 if (isBoardUpdated = updateBoardGame(computer)) {                    
-                    setTimeout(updateHtml(computer), delayInMilliseconds)
+                    updateHtml(computer)
                     if (checkWinner(computer)) {
                         updateScore(computer)                         
                         updateNotification()
@@ -296,7 +298,8 @@ const playGame1P = (Element) => {
         return
     } else {
         if (isBoardEmpty && turn === 2) {
-            computerMove()
+            // computerMove()
+            setTimeout(computerMove, delayInMilliseconds)
         } else if (turn === 1){
             player1.lastClicked = parseInt(Element.dataset.location)
             console.log(player1.lastClicked + " player1")
@@ -318,7 +321,8 @@ const playGame1P = (Element) => {
             //Check if there is a win
             if (!(player1.isWiner || computer.isWiner || isTie) ) {
                 //Computer's move
-                computerMove()
+                // computerMove()
+                setTimeout(computerMove, delayInMilliseconds)
             }
         } 
     }
