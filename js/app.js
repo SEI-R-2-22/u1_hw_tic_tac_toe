@@ -64,12 +64,20 @@ const getIsGameTied = () => {
   return !getIsGameWon() && currentBoardState.every((spot) => spot !== '')
 }
 
+/* Increments the winner's score and then displays each player's score */
+const updateScores = () => {
+  currentPlayerToken === 'X' ? xWinCount++ : oWinCount++
+  xScoreSpan.innerText = xWinCount
+  oScoreSpan.innerText = oWinCount
+}
+
 /* Marks the game as over and displays the game result */
 const endGame = (victorious = true) => {
   isGameOver = true
   turnNotification.innerText = ''
   if (victorious) {
     gameStatusNotification.innerText = `Victory is yours, Player ${currentPlayerToken}!`
+    updateScores()
   } else {
     gameStatusNotification.innerText = "It's a tie!"
   }
