@@ -7,6 +7,10 @@ const resetButton = document.querySelector('.reset')
 let winnerDeclared = false
 let winnerBanner = document.querySelector('.game-winner-banner h1')
 let playCount = 0
+let xScore = 0
+let oScore = 0
+let tScore = 0
+
 ////////////////////////////////
 
 // Functions For Game Logic Here
@@ -26,6 +30,13 @@ let declareWinner = () => {
   activePlayerDisplay.style.opacity = 0
   winnerBanner.innerHTML = `${activePlayer} wins!`
   winnerBanner.style.opacity = 1
+  if (activePlayer === 'x') {
+    xScore += 1
+    document.querySelector('#x-score').innerHTML = xScore
+  } else {
+    oScore += 1
+    document.querySelector('#o-score').innerHTML = oScore
+  }
 }
 
 let declareTie = () => {
@@ -33,6 +44,8 @@ let declareTie = () => {
   activePlayerDisplay.style.opacity = 0
   winnerBanner.innerHTML = `Tie game!`
   winnerBanner.style.opacity = 1
+  tScore += 1
+  document.querySelector('#t-score').innerHTML = tScore
 }
 
 let checkWinner = () => {
@@ -91,7 +104,6 @@ let checkWinner = () => {
     declareWinner()
   } else {
     playCount += 1
-    console.log(gameSquares.length)
     if (playCount === gameSquares.length) {
       declareTie()
     }
