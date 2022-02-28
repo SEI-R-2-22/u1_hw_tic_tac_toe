@@ -13,6 +13,8 @@ body {
 
 h1 {
   color: #ceafce;
+  -webkit-text-stroke-width: 0.25px;
+  -webkit-text-stroke-color: #df7e9e;
   font-size: 50px;
   text-align: center;
   margin: 10px 0;
