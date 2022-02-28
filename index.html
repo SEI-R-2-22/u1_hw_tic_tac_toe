@@ -8,17 +8,28 @@
 </head>
 <body>
   <!-- Build your game board, instructions, and score displays here! -->
+  <h1>Hey! Ho!</h1>
+  <h1>Lets Tic Tac Toe</h1>
+    <div id="board">
+      <div data-index="1" class="box right-border bottom-border"></div>
+      <div data-index="2" class="box right-border bottom-border"></div>
+      <div data-index="3" class="box bottom-border"></div>
+      <div data-index="4" class="box right-border bottom-border"></div>
+      <div data-index="5" class="box right-border bottom-border"></div>
+      <div data-index="6" class="box bottom-border"></div>
+      <div data-index="7" class="box right-border"></div>
+      <div data-index="8" class="box right-border"></div>
+      <div data-index="9" class="box"></div>
+      <div id= "strike" class= "strike"></div>
+    </div>
+    <div id="turn-message" class="visible">
+      <h2 id="which-turn"></h2>
+    </div>
 
-
-
-
-
-
-
-
-
-  
-
+    <div id="game-over-area" class="hidden">
+      <h2 id="game-over-text">Winner is X</h2>
+      <button id="play-again">Play Again?</button>
+    </div>
   <!-- Build your game board, instructions, and score displays here! -->
   <script type="text/javascript" src="js/app.js"></script>
 </body>
