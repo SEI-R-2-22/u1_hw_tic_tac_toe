@@ -39,12 +39,11 @@ let aiPlay = () =>{
     }
     let aiChoice = Math.floor(Math.random()*openIndex.length);// This give me a number between 0 and length of index
     let boxChoiceId = `#box${openIndex[aiChoice]+1}`;
-    // console.log(boxChoiceId);
-    // console.log(`AI choice Array ${openIndex[aiChoice]}`);
-    // console.log(`Boxes Array ${cBoxes}`);
-    // console.log(`empty index Array ${openIndex}`);
-
     document.querySelector(boxChoiceId).innerText = players[tCount];
+    tCount++;
+    document.querySelector('#player').innerText = `It is ${players[tCount]}'s turn!`;
+    winTest();
+
 }
 
 // this is really a check if win condition
@@ -133,17 +132,17 @@ async function gameStart (){
                     e.target.innerText = players[tCount];
                     console.log(e.target.id);
                     tCount++;
-                    winTest();
-                    if(aiOn && !gameOver){
-                        //await sleep(1500);
-                        aiPlay();
-                        tCount++;
-                    }
+                    
                     if(players.length !== tCount){
                         document.querySelector('#player').innerText = `It is ${players[tCount]}'s turn!`;
                     }
+                    winTest();
+                    if(aiOn && !gameOver){
+                        setTimeout(aiPlay,500);
+                    }
+                    
                 }
-                winTest();
+                
     
             }
         };
@@ -168,47 +167,6 @@ async function gameStart (){
     })
 }
 gameStart();
-
-////////////////////////////////
-// Event Listeners Here
-// document.addEventListener('click',(e) =>{
-//     if(e.target.classList[0] === "pSquare"){
-//         if(!gameOver){
-//             if(e.target.innerText.length < 1){
-//                 e.target.innerText = players[tCount];
-//                 console.log(e.target.id);
-//                 tCount++;
-//                 winTest();
-//                 if(aiOn && !gameOver){
-//                     await sleep(1500);
-//                     aiPlay();
-//                     tCount++;
-//                 }
-//                 document.querySelector('#player').innerText = `It is ${players[tCount]}'s turn!`;
-//             }
-//             winTest();
-
-//         }
-//     };
-//     if(e.target.id === 'reset'){
-//         alert(`Game Is Being reset`);
-//         for(let i = 0; i < gameBox.children.length; i++){
-//            gameBox.children[i].innerText = "";
-//         }
-//         gStatus.innerText = `It is ${players[0]}'s turn!`;
-//         tCount = 0;
-//         gameOver = false;
-//     }
-//     if(e.target.id === 'aiToggle'){
-//         aiOn = !aiOn;
-//         if(aiOn){
-//             document.querySelector("#aiStatus").innerText = "AI is on";
-//         }else{
-//             document.querySelector("#aiStatus").innerText = "AI is off";
-//         }
-//     }
-
-// })
 
 ////////////////////////////////
 ////////////////////////////////
