@@ -45,10 +45,10 @@ const startGame = () => {
           playerOneMoves.push(gameBoxes[i].getAttribute('data-value'))
           //increment movecounter to indicate next player move
           moveCounter++
+          message.innerHTML = "Player Two's move"
           //check to see if player win or not.
           winner(playerOneMoves, 'Player1')
           //display the next players move
-          message.innerHTML = "Player Two's move"
 
           //Check to see if AI is selected, if it is, AI will play
           if (player2.innerHTML === 'AI' && moveCounter != undefined) {
@@ -63,8 +63,8 @@ const startGame = () => {
           playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
           moveCounter++
           //check to see if player win or not.
-          winner(playerTwoMoves, 'Player2')
           message.innerText = "Player One's Move"
+          winner(playerTwoMoves, 'Player2')
         }
       }
     })
@@ -133,9 +133,9 @@ const checkWinner = (playerMoves) => {
 const winner = (playerMove, player) => {
   if (checkWinner(playerMove)) {
     // if player win. change the banner message and make movecounter undefine.
-    message.innerText = 'Player Two wins the Game'
     const winningNumber = winningSeq(playerMove)
     addScoreBoard(player)
+    message.innerText = `${player} wins the Game`
     for (let i = 0; i < winningNumber.length; i++) {
       gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
       activeBox(gameBoxes[winningNumber[i]])
@@ -210,6 +210,7 @@ const randomPlay = () => {
       second = Math.floor(Math.random() * 5)
       player2.innerHTML = 'AI'
       clearInterval(timed)
+      message.innerHTML = "Player One's move"
       winner(playerTwoMoves, 'AI')
     }
   }, 1000)
