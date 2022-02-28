@@ -1,41 +1,52 @@
 h1 {
-    text-align: left;
-    color: purple;
     font-size: 50px;
-    font-weight: bold;
-    display: block;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: skyblue;
+  margin: 10px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-    .game {
+section {
+    text-align: center;
+}
+    .game-container {
     display: grid;
     grid-template-rows: repeat(4, 100px);
     grid-template-columns: repeat(3, 100px); 
     grid-gap: 1px; 
     justify-content: center;
-    align-content: center;
+    align-content: center; 
     
 }
 body {
-    margin: 0;
+     margin: 0;
     height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-image: url(https://media.istockphoto.com/vectors/futuristic-landscape-with-styled-laser-grid-neon-retrowave-vector-vector-id1159053244?k=20&m=1159053244&s=612x612&w=0&h=I8r8klqdZ5FGnolZn32wL3Am2Izr1pF-D2pQpFo5jYw=);
+     background-image: url(https://media.istockphoto.com/vectors/futuristic-landscape-with-styled-laser-grid-neon-retrowave-vector-vector-id1159053244?k=20&m=1159053244&s=612x612&w=0&h=I8r8klqdZ5FGnolZn32wL3Am2Izr1pF-D2pQpFo5jYw=);
     background-size: cover;
     text-align: center;
     color: blueviolet;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif; 
     
 }
 
 
 
-.square {
-    width: auto;
-    height: auto;
-    background-color: white;
-    border: 1px solid whitesmoke;
+.cell {
+ font-family: 'Times New Roman', Times, serif cursive;
+ width: 100px;
+ height: 100px;
+ box-shadow: 2px 3px 8px 6px purple;
+ cursor: pointer;
+ line-height: 100px;
+ font-size: 60px;
+
+
+}
+.game-status {
+    font-size: 45px;
+    color: skyblue;
+    margin: 20px auto;
+
 }
