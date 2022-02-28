@@ -119,7 +119,7 @@ const takeTurn = (e) => {
   swapCurrentPlayer()
 }
 
-/* Clears or resets the headings that display the current player's turn and game status */
+/* Updates the headings that display the current player's turn and game status */
 const clearNotifications = () => {
   turnNotification.innerText = 'Take your turn, Player X!'
   gameStatusNotification.innerText = ''
