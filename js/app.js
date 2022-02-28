@@ -2,11 +2,15 @@
 
 const tiles = document.querySelectorAll('.box')
 const gameBoard = Array.from(tiles)
-let moonMove = Array.from(document.getElementsByClassName('inactive'))
+let moonMove = Array.from(document.getElementsByClassName('inactive')) //available moves for computer
 let moon = Array.from(document.querySelectorAll('.moon'))
 let star = Array.from(document.querySelectorAll('.star'))
+
+//Empty arrays for moves to be inserted and compared to win condition
 let playerChoice = []
 let computerChoice = []
+let computerArr = []
+
 
 
 
@@ -38,6 +42,7 @@ const winCombo8 = [2, 4, 6].toString();
 ////////////////////////////////
 // Functions For Game Logic Here
 
+//Player Win Condition
 document.addEventListener('click', () => {
     console.log('click')
     for (let i = 0; i < playerChoice.length; i++) {
@@ -52,14 +57,13 @@ document.addEventListener('click', () => {
     }      
 })  
 
+//Computer Win Condition
 
 document.addEventListener('click', () => {
-    console.log('click')
-    for (let i = 0; i < playerChoice.length; i++) {
-        if (playerChoice.length > 2) {
-            console.log('yay')
-            let playerBoard = playerChoice.toString();
-            if (playerBoard.includes(winCombo1) || playerBoard.includes(winCombo2) || playerBoard.includes(winCombo3) || playerBoard.includes(winCombo4) || playerBoard.includes(winCombo5) || playerBoard.includes(winCombo6) || playerBoard.includes(winCombo7) || playerBoard.includes(winCombo8)) {
+    for (let i = 0; i < computerArr.length; i++) {
+        if (computerArr.length > 2) {
+            let computerBoard = computerArr.toString();
+            if (computerBoard.includes(winCombo1) || computerBoard.includes(winCombo2) || computerBoard.includes(winCombo3) || computerBoard.includes(winCombo4) || computerBoard.includes(winCombo5) || computerBoard.includes(winCombo6) || computerBoard.includes(winCombo7) || computerBoard.includes(winCombo8)) {
                 console.log('player win! Press ok to play again.')
                 alert('You win!')
                     window.location.reload();
@@ -70,26 +74,8 @@ document.addEventListener('click', () => {
 }) 
 
 
-////////////////////////////////
-// Event Listeners Here
 
-
-
-for (let i = 0; i < star.length; i++) {
-    star[i].addEventListener('click', () => {
-        tiles[i].classList.remove('inactive')
-        star[i].classList.add('player')
-        star[i].style.opacity = 1
-        playerChoice.push(i)
-        moon[i].classList.add('occupied')
-        moon[i].classList.remove('inactive')
-        console.log(playerChoice)
-        computerMove(); 
-        // console.log(playerChoice)
-    
-    })
-    
-}
+//Computer Move
 
 const computerMove = () => {
     const diceRoll = moonMove[Math.floor(Math.random() * moonMove.length)]
@@ -99,27 +85,61 @@ const computerMove = () => {
             reRoll.classList.add('computer')
             reRoll.classList.add('occupied')
             computerChoice.push(reRoll)
-            reRoll.style.opacity = 1 
-            console.log(computerChoice)  
+            reRoll.style.opacity = 1  
         } else {
             diceRoll.classList.remove('inactive')
             diceRoll.classList.add('computer')
             diceRoll.classList.add('occupied')
             computerChoice.push(diceRoll)
             diceRoll.style.opacity = 1
-            console.log(computerChoice)
+            // console.log(computerChoice)
         } 
 }
 
-const computerArr = document.getElementsByClassName('computer')
-const computerArr2 = []
 
 
-for (let i = 0; i < moon.length; i++) {
-    if (moon[i].classList.contains('computer')) {
-        console.log('yay')
+////////////////////////////////
+// Event Listeners Here
+
+
+
+let checkComputerConditions = () =>{
+    for (let i = 0; i < moon.length; i++) {
+        if (moon[i].classList.contains('computer')) { //push pieces marked computer into another array
+            computerArr.push(i)
+            console.log(computerArr)
+        }
     }
 }
+
+
+
+
+//Player Move
+for (let i = 0; i < star.length; i++) {
+    star[i].addEventListener('click', () => {
+        tiles[i].classList.remove('inactive') 
+        star[i].classList.add('player')
+        star[i].style.opacity = 1
+        playerChoice.push(i)
+        moon[i].classList.add('occupied') //attempts to prevent computer from picking it
+        moon[i].classList.remove('inactive') //alters class to remove it from available computer move array
+        console.log(playerChoice)
+        computerMove();
+        checkComputerConditions();
+    
+    
+    })
+    
+}
+
+
+
+//Draw Computer Board
+
+
+
+
 
 
 
