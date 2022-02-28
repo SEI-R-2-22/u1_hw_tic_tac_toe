@@ -124,7 +124,6 @@ const simpleAI = () => {
   }
 }
 const countDown = () => {
-  // let time = 10
   countDownTimer = setInterval(() => {
     time--
     startButton.innerText = 'Turn time: ' + time
@@ -157,7 +156,6 @@ for (let i = 0; i < button.length; i++) {
     }
     resetTimer()
     boxes--
-    // clearInterval(countDownTimer)
     winCheck()
     if (boxes >= 0 && winner === '') {
       countDown()

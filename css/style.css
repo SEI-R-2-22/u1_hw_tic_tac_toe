@@ -10,12 +10,13 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1.5fr 1fr;
   justify-content: center;
   height: 100vh;
   background-image: url('../Notebook.jpg');
   background-size: cover;
   background-position: fixed;
+  align-items: start;
 }
 
 header,
@@ -32,27 +33,19 @@ header,
   grid-column: 1 / -1;
 }
 header {
-  margin-top: 5vh;
-  /* margin-bottom: 3vh; */
-  font-size: 3.5vh;
+  margin-top: 3vh;
+  height: 4vh;
+  font-size: 4vh;
 }
 
-.game-info {
-  display: flex;
-  flex-flow: column-reverse;
-  justify-content: flex-end;
-}
 .rules {
-  font-size: 25px;
-  padding-left: 25px;
+  font-size: 3vh;
+  padding-left: 5vh;
+  margin: 5vh;
 }
 
-/* .rules h3 {
-  font-size: 30px;
-  justify-content: center;
-} */
 .turn {
-  font-size: 30px;
+  font-size: 5vh;
 }
 .wrapper {
   display: flex;
@@ -69,8 +62,7 @@ header {
 .score-card {
   display: grid;
   grid-template: 0.5fr 0.5fr 1fr / 1fr 1fr 1fr;
-  /* height: 25%; */
-  font-size: 30px;
+  font-size: 5vh;
   justify-items: center;
   align-items: start;
 }
@@ -103,15 +95,15 @@ header {
 .start {
   font-size: 3vh;
   padding: 2vh;
-  border: 3px solid black;
+  border: 0.3vh solid black;
   border-radius: 2vh;
   background: transparent;
   transition: 0.5s;
 }
 .reset {
-  font-size: 2.5vh;
-  padding: 2vh;
-  border: 3px solid black;
+  font-size: 2vh;
+  padding: 1.3vh;
+  border: 0.3vh solid black;
   border-radius: 2vh;
   background: transparent;
   transition: 0.5s;
