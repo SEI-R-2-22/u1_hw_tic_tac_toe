@@ -72,7 +72,7 @@ function build() {
       gridColor = 'blue'
       gridX = 'x'
     } else if (grid === -1) {
-      gridColor = 'pink'
+      gridColor = 'green'
       gridX = 'o'
     } else if (grid === null) {
       // gridColor = 'gray'
@@ -143,6 +143,7 @@ function select(e) {
 // }
 
 // Math.abs() returns the absolute value of a number: Reference from https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_abs
+// This seemed to be the most used process to find the winner in stack overflow as well
 function findWinner() {
   if (Math.abs(gridA[0] + gridA[1] + gridA[2]) === 3) return gridA[0]
   if (Math.abs(gridA[3] + gridA[4] + gridA[5]) === 3) return gridA[3]

@@ -35,18 +35,20 @@ body {
   flex-direction: column;
 }
 
-div.grid {
-  text-align: center;
-}
-
 div.board {
   display: grid;
+  opacity: 0.8;
   grid-template-rows: repeat(3, 100px);
   grid-template-columns: repeat(3, 100px);
-  background-color: #b2c7cb;
+  /* background-image: url(https://media.giphy.com/media/3o6ZsXFvNW9ZkHRW3m/giphy.gif); */
   color: white;
-  outline-width: thin;
+  /* outline-width: thin; */
   margin-top: 5px;
+}
+
+.grid {
+  text-align: center;
+  opacity: 1;
 }
 
 button.btn {
@@ -55,7 +57,7 @@ button.btn {
 }
 
 div {
-  border: 1px solid white;
+  border: 1px solid rgb(0, 0, 0);
   font-size: 75px;
   text-align: center;
   margin-bottom: -3px;
