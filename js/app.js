@@ -3,6 +3,13 @@ const cells = document.querySelectorAll('.board-game div')
 const player1Score = document.querySelector('.player1 .point')
 const player2Score = document.querySelector('.player2 .point')
 const tie = document.querySelector('.tie .point')
+const notification = document.querySelector('.notification')
+
+//ask for player  name
+const user1 = prompt('Name of player 1: ')
+document.querySelector('.player1 p').innerText = user1
+const user2 = prompt('Name of player 2: ')
+document.querySelector('.player2 p').innerText = user2
 
 //Construct the first player object
 const player1 = {
@@ -99,6 +106,7 @@ const clearBoard = () => {
     player2.lastClicked = 0
     isTie = false
     turn = 1
+    updateNotification()
     addEvents()
 }
 
@@ -180,6 +188,7 @@ const updateHtml = (player) => {
     cells[player.lastClicked - 1].innerText = player.sign
 }
 
+//When the board game is clicked, playGame() function will be activate, update the board game, check if the player win and update player's score
 const playGame = (Element) => {
     if (player1.isWiner || player2.isWiner || isTie) {
         return
@@ -190,13 +199,17 @@ const playGame = (Element) => {
             if (updateBoardGame(player1)) {                    
                 updateHtml(player1)
                 if (checkWinner(player1)) {
-                    updateScore(player1)                
+                    updateScore(player1) 
+                    updateNotification()               
                 } else if (isBoardFull()) {
                     updateTie()                 
+                    updateNotification()
                 }
                 turn = 2
+                updateNotification()
             } else if (isBoardFull()) {
                 updateTie()           
+                updateNotification()
             }            
         } else if (turn === 2) {
             player2.lastClicked = parseInt(Element.dataset.location)
@@ -205,16 +218,38 @@ const playGame = (Element) => {
                 updateHtml(player2)
                 if (checkWinner(player2)) {
                     updateScore(player2)                         
+                    updateNotification()
                 } else if (isBoardFull()) {
                     updateTie()                          
+                    updateNotification()
                 }
                 turn = 1
+                updateNotification()
             } else if (isBoardFull()) {
                 updateTie()                    
+                updateNotification()
             }
         }
     }
 }
+
+//announcement
+const updateNotification = () => {
+    if (player1.isWiner) {
+        notification.innerText = user1 + ' wins'
+    } else if (player2.isWiner) {
+        notification.innerText = user2 + ' wins'
+    } else if (isTie){
+        notification.innerText = 'We have a tie'
+    } else if (turn === 1){
+        notification.innerText = "Your move, " + user1
+    } else if (turn === 2) {
+        notification.innerText = "Your move, " + user2
+    } else {
+        notification.innerText = "Let's play!"
+    }
+}
+
 
 ////////////////////////////////
 // Event Listeners Here
@@ -230,6 +265,8 @@ const addEvents = () => {
 const playAgain = document.querySelector('.play-again button')
 playAgain.addEventListener('click', clearBoard)
 //Game starts from here
+updateNotification()
 addEvents()
+
 
 ////////////////////////////////

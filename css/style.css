@@ -25,7 +25,7 @@ h1 {
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
   width: 50%;
   height: 60%;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .cell {
@@ -35,7 +35,7 @@ h1 {
 
   border: 1px solid black;
   font-size: xx-large;
-  color: black;
+  color: white;
 }
 
 .panel {
@@ -69,4 +69,9 @@ h1 {
 
 .play-again {
   margin-bottom: 20px;
+}
+
+.notification {
+  color: white;
+  margin-top: 20px;
 }
