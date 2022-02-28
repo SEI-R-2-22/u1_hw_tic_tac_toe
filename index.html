@@ -19,15 +19,15 @@
   <!-- Build your game board, instructions, and score displays here! -->
 
 <div class="container">
-  <div id = "box1" class="box" onclick="changeTurn('box1')"></div>  <!-- onclick="doSomething();doSomethingElse();" -->
-  <div id = "box2" class="box" onclick="changeTurn('box2')"></div>
-  <div id = "box3" class="box" onclick="changeTurn('box3')"></div>
-  <div id = "box4" class="box" onclick="changeTurn('box4')"></div>
-  <div id = "box5" class="box" onclick="changeTurn('box5')"></div>
-  <div id = "box6" class="box" onclick="changeTurn('box6')"></div>
-  <div id = "box7" class="box" onclick="changeTurn('box7')"></div>
-  <div id = "box8" class="box" onclick="changeTurn('box8')"></div>
-  <div id = "box9" class="box" onclick="changeTurn('box9')"></div>
+  <div id = "box1" class="box" onclick="changeTurn('box1');checkCombo('box1')"></div>  
+  <div id = "box2" class="box" onclick="changeTurn('box2');checkCombo('box2')"></div>  
+  <div id = "box3" class="box" onclick="changeTurn('box3');checkCombo('box3')"></div>
+  <div id = "box4" class="box" onclick="changeTurn('box4');checkCombo('box4')"></div>
+  <div id = "box5" class="box" onclick="changeTurn('box5');checkCombo('box5')"></div>
+  <div id = "box6" class="box" onclick="changeTurn('box6');checkCombo('box6')"></div>
+  <div id = "box7" class="box" onclick="changeTurn('box7');checkCombo('box7')"></div>
+  <div id = "box8" class="box" onclick="changeTurn('box8');checkCombo('box8')"></div>
+  <div id = "box9" class="box" onclick="changeTurn('box9');checkCombo('box9')"></div>
 </div>
 
   <button class="btn" onclick="reload()">Reset</button>
