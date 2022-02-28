@@ -83,3 +83,7 @@ h1 {
 .reset {
   margin-bottom: 20px;
 }
+
+.colorred {
+  color: red;
+}

@@ -39,6 +39,7 @@ let user1 = 'Player 1'
 let user2 = 'Computer'
 let gameMode = 1
 const delayInMilliseconds = 1000
+let winLine = []
 
 //Create board game as an array: 3x3
 let boardGame = Array(3).fill().map(() => Array(3))
@@ -74,24 +75,32 @@ const checkWinner = (player) => {
     //check if player wins by row
     if (boardGame[0][0] === sign && boardGame[0][1] === sign && boardGame[0][2] === sign) {
         player.isWiner = true
+        winLine = [1,2,3]
     } else if (boardGame[1][0] === sign && boardGame[1][1] === sign && boardGame[1][2] === sign) {
         player.isWiner = true
+        winLine = [4,5,6]
     } else if (boardGame[2][0] === sign && boardGame[2][1] === sign && boardGame[2][2] === sign) {
         player.isWiner = true
+        winLine = [7,8,9]
     }
     //check if player wins by column
     if (boardGame[0][0] === sign && boardGame[1][0] === sign && boardGame[2][0] === sign) {
         player.isWiner = true
+        winLine = [1,4,7]
     } else if (boardGame[0][1] === sign && boardGame[1][1] === sign && boardGame[2][1] === sign) {
         player.isWiner = true
+        winLine = [2,5,8]
     } else if (boardGame[0][2] === sign && boardGame[1][2] === sign && boardGame[2][2] === sign) {
         player.isWiner = true
+        winLine = [3,6,9]
     }
     //check if player wins by diagonal line
     if (boardGame[0][0] === sign && boardGame[1][1] === sign && boardGame[2][2] === sign) {
         player.isWiner = true
+        winLine = [1,5,9]
     } else if (boardGame[0][2] === sign && boardGame[1][1] === sign && boardGame[2][0] === sign) {
         player.isWiner = true
+        winLine = [3,5,7]
     } 
     if (player.isWiner) {
         player.score++
@@ -99,7 +108,18 @@ const checkWinner = (player) => {
     console.log(player.isWiner)
     return player.isWiner
 }
-
+//The straight will be colorred with red
+const colorWinLine = () => {
+    for(let i = 0; i<winLine.length; i++){
+        cells[winLine[i] - 1].classList.toggle('colorred')
+    }
+}
+//Reset color of board game
+const removeColorOfBoard = () => {
+    for (let i =0; i<cells.length; i++) {
+        cells[i].classList.remove('colorred')
+    }
+}
 //Update score on score panel of player
 const updateScore = (player) => {
     if (turn === 1) {
@@ -133,6 +153,7 @@ const clearBoard = () => {
     computer.lastClicked = 0
     isTie = false
     updateNotification()
+    removeColorOfBoard()
 }
 
 //Update the board
@@ -279,6 +300,7 @@ const computerMove = () => {
                     if (checkWinner(computer)) {
                         updateScore(computer)                         
                         updateNotification()
+                        colorWinLine()
                     } else if (isBoardFull()) {
                         updateTie()                          
                         updateNotification()
@@ -307,7 +329,8 @@ const playGame1P = (Element) => {
                 updateHtml(player1)
                 if (checkWinner(player1)) {
                     updateScore(player1) 
-                    updateNotification()               
+                    updateNotification()
+                    colorWinLine()               
                 } else if (isBoardFull()) {
                     updateTie()                 
                     updateNotification()
@@ -340,7 +363,8 @@ const playGame2P = (Element) => {
                 updateHtml(player1)
                 if (checkWinner(player1)) {
                     updateScore(player1) 
-                    updateNotification()               
+                    updateNotification()
+                    colorWinLine()               
                 } else if (isBoardFull()) {
                     updateTie()                 
                     updateNotification()
@@ -359,6 +383,7 @@ const playGame2P = (Element) => {
                 if (checkWinner(player2)) {
                     updateScore(player2)                         
                     updateNotification()
+                    colorWinLine()
                 } else if (isBoardFull()) {
                     updateTie()                          
                     updateNotification()
