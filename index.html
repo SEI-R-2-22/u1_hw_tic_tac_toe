@@ -8,17 +8,31 @@
 </head>
 <body>
   <!-- Build your game board, instructions, and score displays here! -->
-
-
-
-
-
-
-
-
-
-  
-
+  <header>
+    <h1>Tic-Tac-Toe</h1>
+  </header>
+    <div class="main-stage">
+      <div class="game-area">
+        <div class="game-square" id="sq1" position="1" clicked="false"></div>
+        <div class="game-square" id="sq2" position="2" clicked="false"></div>
+        <div class="game-square" id="sq3" position="3" clicked="false"></div>
+        <div class="game-square" id="sq4" position="4" clicked="false"></div>
+        <div class="game-square" id="sq5" position="5" clicked="false"></div>
+        <div class="game-square" id="sq6" position="6" clicked="false"></div>
+        <div class="game-square" id="sq7" position="7" clicked="false"></div>
+        <div class="game-square" id="sq8" position="8" clicked="false"></div>
+        <div class="game-square" id="sq9" position="9" clicked="false"></div>
+      </div>
+      <div class="score-area">
+        <div class="result">
+          <h3 id="player1">Player 1: <h3 id="p1Score">0</h3></h3><br>
+          <h3 id="player2">Player 2: <h3 id="p2Score">0</h3></h3><br>
+          <h3 id="draw">Draw: <h3 id="drawScore">0</h3></h3><br><br>
+        </div>
+        <div class="message">Player 1 Starts</div>
+        <button class="btn">Play Again</button>
+      </div>
+    </div>
   <!-- Build your game board, instructions, and score displays here! -->
   <script type="text/javascript" src="js/app.js"></script>
 </body>
