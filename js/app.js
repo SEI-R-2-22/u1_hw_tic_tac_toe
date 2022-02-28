@@ -35,7 +35,7 @@ const ticTacToe = () => {
   }
 
   let catsGame = () => {
-    if (selectionArray.length === 0) {
+    if (selectionArray.length === 0 && !winner) {
       let announcement = document.querySelector('.winnerAnnouncement')
       announcement.innerText = 'Cats Game!'
     }
