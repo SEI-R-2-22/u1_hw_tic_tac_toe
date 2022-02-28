@@ -1,6 +1,9 @@
 // Global Variables Here
 const board = document.querySelectorAll(".space"); //board becomes an array of the buttons
 let turn = 1;
+let winner = 0;
+// let xScore = 0;
+// let oScore = 0;
 const firstRow = document.querySelectorAll("#firstRow");
 const secondRow = document.querySelectorAll("#secondRow");
 const thirdRow = document.querySelectorAll("#thirdRow");
@@ -10,6 +13,7 @@ const thirdColumn = document.querySelectorAll("#thirdColumn");
 const firstDiag = document.querySelectorAll("#firstDiag");
 const secondDiag = document.querySelectorAll("#secondDiag");
 const whosTurn = document.querySelector("h2");
+const reset = document.querySelector("#reset");
 // let content = board[i].innerText;
 
 ////////////////////////////////
@@ -25,98 +29,125 @@ const checkWinner = (array) => {
   let box7 = array[6];
   let box8 = array[7];
   let box9 = array[8];
-
   // console.log(box1);
   if (
-    (box1.innerText === box2.innerText && box3.innerText) ||
-    (box4.innerText === box5.innerText && box6.innerText) ||
-    (box7.innerText === box8.innerText && box9.innerText) ||
-    (box1.innerText === box4.innerText && box7.innerText) ||
-    (box2.innerText === box5.innerText && box8.innerText) ||
-    (box3.innerText === box6.innerText && box9.innerText) ||
-    (box1.innerText === box5.innerText && box9.innerText) ||
-    (box7.innerText === box5.innerText && box3.innerText)
+    (box1.classList.contains("x") &&
+      box2.classList.contains("x") &&
+      box3.classList.contains("x")) ||
+    (box4.classList.contains("x") &&
+      box5.classList.contains("x") &&
+      box6.classList.contains("x")) ||
+    (box7.classList.contains("x") &&
+      box8.classList.contains("x") &&
+      box9.classList.contains("x")) ||
+    (box1.classList.contains("x") &&
+      box4.classList.contains("x") &&
+      box7.classList.contains("x")) ||
+    (box2.classList.contains("x") &&
+      box5.classList.contains("x") &&
+      box8.classList.contains("x")) ||
+    (box3.classList.contains("x") &&
+      box6.classList.contains("x") &&
+      box9.classList.contains("x")) ||
+    (box1.classList.contains("x") &&
+      box5.classList.contains("x") &&
+      box9.classList.contains("x")) ||
+    (box7.classList.contains("x") &&
+      box5.classList.contains("x") &&
+      box3.classList.contains("x")) ||
+    (box1.classList.contains("o") &&
+      box2.classList.contains("o") &&
+      box3.classList.contains("o")) ||
+    (box4.classList.contains("o") &&
+      box5.classList.contains("o") &&
+      box6.classList.contains("o")) ||
+    (box7.classList.contains("o") &&
+      box8.classList.contains("o") &&
+      box9.classList.contains("o")) ||
+    (box1.classList.contains("o") &&
+      box4.classList.contains("o") &&
+      box7.classList.contains("o")) ||
+    (box2.classList.contains("o") &&
+      box5.classList.contains("o") &&
+      box8.classList.contains("o")) ||
+    (box3.classList.contains("o") &&
+      box6.classList.contains("o") &&
+      box9.classList.contains("o")) ||
+    (box1.classList.contains("o") &&
+      box5.classList.contains("o") &&
+      box9.classList.contains("o")) ||
+    (box7.classList.contains("o") &&
+      box5.classList.contains("o") &&
+      box3.classList.contains("o"))
   ) {
     whosTurn.innerText = "WINNER!";
+    winner = 1;
+    console.log(winner);
+    // for (i = 0; i < board.length; i++) {
+    //   board[i].disable = true;
+    // }
   }
+
+  //   winner === "yes";
+  // } else if ((turn = 9)) {
+  //   whosTurn.innerText = "It's a draw!";
+  // }
 };
-//clickButton will either add a class or do nothng
-// const clickButton = (turn) => {
-//   switch (turn) {
-//     case 1:
-//     case 3:
-//     case 5:
-//     case 7:
-//     case 9:
-//       content = "X";
-//   }
-// };
 
 ////////////////////////////////
 // Event Listeners Here
 
-//We're gonna loop through the array listening for clicks.  on clicks depending on turn (even vs. odd), change innerText. If space has a class of selectX or selectO already
+//We're gonna loop through the array listening for clicks.  on clicks depending on turn (even vs. odd), change innerText. if there's already text in clicked box we do nothing
 for (i = 0; i < board.length; i++) {
   const content = board[i];
   board[i].addEventListener("click", () => {
-    // if (content = 'X' || 'O') {
-    //    return;
-    // }
-    // else if (turn = 0) {
-    //     content = '0';
-    // }
-    // else {
-    //     content= 'X';
-    // }
-    // if ((content.innerText = "X" || "O")) {
-    //   console.log("already selected");
-    // } else {
-    // let stat = content.getAttribute("isClicked");
-    // console.log(stat);
-    if (content.innerText === "") {
+    if (content.innerText === "" && winner === 0) {
       switch (turn) {
         case 1:
         case 3:
         case 5:
         case 7:
-        case 9:
           ++turn;
-          // if ((content.innerText = "X" || "O")) {
-          // } else {
-          // stat = "yes";
+          // console.log(turn);
+
           whosTurn.innerText = "O goes!";
           content.innerText = "X";
-          // checkWinner(firstRow);
-          // }
-          // content.innerText = "X";
-          // turn += 1;
-          // // }
+          content.classList.add("x");
+          // content.disabled = true;
 
           checkWinner(board);
-          // console.log(content);
+
           break;
         case 2:
         case 4:
         case 6:
         case 8:
           ++turn;
-          // if ((content.innerText = "X" || "O")) {
-          // } else {
+          // console.log(turn);
+
           whosTurn.innerText = "X goes!";
           content.innerText = "O";
-          checkWinner(board);
-          // stat = "yes";
-          // }
+          content.classList.add("o");
 
-          // console.log(content);
+          // content.disabled = true;
+
+          checkWinner(board);
+
+          break;
+
+        case 9:
+          whosTurn.innerText = "It's a draw!";
+          content.innerText = "X";
+          content.classList.add("x");
+          // content.disabled = true;
+          checkWinner(board);
           break;
       }
+    } else if (winner === 1) {
+      console.log("already won!");
     } else {
       console.log("already clicked");
     }
-
-    // }
-    //   console.log(score);
   });
 }
-////////////////////////////////
+reset.addEventListener("click", () => location.reload());

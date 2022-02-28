@@ -7,14 +7,14 @@ header {
   text-align: center;
 }
 
-button {
-  font-size: 20vh;
-}
+/* button {
+   */
 
 .space {
   background-color: darkgreen;
   height: auto;
   margin: 1vh;
+  font-size: 20vh;
 }
 
 /* .selectX {
@@ -30,4 +30,10 @@ button {
   grid-template-columns: 27vh 27vh 27vh;
   grid-template-rows: 27vh 27vh 27vh;
   justify-content: center;
+}
+
+#reset {
+  height: 10vh;
+  width: 15vh;
+  font-size: 5vh;
 }
