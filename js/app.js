@@ -30,6 +30,7 @@ let oWinTotal = 0
 ////////////////////////////////
 // Functions For Game Logic Here
 
+// Activated when clicked the 'Resest Win Totals' button
 const resetWinTotals = () => {
   xWinTotal = 0
   drawTotal = 0
@@ -39,6 +40,7 @@ const resetWinTotals = () => {
   draws.innerText = drawTotal
 }
 
+// Activated when clicking the 'Play Again' button
 const resetBoard = () => {
   for (let i = 0; i < allSquares.length; i++) {
     allSquares[i].innerText = ''
