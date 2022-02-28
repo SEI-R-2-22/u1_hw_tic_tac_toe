@@ -10,9 +10,12 @@ let sSix = document.querySelector('#sq6')
 let sSev = document.querySelector('#sq7')
 let sEig = document.querySelector('#sq8')
 const allSqs = [sZer, sOne, sTwo, sThr, sFou, sFiv, sSix, sSev, sEig];
-const sqrClass = document.querySelector('.sqr')
+const resetB = document.querySelector('#reset')
 
-
+let player = 0;
+let xSqOwned = [];
+let oSqOwned = [];
+let winMessage = document.querySelector('#winMessage')
 
 const winCombo = [
     [0, 1, 2],
@@ -30,48 +33,116 @@ const winCombo = [
 ////////////////////////////////
 // Functions For Game Logic Here
 
+///FUNCTION TO RELOAD WITHOUT REFRESHING PAGE
+function reload() {
+    reload = location.reload();
+}
 
-//function to change players
-let chngPl = () => {
-    const X = 0 && 0 === X
-    const O = 1 && 1 === O
-    let player = X
-    if(player = 0){
-        1 = 'O'
-        0 = 'X'
-        player = player + 1;
-    }else if(player = 1 ) {
-        1 = 'O'
-        0 = 'X'
-        player = player - 1;
-    }else{
-        1 = 'O'
-        0 = 'X'
-        player = 0;
-        //default
+// function ind (index){
+//     allSqs[i].onclick = function () {
+//         alert(index)
+//     }
+// }
+
+// findBoxNum = () => {
+//     const index = indexOf(allSqs[i])
+// }
+
+///FUNCTION TO CHANGE PLAYERS
+changePl = () => {
+    if (player % 2 == 0){
+        player++;
+    }else if (player % 2 == 1){
+        player++;
+    }else {
+        player = null;
     }
 }
-const playGame = () => {
+
+///FUNCTION TO CHECK THE WINNER OF THE GAME
+const checkWinner = () => {
+    // for(let i = 0; i < 8; i++){
+    //     if(xSqOwned[i] === winCombo[i] && xSqOwned.length === 3){
+    //         alert('yoooo X')
+    //     }else if(oSqOwned[i] === winCombo[i] && oSqOwned.length === 3){
+    //         alert('yoooo O')
+    //     }
+    // }
     
+    
+
+
+    // for(let q = 0; q <= xSqOwned.length; q++){
+    //     for(let w = 0; w < 3; w++){
+    //         if($.inArray(xSqOwned[q], winCombo[w]) !== -1){
+    //             console.log(oSqOwned.length, xSqOwned.length)
+    //         }
+    //     }
+    // }
+    // for(let k = 0; k <= xSqOwned.length; k++){
+    //     for(let j = 0; j < 3; j++){
+    //         if($.inArray(xSqOwned[k], winCombo[j]) !== -1){
+    //             console.log('win')
+    //         }
+    //     }
+    // }
+    // for(let z = 0; z < winCombo.length; z++){
+    //     if (xSqOwned.indexOf(winCombo[z][0]) > -1
+    //     && xSqOwned.indexOf(winCombo[z][1]) > -1
+    //     && xSqOwned.indexOf(winCombo[z][2]) > -1) {
+    //         alert{' xwin'}
+    //         // x won!
+    //         break;
+    //     }else if (oSqOwned.indexOf(winCombo[z][0]) > -1
+    //     && oSqOwned.indexOf(winCombo[z][1]) > -1
+    //     && oSqOwned.indexOf(winCombo[z][2]) > -1) {
+    //         alert{'o win'}
+    //         // o won!
+    //         break;
+    //     } 
+    // }
+    
+    // if(xSqOwned[i] == winCombo === true){
+    //     winMessage.innerText = '"X" has Won!!'
+    //     alert('Winner!')
+    // }else if(oSqOwned == winCombo === true){
+    //     winMessage.innerText = '"O" has Won!!'
+    //     alert('Winner!')
+    // } //else {
+    //     winMessage.innerText = `Cat's Game!`
+    //     alert('Tie!')
+    // }
 }
 
 ////////////////////////////////
 // Event Listeners Here
-const sayHello =() => {
-    alert("Button Clicked")
-}
 
+/////SETS UP EVENT LISTENERS FOR THE BOARD AND LISTENS FOR SPECIFIC SQUARE
+//CLICKS, THEN STYLES THE INNERTXT TO APPROPRAITE PLAYERS CHOICE, THEN
+//CALL CHANGE PLAYER FUNCTION, THEN REMOVE THE EVENT LISTENER
 
-
-
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 9; i++) {
     allSqs[i].addEventListener('click', () =>{
-        //if(player = )
+        if (player % 2 === 0){
+            allSqs[i].innerText = 'X' 
+            
+            changePl()
+            
+        }else if (player % 2 === 1){
+            allSqs[i].innerText = 'O'
+            
+            changePl()
+            
+        };
+        const index
         
-        allSqs[i].innerText = player 
-        
+            
     })
+    
 }
+
+//EVENT LISTENER TO THE RESET BUTTION 
+resetB.addEventListener('click',reload, false);
 
 
 

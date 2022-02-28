@@ -1,20 +1,16 @@
-article{
-    text-align: center;
-}
 
 .btnO, .btn {
     display: flex;
     flex-direction: row;
     font-size: 5px;
     margin-bottom: -80%;
-    
-    
 }
 
 img{
     width: 100%;
     filter: opacity(30%)
 }
+
 .game{
     display: flex;
     flex-direction: column;
@@ -26,12 +22,21 @@ img{
     align-content: center;
     justify-content: center;
     background-color: rgb(94, 93, 93);
-    padding: 12em 7em 2em 7em;
+    padding: 7em;
+    background-image: url("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg");
+    margin-left: 25%;
+    margin-right: 25%;
 }
-.score_board {
-    display: flex;
+
+.score{
+    display: block;
+    text-align: center;
     width: 100%;
-}
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(175, 172, 172);
+    background-image: url("https://eus-www.sway-cdn.com/s/lS9lnvgYelIJHUrK/images/csweH7hj74FsUq?quality=960&allowAnimation=false");
+    background-image: gray-scale(50%);
+}   
 
 .sqr {
     display: flex;
@@ -43,12 +48,6 @@ img{
     background-color: white;
     flex-wrap: wrap;
     
+    
 }
-.a {
-    display: flex;
-    flex-direction: row;
-    font-size: 4em;
-    padding-left: 30px;
-    justify-items: center;
-    align-items: center;
-}
+
