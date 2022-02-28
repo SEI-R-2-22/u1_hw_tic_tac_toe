@@ -55,6 +55,7 @@ main {
 
 aside {
   background-color: lightpink;
+  text-align: center;
 }
 
 #display-turn,
@@ -73,6 +74,15 @@ section {
   padding: 40px 0 0 0;
 }
 
-button {
+.grid {
   font-size: 40px;
+}
+
+#restart {
+  font-family: 'Fredoka', sans-serif;
+  color: whitesmoke;
+  background-color: lightpink;
+  font-size: 20px;
+  border: 2px solid white;
+  padding: 10px;
 }

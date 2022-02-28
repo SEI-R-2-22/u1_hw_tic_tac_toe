@@ -1,3 +1,4 @@
+// const runGame = () => {}
 // Global Variables Here
 
 let xPlayer = 'X'
@@ -6,17 +7,17 @@ let xScore = 0
 let oPlayer = 'O'
 let oScore = 0
 
-let totalMoves = 0
 let currentTurn = 0
-let drawScore = 0
+let scoreCounter = 0
 
 const displayTurn = document.querySelector('#display-turn')
 const displayWinner = document.querySelector('#display-winner')
 const xDisplay = document.querySelector('#x')
 const oDisplay = document.querySelector('#o')
 const drawDisplay = document.querySelector('#draw')
+const restart = document.querySelector('#restart')
 
-const nodeList = document.querySelectorAll('button')
+const nodeList = document.querySelectorAll('.grid')
 const buttonArray = Array.from(nodeList)
 const nullArray = [null, null, null, null, null, null, null, null, null]
 
@@ -84,6 +85,9 @@ const gameWinner = (player, score) => {
   displayWinner.innerText = `Player ${player} Wins!`
   score++
   player === 'X' ? (xDisplay.innerText = score) : (oDisplay.innerText = score)
+  nodeList.forEach((elem) => {
+    elem.disabled = true
+  })
 }
 
 ////////////////////////////////
@@ -91,35 +95,38 @@ const gameWinner = (player, score) => {
 
 // Can I remove an event listener from a callback function?
 
+const gameLogic = (i) => {
+  if (currentTurn % 2 === 0) {
+    displayTurn.innerText = 'Player One'
+    nodeList[i].append('X')
+    nullArray[i] = 'X'
+    buttonArray[i] = 'X'
+    console.log(buttonArray)
+    nodeList[i].disabled = true
+    gameOutcomes(xPlayer, xScore)
+  } else if (currentTurn % 2 !== 0) {
+    displayTurn.innerText = 'Player Two'
+    nodeList[i].append('O')
+    nullArray[i] = 'O'
+    buttonArray[i] = 'O'
+    nodeList[i].disabled = true
+    gameOutcomes(oPlayer, oScore)
+  }
+  currentTurn++
+}
+
 for (let i = 0; i < buttonArray.length; i++) {
   buttonArray[i].addEventListener('click', () => {
-    if (currentTurn % 2 === 0) {
-      displayTurn.innerText = 'Player One'
-      nodeList[i].append('X')
-      nullArray[i] = 'X'
-      buttonArray[i] = 'X'
-      console.log(buttonArray)
-      nodeList[i].disabled = true
-      gameOutcomes(xPlayer, xScore)
-      // gameWinner(xPlayer, xScore)
-      // xScore++
-      // xDisplay.innerText = `${xScore}`
-    } else if (currentTurn % 2 !== 0) {
-      displayTurn.innerText = 'Player Two'
-      nodeList[i].append('O')
-      nullArray[i] = 'O'
-      buttonArray[i] = 'O'
-      nodeList[i].disabled = true
-      gameOutcomes(oPlayer, oScore)
-      // gameWinner(oPlayer, oScore)
-      // oDisplay.innerText = `${oScore}`
-    }
-    currentTurn++
+    gameLogic(i)
   })
 }
 
-// if (totalMoves < 9) {
-//   totalMoves++
-// } else {
-//   drawDisplay.innerText = "It's a tie!"
-// }
+for (let i = 0; i < buttonArray.length; i++) {
+  restart.addEventListener('click', () => {
+    nodeList[i].innerText = ''
+    nodeList[i].disabled = false
+    buttonArray = Array.from(nodeList[i])
+    nullArray[i] = 'null'
+    displayWinner.innerText = ''
+  })
+}
