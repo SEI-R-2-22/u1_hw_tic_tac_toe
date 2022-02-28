@@ -6,6 +6,8 @@ const turnNotification = document.getElementById('turn-heading')
 const gameStatusNotification = document.getElementById('game-status-heading')
 const restartGameButton = document.getElementById('restart-game-btn')
 // Global variables that describe the initial game state
+let xWinCount = 0
+let oWinCount = 0
 let isGameOver = false
 let currentPlayerToken = 'X'
 // Stores a representation of the initial state of the gameboard: an array of 9 empty string elements
