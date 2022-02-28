@@ -10,6 +10,7 @@ let playCount = 0
 let xScore = 0
 let oScore = 0
 let tScore = 0
+let availableSquares = []
 
 ////////////////////////////////
 
@@ -46,6 +47,23 @@ let declareTie = () => {
   winnerBanner.style.opacity = 1
   tScore += 1
   document.querySelector('#t-score').innerHTML = tScore
+}
+
+let botDoesPlay = () => {
+  if (activePlayer === 'o') {
+    availableSquares = []
+    for (let i = 0; i < gameSquares.length; i++) {
+      if (gameSquares[i].innerHTML === '') {
+        availableSquares.push(gameSquares[i])
+      }
+    }
+    let choice =
+      availableSquares[Math.floor(Math.random() * availableSquares.length)]
+    choice.innerHTML = 'o'
+    checkWinner()
+    activePlayerDisplay.innerHTML = 'The active player is X'
+    activePlayer = 'x'
+  }
 }
 
 let checkWinner = () => {
@@ -113,20 +131,25 @@ let checkWinner = () => {
 ////////////////////////////////
 // Event Listeners Here
 for (let i = 0; i < gameSquares.length; i++) {
-  //gameSquaresCount += 1
   gameSquares[i].addEventListener('click', () => {
     if (winnerDeclared === false) {
       if (activePlayer === 'x' && gameSquares[i].innerHTML === '') {
         gameSquares[i].innerHTML = 'x'
         checkWinner()
-        activePlayerDisplay.innerHTML = 'The active player is O'
-        activePlayer = 'o'
-      } else if (activePlayer === 'o' && gameSquares[i].innerHTML === '') {
-        gameSquares[i].innerHTML = 'o'
-        checkWinner()
-        activePlayerDisplay.innerHTML = 'The active player is X'
-        activePlayer = 'x'
+        if (winnerDeclared !== true) {
+          activePlayerDisplay.innerHTML = 'The active player is O'
+          activePlayer = 'o'
+          botDoesPlay()
+        }
       }
+
+      //human player 2 logic
+      // else if (activePlayer === 'o' && gameSquares[i].innerHTML === '') {
+      //   gameSquares[i].innerHTML = 'o'
+      //   checkWinner()
+      //   activePlayerDisplay.innerHTML = 'The active player is X'
+      //   activePlayer = 'x'
+      // }
     }
   })
 }
