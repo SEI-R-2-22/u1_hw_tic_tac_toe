@@ -60,7 +60,9 @@ document.addEventListener('click', () => {
             console.log('yay')
             let playerBoard = playerChoice.toString();
             if (playerBoard.includes(winCombo1) || playerBoard.includes(winCombo2) || playerBoard.includes(winCombo3) || playerBoard.includes(winCombo4) || playerBoard.includes(winCombo5) || playerBoard.includes(winCombo6) || playerBoard.includes(winCombo7) || playerBoard.includes(winCombo8)) {
-                console.log('player win')
+                console.log('player win! Press ok to play again.')
+                alert('You win!')
+                    window.location.reload();
             }
         
         } 
@@ -82,7 +84,7 @@ for (let i = 0; i < star.length; i++) {
         moon[i].classList.add('occupied')
         moon[i].classList.remove('inactive')
         console.log(playerChoice)
-        computerMove();
+        computerMove(); 
         // console.log(playerChoice)
     
     })
@@ -96,27 +98,40 @@ const computerMove = () => {
             reRoll.classList.remove('inactive')
             reRoll.classList.add('computer')
             reRoll.classList.add('occupied')
-            computerChoice.push('computer picked' + computerChoice)
-            // console.log(reRoll)
-            reRoll.style.opacity = 1
-            
+            computerChoice.push(reRoll)
+            reRoll.style.opacity = 1 
+            console.log(computerChoice)  
         } else {
             diceRoll.classList.remove('inactive')
             diceRoll.classList.add('computer')
             diceRoll.classList.add('occupied')
             computerChoice.push(diceRoll)
-            console.log('computer picked' + computerChoice)
             diceRoll.style.opacity = 1
-        }
-     
-    
+            console.log(computerChoice)
+        } 
+}
+
+const computerArr = document.getElementsByClassName('computer')
+const computerArr2 = []
+
+
+for (let i = 0; i < moon.length; i++) {
+    if (moon[i].classList.contains('computer')) {
+        console.log('yay')
     }
+}
+
+
+
     
 
 
 
 
 
+// BUGS:
+// 1. Computer won't stop picking player occupied spots
+// 2. Game end messages display 3 times for some reason
 
 
 
