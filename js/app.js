@@ -36,7 +36,7 @@ const computer = {
 let isTie = false
 let turn = 1
 let user1 = 'Player 1'
-let user2 = 'Player 2'
+let user2 = 'Computer'
 let gameMode = 1
 const delayInMilliseconds = 2000
 
@@ -46,12 +46,13 @@ let boardGame = Array(3).fill().map(() => Array(3))
 //ask for player name
 const askUserName = (gameMode) => {
     if (gameMode === 1) {
-        const user1 = prompt('Name of player 1: ')
+        user1 = prompt('Name of player 1: ')
         document.querySelector('.player1 p').innerText = user1
+        user2 = 'Computer'
     } else {
-        const user1 = prompt('Name of player 1: ')
+        user1 = prompt('Name of player 1: ')
         document.querySelector('.player1 p').innerText = user1
-        const user2 = prompt('Name of player 2: ')
+        user2 = prompt('Name of player 2: ')
         document.querySelector('.player2 p').innerText = user2
     }
 }
@@ -416,6 +417,6 @@ gameModeButton.addEventListener('click', () => {
 
 //Game starts from here
 addEvents()
-
+askUserName(gameMode)
 
 ////////////////////////////////
