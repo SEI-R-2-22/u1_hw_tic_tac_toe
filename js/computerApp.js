@@ -1,5 +1,5 @@
 // Global Variables Here
-//console.log('Human player')
+console.log('Comp player')
 let turnX = 1
 let firstTurn = 1
 let totalTurns = 0
@@ -29,20 +29,10 @@ let oWinTotal = 0
 const computerButtonText = document.querySelector('#btn3')
 const computerHeadingText = document.querySelector('#opponent')
 let computerOpponent = -1
+let computerPick = 0
 
 ////////////////////////////////
 // Functions For Game Logic Here
-
-// const computerPlayerText = () => {
-//   computerOpponent *= -1
-//   if (computerOpponent < 0) {
-//     computerButtonText.innerText = 'Play against Human'
-//     computerHeadingText.innerText = 'Human vs Computer'
-//   } else {
-//     computerButtonText.innerText = 'Play against Computer'
-//     computerHeadingText.innerText = 'Human vs Human'
-//   }
-// }
 
 const resetWinTotals = () => {
   xWinTotal = 0
@@ -132,6 +122,7 @@ btn2.addEventListener('click', () => {
 //   computerPlayerText()
 // })
 
+resetBoard()
 for (let i = 0; i < allSquares.length; i++) {
   allSquares[i].addEventListener('click', function () {
     //User either clicks and empty square or a full square
@@ -152,6 +143,19 @@ for (let i = 0; i < allSquares.length; i++) {
       turnX *= -1
       turnText.innerText = turnX > 0 ? 'X' : 'O'
       totalTurns++
+
+      for (let j = 0; j < allSquares.length; i++) {
+        if (allSquares[j].innerText !== '') {
+          squareNums.push(j)
+        }
+      }
+
+      computerPick = squareNums[0]
+      console.log(computerPick)
+      // while (squareNums.includes(computerPick)) {
+      //   computerPick = Math.random() * 9
+      //   console.log(computerPick)
+      // }
     }
 
     // Check for a winner only when possible (5 turns in)

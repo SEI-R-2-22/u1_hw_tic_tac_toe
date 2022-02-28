@@ -17,6 +17,14 @@ body {
   background-image: url('spacebkgd.jpg');
 }
 
+@media (max-width: 600px) {
+  body {
+    grid-template-columns: 2fr 75px 75px 75px 2fr;
+    grid-template-rows: 2fr 30px 75px 75px 75px 1fr;
+    grid-gap: 2px;
+  }
+}
+
 nav {
   display: flex;
   flex-direction: row;
@@ -86,11 +94,9 @@ footer {
 }
 
 #turn {
-  align-self: center;
   opacity: 1;
   background-color: none;
   font-family: 'Rock Salt', Helvetica;
-  padding-left: 10%;
 }
 
 #right {
@@ -100,10 +106,23 @@ footer {
   align-items: flex-start;
 }
 
-section {
+@media (max-width: 600px) {
+  #left,
+  #right,
+  #blank {
+    font-size: 10px;
+  }
+}
+
+#right-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 75px 50px 50px;
+}
+
+#left-grid {
+  display: flex;
+  flex-direction: column;
 }
 
 p {
@@ -117,4 +136,19 @@ p {
   font-size: 2em;
   width: 100%;
   text-align: center;
+}
+
+#opponentComp {
+  font-size: larger;
+}
+
+button {
+  padding: 5px;
+  margin: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
