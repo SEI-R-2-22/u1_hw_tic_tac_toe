@@ -5,10 +5,16 @@ const player2 = document.querySelector('#player2')
 const playAgain = document.querySelector('#againText')
 const gameBoxes = document.querySelectorAll('.gamebox')
 const scoreList = document.querySelector('#scoreList')
+const sound = new Audio('../sound/beep.wav')
+const bigO = new Audio('../sound/O.wav')
+const bigX = new Audio('../sound/X.wav')
+const winSound = new Audio('../sound/winner.wav')
+const drawSound = new Audio('../sound/draw.wav')
 
 //selection btw player 2 or AI
 let ai = 0
 player2.addEventListener('click', () => {
+  sound.play()
   if (ai % 2 === 0) {
     player2.innerHTML = 'Player2'
     player2.style.backgroundColor = 'white'
@@ -44,6 +50,7 @@ const startGame = () => {
           gameBoxes[i].style.backgroundColor = '#ffe4e6'
           //keep track of the box that was clicked.
           playerOneMoves.push(gameBoxes[i].getAttribute('data-value'))
+          bigO.play()
           //increment movecounter to indicate next player move
           moveCounter++
           //display the next players move
@@ -60,6 +67,7 @@ const startGame = () => {
           gameBoxes[i].style.backgroundColor = '#dbeafe'
           //keep track of the box that was clicked.
           playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
+          bigX.play()
           moveCounter++
           //check to see if player win or not.
           message.innerText = "Player One's Move"
@@ -135,6 +143,7 @@ const winner = (playerMove, player) => {
     // if player win. change the banner message and make movecounter undefine.
     const winningNumber = winningSeq(playerMove)
     addScoreBoard(player)
+    winSound.play()
     message.innerText = `${player} wins the Game`
     for (let i = 0; i < winningNumber.length; i++) {
       gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
@@ -145,6 +154,7 @@ const winner = (playerMove, player) => {
   } else if (moveCounter === 9) {
     // if movecounter === 9 the game is a draw.
     message.innerText = 'DRAW GAME'
+    drawSound.play()
     moveCounter = undefined
     addScoreBoard('Draw Game')
     return
@@ -207,6 +217,7 @@ const randomPlay = () => {
     player2.innerHTML = `AI time ${second}`
     if (second <= 0) {
       makeMove('X')
+      bigX.play()
       second = Math.floor(Math.random() * 5)
       player2.innerHTML = 'AI'
       clearInterval(timed)
