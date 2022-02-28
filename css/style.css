@@ -8,6 +8,7 @@
 body {
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 #container {
@@ -155,10 +156,12 @@ main {
 }
 
 #x {
+  color: white;
   animation: bigX 5s infinite;
 }
 
 #o {
+  color: white;
   animation: bigO 5s infinite;
 }
 
@@ -229,7 +232,7 @@ main {
   align-items: center;
 
   height: 20vh;
-  font-size: 8rem;
+  font-size: 5rem;
   border: 1px dotted red;
 }
 
@@ -259,8 +262,8 @@ main {
   background-color: goldenrod;
 }
 
-@media screen and (min-height: 50vh) {
+/* @media screen and (min-height: 40vh) {
   #gameboard div {
     font-size: 5rem;
   }
-}
+} */

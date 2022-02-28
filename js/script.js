@@ -50,7 +50,7 @@ const startGame = () => {
             // if player win. change the banner message and make movecounter undefine.
             message.innerText = 'Player One Wins the Game'
             const winningNumber = winningSeq(playerOneMoves)
-            addScoreBoard('player1')
+            addScoreBoard('Player 1 Wins')
             for (let i = 0; i < winningNumber.length; i++) {
               gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
               activePlayer(gameBoxes[winningNumber[i]])
@@ -60,6 +60,7 @@ const startGame = () => {
           } else if (moveCounter === 9) {
             // if movecounter === 9 the game is a draw.
             message.innerText = 'DRAW GAME'
+            addScoreBoard('Draw Game')
             return
           }
           //display the next players move
@@ -82,7 +83,7 @@ const startGame = () => {
             // if player win. change the banner message and make movecounter undefine.
             message.innerText = 'Player Two wins the Game'
             const winningNumber = winningSeq(playerTwoMoves)
-            addScoreBoard('player2')
+            addScoreBoard('Player 2 Wins')
             for (let i = 0; i < winningNumber.length; i++) {
               gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
               activePlayer(gameBoxes[winningNumber[i]])
@@ -92,6 +93,7 @@ const startGame = () => {
           } else if (moveCounter === 9) {
             // if movecounter === 9 the game is a draw.
             message.innerText = 'DRAW GAME'
+            addScoreBoard('Draw Game')
             return
           }
           message.innerText = "Player One's Move"
@@ -193,22 +195,23 @@ const activePlayer = (player) => {
   player.classList.add('shake')
 }
 
+//list out score on the screen
 const addScoreBoard = (player) => {
   const li = document.createElement('li')
-  li.innerText = `${player} win`
+  li.innerText = player
   scoreList.appendChild(li)
 }
 
 //introduce AI placing the game as 2nd player.
 const randomPlay = () => {
-  let second = 5
+  let second = Math.floor(Math.random() * 5)
 
   const timed = setInterval(() => {
     second -= 1
     player2.innerHTML = `AI time ${second}`
     if (second <= 0) {
       makeMove('X')
-      second = 5
+      second = Math.floor(Math.random() * 5)
       player2.innerHTML = 'AI'
       clearInterval(timed)
       if (checkWinner(playerTwoMoves)) {
@@ -225,6 +228,7 @@ const randomPlay = () => {
       } else if (moveCounter === 9) {
         // if movecounter === 9 the game is a draw.
         message.innerText = 'DRAW GAME'
+        addScoreBoard('Draw Game')
         return
       }
     }
