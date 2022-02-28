@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tic-Tac-Toe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -43,22 +46,20 @@
 
   <div id="score-container">
     <div id="score-board">
-      <div>
+      <div id="res">
         <h3 id="who-won">
         </h3>
         <button id="restart">Play Again?</button>
       </div>
-      <div>
+      <div class="heading">
         <h3>X:</h3>
       </div>
+      <div class="heading"><h3>O:</h3></div>
+      <div class="heading"><h3>D:</h3></div>
       <div>
         <h3 class="x-score">0</h3>
       </div>
-      <div class="score-line"></div>
-      <div><h3>O:</h3></div>
       <div><h3 class="o-score">0</h3></div>
-      <div class="score-line"></div>
-      <div><h3>D:</h3></div>
       <div><h3 class="d-score">0</h3></div>
       
     </div>

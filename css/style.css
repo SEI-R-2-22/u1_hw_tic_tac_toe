@@ -1,11 +1,37 @@
+body {
+    background-image: url(https://i.imgur.com/xQYTcsL.png);
+    background-color: #ECECEC;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h1 { 
+    color: #FFC300;
+    margin-top: -5px;
+    margin-bottom: 100px;
+}
+h3 {
+    color: #FFC300;
+}
+
 #main-container {
     display: flex;
     justify-content: space-evenly;
+    align-items: flex-end;
 }
 #score-board {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#res {
+    grid-column: 1/span 3;
+    border: 0.5em solid #5463FF;
+    border-radius: 10%;
+    padding: 1em;
+    margin: 1em;
+}
+.heading {
+border-bottom: 0.25em solid #5463FF;
 }
 
 #score-board div {
@@ -13,7 +39,7 @@
 }
 
 .score-line {
-    background-color: black;
+    background-color: #5463FF;
     width: 5%;
     height: 10rem;
 }
@@ -30,13 +56,12 @@
 
 h2 {
     text-align: center;
-    color: white;
+    color: #FF1818;
     font-size: 7em;
-}
+    font-family: 'Caveat Brush', cursive;}
 
 #restart {
-    opacity: 0;
-}
+    opacity: 0; }
 
 body {
     text-align: center;
@@ -44,43 +69,51 @@ body {
 .square, .unused{
     width: 30%;
     height: 30%;
-    background-color: black;
+    background-color: #ECECEC;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #top-left {
-    border-right: 10px solid white;
-    border-bottom: 10px solid white;
+    border-right: 10px solid #5463FF;
+    border-bottom: 10px solid #5463FF;
+    border-radius: 3%;
 }
 
 #top-center{
-    border-bottom: 10px solid white;
+    border-bottom: 10px solid #5463FF;
+    border-radius: 3%;
 }
 #top-right {
-    border-left: 10px solid white;
-    border-bottom: 10px solid white;
+    border-left: 10px solid #5463FF;
+    border-bottom: 10px solid #5463FF;
+    border-radius: 3%;
 }
 
 #middle-left {
-    border-right: 10px solid white;
+    border-right: 10px solid #5463FF;
+    border-radius: 3%;
 }
 
 #middle-right {
-    border-left: 10px solid white;
+    border-left: 10px solid #5463FF;
+    border-radius: 3%;
 }
 
 #bottom-left {
-    border-top: 10px solid white;
-    border-right: 10px solid white;
+    border-top: 10px solid #5463FF;
+    border-right: 10px solid #5463FF;
+    border-radius: 3%;
 }
 
 #bottom-right {
-    border-top: 10px solid white;
-    border-left: 10px solid white;
+    border-top: 10px solid #5463FF;
+    border-left: 10px solid #5463FF;
+    border-radius: 3%;
 }
 
 #bottom-center {
-    border-top: 10px solid white;
+    border-top: 10px solid #5463FF;
+    border-radius: 3%;
 }
