@@ -13,17 +13,17 @@
 ////////////////////////////////
 // Global Variables Here
 let player
-let goFirst
+let goFirst = -1
 let board
 let count = 0
-let x = 0
-let o = 0
-let d = 0
-let winner
-const reset
-const x
-const o
-
+let xWin = 0
+let oWin = 0
+let dWin = 0
+let winner = false
+const playAnother = document.getElementById('playAnother')
+const X = document.getElementById('xScore')
+const O = document.getElementById('oScore')
+const D = document.getElementById('dScore')
 ////////////////////////////////
 // Functions For Game Logic Here
 

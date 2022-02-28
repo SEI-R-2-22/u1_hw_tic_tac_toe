@@ -27,7 +27,8 @@ section.octothorp {
     display: grid;
     grid-template-columns: repeat(3, 125px);
     grid-template-rows: repeat(3, 125px);
-    grid-gap: 0;
+    grid-gap: 5px;
+    margin-top: 50px;
 }
 
 #cll0 {
@@ -71,4 +72,47 @@ section.octothorp {
 #cll8 {
     border-top: 10px solid #dc143c;
     border-left: 10px solid #dc143c;
+}
+
+.scoreBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+}
+
+#scoreTally {
+    display: grid;
+    grid-template-columns: repeat(3, 25px);
+    grid-template-rows: repeat(2, 25px);
+    width: 20px;
+    font-size: 12px;
+}
+
+#X {
+    color: #FF0000;
+    font-size: 18px;
+    border-bottom: solid 4px #FF4500;
+    border-right: solid 4px #FF4500;
+}
+
+#O {
+    color: #800080;
+    font-size: 18px;
+    border-bottom: solid 4px #FF4500;
+    border-right: solid 4px #FF4500;
+}
+
+#D {
+    color: #DB7093;
+    font-size: 18px;
+    border-bottom: solid 4px #FF4500;
+    border-right: solid 4px #FF4500;
+}
+
+button {
+    background-color: #000080;
+    color: #FF4500;
+    font-family: fantasy;
 }
