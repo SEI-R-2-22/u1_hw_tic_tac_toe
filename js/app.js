@@ -11,16 +11,16 @@ const button9 = document.querySelector('#box9')
 const buttons = document.querySelectorAll('.box')
 const currentTurn = document.querySelector('.turn')
 
-const winningCombo = [
-  [1, 2, 3],
-  [1, 5, 9],
-  [1, 4, 7],
-  [2, 5, 8],
-  [3, 6, 9],
-  [4, 5, 6],
-  [7, 8, 9],
-  [7, 5, 3]
-]
+// const winningCombo = [
+//   [1, 2, 3],
+//   [1, 5, 9],
+//   [1, 4, 7],
+//   [2, 5, 8],
+//   [3, 6, 9],
+//   [4, 5, 6],
+//   [7, 8, 9],
+//   [7, 5, 3]
+// ]
 
 ////////////////////////////////
 // Functions For Game Logic Here
@@ -152,9 +152,34 @@ function checkCombo(boxes) {
     button3.innerHTML == 'O'
   ) {
     alert('Player 1 Wins!')
+  } else {
+    checkDraw()
   }
 }
 
+function checkDraw() {
+  if (
+    (button1.innerHTML === 'X' || button1.innerHTML === 'O') &&
+    (button2.innerHTML === 'X' || button2.innerHTML === 'O') &&
+    (button3.innerHTML === 'X' || button3.innerHTML === 'O') &&
+    (button4.innerHTML === 'X' || button4.innerHTML === 'O') &&
+    (button5.innerHTML === 'X' || button5.innerHTML === 'O') &&
+    (button6.innerHTML === 'X' || button6.innerHTML === 'O') &&
+    (button7.innerHTML === 'X' || button7.innerHTML === 'O') &&
+    (button8.innerHTML === 'X' || button8.innerHTML === 'O') &&
+    (button9.innerHTML === 'X' || button9.innerHTML === 'O')
+  ) {
+    alert('Draw! Nobody Won.')
+  }
+}
+
+function test() {
+  for (let i = 0; i < buttons.length; i++) {
+    if (buttons[i].removeAttribute('onclick') == true) {
+      alert('Draw! nobody won!')
+    }
+  }
+}
 //////////////
 // Event Listeners Here
 
