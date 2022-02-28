@@ -2,8 +2,8 @@
 const board = document.querySelectorAll(".space"); //board becomes an array of the buttons
 let turn = 1;
 let winner = 0;
-// let xScore = 0;
-// let oScore = 0;
+let xScore = 0;
+let oScore = 0;
 const firstRow = document.querySelectorAll("#firstRow");
 const secondRow = document.querySelectorAll("#secondRow");
 const thirdRow = document.querySelectorAll("#thirdRow");
@@ -14,6 +14,9 @@ const firstDiag = document.querySelectorAll("#firstDiag");
 const secondDiag = document.querySelectorAll("#secondDiag");
 const whosTurn = document.querySelector("h2");
 const reset = document.querySelector("#reset");
+const clearScore = document.querySelector("#wipeScore");
+let xDisplay = document.querySelector("#xPoints");
+let oDisplay = document.querySelector("#oPoints");
 // let content = board[i].innerText;
 
 ////////////////////////////////
@@ -82,12 +85,29 @@ const checkWinner = (array) => {
   ) {
     whosTurn.innerText = "WINNER!";
     winner = 1;
-    // console.log(winner);
-    // for (i = 0; i < board.length; i++) {
-    //   board[i].disable = true;
-    // }
+    switch (turn) {
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+        oScore += 1;
+        oDisplay.innerText = `O: ${oScore}`;
+        console.log(oScore);
+        break;
+      case 2:
+      case 4:
+      case 6:
+      case 8:
+        xScore += 1;
+        xDisplay.innerText = `X: ${xScore}`;
+        console.log(xScore);
+        break;
+      // console.log(winner);
+      // for (i = 0; i < board.length; i++) {
+      //   board[i].disable = true;
+      // }
+    }
   }
-
   //   winner === "yes";
   // } else if ((turn = 9)) {
   //   whosTurn.innerText = "It's a draw!";
@@ -167,3 +187,10 @@ reset.addEventListener(
   }
   // location.reload()
 );
+
+clearScore.addEventListener("click", () => {
+  oScore = 0;
+  xScore = 0;
+  oDisplay.innerText = `O: ${oScore}`;
+  xDisplay.innerText = `X: ${xScore}`;
+});

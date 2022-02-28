@@ -35,5 +35,16 @@ header {
 #reset {
   height: 10vh;
   width: 15vh;
-  font-size: 5vh;
+  font-size: 3vh;
+}
+
+.score {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+#wipeScore {
+  height: 10vh;
+  width: 15vh;
+  font-size: 3vh;
 }
