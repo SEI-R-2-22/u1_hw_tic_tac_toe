@@ -46,23 +46,7 @@ const startGame = () => {
           //increment movecounter to indicate next player move
           moveCounter++
           //check to see if player win or not.
-          if (checkWinner(playerOneMoves)) {
-            // if player win. change the banner message and make movecounter undefine.
-            message.innerText = 'Player One Wins the Game'
-            const winningNumber = winningSeq(playerOneMoves)
-            addScoreBoard('Player 1 Wins')
-            for (let i = 0; i < winningNumber.length; i++) {
-              gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
-              activePlayer(gameBoxes[winningNumber[i]])
-            }
-            moveCounter = undefined
-            return
-          } else if (moveCounter === 9) {
-            // if movecounter === 9 the game is a draw.
-            message.innerText = 'DRAW GAME'
-            addScoreBoard('Draw Game')
-            return
-          }
+          winner(playerOneMoves, 'Player1')
           //display the next players move
           message.innerHTML = "Player Two's move"
 
@@ -79,23 +63,7 @@ const startGame = () => {
           playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
           moveCounter++
           //check to see if player win or not.
-          if (checkWinner(playerTwoMoves)) {
-            // if player win. change the banner message and make movecounter undefine.
-            message.innerText = 'Player Two wins the Game'
-            const winningNumber = winningSeq(playerTwoMoves)
-            addScoreBoard('Player 2 Wins')
-            for (let i = 0; i < winningNumber.length; i++) {
-              gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
-              activePlayer(gameBoxes[winningNumber[i]])
-            }
-            moveCounter = undefined
-            return
-          } else if (moveCounter === 9) {
-            // if movecounter === 9 the game is a draw.
-            message.innerText = 'DRAW GAME'
-            addScoreBoard('Draw Game')
-            return
-          }
+          winner(playerTwoMoves, 'Player2')
           message.innerText = "Player One's Move"
         }
       }
@@ -161,6 +129,26 @@ const checkWinner = (playerMoves) => {
   }
 }
 
+const winner = (playerMove, player) => {
+  if (checkWinner(playerMove)) {
+    // if player win. change the banner message and make movecounter undefine.
+    message.innerText = 'Player Two wins the Game'
+    const winningNumber = winningSeq(playerMove)
+    addScoreBoard(player)
+    for (let i = 0; i < winningNumber.length; i++) {
+      gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
+      activePlayer(gameBoxes[winningNumber[i]])
+    }
+    moveCounter = undefined
+    return
+  } else if (moveCounter === 9) {
+    // if movecounter === 9 the game is a draw.
+    message.innerText = 'DRAW GAME'
+    addScoreBoard('Draw Game')
+    return
+  }
+}
+
 const winningSeq = (playerMoves) => {
   const winSeq = [
     ['1', '2', '0'],
@@ -198,7 +186,11 @@ const activePlayer = (player) => {
 //list out score on the screen
 const addScoreBoard = (player) => {
   const li = document.createElement('li')
-  li.innerText = player
+  if (player !== 'Draw Game') {
+    li.innerText = `${player} Wins`
+  } else {
+    li.innerText = 'Draw Game'
+  }
   scoreList.appendChild(li)
 }
 
@@ -218,7 +210,7 @@ const randomPlay = () => {
         // if player win. change the banner message and make movecounter undefine.
         message.innerText = 'Player Two wins the Game'
         const winningNumber = winningSeq(playerTwoMoves)
-        addScoreBoard('AI Wins')
+        addScoreBoard('AI')
         for (let i = 0; i < winningNumber.length; i++) {
           gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
           activePlayer(gameBoxes[winningNumber[i]])
