@@ -98,7 +98,8 @@ const checkWinner = (array) => {
 
 // const computerClick = (array) => {
 //   array[Math.floor(Math.random() * array.length)].click();
-// }; this doesnt really work.  i dont know why its inconsistent
+// };
+// //  this doesnt really work.  i dont know why its inconsistent
 
 ////////////////////////////////
 // Event Listeners Here
@@ -122,7 +123,7 @@ for (i = 0; i < board.length; i++) {
 
           checkWinner(board);
 
-          // computerClick(blanks); doesn't really work
+          // computerClick(blanks);
 
           break;
         case 2:
@@ -163,7 +164,10 @@ reset.addEventListener("click", () => {
     turn = 1;
     content.classList.remove("x");
     content.classList.remove("o");
-    content.classList.add("blank");
+    if (content.classList.contains("blank")) {
+    } else {
+      content.classList.add("blank");
+    }
     whosTurn.innerText = "X goes!";
     winner = 0;
   }
