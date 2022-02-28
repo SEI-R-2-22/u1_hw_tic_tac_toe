@@ -15,7 +15,8 @@ body {
     border-radius: 25px;
     height: 500px;
     width: 500px;
-    background-color: gray;
+    background-color: black;
+    
     
     position: absolute;
     top:0;
@@ -29,6 +30,7 @@ body {
 }
 
 .box {
+    display: grid;
     background-color:darkslategray;
     margin: 5px;
     border-radius: 25px;
