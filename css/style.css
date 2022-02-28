@@ -1,0 +1,94 @@
+
+body {
+    /* text-align: center; */
+}
+
+button {
+    height: 4em;
+    width: 8em;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* .grid.x, .grid.o {
+    cursor: not-allowed;
+} */
+
+.column1 {
+    height: 30em;
+    width: 10em;
+    /* position: absolute; */
+    display: flex;
+    /* justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center; */
+    border: 1px solid blue;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    cursor: pointer;
+
+    float: left;
+    width: 50%;
+}
+
+.column2 {
+    float: right;
+    width: 50%;
+    text-align: center;
+}
+
+#d1 {
+    border: 10px solid black;
+    border-top: none;
+    border-left: none;
+}
+
+#d2 {
+    border: 10px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#d3 {
+    border: 10px solid black;
+    border-right: none;
+    border-top: none;
+}
+
+#d4 {
+    border: 10px solid black;
+    border-top: none;
+    border-left: none;
+}
+
+#d5 {
+    border-bottom: 10px solid black;
+}
+
+#d6 {
+    border: 10px solid black;
+    border-top: none;
+    border-right: none;
+}
+
+#d7 {
+    border-right: 10px solid black;
+}
+
+#d8 {
+    /* border: 1px solid black;
+    border-top: none;
+    border-bottom: none; */
+}
+
+#d9 {
+    border-left: 10px solid black;
+    /* border-top: none;
+    border-right: none;
+    border-bottom: none;*/
+}
