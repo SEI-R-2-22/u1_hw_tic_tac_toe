@@ -155,6 +155,7 @@ for (let i = 0; i < button.length; i++) {
       whoTurn.innerText = 'Xs turn'
     }
     resetTimer()
+    startButton.innerText = 'Turn time: ' + time
     boxes--
     winCheck()
     if (boxes >= 0 && winner === '') {
