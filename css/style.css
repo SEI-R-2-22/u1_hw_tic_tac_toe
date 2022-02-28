@@ -14,6 +14,11 @@ body {
   margin: 30px 15px;
 }
 
+ul {
+  list-style: none;
+  display: flex;
+}
+
 .title {
   color: rgb(40, 77, 140);
   font-size: 7vw;
@@ -40,7 +45,7 @@ button {
   display: grid;
   grid-template-columns: 12.5vw 12.5vw 12.5vw;
   grid-template-rows: 12.5vw 12.5vw 12.5vw;
-  margin: 3vw 10vw 0 0;
+  margin: 3vw 3vw 0 0;
 }
 
 .square {
@@ -128,4 +133,26 @@ img {
 .winnerAnnouncement {
   height: 10vw;
   margin: 0;
+}
+
+.tallied img {
+  height: 3vw;
+  width: 3vw;
+}
+
+#scoreTitle {
+  margin: 2vw 0 0 0vw;
+  padding: 0;
+  border-bottom: solid rgb(40, 77, 140) 3px;
+  text-align: center;
+}
+
+#scoreX {
+  margin: 0;
+  padding: 0;
+}
+
+#scoreO {
+  margin: 0;
+  padding: 0;
 }
