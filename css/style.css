@@ -1,1 +1,125 @@
+body {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Whiteboard_with_markers.jpg/800px-Whiteboard_with_markers.jpg?20140228194649") no-repeat; */
+}
 
+h1 {
+    text-align: center;
+}
+
+.score-board {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    background-color: aqua;
+    width: 400px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+}
+
+.score-title {
+    grid-column: 2;
+    font-size: 20pt;
+}
+.x {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: 20px;
+}
+.o {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 20px;
+}
+.tie {
+    grid-column: 3;
+    grid-row: 2;
+    font-size: 20px;
+}
+
+.x-score {
+    grid-column: 1;
+    grid-row: 3
+}
+
+.o-score {
+    grid-column: 2;
+    grid-row: 3
+}
+.tie-score {
+    grid-column: 3;
+    grid-row: 3
+}
+
+#message {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.game-board {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    height: 500px;
+    width: 500px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    color: aliceblue;
+    font-size: 100pt;
+}
+
+.square {
+    background-color: black;
+    border: 2px solid white;
+}
+
+.tl {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.tm {
+    grid-column: 2;
+    grid-row: 1;
+}
+.tr {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.ml {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.mm {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.mr {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.bl {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.bm {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.br {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.replay {
+
+}
