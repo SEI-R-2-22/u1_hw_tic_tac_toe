@@ -1,1 +1,140 @@
+body {
+    background-image: url('https://cognitech.com/wp-content/uploads/2016/08/Background-Blue-fade.png');
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
+header {
+    text-align: center;
+    font-size: 30px;
+    height: 50px;
+    margin-bottom: 20px;
+    color: darkslategray;
+    font-family: 'Alfa Slab One', cursive;
+    text-shadow: 3px 3px black;
+}
+
+h4 {
+    margin: 0 0 -35px 0;
+    font-size: 30px;
+    color: darkslategrey;
+}
+
+table, th, td {
+    border: 4px outset gray;
+    width: 200px;
+    height: 372px;
+    border-radius: 8%;
+  }
+
+.grid {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px 0 0 0;
+    font-size: 50px;
+    color: darkslategray;
+    font-family: 'Alfa Slab One', cursive;
+    text-shadow: 2px 2px black;
+}
+
+.grid>* {
+    flex: 1 1 100px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 450px;
+    height: 0px;
+    text-align: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 150px;
+    justify-content: center;
+}
+
+#one {
+    border-bottom: 5px solid gray;
+    border-right: 3px solid gray;
+    border-radius: 10%;
+}
+
+#two {
+    border-bottom: 5px solid gray;
+    border-right: 3px solid gray;
+    border-radius: 10%;
+}
+
+#three {
+    border-bottom: 5px solid gray;
+    border-radius: 10%;
+}
+
+#four {
+    border-bottom: 5px solid gray;
+    border-right: 3px solid gray;
+    border-radius: 10%;
+}
+
+#five {
+    border-bottom: 5px solid gray;
+    border-right: 3px solid gray;
+    border-radius: 10%;
+}
+
+#six {
+    border-bottom: 5px solid gray;
+    border-radius: 10%;
+}
+
+#seven {
+    border-right: 3px solid gray;
+    border-radius: 10%;
+}
+
+#eight {
+    border-right: 3px solid gray;
+    border-radius: 10%;
+}
+
+#turn {
+    margin: 0 0 0 75px;
+    text-align: center;
+    justify-content: center;
+}
+
+#wholegrid {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.Reset {
+  align-items: center;
+  background-color: darkgray;
+  border-radius: 4px;
+  border-width: 1px solid gray;
+  box-shadow: black inset;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+}
+
+.Reset:hover {
+  box-shadow: 0 1px 1px 1px grey;
+  transform: translateY(-2px);
+}
+
+.Reset:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
