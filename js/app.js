@@ -31,6 +31,8 @@ let oWins = 0
 
 const scoreMessage = document.querySelector('#score')
 
+let compPlaying = false
+
 //Set up board
 board.style.gap = GAP_SIZE
 board.style.width = BOARD_SIZE
@@ -133,19 +135,43 @@ const checkWinner = () => {
 const engGame = () => {
   gameGoing = false
   if (turn % 2 === 1) {
+    //if (compPlaying) {
     turnMessage.innerText = "O's win!"
     oWins++
     updateScore()
+    // } else {
+    //   turnMessage.innerText = "X's win!"
+    //   xWins++
+    //   updateScore()
+    // }
   } else {
+    //if (compPlaying) {
     turnMessage.innerText = "X's win!"
     xWins++
     updateScore()
+    // } else {
+    //   turnMessage.innerText = "O's win!"
+    //   oWins++
+    //   updateScore()
+    // }
   }
 }
 
 const updateScore = () => {
   scoreMessage.innerText =
     'X wins: ' + xWins.toString() + '\nO wins: ' + oWins.toString()
+}
+
+const computerMove = (letter) => {
+  sleep(2000)
+  let emptySquares = []
+  for (let i = 0; i < squares.length; i++) {
+    if (squares[i].innerText === '') {
+      emptySquares.push(squares[i])
+    }
+  }
+  const choice = Math.floor(Math.random() * emptySquares.length)
+  emptySquares[choice].innerText = letter
 }
 ////////////////////////////////
 // Event Listeners Here
@@ -160,11 +186,27 @@ for (let i = 0; i < squares.length; i++) {
           turn++
           turnMessage.innerText = "O's turn"
           checkWinner()
+          if (gameGoing) {
+            if (compPlaying) {
+              computerMove('O')
+              turn++
+              turnMessage.innerText = "X's turn"
+              checkWinner()
+            }
+          }
         } else {
           squares[i].innerText = 'O'
           turn++
           turnMessage.innerText = "X's turn"
           checkWinner()
+          if (gameGoing) {
+            if (compPlaying) {
+              computerMove('X')
+              turn++
+              turnMessage.innerText = "O's turn"
+              checkWinner()
+            }
+          }
         }
       }
     }
@@ -172,7 +214,7 @@ for (let i = 0; i < squares.length; i++) {
 }
 
 // Reset button function
-document.querySelector('button').addEventListener('click', () => {
+document.querySelector('#reset').addEventListener('click', () => {
   for (let i = 0; i < squares.length; i++) {
     squares[i].innerText = ''
   }
@@ -185,5 +227,10 @@ document.querySelector('button').addEventListener('click', () => {
     turnMessage.innerText = "X's turn"
     turn = 1
   }
+})
+
+// Toggle computer playing
+document.querySelector('button').addEventListener('click', () => {
+  compPlaying = !compPlaying
 })
 ////////////////////////////////

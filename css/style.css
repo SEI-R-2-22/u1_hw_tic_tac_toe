@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 320px;
 }
 
@@ -20,6 +20,11 @@ body {
 }
 
 button {
+  margin-left: 475px;
+  margin-top: 20px;
+}
+
+#reset {
   margin-left: 515px;
   margin-top: 50px;
 }
