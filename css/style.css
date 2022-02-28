@@ -27,6 +27,7 @@ table, th, td {
     width: 200px;
     height: 372px;
     border-radius: 8%;
+    font-size: 30px;
   }
 
 .grid {
@@ -118,7 +119,8 @@ table, th, td {
     align-content: center;
 }
 
-.Reset {
+
+#btn {
   align-items: center;
   background-color: darkgray;
   border-radius: 4px;
@@ -129,12 +131,12 @@ table, th, td {
   cursor: pointer;
 }
 
-.Reset:hover {
+#btn:hover {
   box-shadow: 0 1px 1px 1px grey;
   transform: translateY(-2px);
 }
 
-.Reset:active {
+#btn:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
