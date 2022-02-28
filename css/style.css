@@ -84,6 +84,13 @@ h1 {
   margin-bottom: 20px;
 }
 
+.game-mode:hover,
+.play-again:hover,
+.reset:hover {
+  background-color: black;
+  color: white;
+}
+
 .colorred {
   color: red;
 }
