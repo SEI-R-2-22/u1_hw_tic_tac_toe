@@ -1,5 +1,6 @@
 body {
   font-family: 'Dosis', sans-serif;
+  background-color: orange;
 }
 
 #board {
@@ -9,8 +10,9 @@ body {
   justify-content: center;
   align-items: center;
 
-  margin-top: 50px;
+  margin-top: 100px;
   margin-left: 320px;
+  background-color: white;
 }
 
 .square {
@@ -20,11 +22,6 @@ body {
 }
 
 button {
-  margin-left: 475px;
-  margin-top: 20px;
-}
-
-#reset {
   margin-left: 515px;
   margin-top: 50px;
 }
