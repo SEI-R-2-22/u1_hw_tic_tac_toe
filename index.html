@@ -3,30 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Poiret+One&family=Rajdhani&display=swap" rel="stylesheet">
   <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
   <!-- Build your game board, instructions, and score displays here! -->
 
-    <h1>Welcome to the land of Tic Tac Toe.</h1>
-    <h2>I present you with X's and O's</h2>
-    <h2 class="turnAnnouncement"></h2>
-
-    <div class="board">
-      <div class="square" sqr-position="0"></div>
-      <div class="square" sqr-position="1"></div>
-      <div class="square" sqr-position="2"></div>
-      <div class="square" sqr-position="3"></div>
-      <div class="square" sqr-position="4"></div>
-      <div class="square" sqr-position="5"></div>
-      <div class="square" sqr-position="6"></div>
-      <div class="square" sqr-position="7"></div>
-      <div class="square" sqr-position="8"></div>
+  <h1 class="title">Welcome to the land of Tic Tac Toe.</h1>
+  <div class="whiteboard">
+    <div class="message-board">
+      <h2>I present you with X's and O's</h2>
+      <h2 class="turnAnnouncement"></h2>
+      <h1 class="winnerAnnouncement"></h1>
+      <button class="resetButton">Reset Game</button>
     </div>
+      <div class="board">
+        <div class="square" sqr-position="0" id="a"></div>
+        <div class="square" sqr-position="1" id="b"></div>
+        <div class="square" sqr-position="2" id="c"></div>
+        <div class="square" sqr-position="3" id="d"></div>
+        <div class="square" sqr-position="4" id="e"></div>
+        <div class="square" sqr-position="5" id="f"></div>
+        <div class="square" sqr-position="6" id="g"></div>
+        <div class="square" sqr-position="7" id="h"></div>
+        <div class="square" sqr-position="8" id="i"></div>
+      </div>
+  </div>
 
-    <h1 class="winnerAnnouncement"></h1>
-    <button class="resetButton">Reset Game</button>
+
+
+    <!-- <img src="./resources/O.png" alt="O"> -->
 
 
 

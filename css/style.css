@@ -1,16 +1,89 @@
+body {
+  background-image: url(https://2.bp.blogspot.com/-cQDXA9p2fRg/V2mprPYKoHI/AAAAAAAABTc/vOQUZ0knmwEKg-0xxxIUNUFWXBkfqZAugCLcB/s1600/whiteboard.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Caveat', cursive;
+  width: 100vw;
+}
+
+.title {
+  color: rgb(40, 77, 140);
+  font-size: 70px;
+
+  margin: 30px 0 0 40px;
+}
+
+.whiteboard {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+h2 {
+  color: rgb(40, 77, 140);
+  font-size: 30px;
+}
+
+.reset-button {
+  margin: 200px;
+}
+
 .board {
   display: grid;
-  grid-template-columns: 50px 50px 50px;
-  grid-template-rows: 50px 50px 50px;
+  grid-template-columns: 125px 125px 125px;
+  grid-template-rows: 125px 125px 125px;
 }
 
 .square {
   /* background-color: rgb(218, 51, 51); */
-  border: 15px;
+  /* border: 15px;
   border-style: solid;
   border-width: 2px;
-  border-color: black;
+  border-color: black; */
 
-  width: 50px;
-  height: 50px;
+  /* width: 100px;
+  height: 100px; */
+  background-color: '';
+}
+
+#a {
+  /* border-style: solid;
+  border-width: 2px; */
+  border-right: solid black 2px;
+  border-bottom: solid black 2px;
+}
+
+#b {
+  border-bottom: solid black 2px;
+}
+
+#c {
+  border-left: solid black 2px;
+  border-bottom: solid black 2px;
+}
+
+#d {
+  border-right: solid black 2px;
+  border-bottom: solid black 2px;
+}
+
+#e {
+  border-bottom: solid black 2px;
+}
+
+#f {
+  border-left: solid black 2px;
+  border-bottom: solid black 2px;
+}
+
+#g {
+  border-right: solid black 2px;
+}
+
+#h {
+  border-right: solid black 2px;
+}
+
+img {
+  width: 100px;
+  height: 100px;
 }

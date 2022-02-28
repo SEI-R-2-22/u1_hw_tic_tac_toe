@@ -1,7 +1,17 @@
 // Global Variables Here
 const ticTacToe = () => {
   let squares = document.querySelectorAll('.square')
-  const selectionArray = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x']
+  const selectionArray = [
+    '<img src="./resources/X.png" alt="X">',
+    '<img src="./resources/O.png" alt="O">',
+    '<img src="./resources/X.png" alt="X">',
+    '<img src="./resources/O.png" alt="O">',
+    '<img src="./resources/X.png" alt="X">',
+    '<img src="./resources/O.png" alt="O">',
+    '<img src="./resources/X.png" alt="X">',
+    '<img src="./resources/O.png" alt="O">',
+    '<img src="./resources/X.png" alt="X">'
+  ]
   let previousSelection = selectionArray[0]
   const arena = []
   let winner = undefined
@@ -167,18 +177,14 @@ const ticTacToe = () => {
         if (!storeClick[position]) {
           let selection = selectionArray.pop()
 
-          squares[i].innerText = selection
+          // squares[i].innerHTML = '<img src="./resources/X.png" alt="X">'
+          squares[i].innerHTML = selection
           arena[position] = selection
           storeClick[position] = 'Marked'
 
           winEval(position)
           turnAnnouncement()
           catsGame()
-          //console.log(i)
-
-          // console.log(selectionArray)
-          // console.log(selection)
-          //console.log(position)
         }
       }
     })
