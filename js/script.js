@@ -4,6 +4,7 @@ const player1 = document.querySelector('#player1')
 const player2 = document.querySelector('#player2')
 const playAgain = document.querySelector('#againText')
 const gameBoxes = document.querySelectorAll('.gamebox')
+const scoreList = document.querySelector('#scoreList')
 
 //var needed to track player moves
 const boxesLength = gameBoxes.length
@@ -14,7 +15,7 @@ const playerTwoMoves = []
 //main game function
 const startGame = () => {
   // loop through all the game boxes and add eventlistner to each box.
-  for (let i = 0; i < gameBoxes.length; i++) {
+  for (let i = 0; i < boxesLength; i++) {
     gameBoxes[i].addEventListener('click', () => {
       //if box is empty move to allow player to play the box.
       if (gameBoxes[i].innerHTML === '') {
@@ -24,7 +25,6 @@ const startGame = () => {
         } else if (moveCounter % 2 === 0) {
           // if movecounter%2 = 0 that means it is the first players turn.
           //add a O and change background color to the box that is clicked
-
           gameBoxes[i].innerHTML = 'O'
           gameBoxes[i].style.backgroundColor = '#ffe4e6'
           //keep track of the box that was clicked.
@@ -36,6 +36,7 @@ const startGame = () => {
             // if player win. change the banner message and make movecounter undefine.
             message.innerText = 'Player One Wins the Game'
             const winningNumber = winningSeq(playerOneMoves)
+            addScoreBoard('player1')
             for (let i = 0; i < winningNumber.length; i++) {
               gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
               activePlayer(gameBoxes[winningNumber[i]])
@@ -51,7 +52,7 @@ const startGame = () => {
           message.innerHTML = "Player Two's move"
         } else {
           //add a O and change background color to the box that is clicked
-          randomPlay(player2, 'X')
+
           gameBoxes[i].innerHTML = 'X'
           gameBoxes[i].style.backgroundColor = '#dbeafe'
           //keep track of the box that was clicked.
@@ -62,6 +63,7 @@ const startGame = () => {
             // if player win. change the banner message and make movecounter undefine.
             message.innerText = 'Player Two wins the Game'
             const winningNumber = winningSeq(playerTwoMoves)
+            addScoreBoard('player2')
             for (let i = 0; i < winningNumber.length; i++) {
               gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
               activePlayer(gameBoxes[winningNumber[i]])
@@ -168,7 +170,6 @@ const winningSeq = (playerMoves) => {
 }
 
 const a = ['0', '2', '1']
-console.log(winningSeq(a))
 
 // const drawGame = (moves) => {
 //   if(moves === 9)
@@ -177,53 +178,46 @@ const activePlayer = (player) => {
   player.classList.add('shake')
 }
 
+const addScoreBoard = (player) => {
+  const li = document.createElement('li')
+  li.innerText = `${player} win`
+  scoreList.appendChild(li)
+}
+
 // const boxColorChange = (box) => {
 //   box.style.backgroundColor = 'red'
 // }
 
-const randomPlay = () => {
-  let second = 5
-  let player = ''
-  let sign = ''
-  let num = undefined
+// const randomPlay = (player, sign, num) => {
+//   let second = 5
 
-  const timed = setInterval(() => {
-    second -= 1
-    player.innerHTML = second
-    for (let i = 0; i < gameBoxes.length; i++) {
-      gameBoxes[i].addEventListener('click', () => {
-        // clearInterval(timed)
-        player.innerHTML = `Player${num}`
-      })
-      if (second < 0) {
-        if (moveCounter % 2 === 0) {
-          player = player1
-          sign = 'O'
-          num = 1
-        } else {
-          player = player2
-          sign = 'X'
-          num = 2
-        }
-        for (let i = 0; i < gameBoxes.length; i++) {
-          if (gameBoxes[i].innerHTML === '') {
-            gameBoxes[i].innerHTML = sign
-            player.innerHTML = `Player${num}`
-            if (moveCounter % 2 === 0) {
-              playerOneMoves.push(gameBoxes[i].getAttribute('data-value'))
-            } else {
-              playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
-            }
-            second = 5
-            moveCounter++
-            return
-          }
-        }
-      }
-    }
-  }, 1000)
-}
+//   const timed = setInterval(() => {
+//     second -= 1
+//     player.innerHTML = second
+//     for (let i = 0; i < boxesLength; i++) {
+//       gameBoxes[i].addEventListener('click', () => {
+//         // clearInterval(timed)
+//         second = 5
+//         player.innerHTML = `Player${num}`
+//       })
+//       for (let i = 0; i < gameBoxes.length; i++) {
+//         if (gameBoxes[i].innerHTML === '') {
+//           gameBoxes[i].innerHTML = sign
+//           player.innerHTML = `Player${num}`
+//           if (moveCounter % 2 === 0) {
+//             playerOneMoves.push(gameBoxes[i].getAttribute('data-value'))
+//           } else {
+//             playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
+//           }
+//           second = 5
+//           moveCounter++
+//           return
+//         }
+//       }
+//     }
+//   }, 1000)
+// }
 
-for (let i = 0; i < boxesLength; i++) {
-  gameBoxes[i].addEventListener('click', randomPlay)
-}
+// for (let i = 0; i < boxesLength; i++) {
+//   gameBoxes[i].addEventListener('click', randomPlay)
+// }

@@ -11,7 +11,7 @@ body {
 }
 
 #container {
-  background-image: url('../image/XO.jpeg');
+  background-image: url('../image/black.jpg');
   background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,14 +33,16 @@ header {
 
 header h1 {
   font-size: 3em;
-  background: -webkit-linear-gradient(#337, #6c4);
+  /* background: -webkit-linear-gradient(#337, #6c4); */
+  background-color: white;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 main {
-  grid-column: 1 / 4;
-  grid-row: 2 / 5;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 /* Banner on the top with Players */
@@ -55,7 +57,7 @@ main {
   width: 100vw;
 
   font-size: 2em;
-  border: solid 1px black;
+  border: solid 1px white;
 }
 
 #banner {
@@ -190,16 +192,31 @@ main {
 /* banner message */
 
 /* -------------------------------- */
+#scoreBoard {
+  width: 29vw;
+  height: 40vh;
+}
+#scoreBoard h2 {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  text-decoration: underline;
+}
+#scoreBoard ol li {
+  margin: 20px 0 0 30px;
+  color: green;
+  font-size: 1.5em;
+}
 #gameboard {
   background-color: rgb(159, 162, 164);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* border: 1px solid black; */
   height: 60vh;
-  width: 60vw;
+  width: 70vw;
 
   font-family: 'Dancing Script', cursive;
   border: 1px solid black;
@@ -221,6 +238,8 @@ main {
 
 #playagain {
   margin: 50px 0;
+  align-self: end;
+  width: 100vw;
 }
 
 #againText {
