@@ -5,6 +5,7 @@ const cells = document.querySelectorAll('.ttt-cell')
 const turnNotification = document.getElementById('turn-heading')
 const gameStatusNotification = document.getElementById('game-status-heading')
 const restartGameButton = document.getElementById('restart-game-btn')
+const resetScoresButton = document.getElementById('reset-scores-btn')
 // Global variables that describe the initial game state
 let xWinCount = 0
 let oWinCount = 0
