@@ -21,7 +21,7 @@ body {
   text-align: center;
 }
 
-button {
+#reset {
   margin-left: 515px;
   margin-top: 50px;
 }
@@ -39,4 +39,14 @@ h1 {
   text-align: center;
   margin-top: 50px;
   margin-right: 15px;
+}
+
+button {
+  margin-left: 485px;
+}
+
+p {
+  text-align: center;
+  width: 90%;
+  margin-left: 50px;
 }

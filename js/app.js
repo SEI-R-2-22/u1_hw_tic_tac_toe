@@ -31,6 +31,8 @@ let oWins = 0
 
 const scoreMessage = document.querySelector('#score')
 
+let compPlaying = false
+
 //Set up board
 board.style.gap = GAP_SIZE
 board.style.width = BOARD_SIZE
@@ -147,24 +149,52 @@ const updateScore = () => {
   scoreMessage.innerText =
     'X wins: ' + xWins.toString() + '\nO wins: ' + oWins.toString()
 }
+
+const compMove = () => {
+  const emptySquares = []
+  for (let i = 0; i < squares.length; i++) {
+    if (squares[i].innerText === '') {
+      emptySquares.push(squares[i])
+    }
+  }
+  let choice = Math.floor(Math.random() * emptySquares.length)
+  emptySquares[choice].innerText = 'O'
+  turn++
+  turnMessage.innerText = "X's turn"
+}
 ////////////////////////////////
 // Event Listeners Here
 
 // Click function
 for (let i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', () => {
-    if (gameGoing) {
-      if (squares[i].innerText === '') {
-        if (turn % 2 === 1) {
+    if (compPlaying) {
+      if (gameGoing) {
+        if (squares[i].innerText === '') {
           squares[i].innerText = 'X'
           turn++
           turnMessage.innerText = "O's turn"
           checkWinner()
-        } else {
-          squares[i].innerText = 'O'
-          turn++
-          turnMessage.innerText = "X's turn"
-          checkWinner()
+          if (gameGoing) {
+            compMove()
+            checkWinner()
+          }
+        }
+      }
+    } else {
+      if (gameGoing) {
+        if (squares[i].innerText === '') {
+          if (turn % 2 === 1) {
+            squares[i].innerText = 'X'
+            turn++
+            turnMessage.innerText = "O's turn"
+            checkWinner()
+          } else {
+            squares[i].innerText = 'O'
+            turn++
+            turnMessage.innerText = "X's turn"
+            checkWinner()
+          }
         }
       }
     }
@@ -172,7 +202,7 @@ for (let i = 0; i < squares.length; i++) {
 }
 
 // Reset button function
-document.querySelector('button').addEventListener('click', () => {
+document.querySelector('#reset').addEventListener('click', () => {
   for (let i = 0; i < squares.length; i++) {
     squares[i].innerText = ''
   }
@@ -185,5 +215,14 @@ document.querySelector('button').addEventListener('click', () => {
     turnMessage.innerText = "X's turn"
     turn = 1
   }
+  if (compPlaying) {
+    if (gamesPlayed % 2 === 1) {
+      compMove()
+    }
+  }
+})
+
+document.querySelector('button').addEventListener('click', () => {
+  compPlaying = !compPlaying
 })
 ////////////////////////////////
