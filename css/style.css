@@ -8,60 +8,60 @@
 
 .container {
   display: grid;
-  grid-template-columns: 50px 50px 50px;
+  grid-template-columns: 50px 56px 50px;
   padding: 1px;
   background-color: gray;
-  width: 150px;
+  width: 156px;
 }
 
-.box1 {
+#box1 {
   border-right: 3px solid black;
   border-bottom: 3px solid black;
   width: 50px;
   height: 50px;
 }
-.box2 {
-  border-right: 3px solid black;
-  border-bottom: 3px solid black;
-  border-left: 3px solid black;
-  width: 50px;
-  height: 50px;
-}
-.box3 {
-  border-bottom: 3px solid black;
-  width: 50px;
-  height: 50px;
-}
-.box4 {
-  border-right: 3px solid black;
-  border-bottom: 3px solid black;
-  width: 50px;
-  height: 50px;
-}
-.box5 {
+#box2 {
   border-right: 3px solid black;
   border-bottom: 3px solid black;
   border-left: 3px solid black;
   width: 50px;
   height: 50px;
 }
-.box6 {
+#box3 {
   border-bottom: 3px solid black;
   width: 50px;
   height: 50px;
 }
-.box7 {
+#box4 {
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  width: 50px;
+  height: 50px;
+}
+#box5 {
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  width: 50px;
+  height: 50px;
+}
+#box6 {
+  border-bottom: 3px solid black;
+  width: 50px;
+  height: 50px;
+}
+#box7 {
   border-right: 3px solid black;
   width: 50px;
   height: 50px;
 }
-.box8 {
+#box8 {
   border-right: 3px solid black;
   border-left: 3px solid black;
   width: 50px;
   height: 50px;
 }
-.box9 {
+#box9 {
   width: 50px;
   height: 50px;
 }

@@ -10,22 +10,24 @@
 <header> 
   <h1>Tic-Tac-Toe</h1>
 
-  <p> <b>Player 1</b> will start as X <b>Player 2</b> will be O.</p>
+  <p> <b>Player 1</b> will start as O <b>Player 2</b> will be X.</p>
+
+  <h2 class="turn">Player 1's Turn</h2>
 </header>
 
 <body>
   <!-- Build your game board, instructions, and score displays here! -->
 
 <div class="container">
-  <div class="box1"></div>
-  <div class="box2"></div>
-  <div class="box3"></div>
-  <div class="box4"></div>
-  <div class="box5"></div>
-  <div class="box6"></div>
-  <div class="box7"></div>
-  <div class="box8"></div>
-  <div class="box9"></div>
+  <div id = "box1" class="box" onclick="changeTurn('box1')"></div>  <!-- onclick="doSomething();doSomethingElse();" -->
+  <div id = "box2" class="box" onclick="changeTurn('box2')"></div>
+  <div id = "box3" class="box" onclick="changeTurn('box3')"></div>
+  <div id = "box4" class="box" onclick="changeTurn('box4')"></div>
+  <div id = "box5" class="box" onclick="changeTurn('box5')"></div>
+  <div id = "box6" class="box" onclick="changeTurn('box6')"></div>
+  <div id = "box7" class="box" onclick="changeTurn('box7')"></div>
+  <div id = "box8" class="box" onclick="changeTurn('box8')"></div>
+  <div id = "box9" class="box" onclick="changeTurn('box9')"></div>
 </div>
 
   <!-- Build your game board, instructions, and score displays here! -->
