@@ -34,8 +34,7 @@ div {
   font-size: 5em;
 }
 
-lSide,
-rSide {
+aside {
   grid-row: span 4;
 }
 
@@ -65,7 +64,7 @@ footer {
   grid-column: span 3;
   grid-row: span 1;
   color: #ffffff;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 #done {
@@ -78,4 +77,44 @@ footer {
 
 #btn {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+#left {
+  color: #ffffff;
+  font-family: 'Iceberg', serif;
+  font-size: x-large;
+}
+
+#turn {
+  align-self: center;
+  opacity: 1;
+  background-color: none;
+  font-family: 'Rock Salt', Helvetica;
+  padding-left: 10%;
+}
+
+#right {
+  color: white;
+  font-family: 'Iceberg', serif;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 75px 50px 50px;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+.counter {
+  grid-column: span 3;
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
 }

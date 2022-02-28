@@ -5,6 +5,7 @@ let firstTurn = 1
 let totalTurns = 0
 const blankSpace = document.querySelector('#blank')
 const allSquares = document.querySelectorAll('.square')
+const turnText = document.querySelector('#turn')
 let picks = []
 const winningCombos = [
   [0, 1, 2],
@@ -19,9 +20,24 @@ const winningCombos = [
 let squareNums = []
 let winString = ''
 let winner = ''
+const xWins = document.querySelector('#x-wins')
+const draws = document.querySelector('#draws')
+const oWins = document.querySelector('#o-wins')
+let xWinTotal = 0
+let drawTotal = 0
+let oWinTotal = 0
 
 ////////////////////////////////
 // Functions For Game Logic Here
+
+const resetWinTotals = () => {
+  xWinTotal = 0
+  drawTotal = 0
+  oWinTotal = 0
+  xWins.innerText = xWinTotal
+  oWins.innerText = oWinTotal
+  draws.innerText = drawTotal
+}
 
 const resetBoard = () => {
   for (let i = 0; i < allSquares.length; i++) {
@@ -32,6 +48,7 @@ const resetBoard = () => {
   totalTurns = 0
   firstTurn *= -1
   turnX = firstTurn
+  turnText.innerText = turnX > 0 ? 'X' : 'O'
   winner = ''
   winString = ''
   picks = []
@@ -65,8 +82,12 @@ const checkWin = () => {
         winString += picks[winningCombos[i][j]]
       }
       if (winString === 'XXX') {
+        xWinTotal++
+        xWins.innerText = xWinTotal
         return 'X'
       } else if (winString === 'OOO') {
+        oWinTotal++
+        oWins.innerText = oWinTotal
         return 'O'
       }
     }
@@ -89,6 +110,10 @@ btn.addEventListener('click', () => {
   resetBoard()
 })
 
+btn2.addEventListener('click', () => {
+  resetWinTotals()
+})
+
 for (let i = 0; i < allSquares.length; i++) {
   allSquares[i].addEventListener('click', function () {
     //User either clicks and empty square or a full square
@@ -107,6 +132,7 @@ for (let i = 0; i < allSquares.length; i++) {
         blankSpace.innerText = ''
       }
       turnX *= -1
+      turnText.innerText = turnX > 0 ? 'X' : 'O'
       totalTurns++
     }
 
@@ -121,6 +147,8 @@ for (let i = 0; i < allSquares.length; i++) {
         blankSpace.innerText = `${winner} is the winner!`
       } else {
         blankSpace.innerText = `The game is a tie!`
+        drawTotal++
+        draws.innerText = drawTotal
       }
 
       // Change the id of every square so that pointer events are turned off
