@@ -15,7 +15,7 @@ player2.addEventListener('click', () => {
     ai++
   } else {
     player2.innerHTML = 'AI'
-    player2.style.backgroundColor = 'blue'
+    player2.style.backgroundColor = 'grey'
     ai++
   }
 })

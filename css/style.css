@@ -80,7 +80,7 @@ main {
     rgba(252, 176, 69, 1) 100%
   );
   border-radius: 20px;
-  padding: 10px 20px;
+  padding: 10px 40px;
   color: white;
   animation: blink 5s infinite ease-in;
 }
@@ -143,6 +143,10 @@ main {
   padding: 10px 20px;
   cursor: pointer;
   animation: fade 4s ease-in forwards;
+}
+
+#player2:hover {
+  border: 2px solid palevioletred;
 }
 
 @keyframes fade {
@@ -214,7 +218,7 @@ main {
 
 /* -------------------------------- */
 #scoreBoard {
-  width: 29vw;
+  width: 30vw;
   height: 40vh;
 }
 #scoreBoard h2 {
