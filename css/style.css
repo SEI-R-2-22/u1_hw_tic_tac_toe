@@ -233,7 +233,7 @@ main {
 
   height: 20vh;
   font-size: 5rem;
-  border: 1px dotted red;
+  border: 1px dotted black;
 }
 
 #gameboard div:hover {
