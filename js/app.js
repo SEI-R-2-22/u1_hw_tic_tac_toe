@@ -134,7 +134,7 @@ const resetGameDefaults = () => {
   clearNotifications()
 }
 
-/* Restores the initial game scores of 0 */
+/* Resets each player's score to 0 */
 const resetScores = () => {
   xWinCount = 0
   oWinCount = 0
