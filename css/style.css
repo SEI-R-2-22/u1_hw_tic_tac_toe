@@ -1,1 +1,78 @@
+* {
+  box-sizing: border-box;
+}
 
+body {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 0.5fr;
+  grid-gap: 5px;
+
+  height: 100vh;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+header {
+  grid-column: span 2;
+  background-color: lightpink;
+}
+
+#title {
+  font-family: 'Fredoka', sans-serif;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 48px;
+}
+
+#turn-header {
+  font-family: 'Fredoka', sans-serif;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 38px;
+}
+
+.score {
+  font-family: 'Fredoka', sans-serif;
+  color: whitesmoke;
+  text-align: left;
+  margin-left: 10px;
+  font-size: 30px;
+}
+
+.points {
+  display: inline-block;
+  padding: 0 10px 0 10px;
+}
+
+#draw {
+  text-align: center;
+}
+
+main {
+  background-color: cornflowerblue;
+}
+
+aside {
+  background-color: lightpink;
+}
+
+#display-turn,
+#display-winner {
+  font-family: 'Fredoka', sans-serif;
+  color: whitesmoke;
+  text-align: center;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 160px 160px 160px;
+  grid-template-rows: 160px 160px 160px;
+  grid-gap: 5px;
+  justify-content: center;
+  padding: 40px 0 0 0;
+}
+
+button {
+  font-size: 40px;
+}
