@@ -5,10 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Shizuru&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+</head>
 </head>
 <body>
   <!-- Build your game board, instructions, and score displays here! -->
+  <h1 class="tictac">Tic Tac Toe!</h1>
 
+
+  <main class="grid-parent">
+      <section id="grid-container">
+           <div class="grid" id="0"></div>
+          <div class="grid" id="1"></div>
+          <div class="grid" id="2"></div>
+          <div class="grid" id="3"></div>
+          <div class="grid" id="4"></div>
+          <div class="grid" id="5"></div>
+          <div class="grid" id="6"></div>
+          <div class="grid" id="7"></div>
+           <div class="grid" id="8"></div>
+       </section>
+       <section id="message">
+        <div class="nameDisplay">Let's Play!</div>
+          <div class="message-display" id="xMsg">X's turn!</div>
+          <div class="message-display" id="oMsg">O's turn!</div>
+          <div class="message-display" id="xwin-msg">Congratulations! X wins!</div>
+          <div class="message-display" id="owin-msg">Congratulations! O wins!</div>
+          <div class="message-display" id="draw-msg">It's a draw!</div>
+      </section>
+  </main>
+  
+  <button id="play-btn">Play Again!</button>
+  <div><a href="https://unsplash.com/">Image: Unsplash.com</a></div>
+  
+  
+  
+  
   
   <!-- Build your game board, instructions, and score displays here! -->
   <script type="text/javascript" src="js/app.js"></script>
