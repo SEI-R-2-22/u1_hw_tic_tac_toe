@@ -1,8 +1,17 @@
 // Global Variables Here
+const SQUARE_SIZE = '150px'
+const GAP_SIZE = '5px'
+const BOARD_SIZE =
+  (
+    parseInt(SQUARE_SIZE.slice(0, -2)) * 3 +
+    parseInt(GAP_SIZE.slice(0, -2)) * 2
+  ).toString() + 'px'
+
 let turn = 1
 let gameGoing = true
 let gamesPlayed = 0
 
+const board = document.querySelector('#board')
 const divOne = document.querySelector('#one')
 const divTwo = document.querySelector('#two')
 const divThree = document.querySelector('#three')
@@ -16,6 +25,20 @@ const divNine = document.querySelector('#nine')
 const squares = document.querySelectorAll('.square')
 
 const turnMessage = document.querySelector('h3')
+
+let xWins = 0
+let oWins = 0
+
+const scoreMessage = document.querySelector('#score')
+
+//Set up board
+board.style.gap = GAP_SIZE
+board.style.width = BOARD_SIZE
+board.style.height = BOARD_SIZE
+for (let i = 0; i < squares.length; i++) {
+  squares[i].style.height = SQUARE_SIZE
+  squares[i].style.width = SQUARE_SIZE
+}
 
 ////////////////////////////////
 // Functions For Game Logic Here
@@ -111,9 +134,18 @@ const engGame = () => {
   gameGoing = false
   if (turn % 2 === 1) {
     turnMessage.innerText = "O's win!"
+    oWins++
+    updateScore()
   } else {
     turnMessage.innerText = "X's win!"
+    xWins++
+    updateScore()
   }
+}
+
+const updateScore = () => {
+  scoreMessage.innerText =
+    'X wins: ' + xWins.toString() + '\nO wins: ' + oWins.toString()
 }
 ////////////////////////////////
 // Event Listeners Here
