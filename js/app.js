@@ -33,32 +33,50 @@ let winningLines = [
 
 ////////////////////////////////
 // Functions For Game Logic Here
+
+function hideMenuButtons() {
+  let sG = document.getElementById('hideable')
+  sG.style.display = 'none'
+}
+function showMenuButtons() {
+  let sG = document.getElementById('hideable')
+  sG.style.display = 'block'
+}
+
 function startGame() {
   clearBoard()
   hasGameStarted = true
-  //TODO change hide show button to function
-  let sG = document.getElementById('hideable')
-  sG.style.display = 'none'
+  hideMenuButtons()
+
   UpdateGameMessage('' + WhoseTurn() + "'s turn")
   startTimer()
 }
 
 function playerCount() {
-  //TODO add cpu logic
   isTwoPlayer = !isTwoPlayer
   let pS = document.getElementById('playerSelection')
   pS.innerHTML =
     'Click to Choose Number of Players: ' +
     (isTwoPlayer ? '1p v 2p' : '1p v Cpu')
 }
+
+function userCellSelection(spaceValue) {
+  if (WhoseTurn() === 'O' && !isTwoPlayer) {
+    console.log("it is the cpu's turn")
+  } else {
+    ticTacToeBoard(spaceValue)
+  }
+}
+
 function ticTacToeBoard(spaceValue) {
-  //TODO add 'error' message if user picks occupied cell
   let tempBoardVal = document.getElementsByClassName('space' + spaceValue)[0]
     .innerHTML
   if (hasGameStarted && tempBoardVal === '') {
     document.getElementsByClassName('space' + spaceValue)[0].innerHTML =
       WhoseTurn()
     CheckForWinner()
+  } else if (hasGameStarted && tempBoardVal != '') {
+    UpdateGameMessage('' + WhoseTurn() + ' please choose an empty cell')
   }
 }
 
@@ -73,7 +91,7 @@ function NextPlayer() {
   if (isTwoPlayer) {
     startTimer()
   } else {
-    if (WhoseTurn() == 'O') {
+    if (WhoseTurn() === 'O') {
       cpuPlay()
     } else {
       startTimer()
@@ -97,8 +115,7 @@ function startTimer() {
     if (countDownTime < 0) {
       clearInterval(timer)
       UpdateGameMessage("Time's Up!")
-      //TODO:
-      //AutoPlay()
+      AutoPlay()
     } else {
       document.getElementById('gameTimer').innerHTML = countDownTime
     }
@@ -108,7 +125,7 @@ function startTimer() {
 }
 function stopTimer() {
   clearInterval(timer)
-  document.getElementById('gameTimer').innerHTML = ''
+  document.getElementById('gameTimer').innerHTML = 'ready?'
 }
 
 function CheckForWinner() {
@@ -128,10 +145,10 @@ function CheckForWinner() {
 
 function GameOver(winner) {
   stopTimer()
+  document.getElementById('gameTimer').innerHTML = 'Game Over'
   recordResults(winner)
 
-  let sG = document.getElementById('hideable')
-  sG.style.display = 'block'
+  showMenuButtons()
 }
 
 function recordResults(winner) {
@@ -202,13 +219,13 @@ function isWinner(boardData, winningLine) {
       boardData[winningLine[1]] != '' ||
       boardData[winningLine[2]] != '')
 
-  console.log(
-    boardData[winningLine[0]] +
-      ', ' +
-      boardData[winningLine[1]] +
-      ', ' +
-      boardData[winningLine[2]]
-  )
+  //console.log(
+  //  boardData[winningLine[0]] +
+  //    ', ' +
+  //    boardData[winningLine[1]] +
+  //    ', ' +
+  //    boardData[winningLine[2]]
+  //)
   if (result) return boardData[winningLine[0]]
   else return ''
 }
@@ -227,16 +244,56 @@ function isBoardFull() {
   return result
 }
 
-//TODO CPU functions for single player game
-
 function AutoPlay() {
-  stopTimer()
+  let emptyCell = findRandomEmptyCell()
+
+  if (emptyCell === 0) {
+    console.log('no empty cells. Auto Play broken')
+  } else {
+    ticTacToeBoard(emptyCell)
+  }
 }
 
 function cpuPlay() {
-  stopTimer()
+  cpuThinkingTimer()
 }
-//function for find empty cell
+
+function cpuThinkingTimer() {
+  stopTimer()
+  let thinkingTime = 1
+
+  timer = setInterval(function () {
+    if (thinkingTime < 0) {
+      clearInterval(timer)
+      AutoPlay()
+    } else {
+      document.getElementById('gameTimer').innerHTML = 'Thinking...'
+    }
+
+    thinkingTime -= 1
+  }, 1000)
+}
+
+function findRandomEmptyCell() {
+  let spaceValue = 0
+  let emptyCells = []
+  for (let i = 0; i < 9; i++) {
+    var key = i + 1
+    var boardVal = document.getElementsByClassName('space' + key)[0].innerHTML
+
+    if (boardVal === '') {
+      // cell is empty
+      emptyCells.push(key)
+    }
+
+    if (emptyCells.length > 0) {
+      let randomCell = Math.floor(Math.random() * emptyCells.length)
+      spaceValue = emptyCells[randomCell]
+    }
+  }
+
+  return spaceValue
+}
 
 //function for CPU 'thinking' timer
 

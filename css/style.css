@@ -74,3 +74,15 @@
   padding: 20px 0;
   font-size: 30px;
 }
+
+.space1,
+.space2,
+.space3,
+.space4,
+.space5,
+.space6,
+.space7,
+.space8,
+.space9 {
+  color: rgb(0, 10, 7);
+}
