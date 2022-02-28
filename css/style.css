@@ -1,11 +1,13 @@
 * {
   padding: 0;
   margin: 0;
+  background-color: beige;
 }
 
 h1 {
   text-align: center;
   padding: 20px 0 50px 0;
+  color: black;
 }
 .gameBoard {
   display: grid;
@@ -25,6 +27,7 @@ h1 {
   font-size: 75px;
   cursor: pointer;
   text-align: center;
+  color: black;
 }
 
 .scoreBoard {
@@ -38,10 +41,25 @@ h1 {
 .board {
   border: 1px solid black;
   text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+h2 {
+  color: black;
+}
+
+h3 {
+  color: black;
 }
 
 .turnMessage {
   padding: 10px;
+}
+
+button {
+  color: red;
+  font-weight: bold;
 }
 
 #square0,

@@ -1,5 +1,4 @@
 // Global Variables Here
-
 let message = document.querySelector('.turnMessage')
 let reset = document.querySelector('.reset')
 let squares = document.querySelectorAll('.square')
@@ -19,10 +18,8 @@ let squaresFilled = 0
 let xScore = 0
 let oScore = 0
 let drawScore = 0
-
 ////////////////////////////////
 // Functions For Game Logic Here
-
 function checkWin() {
   // checks for row wins
   for (let rows = 0; rows <= 6; rows += 3) {
@@ -71,41 +68,39 @@ function checkWin() {
       oScore++
       o.innerHTML = oScore
     }
-    //check for diagonal wins
-    if (
-      winnerBoard[0] + winnerBoard[4] + winnerBoard[8] === 3 ||
-      winnerBoard[2] + winnerBoard[4] + winnerBoard[6] === 3
-    ) {
-      winner = true
-      winnerMessage.innerHTML = 'Player X Wins!'
-      message.style.display = 'none'
-      xScore++
-      x.innerHTML = xScore
-    } else if (
-      winnerBoard[0] + winnerBoard[4] + winnerBoard[8] === -3 ||
-      winnerBoard[2] + winnerBoard[4] + winnerBoard[6] === -3
-    ) {
-      winner = true
-      winnerMessage.innerHTML = 'Player O Wins!'
-      message.style.display = 'none'
-      oScore++
-      o.innerHTML = oScore
-      //check for ties
-    }
-    if (squaresFilled === 9) {
-      message.innerHTML = ''
-      winner = true
-      winnerMessage.innerHTML = "It's a tie! Would you like to reset the game?"
-      message.style.display = 'none'
-      drawScore++
-      draw.innerHTML = drawScore
-    }
+  }
+  //check for diagonal wins
+  if (
+    winnerBoard[0] + winnerBoard[4] + winnerBoard[8] === 3 ||
+    winnerBoard[2] + winnerBoard[4] + winnerBoard[6] === 3
+  ) {
+    winner = true
+    winnerMessage.innerHTML = 'Player X Wins!'
+    message.style.display = 'none'
+    xScore++
+    x.innerHTML = xScore
+  } else if (
+    winnerBoard[0] + winnerBoard[4] + winnerBoard[8] === -3 ||
+    winnerBoard[2] + winnerBoard[4] + winnerBoard[6] === -3
+  ) {
+    winner = true
+    winnerMessage.innerHTML = 'Player O Wins!'
+    message.style.display = 'none'
+    oScore++
+    o.innerHTML = oScore
+    //check for ties
+  }
+  if (squaresFilled === 9) {
+    message.innerHTML = ''
+    winner = true
+    winnerMessage.innerHTML = "It's a tie! Would you like to reset the game?"
+    message.style.display = 'none'
+    drawScore++
+    draw.innerHTML = drawScore
   }
 }
-
 ////////////////////////////////
 // Event Listeners Here
-
 for (let i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', () => {
     if (winner === false) {
@@ -145,30 +140,4 @@ reset.addEventListener('click', () => {
 
   message.style.display = 'block'
 })
-
 ////////////////////////////////
-
-/*
-squares.forEach((square, index) => {
-  square.addEventListener('click', () => {
-    if (winner === false) {
-      if (click0 === false) {
-        if (xTurn) {
-          box0.innerHTML = 'X'
-          winnerBoard[0] = 1
-          squaresFilled++
-          message.innerHTML = "O's Turn"
-        } else if (!xTurn) {
-          box0.innerHTML = 'O'
-          winnerBoard[0] = -1
-          squaresFilled++
-          message.innerHTML = "X's Turn"
-        }
-        xTurn = !xTurn
-        checkWin()
-        click0 = true
-      }
-    }
-  })
-})
-*/
