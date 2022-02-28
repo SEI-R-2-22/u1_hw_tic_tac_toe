@@ -55,7 +55,7 @@ getIsGameWon = () => {
     return (
       currentBoardState[index1] &&
       currentBoardState[index1] === currentBoardState[index2] &&
-      currentBoardState[index2] === currentBoardState[index3]
+      currentBoardState[index1] === currentBoardState[index3]
     )
   })
 }
