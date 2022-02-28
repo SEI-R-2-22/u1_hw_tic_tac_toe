@@ -17,9 +17,9 @@ const oDisplay = document.querySelector('#o')
 const drawDisplay = document.querySelector('#draw')
 const restart = document.querySelector('#restart')
 
-const nodeList = document.querySelectorAll('.grid')
-const buttonArray = Array.from(nodeList)
-const nullArray = [null, null, null, null, null, null, null, null, null]
+let nodeList = document.querySelectorAll('.grid')
+let buttonArray = Array.from(nodeList)
+let nullArray = [null, null, null, null, null, null, null, null, null]
 
 xDisplay.innerText = xScore
 oDisplay.innerText = oScore
@@ -28,6 +28,7 @@ oDisplay.innerText = oScore
 // Functions For Game Logic Here
 
 const gameOutcomes = (player, score) => {
+  console.log(score)
   if (
     buttonArray[0] === player &&
     buttonArray[1] === player &&
@@ -82,9 +83,12 @@ const gameOutcomes = (player, score) => {
 }
 
 const gameWinner = (player, score) => {
+  console.log(score)
   displayWinner.innerText = `Player ${player} Wins!`
   score++
+  console.log(xScore, oScore)
   player === 'X' ? (xDisplay.innerText = score) : (oDisplay.innerText = score)
+  player === 'X' ? (xScore = score) : (oScore = score)
   nodeList.forEach((elem) => {
     elem.disabled = true
   })
@@ -97,20 +101,19 @@ const gameWinner = (player, score) => {
 
 const gameLogic = (i) => {
   if (currentTurn % 2 === 0) {
-    displayTurn.innerText = 'Player One'
     nodeList[i].append('X')
     nullArray[i] = 'X'
     buttonArray[i] = 'X'
-    console.log(buttonArray)
     nodeList[i].disabled = true
     gameOutcomes(xPlayer, xScore)
-  } else if (currentTurn % 2 !== 0) {
     displayTurn.innerText = 'Player Two'
+  } else if (currentTurn % 2 !== 0) {
     nodeList[i].append('O')
     nullArray[i] = 'O'
     buttonArray[i] = 'O'
     nodeList[i].disabled = true
     gameOutcomes(oPlayer, oScore)
+    displayTurn.innerText = 'Player One'
   }
   currentTurn++
 }
@@ -121,12 +124,12 @@ for (let i = 0; i < buttonArray.length; i++) {
   })
 }
 
-for (let i = 0; i < buttonArray.length; i++) {
-  restart.addEventListener('click', () => {
-    nodeList[i].innerText = ''
-    nodeList[i].disabled = false
-    buttonArray = Array.from(nodeList[i])
-    nullArray[i] = 'null'
-    displayWinner.innerText = ''
+restart.addEventListener('click', () => {
+  nodeList = document.querySelectorAll('.grid')
+  buttonArray = Array.from(nodeList)
+  nullArray = [null, null, null, null, null, null, null, null, null]
+  nodeList.forEach((elem) => {
+    elem.disabled = false
+    elem.innerText = ''
   })
-}
+})

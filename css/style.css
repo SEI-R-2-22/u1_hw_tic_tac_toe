@@ -3,6 +3,10 @@
 }
 
 body {
+  background-image: url(https://sm.mashable.com/mashable_in/seo/1/17432/17432_a2p2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 0.5fr;
@@ -15,7 +19,7 @@ body {
 
 header {
   grid-column: span 2;
-  background-color: lightpink;
+  background-color: transparent;
 }
 
 #title {
@@ -28,8 +32,8 @@ header {
 #turn-header {
   font-family: 'Fredoka', sans-serif;
   color: whitesmoke;
-  text-align: center;
-  font-size: 38px;
+  text-align: left;
+  font-size: 30px;
 }
 
 .score {
@@ -46,15 +50,15 @@ header {
 }
 
 #draw {
-  text-align: center;
+  text-align: left;
 }
 
 main {
-  background-color: cornflowerblue;
+  background-color: transparent;
 }
 
 aside {
-  background-color: lightpink;
+  background-color: transparent;
   text-align: center;
 }
 
@@ -62,7 +66,7 @@ aside {
 #display-winner {
   font-family: 'Fredoka', sans-serif;
   color: whitesmoke;
-  text-align: center;
+  text-align: left;
 }
 
 section {
@@ -82,7 +86,7 @@ section {
   font-family: 'Fredoka', sans-serif;
   color: whitesmoke;
   background-color: lightpink;
-  font-size: 20px;
+  font-size: 30px;
   border: 2px solid white;
   padding: 10px;
 }
