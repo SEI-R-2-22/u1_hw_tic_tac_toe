@@ -78,6 +78,7 @@ h1 {
   gap: 50px;
 }
 
+.game-mode,
 .play-again,
 .reset {
   margin-bottom: 20px;

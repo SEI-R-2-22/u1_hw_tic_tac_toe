@@ -6,12 +6,8 @@ const tie = document.querySelector('.tie .point')
 const notification = document.querySelector('.notification')
 const playAgain = document.querySelector('.play-again')
 const resetButton = document.querySelector('.reset')
+const gameModeButton = document.querySelector('.game-mode')
 
-//ask for player  name
-const user1 = prompt('Name of player 1: ')
-document.querySelector('.player1 p').innerText = user1
-const user2 = prompt('Name of player 2: ')
-document.querySelector('.player2 p').innerText = user2
 
 //Construct the first player object
 const player1 = {
@@ -29,13 +25,39 @@ const player2 = {
     isWiner : false,
 }
 
-
+//Construct a computer object
+const computer = {
+    sign: 'O',
+    score: 0,
+    lastClicked: 0,
+    isWiner : false,
+}
 
 let isTie = false
-// let clickedLocation = 0
 let turn = 1
+let user1 = 'Player 1'
+let user2 = 'Player 2'
+let gameMode = 1
+const delayInMilliseconds = 2000
+
 //Create board game as an array: 3x3
 let boardGame = Array(3).fill().map(() => Array(3))
+
+//ask for player name
+const askUserName = (gameMode) => {
+    if (gameMode === 1) {
+        const user1 = prompt('Name of player 1: ')
+        document.querySelector('.player1 p').innerText = user1
+    } else {
+        const user1 = prompt('Name of player 1: ')
+        document.querySelector('.player1 p').innerText = user1
+        const user2 = prompt('Name of player 2: ')
+        document.querySelector('.player2 p').innerText = user2
+    }
+}
+
+
+
 //Initialize the value of the board to null
 for (let i = 0; i < 3; i++){
     for (let j = 0; j < 3; j++) {
@@ -106,10 +128,10 @@ const clearBoard = () => {
     player1.lastClicked = 0
     player2.isWiner = false
     player2.lastClicked = 0
+    computer.isWiner = false
+    computer.lastClicked = 0
     isTie = false
-    turn = 1
     updateNotification()
-    addEvents()
 }
 
 //Update the board
@@ -186,6 +208,18 @@ const isBoardFull = () => {
     return isFull
 }
 
+//Check if the board game is empty
+const isBoardEmpty = () => {
+    let isEmpty = true
+    for (let i = 0; i < 3; i++){
+        for (let j = 0; j < 3; j++) {
+            if (boardGame[i][j] !== null) {
+                isEmpty = false
+            }
+        }
+    }
+    return isEmpty
+}
 //update html file 
 const updateHtml = (player) => {
     cells[player.lastClicked - 1].innerText = player.sign
@@ -193,18 +227,32 @@ const updateHtml = (player) => {
 
 //Notification
 const updateNotification = () => {
-    if (player1.isWiner) {
-        notification.innerText = user1 + ' wins'
-    } else if (player2.isWiner) {
-        notification.innerText = user2 + ' wins'
-    } else if (isTie){
-        notification.innerText = 'We have a tie'
-    } else if (turn === 1){
-        notification.innerText = "Your move, " + user1
-    } else if (turn === 2) {
-        notification.innerText = "Your move, " + user2
+    if (gameMode === 1) {
+        if (player1.isWiner) {
+            notification.innerText = user1 + ' wins'
+        } else if (computer.isWiner) {
+            notification.innerText = 'Computer wins'
+        } else if (isTie){
+            notification.innerText = 'We have a tie'
+        } else if (turn === 1){
+            notification.innerText = "Your move, " + user1
+        } else {
+            notification.innerText = "Let's play!"
+        }  
     } else {
-        notification.innerText = "Let's play!"
+        if (player1.isWiner) {
+            notification.innerText = user1 + ' wins'
+        } else if (player2.isWiner) {
+            notification.innerText = user2 + ' wins'
+        } else if (isTie){
+            notification.innerText = 'We have a tie'
+        } else if (turn === 1){
+            notification.innerText = "Your move, " + user1
+        } else if (turn === 2) {
+            notification.innerText = "Your move, " + user2
+        } else {
+            notification.innerText = "Let's play!"
+        }
     }
 }
 
@@ -213,8 +261,70 @@ const reset = () => {
     location.reload()
 }
 
+//Computer generates a move
+const generateAClick = () => {
+    return Math.floor(Math.random()*9 + 1)
+}
+
+const computerMove = () => {
+    let isBoardUpdated
+            do {                
+                setTimeout(computer.lastClicked =generateAClick(), delayInMilliseconds)//Delay 1 second
+                console.log(computer.lastClicked + "computer")
+                if (isBoardUpdated = updateBoardGame(computer)) {                    
+                    setTimeout(updateHtml(computer), delayInMilliseconds)
+                    if (checkWinner(computer)) {
+                        updateScore(computer)                         
+                        updateNotification()
+                    } else if (isBoardFull()) {
+                        updateTie()                          
+                        updateNotification()
+                    }
+                    turn = 1
+                    updateNotification()
+                } else if (isBoardFull()) {
+                    updateTie()           
+                    updateNotification()
+                } 
+            } while (!isBoardUpdated)
+}
+//When the board game is clicked, playGame1P() function will be activate, update the board game, check if the player win and update player's score
+const playGame1P = (Element) => {
+    
+    if (player1.isWiner || computer.isWiner || isTie) {
+        return
+    } else {
+        if (isBoardEmpty && turn === 2) {
+            computerMove()
+        } else if (turn === 1){
+            player1.lastClicked = parseInt(Element.dataset.location)
+            console.log(player1.lastClicked + " player1")
+            if (updateBoardGame(player1)) {                    
+                updateHtml(player1)
+                if (checkWinner(player1)) {
+                    updateScore(player1) 
+                    updateNotification()               
+                } else if (isBoardFull()) {
+                    updateTie()                 
+                    updateNotification()
+                }
+                turn = 2
+                updateNotification()
+            } else if (isBoardFull()) {
+                updateTie()           
+                updateNotification()
+            } 
+            //Check if there is a win
+            if (!(player1.isWiner || computer.isWiner || isTie) ) {
+                //Computer's move
+                computerMove()
+            }
+        } 
+    }
+}
+
 //When the board game is clicked, playGame() function will be activate, update the board game, check if the player win and update player's score
-const playGame = (Element) => {
+const playGame2P = (Element) => {
     if (player1.isWiner || player2.isWiner || isTie) {
         return
     } else {
@@ -258,6 +368,13 @@ const playGame = (Element) => {
     }
 }
 
+const playGame = (Element) => {
+    if (gameMode === 2) {
+        playGame2P(Element)
+    } else {
+        playGame1P(Element)
+    }
+}
 
 ////////////////////////////////
 // Event Listeners Here
@@ -267,7 +384,9 @@ const addEvents = () => {
     for (let i = 0; i < cells.length; i++){
         cells[i].addEventListener('click', playGame.bind(null, cells[i]))
     }
+    
 }
+
 
 //Add event listener to the play-aagain button
 playAgain.addEventListener('click', clearBoard)
@@ -275,8 +394,27 @@ playAgain.addEventListener('click', clearBoard)
 //Add event listerner to the reset button
 resetButton.addEventListener('click', reset)
 
+//Add event listener to the game-mode button
+gameModeButton.addEventListener('click', () => {
+    if (isBoardEmpty()) {
+        if (gameMode === 1) {
+            gameMode = 2
+            gameModeButton.innerText = '2P'
+            document.querySelector('.player2 p').innerText = 'Player 2:'
+            askUserName(gameMode)
+        } else {
+            gameMode = 1
+            gameModeButton.innerText = '1P'
+            document.querySelector('.player2 p').innerText = 'Computer :'   
+            askUserName(gameMode)                   
+        }
+        
+    } else {
+        return
+    }
+})
+
 //Game starts from here
-updateNotification()
 addEvents()
 
 
