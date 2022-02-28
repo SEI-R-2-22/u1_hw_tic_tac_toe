@@ -224,5 +224,11 @@ document.querySelector('#reset').addEventListener('click', () => {
 
 document.querySelector('button').addEventListener('click', () => {
   compPlaying = !compPlaying
+  if (compPlaying) {
+    if (turn % 2 === 0) {
+      compMove()
+      checkWinner()
+    }
+  }
 })
 ////////////////////////////////
