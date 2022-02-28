@@ -92,17 +92,6 @@ for (let i = 0; i<squares.length; i++) {
                 score()
                 document.querySelector(`#restart`).style.opacity = 1
             }}
-            checkWinState(
-                document.querySelector(`#top-left h2`).textContent,
-                document.querySelector(`#top-center h2`).textContent,
-                document.querySelector(`#top-right h2`).textContent,
-                document.querySelector(`#middle-left h2`).textContent,
-                document.querySelector(`#middle-center h2`).textContent,
-                document.querySelector(`#middle-right h2`).textContent,
-                document.querySelector(`#bottom-left h2`).textContent,
-                document.querySelector(`#bottom-center h2`).textContent,
-                document.querySelector(`#bottom-right h2`).textContent
-                ) 
         if (turnTracker % 2 === 0 && gameActive === true) {
             markDisplay[i].innerText = `O`
 
