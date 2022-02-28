@@ -82,7 +82,7 @@ const checkWinner = (array) => {
   ) {
     whosTurn.innerText = "WINNER!";
     winner = 1;
-    console.log(winner);
+    // console.log(winner);
     // for (i = 0; i < board.length; i++) {
     //   board[i].disable = true;
     // }
@@ -144,10 +144,26 @@ for (i = 0; i < board.length; i++) {
           break;
       }
     } else if (winner === 1) {
-      console.log("already won!");
+      // console.log("already won!");
     } else {
-      console.log("already clicked");
+      // console.log("already clicked");
     }
   });
 }
-reset.addEventListener("click", () => location.reload());
+
+reset.addEventListener(
+  "click",
+  () => {
+    for (i = 0; i < board.length; i++) {
+      let content = board[i];
+      content.innerText = "";
+      turn = 1;
+      content.classList.remove("x");
+      content.classList.remove("o");
+      whosTurn.innerText = "X goes!";
+      winner = 0;
+      // console.log(turn);
+    }
+  }
+  // location.reload()
+);
