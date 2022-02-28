@@ -84,11 +84,15 @@ h3#turn-heading {
 
 button {
   color: white;
-  background-color: palevioletred;
+  background-color: #df7e9e;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
   font-family: 'Oxygen', sans-serif;
   font-weight: bold;
   padding: 10px;
+}
+
+button:hover {
+  background-color: #db7093;
+  cursor: pointer;
 }
