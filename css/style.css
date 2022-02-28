@@ -31,17 +31,21 @@ body {
 h3 {
   text-align: center;
   margin-top: 50px;
+  font-size: 27px;
 }
 
 h1 {
   text-align: center;
   font-size: 50px;
+  background-color: orange;
+  padding: 5px 0 5px 0;
 }
 
 #score {
   text-align: center;
   margin-right: 15px;
   margin-top: 20px;
+  font-size: 20px;
 }
 
 button {
@@ -53,9 +57,4 @@ p {
   width: 90%;
   margin-left: 50px;
   line-height: 1.6;
-}
-
-h1 {
-  background-color: orange;
-  padding: 5px 0 5px 0;
 }
