@@ -26,8 +26,10 @@ function changeTurn(boxes) {
   }
   if (currentTurn.innerText === "Player 1's Turn") {
     document.getElementById(boxes).innerHTML = 'X'
+    document.getElementById(boxes).removeAttribute('onclick')
   } else {
     document.getElementById(boxes).innerHTML = 'O'
+    document.getElementById(boxes).removeAttribute('onclick')
   }
 }
 
