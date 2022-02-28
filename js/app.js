@@ -3,55 +3,82 @@
 const tiles = document.querySelectorAll('.box')
 const gameBoard = Array.from(tiles)
 let moonMove = Array.from(document.getElementsByClassName('inactive'))
-let moon = document.querySelectorAll('.moon')
-let star = document.querySelectorAll('.star')
+let moon = Array.from(document.querySelectorAll('.moon'))
+let star = Array.from(document.querySelectorAll('.star'))
 let playerChoice = []
 let computerChoice = []
-const winCombo = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
+
+
+
+const winCombo1 = [0, 1, 2].toString();
+const winCombo2 = [3, 4, 5].toString();
+const winCombo3 = [6, 7, 8].toString();
+const winCombo4 = [0, 3, 6].toString();
+const winCombo5 = [1, 4, 7].toString();
+const winCombo6 = [2, 5, 8].toString();
+const winCombo7 = [0, 4, 8].toString();
+const winCombo8 = [2, 4, 6].toString();
+
+// winCombo = [
+//     [0, 1, 2],
+//     [3, 4, 5],
+//     [6, 7, 8],
+//     [0, 3, 6],
+//     [1, 4, 7],
+//     [2, 5, 8],
+//     [0, 4, 8],
+//     [2, 4, 6]
+    
+// ].toString();
+    
+    
+
 
 
 ////////////////////////////////
 // Functions For Game Logic Here
 
-const decideWinner = () => {
-    if (playerChoice  === winCombo) {
-        console.log(`Player has won!`)
-    } else if (computerChoice === winCombo) {
-        console.log(`Computer has won!`)
-    } else {
-        console.log(`Draw, try again`)
-    }
+document.addEventListener('click', () => {
+    console.log('click')
+    for (let i = 0; i < playerChoice.length; i++) {
+        if (playerChoice.length > 2) {
+            console.log('yay')
+            let playerBoard = playerChoice.toString();
+            if (playerBoard.includes(winCombo1) || playerBoard.includes(winCombo2) || playerBoard.includes(winCombo3) || playerBoard.includes(winCombo4) || playerBoard.includes(winCombo5) || playerBoard.includes(winCombo6) || playerBoard.includes(winCombo7) || playerBoard.includes(winCombo8)) {
+                console.log('player win')
+            }
         
-}
+        } 
+    }      
+})  
+
+
+document.addEventListener('click', () => {
+    console.log('click')
+    for (let i = 0; i < playerChoice.length; i++) {
+        if (playerChoice.length > 2) {
+            console.log('yay')
+            let playerBoard = playerChoice.toString();
+            if (playerBoard.includes(winCombo1) || playerBoard.includes(winCombo2) || playerBoard.includes(winCombo3) || playerBoard.includes(winCombo4) || playerBoard.includes(winCombo5) || playerBoard.includes(winCombo6) || playerBoard.includes(winCombo7) || playerBoard.includes(winCombo8)) {
+                console.log('player win')
+            }
+        
+        } 
+    }      
+}) 
 
 
 ////////////////////////////////
 // Event Listeners Here
 
 
-// const computerMove = () => {
-//         Math.floor(Math.random() * availTiles.length)
-//         computerChoice = computerMove
-//         console.log(computerChoice)
-// }
 
-
-
-for (let i = 0; i < gameBoard.length; i++) {
-    gameBoard[i].addEventListener('click', () => {
+for (let i = 0; i < star.length; i++) {
+    star[i].addEventListener('click', () => {
         tiles[i].classList.remove('inactive')
         star[i].classList.add('player')
         star[i].style.opacity = 1
-        playerChoice.push(star[i])
+        playerChoice.push(i)
         moon[i].classList.add('occupied')
         moon[i].classList.remove('inactive')
         console.log(playerChoice)
@@ -72,6 +99,7 @@ const computerMove = () => {
             computerChoice.push('computer picked' + computerChoice)
             // console.log(reRoll)
             reRoll.style.opacity = 1
+            
         } else {
             diceRoll.classList.remove('inactive')
             diceRoll.classList.add('computer')
@@ -80,12 +108,37 @@ const computerMove = () => {
             console.log('computer picked' + computerChoice)
             diceRoll.style.opacity = 1
         }
-        // console.log(computerChoice)
+     
+    
     }
+    
 
-// let drawPlayerBoard = () => {
-//     player
-//     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // for (let i = 0; i < computerChoice.length; i++) {
 //     gameBoard[i].addEventListener('click', () => {
