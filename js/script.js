@@ -51,7 +51,7 @@ const startGame = () => {
           message.innerHTML = "Player Two's move"
 
           //Check to see if AI is selected, if it is, AI will play
-          if (player2.innerHTML === 'AI') {
+          if (player2.innerHTML === 'AI' && moveCounter != undefined) {
             randomPlay()
           }
         } else if (moveCounter % 2 != 0 && player2.innerHTML === 'Player2') {
@@ -95,7 +95,7 @@ const resetGame = () => {
 // link reset function to PlayAgain btn.
 playAgain.addEventListener('click', resetGame)
 
-// check for winner
+// check for winner seq
 const checkWinner = (playerMoves) => {
   //tic tac toe winning Sequence
   const winSeq = [
@@ -129,6 +129,7 @@ const checkWinner = (playerMoves) => {
   }
 }
 
+//check if player win or not, if win apply scoreboard, highlight box. update banner message
 const winner = (playerMove, player) => {
   if (checkWinner(playerMove)) {
     // if player win. change the banner message and make movecounter undefine.
@@ -137,18 +138,20 @@ const winner = (playerMove, player) => {
     addScoreBoard(player)
     for (let i = 0; i < winningNumber.length; i++) {
       gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
-      activePlayer(gameBoxes[winningNumber[i]])
+      activeBox(gameBoxes[winningNumber[i]])
     }
     moveCounter = undefined
     return
   } else if (moveCounter === 9) {
     // if movecounter === 9 the game is a draw.
     message.innerText = 'DRAW GAME'
+    moveCounter = undefined
     addScoreBoard('Draw Game')
     return
   }
 }
 
+//return the winning boxes
 const winningSeq = (playerMoves) => {
   const winSeq = [
     ['1', '2', '0'],
@@ -179,7 +182,8 @@ const winningSeq = (playerMoves) => {
   }
 }
 
-const activePlayer = (player) => {
+//add shake class to winning box.
+const activeBox = (player) => {
   player.classList.add('shake')
 }
 
@@ -206,35 +210,35 @@ const randomPlay = () => {
       second = Math.floor(Math.random() * 5)
       player2.innerHTML = 'AI'
       clearInterval(timed)
-      if (checkWinner(playerTwoMoves)) {
-        // if player win. change the banner message and make movecounter undefine.
-        message.innerText = 'Player Two wins the Game'
-        const winningNumber = winningSeq(playerTwoMoves)
-        addScoreBoard('AI')
-        for (let i = 0; i < winningNumber.length; i++) {
-          gameBoxes[winningNumber[i]].style.backgroundColor = 'yellow'
-          activePlayer(gameBoxes[winningNumber[i]])
-        }
-        moveCounter = undefined
-        return
-      } else if (moveCounter === 9) {
-        // if movecounter === 9 the game is a draw.
-        message.innerText = 'DRAW GAME'
-        addScoreBoard('Draw Game')
-        return
-      }
+      winner(playerTwoMoves, 'AI')
     }
   }, 1000)
 }
 
+//make a move for the AI
 const makeMove = (sign) => {
-  for (let i = 0; i < boxesLength; i++) {
-    if (gameBoxes[i].innerHTML === '') {
-      gameBoxes[i].innerHTML = sign
-      gameBoxes[i].style.backgroundColor = '#dbeafe'
-      playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
+  //randomly pick an empty spot to play.
+  let n = Math.floor(Math.random() * 9)
+  let track = 0
+  while (track <= 0) {
+    if (gameBoxes[n].innerHTML === '') {
+      gameBoxes[n].innerHTML = sign
+      gameBoxes[n].style.backgroundColor = '#dbeafe'
+      playerTwoMoves.push(gameBoxes[n].getAttribute('data-value'))
       moveCounter++
-      return
+      track++
     }
+    n = Math.floor(Math.random() * 9)
   }
+
+  //play the next avaliable empty box.
+  // for (let i = 0; i < boxesLength; i++) {
+  //   if (gameBoxes[i].innerHTML === '') {
+  //     gameBoxes[i].innerHTML = sign
+  //     gameBoxes[i].style.backgroundColor = '#dbeafe'
+  //     playerTwoMoves.push(gameBoxes[i].getAttribute('data-value'))
+  //     moveCounter++
+  //     return
+  //   }
+  // }
 }
