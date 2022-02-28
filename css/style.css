@@ -11,12 +11,11 @@ body{
     font-style: italic;
     cursor: default;
     max-width: 600px;
-    padding-top: 100px;
+    padding-top: 60px;
     margin: 0 auto; 
     background-image: url("https://static7.depositphotos.com/1228953/731/i/600/depositphotos_7310276-stock-photo-whiteboard.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
     background-position-y: 0.25px;
 }
 
