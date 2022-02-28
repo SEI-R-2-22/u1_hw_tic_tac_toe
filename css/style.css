@@ -42,6 +42,7 @@ img{
     height: 7em;
     background-color: white;
     flex-wrap: wrap;
+    
 }
 .a {
     display: flex;

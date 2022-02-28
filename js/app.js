@@ -1,4 +1,5 @@
 // Global Variables Here
+
 let sZer = document.querySelector('#sq0')
 let sOne = document.querySelector('#sq1')
 let sTwo = document.querySelector('#sq2')
@@ -8,9 +9,11 @@ let sFiv = document.querySelector('#sq5')
 let sSix = document.querySelector('#sq6')
 let sSev = document.querySelector('#sq7')
 let sEig = document.querySelector('#sq8')
-const btnBoard = document.getElementsByClassName('btn')
+const allSqs = [sZer, sOne, sTwo, sThr, sFou, sFiv, sSix, sSev, sEig];
+const sqrClass = document.querySelector('.sqr')
 
-let player = "X";
+
+
 const winCombo = [
     [0, 1, 2],
     [3, 4, 5],
@@ -28,12 +31,24 @@ const winCombo = [
 // Functions For Game Logic Here
 
 
-
+//function to change players
 let chngPl = () => {
-    for(let i = 0; i < 8; i++){
-        if (player === "X"){
-
-        }
+    const X = 0 && 0 === X
+    const O = 1 && 1 === O
+    let player = X
+    if(player = 0){
+        1 = 'O'
+        0 = 'X'
+        player = player + 1;
+    }else if(player = 1 ) {
+        1 = 'O'
+        0 = 'X'
+        player = player - 1;
+    }else{
+        1 = 'O'
+        0 = 'X'
+        player = 0;
+        //default
     }
 }
 const playGame = () => {
@@ -50,7 +65,12 @@ const sayHello =() => {
 
 
 for (let i = 0; i < 8; i++) {
-    btnBoard[i].addEventListener('click', sayHello)
+    allSqs[i].addEventListener('click', () =>{
+        //if(player = )
+        
+        allSqs[i].innerText = player 
+        
+    })
 }
 
 
