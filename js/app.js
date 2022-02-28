@@ -8,7 +8,7 @@ const button6 = document.querySelector('#box6')
 const button7 = document.querySelector('#box7')
 const button8 = document.querySelector('#box8')
 const button9 = document.querySelector('#box9')
-// const buttons = document.querySelectorAll('.box')
+const buttons = document.querySelectorAll('.box')
 const currentTurn = document.querySelector('.turn')
 
 ////////////////////////////////
@@ -33,6 +33,9 @@ function changeTurn(boxes) {
   }
 }
 
+function reload() {
+  location.reload()
+}
 ////////////////////////////////
 // Event Listeners Here
 
