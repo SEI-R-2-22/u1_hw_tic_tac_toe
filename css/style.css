@@ -1,5 +1,5 @@
 body {
-  background-color: darkgreen;
+  background-color: darkcyan;
   font-size: 80px;
 }
 
@@ -11,10 +11,11 @@ header {
    */
 
 .space {
-  background-color: darkgreen;
+  background-color: rgb(105, 81, 117);
   height: auto;
   margin: 1vh;
   font-size: 20vh;
+  color: darkcyan;
 }
 
 /* .selectX {
@@ -30,12 +31,14 @@ header {
   grid-template-columns: 27vh 27vh 27vh;
   grid-template-rows: 27vh 27vh 27vh;
   justify-content: center;
+  /* background-image: url("https://www.pinclipart.com/picdir/big/111-1114809_tic-tac-toe-stickers-messages-sticker-0-transparent.png");
+  background-size: cover; */
 }
 
 #reset {
-  height: 10vh;
-  width: 15vh;
-  font-size: 3vh;
+  height: 8vh;
+  width: 10vh;
+  font-size: 2vh;
 }
 
 .score {
@@ -44,7 +47,17 @@ header {
   padding: 10px;
 }
 #wipeScore {
-  height: 10vh;
-  width: 15vh;
-  font-size: 3vh;
+  height: 8vh;
+  width: 10vh;
+  font-size: 2vh;
+}
+
+img {
+  height: 81vh;
+  width: 81vh;
+  position: absolute;
+  margin-left: 50vh;
+  margin-right: auto;
+
+  text-align: center;
 }

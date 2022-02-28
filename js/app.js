@@ -171,22 +171,17 @@ for (i = 0; i < board.length; i++) {
   });
 }
 
-reset.addEventListener(
-  "click",
-  () => {
-    for (i = 0; i < board.length; i++) {
-      let content = board[i];
-      content.innerText = "";
-      turn = 1;
-      content.classList.remove("x");
-      content.classList.remove("o");
-      whosTurn.innerText = "X goes!";
-      winner = 0;
-      // console.log(turn);
-    }
+reset.addEventListener("click", () => {
+  for (i = 0; i < board.length; i++) {
+    let content = board[i];
+    content.innerText = "";
+    turn = 1;
+    content.classList.remove("x");
+    content.classList.remove("o");
+    whosTurn.innerText = "X goes!";
+    winner = 0;
   }
-  // location.reload()
-);
+});
 
 clearScore.addEventListener("click", () => {
   oScore = 0;
