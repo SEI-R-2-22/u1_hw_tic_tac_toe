@@ -1,4 +1,6 @@
 // Global variables that store a NodeList or individual DOM nodes
+const xScoreSpan = document.getElementById('x-score')
+const oScoreSpan = document.getElementById('o-score')
 const cells = document.querySelectorAll('.ttt-cell')
 const turnNotification = document.getElementById('turn-heading')
 const gameStatusNotification = document.getElementById('game-status-heading')
