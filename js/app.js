@@ -14,8 +14,39 @@ const buttonsAll = document.querySelectorAll('.button')
 
 const choices = ['X', 'O']
 
+let turnCount = 9
+
 ////////////////////////////////
 // Functions For Game Logic Here
+
+const turnCountdown = () => {
+  turnCount = turnCount - 1
+  console.log(turnCount)
+}
+
+const tieCheck = () => {
+  if (
+    winOTopRowResult === false &&
+    winXTopRowResult === false &&
+    winOMidRowResult === false &&
+    winXMidRowResult === false &&
+    winOBotRowResult === false &&
+    winXBotRowResult === false &&
+    winOCol1Result === false &&
+    winXCol1Result === false &&
+    winOCol2Result === false &&
+    winXCol2Result === false &&
+    winOCol3Result === false &&
+    winXCol3Result === false &&
+    winOCrossBLTRResult === false &&
+    winXCrossBLTRResult === false &&
+    winOCrossTLBRResult === false &&
+    winXCrossTLBRResult === false &&
+    turnCount === 0
+  ) {
+    alert('Tie')
+  }
+}
 
 const buttonAllDisable = () => {
   for (let i = 0; i < buttonsAll.length; i++) {
@@ -48,7 +79,7 @@ const winXTopRow = () => {
     alert('X wins')
     buttonAllDisable()
   }
-  console.log(winXTopRowResult)
+  //console.log(winXTopRowResult)
 }
 
 let winOMidRowResult = false
@@ -254,39 +285,44 @@ const winXCrossBLTR = () => {
 // Event Listeners Here
 
 button0.addEventListener('click', () => {
-  if (button0.innerText == 'X') {
-    button0.innerText = 'O'
+  if (button0.innerText == 'x') {
+    button0.innerText = 'o'
     if (
       confirm('This player chose O, confirm yes, or reclick to choose X') ===
       true
     ) {
+      button0.innerText = 'O'
       button0.disabled = true
       alert('The next player will choose for X')
     }
   } else {
-    button0.innerText = 'X'
+    button0.innerText = 'x'
     if (
-      confirm('This player chose X, confirm yes, or reclick to choose X') ===
+      confirm('This player chose X, confirm yes, or reclick to choose O') ===
       true
     ) {
+      button0.innerText = 'X'
       button0.disabled = true
       alert('The next player will choose for O')
     }
   }
+  turnCountdown()
   winOTopRow()
   winXTopRow()
   winOCol1()
   winXCol1()
   winOCrossTLBR()
   winXCrossTLBR()
+  tieCheck()
 })
 
 button1.addEventListener('click', () => {
   if (button1.innerText == 'X') {
     button1.innerText = 'O'
     if (
-      confirm('This player chose O, confirm yes, or reclick to choose X') ===
-      true
+      confirm(
+        'This player chose O, confirm yes, or cancel then reclick to choose X'
+      ) === true
     ) {
       button1.disabled = true
       alert('The next player will choose for X')
@@ -294,25 +330,29 @@ button1.addEventListener('click', () => {
   } else {
     button1.innerText = 'X'
     if (
-      confirm('This player chose X, confirm yes, or reclick to choose X') ===
-      true
+      confirm(
+        'This player chose X, confirm yes, or cancl then reclick to choose O'
+      ) === true
     ) {
       button1.disabled = true
       alert('The next player will choose for O')
     }
   }
+  turnCountdown()
   winOTopRow()
   winXTopRow()
   winOCol2()
   winXCol2()
+  tieCheck()
 })
 
 button2.addEventListener('click', () => {
   if (button2.innerText == 'X') {
     button2.innerText = 'O'
     if (
-      confirm('This player chose O, confirm yes, or reclick to choose X') ===
-      true
+      confirm(
+        'This player chose O, confirm yes, or cancel then reclick to choose X'
+      ) === true
     ) {
       button2.disabled = true
       alert('The next player will choose for X')
@@ -320,67 +360,210 @@ button2.addEventListener('click', () => {
   } else {
     button2.innerText = 'X'
     if (
-      confirm('This player chose X, confirm yes, or reclick to choose X') ===
-      true
+      confirm(
+        'This player chose X, confirm yes, or cancel then reclick to choose X'
+      ) === true
     ) {
       button2.disabled = true
       alert('The next player will choose for O')
     }
   }
+  turnCountdown()
   winOTopRow()
   winXTopRow()
   winOCol3()
   winXCol3()
   winOCrossBLTR()
   winXCrossBLTR()
+  tieCheck()
 })
 
 button3.addEventListener('click', () => {
   if (button3.innerText == 'X') {
     button3.innerText = 'O'
+    if (
+      confirm(
+        'This player chose O, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button3.disabled = true
+      alert('The next player will choose for X')
+    }
   } else {
     button3.innerText = 'X'
+    if (
+      confirm(
+        'This player chose X, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button3.disabled = true
+      alert('The next player will choose for O')
+    }
   }
+  turnCountdown()
+  winOCol1()
+  winXCol1()
+  winOMidRow()
+  winXMidRow()
+  tieCheck()
 })
 
 button4.addEventListener('click', () => {
   if (button4.innerText == 'X') {
     button4.innerText = 'O'
+    if (
+      confirm(
+        'This player chose O, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button4.disabled = true
+      alert('The next player will choose for X')
+    }
   } else {
     button4.innerText = 'X'
+    if (
+      confirm(
+        'This player chose X, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button4.disabled = true
+      alert('The next player will choose for O')
+    }
   }
+  turnCountdown()
+  winOMidRow()
+  winXMidRow()
+  winOCol2()
+  winXCol2()
+  winOCrossTLBR()
+  winXCrossTLBR()
+  winOCrossBLTR()
+  winXCrossBLTR()
+  tieCheck()
 })
 
 button5.addEventListener('click', () => {
   if (button5.innerText == 'X') {
     button5.innerText = 'O'
+    if (
+      confirm(
+        'This player chose O, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button5.disabled = true
+      alert('The next player will choose for X')
+    }
   } else {
     button5.innerText = 'X'
+    if (
+      confirm(
+        'This player chose X, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button5.disabled = true
+      alert('The next player will choose for O')
+    }
   }
+  turnCountdown()
+  winOCol3()
+  winXCol3()
+  winOMidRow()
+  winXMidRow()
+  tieCheck()
 })
 
 button6.addEventListener('click', () => {
   if (button6.innerText == 'X') {
     button6.innerText = 'O'
+    if (
+      confirm(
+        'This player chose O, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button6.disabled = true
+      alert('The next player will choose for X')
+    }
   } else {
     button6.innerText = 'X'
+    if (
+      confirm(
+        'This player chose X, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button6.disabled = true
+      alert('The next player will choose for O')
+    }
   }
+  turnCountdown()
+  winOBotRow()
+  winXBotRow()
+  winOCol1()
+  winXCol1()
+  winOCrossBLTR()
+  winXCrossBLTR()
+  tieCheck()
 })
 
 button7.addEventListener('click', () => {
   if (button7.innerText == 'X') {
     button7.innerText = 'O'
+    if (
+      confirm(
+        'This player chose O, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button7.disabled = true
+      alert('The next player will choose for X')
+    }
   } else {
     button7.innerText = 'X'
+    if (
+      confirm(
+        'This player chose X, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button7.disabled = true
+      alert('The next player will choose for O')
+    }
   }
+  turnCountdown()
+  winOBotRow()
+  winXBotRow()
+  winOCol2()
+  winXCol2()
+  tieCheck()
 })
 
 button8.addEventListener('click', () => {
   if (button8.innerText == 'X') {
     button8.innerText = 'O'
+    if (
+      confirm(
+        'This player chose O, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button8.disabled = true
+      alert('The next player will choose for X')
+    }
   } else {
     button8.innerText = 'X'
+    if (
+      confirm(
+        'This player chose X, confirm yes, or cancel then reclick to choose X'
+      ) === true
+    ) {
+      button8.disabled = true
+      alert('The next player will choose for O')
+    }
   }
+  turnCountdown()
+  winOBotRow()
+  winXBotRow()
+  winOCol3()
+  winXCol3()
+  winOCrossTLBR()
+  winXCrossTLBR()
+  tieCheck()
 })
 
 ////////////////////////////////
