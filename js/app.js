@@ -64,9 +64,7 @@ document.addEventListener('click', () => {
         if (computerArr.length > 2) {
             let computerBoard = computerArr.toString();
             if (computerBoard.includes(winCombo1) || computerBoard.includes(winCombo2) || computerBoard.includes(winCombo3) || computerBoard.includes(winCombo4) || computerBoard.includes(winCombo5) || computerBoard.includes(winCombo6) || computerBoard.includes(winCombo7) || computerBoard.includes(winCombo8)) {
-                console.log('player win! Press ok to play again.')
-                alert('You win!')
-                    window.location.reload();
+                console.log('computer win! Press ok to play again.')
             }
         
         } 
@@ -85,35 +83,33 @@ const computerMove = () => {
             reRoll.classList.add('computer')
             reRoll.classList.add('occupied')
             computerChoice.push(reRoll)
-            reRoll.style.opacity = 1  
+            reRoll.style.opacity = 1
+            checkComputerConditions();
+            // console.log(computerChoice)  
         } else {
             diceRoll.classList.remove('inactive')
             diceRoll.classList.add('computer')
             diceRoll.classList.add('occupied')
             computerChoice.push(diceRoll)
             diceRoll.style.opacity = 1
+            checkComputerConditions();
             // console.log(computerChoice)
         } 
 }
-
-
-
-////////////////////////////////
-// Event Listeners Here
-
 
 
 let checkComputerConditions = () =>{
     for (let i = 0; i < moon.length; i++) {
         if (moon[i].classList.contains('computer')) { //push pieces marked computer into another array
             computerArr.push(i)
-            console.log(computerArr)
+            console.log('computer picked ' + computerArr)
         }
     }
 }
 
 
-
+////////////////////////////////
+// Event Listeners Here
 
 //Player Move
 for (let i = 0; i < star.length; i++) {
@@ -124,9 +120,8 @@ for (let i = 0; i < star.length; i++) {
         playerChoice.push(i)
         moon[i].classList.add('occupied') //attempts to prevent computer from picking it
         moon[i].classList.remove('inactive') //alters class to remove it from available computer move array
-        console.log(playerChoice)
+        console.log('player picked ' + playerChoice)
         computerMove();
-        checkComputerConditions();
     
     
     })
