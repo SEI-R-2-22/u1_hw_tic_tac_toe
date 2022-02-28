@@ -8,25 +8,35 @@ let sFiv = document.querySelector('#sq5')
 let sSix = document.querySelector('#sq6')
 let sSev = document.querySelector('#sq7')
 let sEig = document.querySelector('#sq8')
+const btnBoard = document.getElementsByClassName('btn')
 
-
-
+let player = "X";
+const winCombo = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+]; 
 
 
 
 ////////////////////////////////
 // Functions For Game Logic Here
-playerChoice = () => {
-    let boxs = document.querySelector('.sqr')
-    switch(boxes){
-        case sZer:
-            sZer.style.color = 'blue'
-            break;
-        
+
+
+
+let chngPl = () => {
+    for(let i = 0; i < 8; i++){
+        if (player === "X"){
+
+        }
     }
 }
-
-let chngSq = () => {
+const playGame = () => {
     
 }
 
@@ -36,15 +46,13 @@ const sayHello =() => {
     alert("Button Clicked")
 }
 
-const btnBoard = document.getElementsByClassName('btn')
-const btnBoardO = document.getElementsByClassName('btnO')
+
+
 
 for (let i = 0; i < 8; i++) {
     btnBoard[i].addEventListener('click', sayHello)
 }
-for (let i = 0; i < 8; i++) {
-    btnBoardO[i].addEventListener('click', sayHello)
-}
+
 
 
 

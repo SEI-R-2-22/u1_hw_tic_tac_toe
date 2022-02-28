@@ -2,13 +2,22 @@ article{
     text-align: center;
 }
 
+.btnO, .btn {
+    display: flex;
+    flex-direction: row;
+    font-size: 5px;
+    margin-bottom: -80%;
+    
+    
+}
+
 img{
     width: 100%;
     filter: opacity(30%)
 }
 .game{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     height: 25em;
     width: 25em;
@@ -19,9 +28,12 @@ img{
     background-color: rgb(94, 93, 93);
     padding: 12em 7em 2em 7em;
 }
+.score_board {
+    display: flex;
+    width: 100%;
+}
 
-
-.sqr{
+.sqr {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -34,16 +46,8 @@ img{
 .a {
     display: flex;
     flex-direction: row;
-    font-size: 6em;
-    justify-item: center;
+    font-size: 4em;
+    padding-left: 30px;
+    justify-items: center;
     align-items: center;
-
-}
-.btn, .btnO{
-    font-size: 5px;
-    
-}
-.snd{
-    border-bottom: 0em;
-
 }
