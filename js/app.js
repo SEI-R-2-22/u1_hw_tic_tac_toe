@@ -83,9 +83,7 @@ const computerMove = () => {
             computerChoice.push(diceRoll)
             diceRoll.style.opacity = 1
             checkComputerConditions();
-        }
-    
-
+        } 
 }
 
 
@@ -205,6 +203,7 @@ const resetBoard = () => {
 
 ////////////////////////////////
 // Event Listeners Here
+
 
 
 

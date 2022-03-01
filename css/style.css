@@ -198,33 +198,22 @@ h1 {
 
 
 
-.button-wrapper {
+.wrapper {
     background-color: #0d1a2b;
     border-radius: 25px;
     height: 50px;
-    width: 150px;
+    width: 500px;
     position: absolute;
     bottom: 5%;
     left: 0;
     right: 0;
+    display: flex;
+    align-content: space-around;
+    justify-content: space-between;
     
     margin: auto
 }
 
-.turn-count-wrapper {
-    background-color: #0d1a2b;
-    border-radius: 25px;
-    height: 50px;
-    width: 300px;
-    position: absolute;
-    bottom: 12%;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    
-    margin: auto
-}
 
 .counter-title {
     margin: auto;
