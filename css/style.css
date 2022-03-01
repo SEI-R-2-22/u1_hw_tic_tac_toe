@@ -8,60 +8,88 @@
 
 .container {
   display: grid;
-  grid-template-columns: 50px 56px 50px;
+  grid-template-columns: 100px 100px 100px;
   padding: 1px;
   background-color: gray;
-  width: 156px;
+  width: 300px;
+  height: 306px;
 }
 
 #box1 {
   border-right: 3px solid black;
   border-bottom: 3px solid black;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  color: red;
 }
 #box2 {
   border-right: 3px solid black;
   border-bottom: 3px solid black;
   border-left: 3px solid black;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  color: red;
 }
 #box3 {
   border-bottom: 3px solid black;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  color: red;
 }
 #box4 {
   border-right: 3px solid black;
   border-bottom: 3px solid black;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  color: red;
 }
 #box5 {
   border-right: 3px solid black;
   border-bottom: 3px solid black;
   border-left: 3px solid black;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  color: red;
 }
 #box6 {
   border-bottom: 3px solid black;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  color: red;
 }
 #box7 {
   border-right: 3px solid black;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  color: red;
 }
 #box8 {
   border-right: 3px solid black;
   border-left: 3px solid black;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  color: red;
 }
 #box9 {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  color: red;
 }

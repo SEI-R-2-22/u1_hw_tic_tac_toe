@@ -63,6 +63,8 @@ function checkCombo(boxes) {
     button3.innerHTML == 'O'
   ) {
     alert('Player 1 Wins!')
+    player = 3
+    endGame()
   }
   if (
     button1.innerHTML == 'X' &&
@@ -70,12 +72,16 @@ function checkCombo(boxes) {
     button9.innerHTML == 'X'
   ) {
     alert('Player 2 Wins!')
+    player = 3
+    endGame()
   } else if (
     button1.innerHTML == 'O' &&
     button5.innerHTML == 'O' &&
     button9.innerHTML == 'O'
   ) {
     alert('Player 1 Wins!')
+    player = 3
+    endGame()
   }
   if (
     button1.innerHTML == 'X' &&
@@ -83,12 +89,16 @@ function checkCombo(boxes) {
     button7.innerHTML == 'X'
   ) {
     alert('Player 2 Wins!')
+    player = 3
+    endGame()
   } else if (
     button1.innerHTML == 'O' &&
     button4.innerHTML == 'O' &&
     button7.innerHTML == 'O'
   ) {
     alert('Player 1 Wins!')
+    player = 3
+    endGame()
   }
   if (
     button2.innerHTML == 'X' &&
@@ -96,6 +106,8 @@ function checkCombo(boxes) {
     button8.innerHTML == 'X'
   ) {
     alert('Player 2 Wins!')
+    player = 3
+    endGame()
   } else if (
     button2.innerHTML == 'O' &&
     button5.innerHTML == 'O' &&
@@ -109,12 +121,16 @@ function checkCombo(boxes) {
     button9.innerHTML == 'X'
   ) {
     alert('Player 2 Wins!')
+    player = 3
+    endGame()
   } else if (
     button3.innerHTML == 'O' &&
     button6.innerHTML == 'O' &&
     button9.innerHTML == 'O'
   ) {
     alert('Player 1 Wins!')
+    player = 3
+    endGame()
   }
   if (
     button4.innerHTML == 'X' &&
@@ -122,12 +138,16 @@ function checkCombo(boxes) {
     button6.innerHTML == 'X'
   ) {
     alert('Player 2 Wins!')
+    player = 3
+    endGame()
   } else if (
     button4.innerHTML == 'O' &&
     button5.innerHTML == 'O' &&
     button6.innerHTML == 'O'
   ) {
     alert('Player 1 Wins!')
+    player = 3
+    endGame()
   }
   if (
     button7.innerHTML == 'X' &&
@@ -135,12 +155,16 @@ function checkCombo(boxes) {
     button9.innerHTML == 'X'
   ) {
     alert('Player 2 Wins!')
+    player = 3
+    endGame()
   } else if (
     button7.innerHTML == 'O' &&
     button8.innerHTML == 'O' &&
     button9.innerHTML == 'O'
   ) {
     alert('Player 1 Wins!')
+    player = 3
+    endGame()
   }
   if (
     button7.innerHTML == 'X' &&
@@ -148,12 +172,16 @@ function checkCombo(boxes) {
     button3.innerHTML == 'X'
   ) {
     alert('Player 2 Wins!')
+    player = 3
+    endGame()
   } else if (
     button7.innerHTML == 'O' &&
     button5.innerHTML == 'O' &&
     button3.innerHTML == 'O'
   ) {
     alert('Player 1 Wins!')
+    player = 3
+    endGame()
   } else {
     checkDraw()
   }
