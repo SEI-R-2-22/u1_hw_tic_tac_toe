@@ -5,13 +5,14 @@ body{
 }
 h1{
     text-align: center;
-    color: orange;
+    color: rgb(255,101,25);
     margin: 55px 0 34px 0;
     animation: move 7.62s infinite;
+    font-size:89px;
 
 }
 @keyframes move{
-    50% {color: orangered}
+    50% {color: rgb(160,63,25)}
     100% {color: #333}
 }
 .container{
@@ -29,17 +30,22 @@ h1{
     justify-content: center;
     border-radius: 5px;
     box-shadow: 0 0 5px #fff;
+    transition:background-color 1.62s ease-out;
+}
+.game-container:hover{
+    background-color: rgb(25,101,255);;
+    transition:background-color 1.62s ease-out;
 }
 .scorelog{
     overflow: auto;
     width:233px;
-    height:434px;
+    height:377px;
     margin:34px auto;
     border:1px solid #fff;
 
 }
 .scorelog h2{
-    color:#fff;
+    color: #ccc;
     text-align: center;
     text-decoration: underline;
 }
@@ -49,14 +55,14 @@ h1{
 }
 .box{
     opacity:0.62;
-    border:2px solid orangered;
+    border:2px solid #fff;
     border-radius:3px;
     background-color: #555;
     height:62px;
 
 }
 .box p{
-    color:orange;   
+    color:rgb(255,255,15);;   
 }
 .control-panel{
     
@@ -113,8 +119,10 @@ a:active{
     font-size:21px;
 }
 li{
-    color: orange;
-    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 160, 40);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    text-decoration: underline;
 
 }
 
@@ -145,4 +153,17 @@ li{
 #box9{
     border-bottom:0;
     border-right:0;
+}
+span{
+    color:rgb(255,101,25);  
+    font-size:21px;
+}
+.scorelog div {
+    background-color: #222;
+    padding: 2px;
+}
+#turns {
+    color:rgb(160,63,25);
+    text-decoration: underline;
+    font-style: italic;
 }

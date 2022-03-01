@@ -123,12 +123,12 @@ const changeText = function(boxnumber){
         if(turn === "player"){
             document.querySelector(box).children[0].innerText = "X";
             
-            document.querySelector('#turns').innerText = "TURN: Player O !"
+            document.querySelector('#turns').innerText = "Your Turn, O"
             turn = "computer";
         }else if(turn === "computer"){
             document.querySelector(box).children[0].innerText = "O";
         
-            document.querySelector('#turns').innerText = "TURN: Player X !"
+            document.querySelector('#turns').innerText = "Your Turn, X "
             turn = "player";
         }
     }else{
