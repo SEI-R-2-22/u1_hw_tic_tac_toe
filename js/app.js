@@ -23,12 +23,10 @@ let resetGame = () => {
   winnerBanner.style.opacity = 0
   activePlayer = 'x'
   activePlayerDisplay.innerHTML = 'Active player: X'
-  activePlayerDisplay.style.opacity = 1
   winnerDeclared = false
 }
 let declareWinner = () => {
   winnerDeclared = true
-  activePlayerDisplay.style.opacity = 0
   winnerBanner.innerHTML = `${activePlayer} wins!`
   winnerBanner.style.opacity = 1
   if (activePlayer === 'x') {
@@ -42,7 +40,6 @@ let declareWinner = () => {
 
 let declareTie = () => {
   winnerDeclared = true
-  activePlayerDisplay.style.opacity = 0
   winnerBanner.innerHTML = `Tie game!`
   winnerBanner.style.opacity = 1
   tScore += 1

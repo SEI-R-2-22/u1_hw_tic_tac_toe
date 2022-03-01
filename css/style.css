@@ -97,11 +97,15 @@ header {
 }
 
 .game-winner-banner > h1 {
-  opacity: 0;  
-  position: relative;
-  margin-left: 85px;
+  opacity: 0;
+  border-radius: 25px;
+  text-align: center;    
   margin-top: -10px;
+  margin-left: 85px;
+  margin-right: 2rem;
   font-size: 1rem;
+  border-style: dotted;  
+  color:yellow;
   
 }
 
@@ -113,4 +117,37 @@ header {
   justify-content: center;
   align-content: center; 
   color: white; 
+}
+
+@media (max-width: 600px) 
+{
+  body{ background-image: none;
+    background-color:#012a4a;
+  }
+  
+  .outer {width: 90vw;
+    height: 100vh;
+    width: 100wv;    
+    grid-row-start: 1;
+    grid-column-start: 1;  
+     
+  }
+  header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 3rem
+      
+  }
+  .right { 
+    margin-top: 30vh;
+    margin-right: 5vw;
+  }
+  .reset {
+    margin-top: 35vh;
+    margin-left: 10vw;
+    color:white;
+  }
+  
+
 }
