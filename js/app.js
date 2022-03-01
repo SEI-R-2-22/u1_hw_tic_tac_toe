@@ -31,7 +31,6 @@ const checkWinner = () => {
     console.log("checkWinner works!");
     // check current board layout to see if the game is over
     // connect to displayMessage function to display winner/tie
-    // set everything in the array cell Entry to 'null' to disable board
 
     if (cellEntry[0]=== "x" && cellEntry[1]=== "x" && cellEntry[2]=== "x") {
         winnerX = true;
@@ -72,20 +71,23 @@ const checkWinner = () => {
 
 }   
 
-
+// display turn, winner, or tie
 const displayMessage = () => {
     console.log("displayMessage works!");
-    // display turn, winner, or tie
-
+    
+    // tie
     drawFlag = true
     
     for (let i = 0; i < 9; i++) {
         if (cellEntry[i] === null) {
             drawFlag=false;
             break
+
         }
+
     }
 
+    // winner
     if (winnerX === true) {
         message.innerText = "X won!";
     }
@@ -95,69 +97,76 @@ const displayMessage = () => {
     else if ( drawFlag ){
         message.innerText = "Draw!"
     }
+
+    // turn
     else if (turnCounter % 2 === 0) {
         message.innerText = "It's X's turn!";
     }
     else {
         message.innerText = "It's O's turn!";
+
     }
 
 }
 
+// replaces "null" property value in cellEntry object with either "x" or "o"
+// currentElement refers to the "this" value gathered from the event listener
 const markCell = (clickedGrid, currentElement) => {
     console.log("markCell works!");
 
 
-    // Display x or o in box
+    // increments turnCounter if grid-item has not been clicked
     if (cellEntry[clickedGrid] === null) {
         turnCounter += 1;
 
-    
+    // replaces "null" value with "x" or "o" when clicked
     cellEntry[clickedGrid] = (turnCounter % 2 === 0 ? "o" : "x");
     
     console.log(cellEntry);
     console.log(currentElement);
+
     checkWinner();
     displayMessage();
     }    
 }
 
-
+// resets values for global variables back to "null", "false" and 0
 const reset = () => {
     location.reload()
     console.log("reset works!");
 
-    // reset all values to null, remove all xs and os
-    for (i = 0; i < 9; i++) {
-        cellEntry[i] = null;
-        gridItem[i].classList.remove('x');
-        gridItem[i].classList.remove('o');
-        
-    }
-    // resets global variables
-    winnerX = false;
-    winnerO = false;
-    turnCounter = 0;
-    drawFlag = false;
+    // I had trouble getting the following code to work so reset button triggers a page reload instead
 
-    console.log(cellEntry);
-    displayMessage();
-    for (let i = 0; i < 9; i++) {
-        gridItem[i].addEventListener("click", function () {
-            let clickedGrid = this.innerHTML;
-            let currentElement = this;
-            markCell(clickedGrid, currentElement);
-            
-        })
+    // // reset all values to null, remove all xs and os
+    // for (i = 0; i < 9; i++) {
+    //     cellEntry[i] = null;
+    //     gridItem[i].classList.remove('x');
+    //     gridItem[i].classList.remove('o');
         
-    };
+    // }
+    // // resets global variables
+    // winnerX = false;
+    // winnerO = false;
+    // turnCounter = 0;
+    // drawFlag = false;
+
+    // displayMessage();
+    // for (let i = 0; i < 9; i++) {
+    //     gridItem[i].addEventListener("click", function () {
+    //         let clickedGrid = this.innerHTML;
+    //         let currentElement = this;
+    //         markCell(clickedGrid, currentElement);
+            
+    //     })
+        
+    // };
+    console.log(cellEntry);
 }
 
+// sets the grid-item to either an "x" image or "o" image
 const setImage = () => {
     for (i = 0; i < 9; i++) {
-        // if (winnerX === true || winnerO === true) {
-        //     console.log("someone won")
-        // }
+        
         if (cellEntry[i] === 'x') {
             gridItem[i].classList.add('x');
         }
@@ -171,6 +180,8 @@ const setImage = () => {
 
 ////////////////////////////////
 // Event Listeners Here
+
+// listens for click on a gridItem and stores the innerHTML using "this" into currentElement, runs markCell
 for (let i = 0; i < 9; i++) {
     gridItem[i].addEventListener("click", function () {
         let clickedGrid = this.innerHTML;
@@ -181,15 +192,16 @@ for (let i = 0; i < 9; i++) {
     
 };
 
-// set image to 'x' or 'o'
+// listens for click on gridItem, runs setImage to pass in currentElement and assign "x" or "o" image
 for (let i = 0; i < 9; i++) {
-    gridItem[i].addEventListener('click', setImage);
+    gridItem[i].addEventListener("click", setImage);
 }
 
+// prevents clicking cells after game is over
 let stopGame = () => {
     setTimeout(() => { 
             for (i = 0; i < 9; i++) {
-            gridItem[i].removeEventListener('click', setImage);
+            gridItem[i].removeEventListener("click", setImage);
         }
 
     }, 100);
@@ -198,7 +210,7 @@ let stopGame = () => {
 
 
 // reset button
-resetBtn.addEventListener('click', reset);
+resetBtn.addEventListener("click", reset);
 
 
 
