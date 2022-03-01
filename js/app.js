@@ -21,6 +21,8 @@ let cWin = null
 let draw = null
 let tie = null
 
+let turnCount = 0
+let counter = document.getElementById('turn-count')
 //Win Conditions
 const winCombo1 = [0, 1, 2].toString();
 const winCombo2 = [3, 4, 5].toString();
@@ -32,23 +34,26 @@ const winCombo7 = [0, 4, 8].toString();
 const winCombo8 = [2, 4, 6].toString();
 
 // winCombo = [
-//     [0, 1, 2],
-//     [3, 4, 5],
-//     [6, 7, 8],
-//     [0, 3, 6],
-//     [1, 4, 7],
-//     [2, 5, 8],
-//     [0, 4, 8],
-//     [2, 4, 6]
+    //     [0, 1, 2],
+    //     [3, 4, 5],
+    //     [6, 7, 8],
+    //     [0, 3, 6],
+    //     [1, 4, 7],
+    //     [2, 5, 8],
+    //     [0, 4, 8],
+    //     [2, 4, 6]
     
-// ].toString();
+    // ].toString();
     
-////////////////////////////////
-// Functions For Game Logic Here
-
-//Player Move
-for (let i = 0; i < star.length; i++) {
-    star[i].addEventListener('click', () => {
+    ////////////////////////////////
+    // Functions For Game Logic Here
+    
+    //Player Move
+    for (let i = 0; i < star.length; i++) {
+        star[i].addEventListener('click', () => {
+            turnCount = turnCount + 1
+            counter.innerText = turnCount
+            console.log(turnCount)
         if (star[i].classList.contains('avail')) {
             star[i].classList.add('player')
             star[i].classList.add('occupied')
@@ -56,12 +61,15 @@ for (let i = 0; i < star.length; i++) {
             star[i].style.opacity = 1
             playerChoice.push(i)
             console.log('player picked ' + playerChoice)
+            
         }
         gameDraw()
         computerMove()
     })
     
 }
+
+
 
 // let checkMoves = () => {
 //     for (let i = 0; i < moonMove.length; i++) {
@@ -94,6 +102,7 @@ const computerMove = () => {
             diceRoll.style.opacity = 1
             checkComputerConditions();
         }
+    
 
 }
 
@@ -118,7 +127,7 @@ for (let i = 0; i < tiles.length; i++) {
         tiles[i].children[0].classList.add('occupied') //attempts to prevent computer from picking it
         tiles[i].children[0].classList.remove('inactive') //alters class to remove it from available computer move array            
     })
-   
+  
 }
 
 
@@ -172,14 +181,16 @@ let gameDraw = () =>{
 const winMessage = () => {
     if (pWin === true) {
         alert('Player wins! Press ok to play again')
-        window.location.reload()
+        resetBoard()
     } else if (cWin === true) {
         alert('Computer wins! Press ok to play again')
-        window.location.reload()
+        resetBoard()
     } else if (pWin === true && cWin === true) {
         alert(`It's a tie! Press ok to play again`)
+        resetBoard()
     } else if (draw === true) {
         alert('Draw. Press ok to play again')
+        resetBoard()
     }
 
 }
@@ -205,6 +216,7 @@ const resetBoard = () => {
     cWin = null
     draw = null
     tie = null
+    turnCount = 0
 }
 
     

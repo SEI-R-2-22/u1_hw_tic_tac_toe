@@ -1,9 +1,35 @@
 body {
+    background-image: url('https://i.imgur.com/UhHUX3a.jpg');
     background-color: black;
     color: white;
     max-width: 800px;
 
 }
+
+.title-wrapper {
+    background-color: #234c36;
+    border-radius: 25px;
+    height: 75px;
+    width: 500px;
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    
+    margin: auto
+
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+    font-size: 75px;
+    font-family: 'Fredoka One', cursive;
+}
+
+
 
 .container {
     display: grid;
@@ -15,7 +41,8 @@ body {
     border-radius: 25px;
     height: 500px;
     width: 500px;
-    background-color: black;
+    background-color: #0d1a2b;
+    ;
     
     
     position: absolute;
@@ -31,7 +58,7 @@ body {
 
 .box {
     display: grid;
-    background-color:darkslategray;
+    background-color: #402f71;
     margin: 5px;
     border-radius: 25px;
     
@@ -130,7 +157,7 @@ body {
     height: 0;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-bottom: 100px solid yellow;
+    border-bottom: 100px solid #f6b235;
 }
 
 .star0 {
@@ -167,4 +194,57 @@ body {
 
 .star8 {
     grid-area: i;
+}
+
+
+
+.button-wrapper {
+    background-color: #0d1a2b;
+    border-radius: 25px;
+    height: 50px;
+    width: 150px;
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    
+    margin: auto
+}
+
+.turn-count-wrapper {
+    background-color: #0d1a2b;
+    border-radius: 25px;
+    height: 50px;
+    width: 300px;
+    position: absolute;
+    bottom: 12%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    
+    margin: auto
+}
+
+.counter-title {
+    margin: auto;
+    font-size: 25px;
+    font-family: 'Fredoka One', cursive;
+}
+
+#turn-count {
+    margin: auto;
+    font-size: 25px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.reset {
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    font-family: 'Fredoka One', cursive;
+    background-color: #234c36;
+    color: white;
+    
+    margin: auto;
 }
