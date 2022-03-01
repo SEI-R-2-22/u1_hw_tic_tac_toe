@@ -15,12 +15,11 @@ const oTurn = false
 ////////////////////////////////
 // Functions For Game Logic Here
 
-function print() {
-        
-    if (xTurn===true) {
-        //code to be executed }
-        cell.innerHTML = "x"
-        xTurn = !xTurn
+function print() {     
+if (xTurn===true) {
+//code to be executed }
+cell.innerHTML = "x"
+xTurn = !xTurn
 } else {
 cell.innerHTML = "o"
 xTurn = !xTurn
