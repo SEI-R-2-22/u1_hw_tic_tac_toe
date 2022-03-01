@@ -4,22 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tic-Tac-Toe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
-  <!-- Build your game board, instructions, and score displays here! -->
-
-
-
-
-
-
-
-
-
+  <h1 class="gameTitle">Tic-Tac-Toe</h1>
   
-
-  <!-- Build your game board, instructions, and score displays here! -->
+  <div class="container">
+    <section class="board">      
+      <div class="square top left"  id="sq0"></div>
+      <div  class="square top center" id="sq1"></div>
+      <div class="square top right"  id="sq2"></div>
+      <div class="square left" id="sq3"></div>
+      <div class="square center" id="sq4"></div>
+      <div class="square right" id="sq5"></div>
+      <div class="square bottom left" id="sq6"></div>
+      <div class="square bottom center" id="sq7"></div>
+      <div class="square  bottom right" id="sq8"></div>
+    </section>
+      
+    <section id="ctrlPanel">      
+      <h3 class="panelStatus"></h3>
+      <button class="restartButton">Reset the Board</button>
+    </section>
+  </div>
+  
+  
+  <!-- Build your game board, instructions, and score displays here! -->  
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

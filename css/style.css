@@ -1,1 +1,79 @@
+.gameTitle {
+  text-align: center;
+  color: black;
+  height: 10vh;
+  font-style: italic;
+  font-size: 60px;
+  font-family: 'Permanent Marker', cursive;
+}
+body {
+  margin: 0;
+  background-image: url('http://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/dirty-dry-erase-white-board-texture-1.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  justify-items: center;
+  font-family: 'Permanent Marker', cursive;
+}
+.container {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#ctrlPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin-left: 25px;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-content: center;
+  justify-items: center;
+  margin: 10px 25px;
+}
 
+.square {
+  font-family: 'Permanent Marker', cursive;
+  display: flex;
+  width: 150px;
+  height: 150px;
+  font-size: 100px;
+  cursor: pointer;
+  line-height: 100px;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+.restartButton {
+  cursor: pointer;
+  border-radius: 15px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  order: 2;
+  align-self: flex-end;
+}
+.playerTurn {
+  font-size: 40px;
+}
+.square.left {
+  border-right: 10px solid black;
+}
+.square.right {
+  border-left: 10px solid black;
+}
+.square.top {
+  border-bottom: 10px solid black;
+}
+.square.bottom {
+  border-top: 10px solid black;
+}
