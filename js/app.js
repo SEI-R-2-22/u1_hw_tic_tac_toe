@@ -69,7 +69,6 @@ function clicked(e) {
 
 function notifyMessage() {
   if (player === 'W') {
-    s
     nextTurn.innerText = 'You won!'
   } else if (player === 'D') {
     nextTurn.innerText = "It's a draw!"
