@@ -52,7 +52,6 @@ const checkWinner = () => {
     divOne.innerText === divTwo.innerText &&
     divOne.innerText === divThree.innerText
   ) {
-    console.log('Winner')
     engGame()
   } else if (
     divOne.innerText !== '' &&
@@ -61,7 +60,6 @@ const checkWinner = () => {
     divOne.innerText === divFour.innerText &&
     divOne.innerText === divSeven.innerText
   ) {
-    console.log('Winner')
     engGame()
   } else if (
     divOne.innerText !== '' &&
@@ -70,7 +68,6 @@ const checkWinner = () => {
     divOne.innerText === divFive.innerText &&
     divOne.innerText === divNine.innerText
   ) {
-    console.log('Winner')
     engGame()
   } else if (
     divTwo.innerText !== '' &&
@@ -79,7 +76,6 @@ const checkWinner = () => {
     divTwo.innerText === divFive.innerText &&
     divTwo.innerText === divEight.innerText
   ) {
-    console.log('Winner')
     engGame()
   } else if (
     divThree.innerText !== '' &&
@@ -88,7 +84,6 @@ const checkWinner = () => {
     divThree.innerText === divSix.innerText &&
     divThree.innerText === divNine.innerText
   ) {
-    console.log('Winner')
     engGame()
   } else if (
     divThree.innerText !== '' &&
@@ -97,7 +92,6 @@ const checkWinner = () => {
     divThree.innerText === divFive.innerText &&
     divThree.innerText === divSeven.innerText
   ) {
-    console.log('Winner')
     engGame()
   } else if (
     divFour.innerText !== '' &&
@@ -106,7 +100,6 @@ const checkWinner = () => {
     divFour.innerText === divFive.innerText &&
     divFour.innerText === divSix.innerText
   ) {
-    console.log('Winner')
     engGame()
   } else if (
     divSeven.innerText !== '' &&
@@ -115,7 +108,6 @@ const checkWinner = () => {
     divSeven.innerText === divEight.innerText &&
     divSeven.innerText === divNine.innerText
   ) {
-    console.log('Winner')
     engGame()
   } else if (
     divOne.innerText !== '' &&
@@ -222,6 +214,7 @@ document.querySelector('#reset').addEventListener('click', () => {
   }
 })
 
+// Button to toggle computer playing
 document.querySelector('button').addEventListener('click', () => {
   compPlaying = !compPlaying
   if (compPlaying) {
