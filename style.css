@@ -1,0 +1,47 @@
+body {
+  padding: 0;
+  color: blue;
+  font-family:cursive;
+}
+
+* {
+  box-sizing: border-box; /* Means that any element that has border and padding will include the border and padding in that size you give. */
+}
+
+h1{
+  font-size: 54px;
+
+}
+
+/* Whole Page Formatting */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  
+  padding: 40px;
+  height: 100vh;
+}
+
+/* Grid Formatting */
+#gameGrid {
+  display: flex;
+  flex-wrap: wrap;
+  
+  width: 310px;
+  margin: 10px;
+  gap: 5px;
+  background: black;
+}
+
+.spacesHTML {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+
+  height: 100px;
+  width: 100px;
+  background: white;
+  color:black;
+}
