@@ -1,0 +1,26 @@
+.main {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 450px;
+    height: 450px;
+    margin: auto;
+}
+
+.box {
+    border: 1px Solid black;
+    /* background-color: lightgray; */
+}
+
+.Text {
+    display: inline;
+    text-align: center;
+}
+
+.reset-button {
+    margin-top: 20px;
+}
