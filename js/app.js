@@ -1,3 +1,121 @@
+window.addEventListener('DOMContentLoaded', () => {
+    const cell = Array.from(document.querySelectorAll('.cell'));
+    const playerDisplay = document.querySelector('.display-player');
+    const resetButton = document.querySelector('#reset');
+    const announcer = document.querySelector('.announcer');
+
+    let board = ['', '', '', '', '', '', '', '', ''];
+    let currentPlayer = 'X';
+    let isGameActive = true;
+
+    const PLAYERX_WON = 'PLAYERX_WON';
+    const PLAYERO_WON = 'PLAYERO_WON';
+    const DRAW = 'DRAW';
+
+    const winningCombinations = [
+        [0, 1, 2],
+        [0, 3, 4],
+        [0, 4, 8],
+        [1, 4, 7],
+        [2, 5, 8],
+        [2, 4, 6],
+        [3, 4, 5],
+        [6, 7, 8]
+    ];
+
+    function handleResultValidation() {
+        let roundWon = false;
+        for (let i = 0; i <= 7; i++) {
+            const winCombo = winningCombinations[i];
+            const a = board[winCombo[0]];
+            const b = board[winCombo[1]];
+            const c = board[winCombo[2]];
+            if (a === '' || b === '' || c === '') {
+                continue;
+            }
+            if (a === b && b === c) {
+                roundWon = true;
+                break;
+            }
+        }
+        if (roundWon) {
+            announce(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
+            isGameActive = false;
+            return;
+        }
+        if (!board.includes(''))
+            announce(DRAW);
+    }
+
+    const announce = (type) => {
+        switch (type) {
+            case PLAYERO_WON:
+                announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
+                break;
+            case PLAYERX_WON:
+                announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
+                break;
+            case DRAW:
+                announcer.innerText = 'Draw';
+        }
+        announcer.classList.remove('hide');
+    };
+
+    const isValidAction = (cell) => {
+        if (cell.innerText === 'X' || cell.innerText === 'O') {
+            return false;
+        }
+
+        return true;
+    };
+
+    const updateBoard = (index) => {
+        board[index] = currentPlayer;
+    }
+
+    const changePlayer = () => {
+        playerDisplay.classList.remove(`player${currentPlayer}`);
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        playerDisplay.classList.add(`player${currentPlayer}`);
+    }
+
+    function userAction(cell, index) {
+        if (isValidAction(cell) && isGameActive) {
+            cell.innerText = currentPlayer;
+            cell.classList.add(`player${currentPlayer}`);
+            updateBoard(index);
+            handleResultValidation();
+            changePlayer();
+        }
+    }
+
+    const resetBoard = () => {
+        board = ['', '', '', '', '', '', '', '', '']
+        isGameActive = true;
+        announcer.classList.add('hide');
+
+        if (currentPlayer === 'O') {
+            changePlayer();
+        }
+
+        cell.forEach(cell => {
+            cell.innerText = '';
+            cell.classList.remove('playerX');
+            cell.classList.remove('playerO');
+        });
+    }
+
+    cell.forEach((cell, index) => {
+        cell.addEventListener('click', () => userAction(cell, index));
+    });
+
+    resetButton.addEventListener('click', resetBoard);
+});
+
+
+
+
+
 // A user should be able to click on different squares to make a move.
 // Every click will alternate between marking an X and O
 // A cell should not be able to be replayed once marked.
@@ -9,133 +127,21 @@
 // Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
 
 
-
 ////////////////////////////////
 // Global Variables Here
-let player
-let goFirst = -1
-let octothorp
-let count = 0
-let xWin = 0
-let oWin = 0
-let dWin = 0
-let winner = false
-const playAnother = document.getElementById('playAnother')
-const X = document.getElementById('xScore')
-const O = document.getElementById('oScore')
-const D = document.getElementById('dScore')
-const message = document.getElementById('message')
-////////////////////////////////
-// Functions For Game Logic Here
-init()
 
-function init() {
-    board = ['', '', '', '', '', '', '', '', '',]
-    goFirst *= -1
-    player = goFirst
-    X.innerText = xWin
-    O.innerText = oWin
-    D.innerText = dWin
+// ////////////////////////////////
+// // Functions For Game Logic Here
 
-    if (goFirst === 1) {
-        message.textContent = 'x goes first'
-    } else {
-        message.textContent = 'o goes first'
-    }
-    document
-        .querySelectorAll('section.scoreBoard')[0]
-        .childNodes.forEach((element) => {
-            element.textContent = ''
-            element.color = ''
-        })
-    count = 0
-    winner = false
-}
-function gameOver() {
-    clear()
-    return (count === 0 && winner === false) || winner === true
-}
+// ////////////////////////////////
+// // Event Listeners Here
 
-function checkWinner() {
-    if (winner === false) {
-        if (
-            octothorp[0] + octothorp[1] + octothorp[2] === 3 ||
-            octothorp[0] + octothorp[3] + octothorp[6] === 3 ||
-            octothorp[0] + octothorp[4] + octothorp[8] === 3 ||
-            octothorp[1] + octothorp[4] + octothorp[7] === 3 ||
-            octothorp[2] + octothorp[5] + octothorp[8] === 3 ||
-            octothorp[3] + octothorp[4] + octothorp[5] === 3 ||
-            octothorp[0] + octothorp[1] + octothorp[2] === 3 ||
-            octothorp[6] + octothorp[7] + octothorp[8] === 3
-        ) {
-            message.textContent = 'X WINS!'
-            message.style.color = '#FFD700'
-            winner = true
-            xWin++
-            X.innerText = xWin
-        }
-        if (
-            octothorp[0] + octothorp[1] + octothorp[2] === -3 ||
-            octothorp[0] + octothorp[3] + octothorp[6] === -3 ||
-            octothorp[0] + octothorp[4] + octothorp[8] === -3 ||
-            octothorp[1] + octothorp[4] + octothorp[7] === -3 ||
-            octothorp[2] + octothorp[5] + octothorp[8] === -3 ||
-            octothorp[3] + octothorp[4] + octothorp[5] === -3 ||
-            octothorp[0] + octothorp[1] + octothorp[2] === -3 ||
-            octothorp[6] + octothorp[7] + octothorp[8] === -3
-        ) {
-            message.textContent = 'O WINS!'
-            message.style.color = '#FFD700'
-            winner = true
-            oWin++
-            O.innerText = oWin
-        }
-    }
-}
+// //Event listener for clicking on play again button
 
-function render(cell) {
-    if (winner === false) {
-        markSpot = document.getElementById(`cll${cell}`)
-        octothorp[cell] = player
-        if (player === 1) {
-            markSpot.textContent = 'X'
-            markSpot.style.color = 'FF0000'
-            message.textContent = 'O\'s Turn!'
-        } else {
-            markSpot.textContent = 'O'
-            markSpot.style.color = 'FF0000'
-            message.textContent = 'X\'s Turn!'
-        }
-    }
-}
-////////////////////////////////
-// Event Listeners Here
-//Event listener for board clicks (a selector on a section of the board)
-function render(cell) {
-    if (winner === false) {
-        markSpot = document.getElementById(`cll${cell}`)
-        octothorp[cell] = player
-        if (player === 1) {
-            markSpot.textContent = 'X'
-            markSpot.style.color = 'FF0000'
-            message.textContent = 'O\'s Turn!'
-        } else {
-            markSpot.textContent = 'O'
-            markSpot.style.color = '800080'
-            message.textContent = 'X\'s Turn!'
-        }
-    }
-    player *= -1
-    checkWinner()
-    count++
-    if (count === 9 && winner === false) {
-        D.innerText = dWin
-        clear()
-        message.textContent = 'DRAW!'
-        message.style.color = 'DB7093'
-    }
-}
-//Event listener for clicking on play again button
+// ///////////////////////////////
 
-
-////////////////////////////////
+// <meta charset="UTF-8">
+//   <meta name="viewport" content="width=device-width, initial-scale=1">
+//   <script type="text/javascript" src="js/app.js"></script>
+//   <title>Tic-Tac-Toe</title>
+//   <link rel="stylesheet" type="text/css" href="css/style.css"></link>
