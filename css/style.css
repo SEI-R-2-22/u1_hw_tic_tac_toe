@@ -1,1 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+div {
+    display: flex;
+    justify-content: center;
+    border: 3px solid rgb(0, 0, 0);
+    border-color: transparent transparent transparent;     
+    min-width: 50px;
+    min-height: 50px;
+    font-size: 30px;
+}
+#x, #o {
+    text-align: center;
+    width: 10%;
+} 
+
+.tttboard {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 50% 50% 50%;
+    grid-template-rows: 50% 50% 50%;
+    max-width: 300px;
+    grid-template-areas:
+      "box1 box2 box3"
+      "box4 box5 box6"
+      "box7 box8 box9";
+    
+}
+
+#box3,#box5 {
+    display: flex;
+    justify-content: center;
+    border: 3px solid rgb(0, 0, 0);
+    border-color: transparent transparent transparent transparent; 
+    min-width: 100px;
+    min-height: 100px;
+    align-items: center;
+    font-size: 50px;
+}
+
+#box2, #box0 {
+    display: flex;
+    justify-content: center;
+    border: 3px solid rgb(0, 0, 0);
+    border-color: transparent transparent black transparent; 
+    min-width: 100px;
+    min-height: 100px;
+    align-items: center;
+    font-size: 50px;
+}
+
+#box4 {
+    display: flex;
+    justify-content: center;
+    border: 3px solid rgb(0, 0, 0);  
+    min-width: 100px;
+    min-height: 100px;
+    align-items: center;
+    font-size: 50px;
+}
+
+#box7, #box1 {
+    display: flex;
+    justify-content: center;
+    border: 3px solid rgb(0, 0, 0);
+    border-color: transparent black transparent black;     
+    min-width: 100px;
+    min-height: 100px;
+    align-items: center;
+    font-size: 50px;
+}
+
+#box8, #box6 {
+    display: flex;
+    justify-content: center;
+    border: 3px solid rgb(0, 0, 0);
+    border-color: black transparent transparent transparent;
+    min-width: 100px;
+    min-height: 100px;
+    align-items: center;
+    font-size: 50px;
+}
 
