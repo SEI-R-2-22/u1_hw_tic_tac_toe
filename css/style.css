@@ -1,0 +1,212 @@
+body {
+    background-color: grey;
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    grid-template-rows: 25% 750px 50%;
+    /* grid-column: 1 /3; */
+    
+    
+}
+
+
+.color {
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.color1 {
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.mark {
+    text-align: center;
+    font-size: 120px;
+    align-self: center;
+    justify-self: center;
+    justify-content: stretch;
+    align-content: stretch;
+
+}
+
+
+
+.marker {
+
+    grid-row-end: 4;
+    
+
+}
+
+.turn {
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    grid-row-start: 2;
+    font-size: 60px;
+}
+
+
+#sq1 {
+
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+
+}
+
+
+#sq2 {
+
+    border-bottom: 1px solid;
+    
+}
+
+#sq3 {
+    
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+
+}
+
+#sq4 {
+    
+}
+
+#sq5 {
+
+    border-left: 1px solid;
+    border-right: 1px solid;
+    
+}
+
+#sq6 {
+    
+}
+
+#sq7 {
+
+    border-top: 1px solid;
+    
+}
+
+#sq8 {
+
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-top: 1px solid;
+    
+}
+
+#sq9 {
+
+    border-top: 1px solid;
+    
+}
+
+#x_score {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#o_score {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#used1 {
+
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+
+
+}
+
+
+
+.score {
+
+    grid-row-start: 1;
+    grid-row-end: 1;
+    word-wrap: normal;
+    font-size: 60px;
+    
+
+}
+
+
+.under {
+
+    grid-row-start: 1;
+    grid-column-start: 2;
+    text-align: bottom;
+    text-decoration: underline;
+    font-size: xx-large;
+
+}
+
+
+.title {
+    grid-row-start: 1;
+    grid-column-start: 2;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 100px;
+}
+
+
+.container {
+
+    background-color: black;
+    grid-row-start: 2;
+    padding: 20px;
+
+}
+
+
+#marker_o {
+
+    font-size: 60px;
+
+}
+
+#marker_x {
+
+    font-size: 60px;
+
+}
+
+#score_num_o {
+
+    font-size: 60px;
+
+}
+
+#score_num_x {
+
+    font-size: 60px;
+
+}
+
+#board {
+    background-color: white;
+    opacity: 1;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+}
+
+#reset {
+    background-color: azure;
+    height: 50px;
+    width: 125px;
+    grid-row-start: 1;
+    grid-column-start: 2;
+    justify-self: center;
+    align-self:flex-end ;
+    text-align: center;
+    font-size: large;
+
+    
+}
