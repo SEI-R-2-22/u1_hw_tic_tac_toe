@@ -1,0 +1,21 @@
+.game {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    max-width: 300px;
+}
+.box{
+    border: 1px solid red;
+    min-width: 75px;
+    min-height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+}
+h1 {
+   text-align:center  ;
+
+}
