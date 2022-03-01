@@ -32,7 +32,7 @@ function game() {
   // console.log(gridA)
   turn = 1
   playerWon = null
-  startBtn.setAttribute('hidden', true)
+  // startBtn.setAttribute('hidden', true)
   console.log(startBtn)
   build()
 }
@@ -85,6 +85,25 @@ function build() {
 
   // Null was not working : referenced optional chainging
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+  //
+  //   switch (playerWon) {
+  //     case !playerWon:
+  //       intro.innerText = `${turn === 1 ? "X's" : "TOE's"} turn`
+  //       intro.style.color = `${turn === 1 ? 'purple' : 'blue'}`
+  //       // control.log('winner winner chicken dinner, but not yet')
+  //       break
+  //     case playerWon == 'T':
+  //       intro.innerText = 'Tie Game! Replay'
+  //       intro.style.color = 'purple'
+  //       console.log('T')
+  //       break
+  //     case playerWon == 1:
+  //       intro.textContent = `${playerWon === 1 ? 'X' : 'TOE'} is winner!`
+  //       break
+  //     //     console.log('winner')
+  //   }
+  // }
+
   if (!playerWon) {
     intro.innerText = `${turn === 1 ? "X's" : "TOE's"} turn`
     intro.style.color = `${turn === 1 ? 'purple' : 'blue'}`
@@ -169,3 +188,12 @@ function findWinner() {
     return 'T'
   }
 }
+//   switch (gridA) {
+//     case gridA.includes(null):
+//       return null
+//       break
+//     default:
+//       return 'T'
+//       break
+//   }
+// }
