@@ -1,6 +1,6 @@
 // Global Variables Here
 const board = document.querySelectorAll(".space"); //board becomes an array of the buttons
-const blanks = document.querySelectorAll(".blank");
+// const blanks = document.querySelectorAll(".blank");
 let turn = 1;
 let winner = 0;
 let xScore = 0;
@@ -82,6 +82,7 @@ const checkWinner = (array) => {
       case 3:
       case 5:
       case 7:
+      case 9:
         oScore += 1;
         oDisplay.innerText = `O: ${oScore}`;
         break;
@@ -89,6 +90,7 @@ const checkWinner = (array) => {
       case 4:
       case 6:
       case 8:
+      case 10:
         xScore += 1;
         xDisplay.innerText = `X: ${xScore}`;
         break;
@@ -97,7 +99,10 @@ const checkWinner = (array) => {
 };
 
 // const computerClick = (array) => {
-//   array[Math.floor(Math.random() * array.length)].click();
+//   setTimeout(function () {
+//     array[Math.floor(Math.random() * array.length)].click();
+//   }, 1500);
+// };
 // };
 // //  this doesnt really work.  i dont know why its inconsistent
 
@@ -114,7 +119,7 @@ for (i = 0; i < board.length; i++) {
         case 3:
         case 5:
         case 7:
-          ++turn;
+          turn++;
 
           whosTurn.innerText = "O goes!";
           content.innerText = "X";
@@ -122,7 +127,7 @@ for (i = 0; i < board.length; i++) {
           content.classList.remove("blank");
 
           checkWinner(board);
-
+          // const blanks = document.querySelectorAll(".blank");
           // computerClick(blanks);
 
           break;
@@ -130,7 +135,7 @@ for (i = 0; i < board.length; i++) {
         case 4:
         case 6:
         case 8:
-          ++turn;
+          turn++;
 
           whosTurn.innerText = "X goes!";
           content.innerText = "O";
@@ -142,6 +147,7 @@ for (i = 0; i < board.length; i++) {
           break;
 
         case 9:
+          turn++;
           whosTurn.innerText = "It's a draw!";
           content.innerText = "X";
           content.classList.add("x");
