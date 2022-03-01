@@ -34,7 +34,7 @@ h1 {
   align-items: center;
 
   border: 1px solid black;
-  font-size: xx-large;
+  font-size: 30px;
   color: white;
 }
 
@@ -92,5 +92,20 @@ h1 {
 }
 
 .colorred {
+  animation-name: colorful;
+  animation-duration: 3s;
+  background-color: yellow;
   color: red;
+  font-size: 50px;
+}
+@keyframes colorful {
+  0% {
+    background-color: rgba(256, 256, 256, 0);
+    color: white;
+  }
+  100% {
+    background-color: yellow;
+    color: red;
+    font-size: 50px;
+  }
 }

@@ -129,6 +129,13 @@ const updateScore = (player) => {
         player2Score.innerText = player.score.toString()
     }
 }
+
+//Reset the score
+const resetScore = () => {
+    player1Score.innerText = '0'
+    player2Score.innerText = '0'
+    tie.innerText = '0'
+}
 //Update Tie panel
 const updateTie = () => {
     let numOfTie = parseInt(tie.innerText)
@@ -313,7 +320,7 @@ const computerMove = () => {
                 } 
             } while (!isBoardUpdated)
 }
-//When the board game is clicked, playGame1P() function will be activate, update the board game, check if the player win and update player's score
+//Update the board game, check if the player win and update player's score if game mode is 1 person
 const playGame1P = (Element) => {
     
     if (player1.isWiner || computer.isWiner || isTie) {
@@ -351,7 +358,7 @@ const playGame1P = (Element) => {
     }
 }
 
-//When the board game is clicked, playGame() function will be activate, update the board game, check if the player win and update player's score
+//Update the board game, check if the player win and update player's score if game mode is 2 people
 const playGame2P = (Element) => {
     if (player1.isWiner || player2.isWiner || isTie) {
         return
@@ -397,7 +404,8 @@ const playGame2P = (Element) => {
         }
     }
 }
-
+//When the board game is clicked, playGame() function will be activate
+//Depending of game mode, it will call playgame1P or playGame2P
 const playGame = (Element) => {
     if (gameMode === 2) {
         playGame2P(Element)
