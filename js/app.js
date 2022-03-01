@@ -63,101 +63,114 @@ const countClick = (e) => {
 
 // Mode 2
 
-// const secondMode = (e) => {
-//   //Player Choice
-//   let position = parseInt(e.target.getAttribute('data-increment'))
-//   // console.log(incrementValue)
+const secondMode = (e) => {
+  //Player Choice
+  let position = parseInt(e.target.getAttribute('data-increment'))
+  if (selected.length < 9) {
+    turn.innerText = choiceTwo
+  }
 
-//   turn.innerText = choiceTwo
+  click.splice(position, 1, 1)
+  if (selected.includes(position)) {
+    return
+  } else {
+    e.target.innerText = '🪶'
 
-//   click.splice(position, 1, 1)
-//   if (selected.includes(position)) {
-//     // console.log('break')
-//     return
-//   } else {
-//     // console.log(click)
-//     e.target.innerText = '🪶'
-//     selected.push(position)
+    selected.push(position)
 
-//     // console.log(selected)
+    if (
+      (click[0] === 1 && click[1] === 1 && click[2] === 1) ||
+      (click[3] === 1 && click[4] === 1 && click[5] === 1) ||
+      (click[6] === 1 && click[7] === 1 && click[8] === 1) ||
+      (click[0] === 1 && click[3] === 1 && click[6] === 1) ||
+      (click[1] === 1 && click[4] === 1 && click[7] === 1) ||
+      (click[2] === 1 && click[5] === 1 && click[8] === 1) ||
+      (click[0] === 1 && click[4] === 1 && click[8] === 1) ||
+      (click[2] === 1 && click[4] === 1 && click[6] === 1)
+    ) {
+      turn.innerText = '🪶 Win!'
+      selected = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    } else {
+      //Computer Choice
+      const computerRange = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+      const newRange = new Set(selected)
+      const newArr = computerRange.filter((pos) => {
+        return !newRange.has(pos)
+      })
+      const randomIndex = Math.floor(Math.random() * newArr.length)
+      computerChoice = newArr[randomIndex]
+      if (newArr.length === 0) {
+        turn.innerText = 'Tie!'
+        return
+      }
+      setTimeout(() => {
+        cells[computerChoice].innerText = '🪨'
+      }, 400)
 
-//     if (
-//       (click[0] === 1 && click[1] === 1 && click[2] === 1) ||
-//       (click[3] === 1 && click[4] === 1 && click[5] === 1) ||
-//       (click[6] === 1 && click[7] === 1 && click[8] === 1) ||
-//       (click[0] === 1 && click[3] === 1 && click[6] === 1) ||
-//       (click[1] === 1 && click[4] === 1 && click[7] === 1) ||
-//       (click[2] === 1 && click[5] === 1 && click[8] === 1) ||
-//       (click[0] === 1 && click[4] === 1 && click[8] === 1) ||
-//       (click[2] === 1 && click[4] === 1 && click[6] === 1)
-//     ) {
-//       console.log('You Win!')
-//       turn.innerText = '🪶 Win!'
-//       selected = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-//     } else {
-//       //Computer Choice
-//       // setTimeout(function () {}, 20000)
+      selected.push(computerChoice)
 
-//       // function myFunction() {}
-//       // setTimeout(myFunction, 2000)
+      click.splice(computerChoice, 1, 2)
 
-//       const computerRange = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-//       const newRange = new Set(selected)
-//       const newArr = computerRange.filter((pos) => {
-//         return !newRange.has(pos)
-//       })
-//       // console.log(newArr)
-//       const randomIndex = Math.floor(Math.random() * newArr.length)
-//       computerChoice = newArr[randomIndex]
-//       if (newArr.length === 0) {
-//         console.log('tie')
-//         turn.innerText = 'Tie!'
-//         return
-//       }
-//       setTimeout(() => {
-//         cells[computerChoice].innerText = '🪨'
-//       }, 400)
-//       selected.push(computerChoice)
-
-//       // console.log(computerChoice)
-
-//       click.splice(computerChoice, 1, 2)
-
-//       if (
-//         (click[0] === 2 && click[1] === 2 && click[2] === 2) ||
-//         (click[3] === 2 && click[4] === 2 && click[5] === 2) ||
-//         (click[6] === 2 && click[7] === 2 && click[8] === 2) ||
-//         (click[0] === 2 && click[3] === 2 && click[6] === 2) ||
-//         (click[1] === 2 && click[4] === 2 && click[7] === 2) ||
-//         (click[2] === 2 && click[5] === 2 && click[8] === 2) ||
-//         (click[0] === 2 && click[4] === 2 && click[8] === 2) ||
-//         (click[2] === 2 && click[4] === 2 && click[6] === 2)
-//       ) {
-//         console.log('You Lose!')
-//         selected = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-//         turn.innerText = '🪨 Win!'
-//       }
-//     }
-
-//     // console.log(selected)
-//   }
-// }
+      if (
+        (click[0] === 2 && click[1] === 2 && click[2] === 2) ||
+        (click[3] === 2 && click[4] === 2 && click[5] === 2) ||
+        (click[6] === 2 && click[7] === 2 && click[8] === 2) ||
+        (click[0] === 2 && click[3] === 2 && click[6] === 2) ||
+        (click[1] === 2 && click[4] === 2 && click[7] === 2) ||
+        (click[2] === 2 && click[5] === 2 && click[8] === 2) ||
+        (click[0] === 2 && click[4] === 2 && click[8] === 2) ||
+        (click[2] === 2 && click[4] === 2 && click[6] === 2)
+      ) {
+        console.log('You Lose!')
+        selected = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        turn.innerText = '🪨 Win!'
+      }
+    }
+  }
+}
 
 ////////////////////////////////
 // Event Listeners Here
-for (let i = 0; i < cells.length; i++) {
-  document.querySelector('#onePlayer').onclick = countClick
-  cells[i].addEventListener('click', countClick)
-}
 
-// for (let i = 0; i < cells.length; i++) {
-//   document.querySelector('#onePlayer').onclick = secondMode
-//   cells[i].addEventListener('click', secondMode)
-// }
+let playerChoice
+
+document.querySelector('#onePlayer').addEventListener('click', () => {
+  playerChoice = true
+  choosePlayer(playerChoice)
+  // reset()
+})
+
+document.querySelector('#twoPlayer').addEventListener('click', () => {
+  playerChoice = false
+  choosePlayer(playerChoice)
+  // reset()
+})
+
+const choosePlayer = (choice) => {
+  if (choice) {
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].addEventListener('click', secondMode)
+    }
+  } else {
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].addEventListener('click', countClick)
+    }
+  }
+}
 
 const reset = () => {
   location.reload()
 }
-document.querySelector('#reset').onclick = reset
 
+// const reset = () => {
+//   click = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+//   selected = []
+//   player = null
+//   icon = ''
+//   cells.forEach((q) => {
+//     q.innerText = ''
+//   })
+// }
+
+document.querySelector('#reset').onclick = reset
 ////////////////////////////////
