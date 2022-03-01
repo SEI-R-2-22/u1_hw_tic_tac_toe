@@ -1,6 +1,7 @@
 // Global Variables Here
 const ticTacToe = () => {
   let squares = document.querySelectorAll('.square')
+
   const selectionArray = [
     '<img src="./resources/X.png" alt="X">',
     '<img src="./resources/O.png" alt="O">',
@@ -12,10 +13,20 @@ const ticTacToe = () => {
     '<img src="./resources/O.png" alt="O">',
     '<img src="./resources/X.png" alt="X">'
   ]
-  let previousSelection = selectionArray[0]
-  const arena = []
-  let winner = undefined
+  let storeClick = [
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined
+  ]
 
+  let winner = undefined
+  const arena = []
   let scoreX = []
   let scoreO = []
 
@@ -202,30 +213,9 @@ const ticTacToe = () => {
         break
     }
   }
-  //
-  // Below was used to switch x and o, not sure if I needed it.
-  // if (previousSelection === 'x') {
-  //   let currentSelection = 'o'
-  //   selectionArray.push(currentSelection)
-  // } else {
-  //   let currentSelection = 'x'
-  //   selectionArray.push(currentSelection)
-  // }
 
   ////////////////////////////////
   // Event Listeners Here
-
-  let storeClick = [
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined
-  ]
 
   for (let i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', () => {
@@ -234,8 +224,6 @@ const ticTacToe = () => {
 
         if (!storeClick[position]) {
           let selection = selectionArray.pop()
-
-          // squares[i].innerHTML = '<img src="./resources/X.png" alt="X">'
           squares[i].innerHTML = selection
           arena[position] = selection
           storeClick[position] = 'Marked'
@@ -250,7 +238,6 @@ const ticTacToe = () => {
 }
 ////////////////////////////////
 ticTacToe()
-// I need to think about you some more: if (storeClick[position] === position) {
 
 let resetButton = document.querySelector('.resetButton')
 resetButton.addEventListener('click', () => {
@@ -261,10 +248,6 @@ resetButton.addEventListener('click', () => {
 
   let announcement = document.getElementsByClassName('winnerAnnouncement')
   announcement[0].innerText = ''
-  //console.log(board)
-  //board.innerText = 'test'
 
-  // let board = document.querySelectorAll('.square')
-  // board.innerText = 'nothing'
   ticTacToe()
 })
