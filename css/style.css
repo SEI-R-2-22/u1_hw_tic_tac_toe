@@ -1,1 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, cursive;
+}
 
+.background {
+    background-color: #000000;
+    height: 100vh;
+    padding-top: 1px;
+}
+
+h1 {
+    color: rgb(255, 179, 65);
+    text-align: center;
+    font-size: 40px;
+    margin-top: 10%;
+}
+
+
+.display {
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.hide {
+    display: none;
+}
+
+.game {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    max-width: 300px;
+}
+
+.box {
+    border: 1px solid black;
+    min-width: 75px;
+    min-height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.playerX {
+    color: rgb(255, 179, 65);
+}
+
+.playerO {
+    color: #ffffff;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.controls button {
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.restart {
+    background-color: #498AFB;
+}
+
+#reset {
+    background-color: rgb(255, 173, 50);
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    margin-left: 1px;
+    cursor: pointer;
+}
