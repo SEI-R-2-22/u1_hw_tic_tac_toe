@@ -13,18 +13,6 @@ let turnCounter = 0
 ////////////////////////////////
 // Functions For Game Logic Here
 
-const displayWinner = () => {
-  let winMessage = player + ' you win!'
-  document.getElementById('status').innerHTML = winMessage.toUpperCase()
-  gameInProgress = false
-}
-
-const displayTie = () => {
-  let drawMessage = 'Draw! Please play again.'
-  document.getElementById('status').innerHTML = drawMessage
-  gameInProgress = false
-}
-
 const playerPlays = (index) => {
   if (boxes[index].innerHTML === '' && gameInProgress === true) {
     boxes[index].innerHTML = player
@@ -97,14 +85,35 @@ const playGame = () => {
   }
 }
 
+const displayWinner = () => {
+  let winMessage = player + ' you win!'
+  document.getElementById('status').innerHTML = winMessage.toUpperCase()
+  gameInProgress = false
+  endGame()
+}
+
+const displayTie = () => {
+  let drawMessage = 'Draw! Please play again.'
+  document.getElementById('status').innerHTML = drawMessage
+  gameInProgress = false
+}
+
 const replayGame = () => {
   for (let i = 0; i < boxes.length; i++) {
     boxes[i].innerHTML = ''
     document.getElementById('status').innerHTML = 'Results'
+    boxes[i].classList.remove('disable')
   }
   player = 'x'
   gameInProgress = true
   turnCounter = 0
+}
+
+const endGame = () => {
+  for (let i = 0; i < boxes.length; i++) {
+    boxes[i].removeEventListener('click', playGame)
+    boxes[i].classList.add('disable')
+  }
 }
 
 ////////////////////////////////

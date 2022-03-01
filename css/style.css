@@ -20,3 +20,6 @@ h2 {
   font-size: 75px;
   color: black;
 }
+.disable {
+  pointer-events: none;
+}
