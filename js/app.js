@@ -2,6 +2,7 @@
 
 let turn;
 let moves = 0;
+let isDraw = false;
 let isTeamBlue = true;
 let markedBox1 = false;
 let markedBox2 = false;
@@ -63,11 +64,13 @@ function checkWinner() {
         document.querySelector('#turn').innerHTML = "Red Won!";
         document.getElementById('turn').style.color = 'red';
         markAllBoxes();
+    } else if (moves === 9){
+        isDraw = true;
     }
 }
 
 function checkDraw () {
-    if (moves === 9) {
+    if (moves === 9 && isDraw === true) {
         document.querySelector('#turn').innerHTML = "Draw!"
         document.getElementById('turn').style.color = 'white';
         moves = 0;
@@ -127,6 +130,7 @@ function resetGame () {
     markedBox8 = false;
     markedBox9 = false;
     moves = 0;
+    isDraw = false;
     changeTeam();
 }
 
