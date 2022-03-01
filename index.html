@@ -1,15 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hubballi&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Build your game board, instructions, and score displays here! -->
 
+  <header><h1>Tic Tac Toe!</h1></header>
   
+  
+  
+  
+  <div class="container">
+    <div class="scorelog">
+      <h2>Score</h2>
+      <div><p>Player X: <span>0</span> / Player O: <span>0</span></p></div>
+      
+    <ol>
+
+    </ol>
+  </div>
+  <div class="turngamereset">
+  <div class="player-indicator">
+    <p id="turns">TURN: player X ! </p>
+  </div>
+    <div class="game-container">
+      
+      <div class="box" id="box1">
+        <p></p>
+      </div>
+      <div class="box" id="box2">
+        <p></p>
+      </div>
+      <div class="box" id="box3">
+        <p></p>
+      </div>
+      <div class="box" id="box4">
+        <p></p>
+      </div>
+      <div class="box" id="box5">
+        <p></p>
+      </div>
+      <div class="box" id="box6">
+        <p></p>
+      </div>
+      <div class="box" id="box7">
+        <p></p>
+      </div>
+      <div class="box" id="box8">
+        <p></p>
+      </div>
+      <div class="box" id="box9">
+        <p></p>
+      </div>
+    </div>
+  
+    <div class="control-panel">       
+        <p> <a href="#">Reset</a></p>        
+    </div>
+    </div>
+  </div>
+
   <!-- Build your game board, instructions, and score displays here! -->
   <script type="text/javascript" src="js/app.js"></script>
 </body>

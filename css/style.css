@@ -1,0 +1,148 @@
+body{
+    background-image:  url('https://wallpapertag.com/wallpaper/full/a/a/5/116701-black-background-images-1920x1200-pictures.jpg');
+    display: grid;
+    font-family: Hubballi, Verdana, Tahoma, sans-serif;
+}
+h1{
+    text-align: center;
+    color: orange;
+    margin: 55px 0 34px 0;
+    animation: move 7.62s infinite;
+
+}
+@keyframes move{
+    50% {color: orangered}
+    100% {color: #333}
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.game-container{
+    
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 62px;
+    width: 233px;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #fff;
+}
+.scorelog{
+    overflow: auto;
+    width:233px;
+    height:434px;
+    margin:34px auto;
+    border:1px solid #fff;
+
+}
+.scorelog h2{
+    color:#fff;
+    text-align: center;
+    text-decoration: underline;
+}
+.scorelog div p{
+    color:#fff;
+    text-align: center;
+}
+.box{
+    opacity:0.62;
+    border:2px solid orangered;
+    border-radius:3px;
+    background-color: #555;
+    height:62px;
+
+}
+.box p{
+    color:orange;   
+}
+.control-panel{
+    
+    border:1px solid #fff;
+    text-align: center;
+    width:144px;
+    padding: 13px;
+    background-color: #111;
+    margin: 55px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 13px #fff;
+    transition:background-color 1.62s ease;
+}
+.control-panel:hover{
+    background-color: #333;
+    transition:background-color 1.62s ease;
+}
+.control-panel p{
+    margin:21px;
+    display: inline;
+    color:#fff;
+}
+a{
+    text-decoration: none;
+    color:#fff;
+    font-family: Hubballi, Verdana, Tahoma, sans-serif;
+    font-size: 21px;
+}
+a:hover{
+    color:yellow;
+}
+a:active{
+    color:orangered;
+}
+.game-container .box p{
+    color:#fff;
+    font-size: 34px;
+    text-align: center;
+    margin:8px auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.game-container .box:hover{
+    background-color: #999;
+    transition:background-color 0.62s ease;
+}
+.player-indicator{
+    margin: 34px auto;
+    text-align: center;
+    
+}
+.player-indicator p{
+    color:#ccc;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:21px;
+}
+li{
+    color: orange;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#box1{
+    border-top:0;
+    border-left:0;
+}
+#box2{
+    border-top:0;
+}
+#box3{
+    border-top:0;
+    border-right:0;
+}
+#box4{
+    border-left:0;
+}
+#box6{
+    border-right:0;
+}
+#box7{
+    border-bottom:0;
+    border-left:0;
+}
+#box8{
+    border-bottom:0;
+}
+#box9{
+    border-bottom:0;
+    border-right:0;
+}
