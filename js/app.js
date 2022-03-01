@@ -2,12 +2,10 @@
 
 const player1 = 'x';
 const player2 = 'o';
-const row1 = 
+let currentGame = 0;
 let player1turn = true;
 let player2turn = false;
 let currentPlayer = 'x';
-let currentGame = [];
-
 
 const btn = document.querySelector('#btn')
 let winMessage = document.querySelector('.win-message')
@@ -33,6 +31,7 @@ const waysToWin = [
 const winGame = () => `Play ${player1} has won!`
 const tieGame = () => `It's a tie`
 const currentPlayerMessage = () => `It's ${player1}'s turn.`
+
 const setNextTurn = () => {
     console.log('it is the next person\'s turn');
     if (currentPlayer === 'x') {
