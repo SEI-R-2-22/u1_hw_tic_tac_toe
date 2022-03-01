@@ -1,64 +1,26 @@
 body {
-    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Whiteboard_with_markers.jpg/800px-Whiteboard_with_markers.jpg?20140228194649") no-repeat; */
+    background-image: url("https://i.stack.imgur.com/8zEoh.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
+    font-family: 'Rock Salt';
     text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    color: black;
 }
 
-.score-board {
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: 1fr 1fr 1fr; 
-    gap: 0px 0px; 
-    background-color: aqua;
-    width: 400px;
-    height: 100px;
-    margin: auto;
-    text-align: center;
-}
-
-.score-title {
-    grid-column: 2;
-    font-size: 20pt;
-}
-.x {
-    grid-column: 1;
-    grid-row: 2;
-    font-size: 20px;
-}
-.o {
-    grid-column: 2;
-    grid-row: 2;
-    font-size: 20px;
-}
-.tie {
-    grid-column: 3;
-    grid-row: 2;
-    font-size: 20px;
-}
-
-.x-score {
-    grid-column: 1;
-    grid-row: 3
-}
-
-.o-score {
-    grid-column: 2;
-    grid-row: 3
-}
-.tie-score {
-    grid-column: 3;
-    grid-row: 3
-}
 
 #message {
-    margin-top: 20px;
     text-align: center;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 40px
 }
 
 
-.game-board {
+#game-board {
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr; 
@@ -67,32 +29,40 @@ h1 {
     margin: auto;
     margin-top: 30px;
     text-align: center;
-    color: aliceblue;
-    font-size: 100pt;
+    color: #6b6b6b;
+    font-size: 50pt;
+    font-family: 'Rock Salt';
 }
 
 .square {
-    background-color: black;
-    border: 2px solid white;
+    background-color: transparent;
+    border: 2px solid #0b0b0b;
 }
 
 .tl {
     grid-column: 1;
     grid-row: 1;
+    border-top: 0;
+    border-left: 0;
+
 }
 
 .tm {
     grid-column: 2;
     grid-row: 1;
+    border-top: 0;
 }
 .tr {
     grid-column: 3;
     grid-row: 1;
+    border-top: 0;
+    border-right: 0;
 }
 
 .ml {
     grid-column: 1;
     grid-row: 2;
+    border-left: 0;
 }
 
 .mm {
@@ -103,23 +73,25 @@ h1 {
 .mr {
     grid-column: 3;
     grid-row: 2;
+    border-right: 0;
 }
 
 .bl {
     grid-column: 1;
     grid-row: 3;
+    border-bottom: 0;
+    border-left: 0;
 }
 
 .bm {
     grid-column: 2;
     grid-row: 3;
+    border-bottom: 0;
 }
 
 .br {
     grid-column: 3;
     grid-row: 3;
-}
-
-.replay {
-
+    border-bottom: 0;
+    border-right: 0;
 }
