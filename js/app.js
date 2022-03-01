@@ -156,10 +156,7 @@ for (i = 0; i < board.length; i++) {
           checkWinner(board);
           break;
       }
-    } else if (winner === 1) {
-      // console.log("already won!");
     } else {
-      // console.log("already clicked");
     }
   });
 }
