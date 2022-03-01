@@ -130,18 +130,6 @@ function select(e) {
     }
   }
 
-  // function select(e) {
-  //   let gridIndex = parseInt(e.target.id.replace('grid', ''))
-
-  //   if (gridA[gridIndex] === -1 || gridA[gridIndex] === 1) {
-  //     // console.log('working')
-  //     consol
-  //     return
-  //   } else if (playerWon !== null) {
-  //     // console.log('working2')
-  //     return
-  //   }
-
   // referencing https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden
   startBtn.removeAttribute('hidden')
   gridA[gridIndex] = turn
