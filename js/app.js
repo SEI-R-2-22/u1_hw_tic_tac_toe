@@ -78,6 +78,7 @@ const playerChoose = function(boxnumber) {
         console.log("choices don't include boxnumber");
         }
     }else if(against === "computer" && winner === null){
+        if(choices.includes(boxnumber)){
         if(turn === "player"){
             printArray();
             console.log("hello");
@@ -90,7 +91,7 @@ const playerChoose = function(boxnumber) {
         }else{
             console.log("cheese");
         }
-        
+    }
     }
     
     // if choice is present
@@ -103,11 +104,13 @@ const computerChoice = function(){
         const x = Math.ceil(Math.random() * choices.length) -1;
         console.log("oxoxo "+x);
         const choice = choices[x];
+        if(choices.includes(choice)){
         console.log("xxxxx " + choice);
         changeText(choice);
         choices.splice(choices.indexOf(choice),1);
         checkGameStatus();
         checkWinner();
+        }
         
     }else{
         console.log("computerchoice else");
