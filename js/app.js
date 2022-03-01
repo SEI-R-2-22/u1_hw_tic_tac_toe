@@ -330,8 +330,9 @@ button0.addEventListener('click', () => {
   if (button0.innerText == 'x') {
     button0.innerText = 'o'
     if (
-      confirm('This player chose O, confirm yes, or reclick to choose X') ===
-      true
+      confirm(
+        'This player chose O, confirm yes, or cancel then reclick to choose X'
+      ) === true
     ) {
       button0.innerText = 'O'
       turnCountdown()
@@ -341,8 +342,9 @@ button0.addEventListener('click', () => {
   } else {
     button0.innerText = 'x'
     if (
-      confirm('This player chose X, confirm yes, or reclick to choose O') ===
-      true
+      confirm(
+        'This player chose X, confirm yes, or cancel then reclick to choose O'
+      ) === true
     ) {
       button0.innerText = 'X'
       turnCountdown()
@@ -376,7 +378,7 @@ button1.addEventListener('click', () => {
     button1.innerText = 'x'
     if (
       confirm(
-        'This player chose X, confirm yes, or cancl then reclick to choose O'
+        'This player chose X, confirm yes, or cancel then reclick to choose O'
       ) === true
     ) {
       button1.innerText = 'X'

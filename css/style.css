@@ -1,6 +1,7 @@
 .button {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
+  font-size: 40px;
 }
 
 #grid {
@@ -12,10 +13,26 @@
 
 h1 {
   text-align: center;
+  font-family: Mrs Sheppards;
+  font-size: 75px;
+  text-shadow: 0 0 10px gold;
 }
 
 h2,
 h3,
 p {
-  text-align: center;
+  font-family: Amatic SC;
+  font-size: 30px;
+  font-weight: bolder;
+  text-shadow: 0 0 5px goldenrod;
+}
+
+body {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-image: url(https://www.ppt-backgrounds.net/thumbs/turquoise-chevron--graphic-templates-backgrounds.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
