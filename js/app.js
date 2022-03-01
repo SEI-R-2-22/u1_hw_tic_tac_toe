@@ -2,7 +2,6 @@
 
 //Grabbing HTML objects
 const tiles = document.querySelectorAll('.box')
-const gameBoard = Array.from(tiles)
 let moonMove = Array.from(document.getElementsByClassName('inactive')) //available moves for computer
 let moon = Array.from(document.querySelectorAll('.moon'))
 let star = Array.from(document.querySelectorAll('.star'))
@@ -21,8 +20,10 @@ let cWin = null
 let draw = null
 let tie = null
 
+//Turn counters
 let turnCount = 0
 let counter = document.getElementById('turn-count')
+
 //Win Conditions
 const winCombo1 = [0, 1, 2].toString();
 const winCombo2 = [3, 4, 5].toString();
@@ -33,55 +34,35 @@ const winCombo6 = [2, 5, 8].toString();
 const winCombo7 = [0, 4, 8].toString();
 const winCombo8 = [2, 4, 6].toString();
 
-// winCombo = [
-    //     [0, 1, 2],
-    //     [3, 4, 5],
-    //     [6, 7, 8],
-    //     [0, 3, 6],
-    //     [1, 4, 7],
-    //     [2, 5, 8],
-    //     [0, 4, 8],
-    //     [2, 4, 6]
+// ONGOING BUGS:
+// 1. Computer won't stop picking player occupied spots
+// 2. Game end messages display multiple times for some reason
+
+//Aside: I kept the console.logs but commented them out so I could continue to troubleshoot later
+
+////////////////////////////////
+// Functions For Game Logic Here
     
-    // ].toString();
-    
-    ////////////////////////////////
-    // Functions For Game Logic Here
-    
-    //Player Move
-    for (let i = 0; i < star.length; i++) {
-        star[i].addEventListener('click', () => {
-            turnCount = turnCount + 1
-            counter.innerText = turnCount
-            console.log(turnCount)
-        if (star[i].classList.contains('avail')) {
-            star[i].classList.add('player')
-            star[i].classList.add('occupied')
-            star[i].classList.remove('avail')
-            star[i].style.opacity = 1
-            playerChoice.push(i)
-            console.log('player picked ' + playerChoice)
+//Player Move
+for (let i = 0; i < star.length; i++) {
+    star[i].addEventListener('click', () => {
+        turnCount = turnCount + 1
+        counter.innerText = turnCount
+        // console.log(turnCount)
+    if (star[i].classList.contains('avail')) {
+        star[i].classList.add('player')
+        star[i].classList.add('occupied')
+        star[i].classList.remove('avail')
+        star[i].style.opacity = 1
+        playerChoice.push(i)
+        // console.log('player picked ' + playerChoice)
             
-        }
-        gameDraw()
-        computerMove()
+    }
+    gameDraw()
+    computerMove()
     })
-    
 }
 
-
-
-// let checkMoves = () => {
-//     for (let i = 0; i < moonMove.length; i++) {
-//         if (moonMove[i].classList.contains('occupied')) {
-//             moonMove.splice(i, 1)
-            
-            
-//         }
-//     }
-//     console.log(moonMove)
-//     computerMove()
-// }
 
 //Computer Move
 const computerMove = () => {
@@ -115,7 +96,7 @@ let checkComputerConditions = () => {
     for (let i = 0; i < moonMove.length; i++) {
         if (moon[i].classList.contains('computer')) { //push pieces marked computer into another array
             computerArr.push(i)
-            console.log('computer picked ' + computerArr)
+            // console.log('computer picked ' + computerArr)
         }
     }
 }
@@ -140,7 +121,7 @@ document.addEventListener('click', () => {
             let playerBoard = playerChoice.toString();
                 if (playerBoard.includes(winCombo1) || playerBoard.includes(winCombo2) || playerBoard.includes(winCombo3) || playerBoard.includes(winCombo4) || playerBoard.includes(winCombo5) || playerBoard.includes(winCombo6) || playerBoard.includes(winCombo7) || playerBoard.includes(winCombo8)) {
                     pWin = true
-                    console.log('player win')
+                    // console.log('player win')
                     
                 }   
 
@@ -157,7 +138,7 @@ document.addEventListener('click', () => {
             let computerBoard = computerArr.toString();
                 if (computerBoard.includes(winCombo1) || computerBoard.includes(winCombo2) || computerBoard.includes(winCombo3) || computerBoard.includes(winCombo4) || computerBoard.includes(winCombo5) || computerBoard.includes(winCombo6) || computerBoard.includes(winCombo7) || computerBoard.includes(winCombo8)) {
                     cWin = true
-                    console.log('computer win')
+                    // console.log('computer win')
                     
                 }
         
@@ -227,9 +208,6 @@ const resetBoard = () => {
 
 
 
-// BUGS:
-// 1. Computer won't stop picking player occupied spots
-// 2. Game end messages display multiple times for some reason
 
 
 
@@ -244,12 +222,20 @@ const resetBoard = () => {
 
 
 
+// FAILED CODE - saving for later when I improve the game
 
 
-
-
-
-
+// let checkMoves = () => {
+//     for (let i = 0; i < moonMove.length; i++) {
+//         if (moonMove[i].classList.contains('occupied')) {
+//             moonMove.splice(i, 1)
+            
+            
+//         }
+//     }
+//     console.log(moonMove)
+//     computerMove()
+// }
 
 
 
