@@ -22,7 +22,7 @@ let resetGame = () => {
   playCount = 0
   winnerBanner.style.opacity = 0
   activePlayer = 'x'
-  activePlayerDisplay.innerHTML = 'The active player is X'
+  activePlayerDisplay.innerHTML = 'Active player: X'
   activePlayerDisplay.style.opacity = 1
   winnerDeclared = false
 }
@@ -61,7 +61,7 @@ let botDoesPlay = () => {
       availableSquares[Math.floor(Math.random() * availableSquares.length)]
     choice.innerHTML = 'o'
     checkWinner()
-    activePlayerDisplay.innerHTML = 'The active player is X'
+    activePlayerDisplay.innerHTML = 'Active player: X'
     activePlayer = 'x'
   }
 }
@@ -137,19 +137,11 @@ for (let i = 0; i < gameSquares.length; i++) {
         gameSquares[i].innerHTML = 'x'
         checkWinner()
         if (winnerDeclared !== true) {
-          activePlayerDisplay.innerHTML = 'The active player is O'
+          activePlayerDisplay.innerHTML = 'Active player: O'
           activePlayer = 'o'
-          botDoesPlay()
+          setTimeout(botDoesPlay, 500)
         }
       }
-
-      //human player 2 logic
-      // else if (activePlayer === 'o' && gameSquares[i].innerHTML === '') {
-      //   gameSquares[i].innerHTML = 'o'
-      //   checkWinner()
-      //   activePlayerDisplay.innerHTML = 'The active player is X'
-      //   activePlayer = 'x'
-      // }
     }
   })
 }
