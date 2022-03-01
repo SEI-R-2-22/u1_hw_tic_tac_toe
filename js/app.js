@@ -32,7 +32,7 @@ function game() {
   // console.log(gridA)
   turn = 1
   playerWon = null
-  // startBtn.setAttribute('hidden', true)
+  startBtn.setAttribute('hidden', true)
   console.log(startBtn)
   build()
 }
