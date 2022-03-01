@@ -32,6 +32,10 @@ body {
     border-radius: 5px;
     justify-content: center;
     display: flex;
+    align-content: center;
+    background-color: white;
+    width: 5px;
+    height: 5px;
 }
 
 #gameboard {
@@ -44,12 +48,16 @@ body {
     align-content: center;
     grid-template-columns: repeat(3, auto);
     background-color: aquamarine;
+
 }
 
 h1 {
     font-size: 50px;
     justify-content: center;
     display: flex;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: lightblue;
+    border-radius: 5px;
 }
 
 

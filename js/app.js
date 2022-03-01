@@ -1,24 +1,6 @@
-// Global Variables Here
-
-
-
-
-////////////////////////////////
-// Functions For Game Logic Here
-
-
-
-
-////////////////////////////////
-// Event Listeners Here
-
-
-
-////////////////////////////////
-
-
 const xPlayer = "X"
 const oPlayer = "O"
+
 const winningCombinations = [
     [0,1,2],
     [3,4,5],
@@ -30,7 +12,7 @@ const winningCombinations = [
     [2,4,6]
 ]
 
-const boxElement = document.querySelectorAll('[box]')
+const boxElement = document.querySelectorAll('.box')
 const gameboardElement = document.getElementsById('gameboard')
 const restartButton = document.getElementById('restartButton')
 let oPlayerTurn = true 
@@ -65,10 +47,18 @@ function handleBoxClick(e) {
     }
 }
 
-//Go back to this 
-// function endGame(draw) {
-//     if (draw) { }
-// }
+for (let i = 0; i < 9; i++) {
+    box[i].addEventListener('click', () =>{
+        if (player % 2 === 0){
+            box[i].innerText = "X"
+            changePlayer()
+        }else if (player % 2 === 1){
+            box[i].innerText = "O"
+            changePlayer()
+        };
+        const index
+    })
+}
 
 function draw() {
     return [...boxElement].every(box => {
@@ -83,4 +73,3 @@ function placemark(box, currentCharacter) {
 function switchTurn() {
     oPlayer = !xPlayer
 }
-
