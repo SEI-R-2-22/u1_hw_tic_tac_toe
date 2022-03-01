@@ -37,87 +37,6 @@ function game() {
   build()
 }
 
-// https://www.w3schools.com/jsref/jsref_foreach.asp
-function build() {
-  gridA.forEach((grid, i) => {
-    // referencing creating an image https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_img_create
-    // function toe() {
-    //   let toe = document.createElement('O')
-    //   toe.innerHTML(
-    //     'https://media.giphy.com/media/3o6nV9Jwb8UXVCldHa/giphy.gif'
-    //   )
-    //   // toe.setAttribute('width', '85')
-    //   // toe.setAttribute('height', '228')
-    //   toe.setAttribute('alt', 'TOE')
-    //   document.body.appendChild(toe)
-    // }
-
-    // toe.se
-
-    // let toe = new Image()
-    // toe.src = 'https://media.giphy.com/media/3o6nV9Jwb8UXVCldHa/giphy.gif'
-    // document.body.appendChild(toe)
-
-    // EXAMPLE FROM STUDENT -
-    //     const name = "John";
-    // // assuming 'el' is an HTML DOM element
-    // el.innerHTML = name; // harmless in this case
-
-    // // ...
-
-    // name = "<script>alert('I am John in an annoying alert!')</script>";
-    // el.innerHTML = name; // harmless in this case
-
-    if (grid === 1) {
-      gridColor = 'blue'
-      gridX = 'x'
-    } else if (grid === -1) {
-      gridColor = 'green'
-      gridX = 'o'
-    } else if (grid === null) {
-      // gridColor = 'gray'
-      gridX = null
-    }
-    // console.log(gridAll[4])
-    gridAll[i].style.color = gridColor
-    gridAll[i].innerHTML = gridX
-  })
-
-  // Null was not working : referenced optional chainging
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
-  //
-  //   switch (playerWon) {
-  //     case !playerWon:
-  //       intro.innerText = `${turn === 1 ? "X's" : "TOE's"} turn`
-  //       intro.style.color = `${turn === 1 ? 'purple' : 'blue'}`
-  //       // control.log('winner winner chicken dinner, but not yet')
-  //       break
-  //     case playerWon == 'T':
-  //       intro.innerText = 'Tie Game! Replay'
-  //       intro.style.color = 'purple'
-  //       console.log('T')
-  //       break
-  //     case playerWon == 1:
-  //       intro.textContent = `${playerWon === 1 ? 'X' : 'TOE'} is winner!`
-  //       break
-  //     //     console.log('winner')
-  //   }
-  // }
-
-  if (!playerWon) {
-    intro.innerText = `${turn === 1 ? "X's" : "TOE's"} turn`
-    intro.style.color = `${turn === 1 ? 'purple' : 'blue'}`
-    // control.log('winner winner chicken dinner, but not yet')
-  } else if (playerWon == 'T') {
-    intro.innerText = 'Tie Game! Replay'
-    intro.style.color = 'purple'
-    console.log('T')
-  } else {
-    intro.textContent = `${playerWon === 1 ? 'X' : 'TOE'} is winner!`
-    console.log('winner')
-  }
-}
-
 function select(e) {
   let gridIndex = parseInt(e.target.id.replace('grid', ''))
 
@@ -129,6 +48,99 @@ function select(e) {
     // console.log('working2')
     return
   }
+
+  // https://www.w3schools.com/jsref/jsref_foreach.asp
+  function build() {
+    gridA.forEach((grid, i) => {
+      // referencing creating an image https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_img_create
+      // function toe() {
+      //   let toe = document.createElement('O')
+      //   toe.innerHTML(
+      //     'https://media.giphy.com/media/3o6nV9Jwb8UXVCldHa/giphy.gif'
+      //   )
+      //   // toe.setAttribute('width', '85')
+      //   // toe.setAttribute('height', '228')
+      //   toe.setAttribute('alt', 'TOE')
+      //   document.body.appendChild(toe)
+      // }
+
+      // toe.se
+
+      // let toe = new Image()
+      // toe.src = 'https://media.giphy.com/media/3o6nV9Jwb8UXVCldHa/giphy.gif'
+      // document.body.appendChild(toe)
+
+      // EXAMPLE FROM STUDENT -
+      //     const name = "John";
+      // // assuming 'el' is an HTML DOM element
+      // el.innerHTML = name; // harmless in this case
+
+      // // ...
+
+      // name = "<script>alert('I am John in an annoying alert!')</script>";
+      // el.innerHTML = name; // harmless in this case
+
+      if (grid === 1) {
+        gridColor = 'blue'
+        gridX = 'x'
+      } else if (grid === -1) {
+        gridColor = 'green'
+        gridX = 'o'
+      } else if (grid === null) {
+        // gridColor = 'gray'
+        gridX = null
+      }
+      // console.log(gridAll[4])
+      gridAll[i].style.color = gridColor
+      gridAll[i].innerHTML = gridX
+    })
+
+    // Null was not working : referenced optional chainging
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+    //
+    //   switch (playerWon) {
+    //     case !playerWon:
+    //       intro.innerText = `${turn === 1 ? "X's" : "TOE's"} turn`
+    //       intro.style.color = `${turn === 1 ? 'purple' : 'blue'}`
+    //       // control.log('winner winner chicken dinner, but not yet')
+    //       break
+    //     case playerWon == 'T':
+    //       intro.innerText = 'Tie Game! Replay'
+    //       intro.style.color = 'purple'
+    //       console.log('T')
+    //       break
+    //     case playerWon == 1:
+    //       intro.textContent = `${playerWon === 1 ? 'X' : 'TOE'} is winner!`
+    //       break
+    //     //     console.log('winner')
+    //   }
+    // }
+
+    if (!playerWon) {
+      intro.innerText = `${turn === 1 ? "X's" : "TOE's"} turn`
+      intro.style.color = `${turn === 1 ? 'purple' : 'blue'}`
+      // control.log('winner winner chicken dinner, but not yet')
+    } else if (playerWon == 'T') {
+      intro.innerText = 'Tie Game! Replay'
+      intro.style.color = 'purple'
+      console.log('T')
+    } else {
+      intro.textContent = `${playerWon === 1 ? 'X' : 'TOE'} is winner!`
+      console.log('winner')
+    }
+  }
+
+  // function select(e) {
+  //   let gridIndex = parseInt(e.target.id.replace('grid', ''))
+
+  //   if (gridA[gridIndex] === -1 || gridA[gridIndex] === 1) {
+  //     // console.log('working')
+  //     consol
+  //     return
+  //   } else if (playerWon !== null) {
+  //     // console.log('working2')
+  //     return
+  //   }
 
   // referencing https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden
   startBtn.removeAttribute('hidden')
