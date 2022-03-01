@@ -3,14 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
   <title>Tic-Tac-Toe</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <!-- Build your game board, instructions, and score displays here! -->
+  <!-- Build your game board, instructions, and score displays here! --> 
+
+<!-- Game Name -->
+<header>
+  <h1>Tic Tac Toe</h1>
+</header>
+
+<!-- Containers for gameboard  -->
+<section class="game-board" id="game-board">
+    <div class="space" id="1"></div>
+    <div class="space" id="2"></div>
+    <div class="space" id="3"></div>
+    <div class="space" id="4"></div>
+    <div class="space" id="5"></div>
+    <div class="space" id="6"></div>
+    <div class="space" id="7"></div>
+    <div class="space" id="8"></div>
+    <div class="space" id="9"></div>
+</section>
+
+
+<!-- Score board -->
+<!-- <section class="scoreBoard" id="scroeBoard">
+  <div id="player1">Player 1</div>
+  <div id="player2">Player 2</div>
+  <div id="draw">Draw</div>  
+  <div id="p1Score"></div>
+  <div id="p2Scroe"></div>
+  <div id="drawScore"></div>
+</div>
+</section> -->
+
+
+<!-- Restart button -->
+<div class = "gameStatus" >
+      <h2 id="gameStatus"></h2>
+</div>
+<button class="resetButton" onclick="window.location.reload()">Play again</button>
+
 
   
   <!-- Build your game board, instructions, and score displays here! -->
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
+

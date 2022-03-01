@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-size: cover;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: 'Space Mono', monospace;
+    background-color: rgb(0, 0, 0);
+}
+
+h1 {
+    margin: 0;
+    color: rgba(51, 255, 0, 0.913);;
+}
+
+
+/* Game Board style */
+.game-board {
+    display: flex;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.space {
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    border: 5px solid rgb(0, 0, 0);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Remove borders aronud differnet boxes */
+.space:first-child,
+.space:nth-child(2),
+.space:nth-child(3) {
+    border-top: none;
+}
+
+.space:first-child,
+.space:nth-child(4),
+.space:nth-child(7) {
+    border-left: none;
+} 
+
+.space:nth-child(3),
+.space:nth-child(6),
+.space:nth-child(9) {
+    border-right: none;
+} 
+
+.space:nth-child(7),
+.space:nth-child(8),
+.space:nth-child(9) {
+    border-bottom: none;
+} 
+
+
+
+/* Score Board Style */
+.scoreBoard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreBoard {
+    display: flex;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#player1 {
+    color: rgba(51, 255, 0, 0.913);
+    border-bottom: solid 2px rgba(23, 85, 8, 0.913);
+    margin: 0 20px 0 20px;
+    padding-bottom: 10px;
+}
+
+#player2 {
+    color: rgba(51, 255, 0, 0.913);
+    border-bottom: solid 2px rgba(23, 85, 8, 0.913);
+    margin: 0 20px 0 20px;
+    padding-bottom: 10px;
+}
+
+#draw {
+    color: rgba(51, 255, 0, 0.913);
+    border-bottom: solid 2px rgba(23, 85, 8, 0.913);
+    margin: 0 20px 0 20px;
+    padding-bottom: 10px;
+}
+
+
+
+
+/* Restart Button Style */
+button {
+    border: solid 2px rgba(51, 255, 0, 0.913);
+    padding: 15px 60px;
+    background-color: black;
+    color: rgba(51, 255, 0, 0.913);;;
+}
+
+button:hover {
+    background-color: rgba(51, 255, 0, 0.913);
+    color: black;
+
+}
+
+
+
+/* styling for x & o when click  */
+.space.x::before,
+.space.x::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 90px;
+    background-color: mediumorchid
+}
+
+.space.x::before {
+    transform: rotate(45deg);
+}
+.space.x::after {
+    transform: rotate(-45deg);
+}
+
+
+.space.circle::before,
+.space.circle::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: cyan;
+}
+
+.space.circle::before {
+    width: 90px;
+    height: 90px;
+    background-color: cyan;
+}
+
+.space.circle::after {
+    width: 70px;
+    height: 70px;
+    background-color:green ;
+}
+
+.gameStatus {
+    display: none;
+}
+.gameStatus.show {
+    display: flex;
+}
