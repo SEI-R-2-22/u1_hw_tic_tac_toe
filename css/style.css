@@ -5,7 +5,7 @@ body{
 }
 h1{
     text-align: center;
-    color: rgb(255,101,25);
+    color: #333;
     margin: 55px 0 34px 0;
     animation: move 7.62s infinite;
     font-size:89px;
