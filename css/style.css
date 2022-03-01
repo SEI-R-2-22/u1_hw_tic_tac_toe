@@ -1,16 +1,29 @@
 
-.btnO, .btn {
+body{
+    background-color: rgb(76, 28, 90);
+}
+/* .btnO, .btn {
     display: flex;
     flex-direction: row;
     font-size: 5px;
     margin-bottom: -80%;
-}
+} */
 
 img{
     width: 100%;
     filter: opacity(30%)
 }
-
+.sqr {
+    display: flex;
+    
+    flex-direction: row;
+    align-items: center;
+    border: solid black .5em;
+    width: 7em;
+    height: 7em;
+    background-color: white;
+    flex-wrap: wrap;
+}
 .game{
     display: flex;
     flex-direction: column;
@@ -34,20 +47,9 @@ img{
     width: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(175, 172, 172);
-    background-image: url("https://eus-www.sway-cdn.com/s/lS9lnvgYelIJHUrK/images/csweH7hj74FsUq?quality=960&allowAnimation=false");
+    background-image: url("https://media.blogto.com/articles/20210622-torontosunset1.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70");
     background-image: gray-scale(50%);
 }   
 
-.sqr {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: solid black .5em;
-    width: 7em;
-    height: 7em;
-    background-color: white;
-    flex-wrap: wrap;
-    
-    
-}
+
 

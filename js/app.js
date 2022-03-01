@@ -18,15 +18,29 @@ let oSqOwned = [];
 let winMessage = document.querySelector('#winMessage')
 
 const winCombo = [
+    //horozontal
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
+    //verticle
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
+    //diagonal
     [0, 4, 8],
     [2, 4, 6]
 ]; 
+//store each winning combo in a variable then variables in an array
+const a = winCombo[0]
+const b = winCombo[1]
+const c = winCombo[2]
+const d = winCombo[3]
+const e = winCombo[4]
+const f = winCombo[5]
+const g = winCombo[6]
+const h = winCombo[7]
+const arrWin = [a, b, c, d, e ,f, g, h];
+
 
 
 
@@ -61,13 +75,15 @@ changePl = () => {
 
 ///FUNCTION TO CHECK THE WINNER OF THE GAME
 const checkWinner = () => {
-    // for(let i = 0; i < 8; i++){
-    //     if(xSqOwned[i] === winCombo[i] && xSqOwned.length === 3){
-    //         alert('yoooo X')
-    //     }else if(oSqOwned[i] === winCombo[i] && oSqOwned.length === 3){
-    //         alert('yoooo O')
-    //     }
-    // }
+    for(let i = 0; i < 8; i++){
+        if(xSqOwned[i] == arrWin[i] && xSqOwned.length === 3){
+            alert('X wins')
+        }else if(oSqOwned[i] == arrWin[i] && oSqOwned.length === 3){
+            alert('O wins')
+        }else if(xSqOwned || oSqOwned !== arrWin[i]){
+            alert('tie')
+        }
+    }
     
     
 
@@ -122,19 +138,21 @@ const checkWinner = () => {
 //CALL CHANGE PLAYER FUNCTION, THEN REMOVE THE EVENT LISTENER
 
 for (let i = 0; i < 9; i++) {
+
     allSqs[i].addEventListener('click', () =>{
+        const index = ['.sqr'].indexOf('.sqr')
         if (player % 2 === 0){
             allSqs[i].innerText = 'X' 
-            
+            xSqOwned.push(index)
             changePl()
             
         }else if (player % 2 === 1){
             allSqs[i].innerText = 'O'
-            
+            oSqOwned.push(index)
             changePl()
             
         };
-        const index
+        
         
             
     })
