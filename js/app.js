@@ -1,4 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
+    //Global variables
+
     const cell = Array.from(document.querySelectorAll('.cell'));
     const playerDisplay = document.querySelector('.display-player');
     const resetButton = document.querySelector('#reset');
@@ -104,7 +106,7 @@ window.addEventListener('DOMContentLoaded', () => {
             cell.classList.remove('playerO');
         });
     }
-
+    //event listeners
     cell.forEach((cell, index) => {
         cell.addEventListener('click', () => userAction(cell, index));
     });
