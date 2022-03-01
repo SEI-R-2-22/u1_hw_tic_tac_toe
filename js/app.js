@@ -7,6 +7,7 @@ let moonMove = Array.from(document.getElementsByClassName('inactive')) //availab
 let moon = Array.from(document.querySelectorAll('.moon'))
 let star = Array.from(document.querySelectorAll('.star'))
 
+
 //Empty player array for win check
 let playerChoice = []
 
@@ -172,7 +173,30 @@ const winMessage = () => {
 
 }
 
+//Reset Button
+const resetBoard = () => {
+    for (let i = 0; i < moon.length; i++) {
+        moon[i].classList.remove('occupied')
+        moon[i].classList.remove('computer')
+        moon[i].style.opacity = 0
+        moon[i].classList.add('inactive')
+    }
+    for (let i = 0; i < star.length; i++) {
+        star[i].classList.remove('occupied')
+        star[i].classList.remove('player')
+        star[i].style.opacity = 0
+        star[i].classList.add('avail')
 
+
+    }
+    playerChoice = []
+    computerChoice = []
+    computerArr = []
+    pWin = null
+    cWin = null
+    draw = null
+    tie = null
+}
 
     
 
