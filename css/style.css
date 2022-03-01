@@ -1,1 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
 
+body {
+  background-image: url(https://i.pinimg.com/originals/aa/96/97/aa9697a3f7a61389675b8dc109518753.gif);
+  background-size: cover;
+  height: 100vh;
+  cursor: pointer;
+}
+
+h1 {
+  font-family: 'Fasthand', sans-serif;
+  font-size: 80px;
+  font-stretch: semi-expanded;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 0px;
+  padding-top: 20px;
+}
+
+h2 {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 35px;
+  /* font-weight: bold; */
+  color: rgb(255, 225, 0);
+  text-align: center;
+  line-height: 25px;
+}
+
+#gameboard {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  width: 100%;
+  grid-gap: 1%;
+  justify-content: center;
+}
+
+#c0,
+#c1,
+#c2,
+#c3,
+#c4,
+#c5,
+#c6,
+#c7,
+#c8 {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border: 5px solid rgb(255, 255, 255);
+  font-size: 100px;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Fasthand', sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 150px;
+}
+
+.startOver {
+  width: 150px;
+  height: 60px;
+  font-family: 'Fasthand', sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
