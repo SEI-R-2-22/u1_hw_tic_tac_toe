@@ -78,13 +78,19 @@ const playerChoose = function(boxnumber) {
         console.log("choices don't include boxnumber");
         }
     }else if(against === "computer" && winner === null){
-        printArray();
-        console.log("hello");
-        changeText(boxnumber);
-        choices.splice(choices.indexOf(boxnumber),1);
+        if(turn === "player"){
+            printArray();
+            console.log("hello");
+            changeText(boxnumber);
+            choices.splice(choices.indexOf(boxnumber),1);
             checkGameStatus();
             checkWinner();
-            setTimeout(computerChoice, 1000);
+            turn = "computer";
+            setTimeout(computerChoice, 620);
+        }else{
+            console.log("cheese");
+        }
+        
     }
     
     // if choice is present
