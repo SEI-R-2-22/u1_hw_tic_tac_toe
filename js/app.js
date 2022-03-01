@@ -114,6 +114,8 @@ function checkCombo(boxes) {
     button8.innerHTML == 'O'
   ) {
     alert('Player 1 Wins!')
+    player = 3
+    endGame()
   }
   if (
     button3.innerHTML == 'X' &&
