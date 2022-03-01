@@ -107,11 +107,13 @@ for (let i = 0; i < squares.length; i++) {
       if (click[i] === false) {
         if (xTurn) {
           squares[i].innerHTML = 'X'
+          squares[i].style.color = 'red'
           winnerBoard[i] = 1
           squaresFilled++
           message.innerHTML = "O's Turn"
         } else if (!xTurn) {
           squares[i].innerHTML = 'O'
+          squares[i].style.color = 'blue'
           winnerBoard[i] = -1
           squaresFilled++
           message.innerHTML = "X's Turn"
