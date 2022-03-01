@@ -65,7 +65,7 @@ const reset = function(){
 
 const playerChoose = function(boxnumber) {
 
-    if(winner === null && turn === "player"){
+    if(winner === null && against === "human"){
         if(choices.includes(boxnumber)){
             
             printArray();
@@ -74,12 +74,19 @@ const playerChoose = function(boxnumber) {
             choices.splice(choices.indexOf(boxnumber),1);
                 checkGameStatus();
                 checkWinner();
-
-    }else{
+        }else{
         console.log("choices don't include boxnumber");
+        }
+    }else if(against === "computer" && winner === null){
+        printArray();
+        console.log("hello");
+        changeText(boxnumber);
+        choices.splice(choices.indexOf(boxnumber),1);
+            checkGameStatus();
+            checkWinner();
+            setTimeout(computerChoice, 1000);
     }
-    }
-    setTimeout(computerChoice, 1000);
+    
     // if choice is present
     // array pops out choice
     // else do nothing
