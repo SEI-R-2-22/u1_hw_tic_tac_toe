@@ -1,0 +1,20 @@
+#main {
+    /* height: 100%;
+    width: 100%; */
+}
+#tic_tac_toe_container{
+    width: 100vw;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+.tic_tac_toe_box{
+    background-color: darkcyan;
+    height: 150px;
+    text-align: center;
+    font-size: 50px;
+    line-height: 150px;
+    color: black;
+}
