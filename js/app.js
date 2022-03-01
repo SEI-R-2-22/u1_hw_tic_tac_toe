@@ -104,7 +104,8 @@ const checkWinner = (array) => {
 //   }, 1500);
 // };
 // };
-// //  this doesnt really work.  i dont know why its inconsistent
+// // the AI works! but can be broken if you click before it goes
+//     called in switch below
 
 ////////////////////////////////
 // Event Listeners Here
