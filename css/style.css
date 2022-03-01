@@ -1,0 +1,50 @@
+body{
+    text-align: center;
+    align-items: center;
+}
+
+.game {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    max-width: 300px;
+    
+}
+.box{
+    border: 1px solid black;
+    min-width: 75px;
+    min-height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+}
+.box:nth-child(-n + 3) {
+    border-top: none;
+}
+
+.box:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.box:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.box:nth-last-of-type(-n + 3) {
+    border-bottom: none;
+}
+.box:hover {
+    opacity: 0.5;
+    background-color: lightgray;
+  }
+  .reset-button {
+    color: green;
+    background-color: greenyellow;
+  }
+  .reset-button:hover {
+    color: gray;
+    background-color: green;
+  }
