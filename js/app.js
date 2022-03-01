@@ -201,6 +201,7 @@ document.querySelector('#aiBtn').addEventListener('click', () => {
         player1Turn = true
         isPlayer2Playing = false
         player1Score = 0
+        aiScore = 0
         whoStarts = 1
         document.querySelector(`#p1Score`).innerText = player1Score
         document.querySelector(`#player2`).innerText = `A.I.: `
