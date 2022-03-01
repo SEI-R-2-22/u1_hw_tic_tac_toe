@@ -56,13 +56,24 @@ for (let i = 0; i < star.length; i++) {
             star[i].style.opacity = 1
             playerChoice.push(i)
             console.log('player picked ' + playerChoice)
-            computerMove()
-            gameDraw() 
         }
+        gameDraw()
+        computerMove()
     })
     
 }
 
+// let checkMoves = () => {
+//     for (let i = 0; i < moonMove.length; i++) {
+//         if (moonMove[i].classList.contains('occupied')) {
+//             moonMove.splice(i, 1)
+            
+            
+//         }
+//     }
+//     console.log(moonMove)
+//     computerMove()
+// }
 
 //Computer Move
 const computerMove = () => {
@@ -149,7 +160,7 @@ document.addEventListener('click', () => {
 
 //Draw Check
 let gameDraw = () =>{  
-    if (playerChoice.length === 5) {
+    if (playerChoice.length === 6) {
         draw = true
         
     }
@@ -186,8 +197,6 @@ const resetBoard = () => {
         star[i].classList.remove('player')
         star[i].style.opacity = 0
         star[i].classList.add('avail')
-
-
     }
     playerChoice = []
     computerChoice = []
