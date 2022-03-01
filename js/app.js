@@ -61,33 +61,26 @@ for (let i = 0; i < star.length; i++) {
     }
     gameDraw()
     computerMove()
+    winMessage()
     })
 }
 
 
 //Computer Move
+
 const computerMove = () => {
     let diceRoll = moonMove[Math.floor(Math.random() * moonMove.length)]
-        if (diceRoll.classList.contains('occupied')) {
-            let reRoll = moonMove[Math.floor(Math.random() * moonMove.length)]
-            reRoll.classList.remove('inactive')
-            reRoll.classList.add('computer')
-            reRoll.classList.add('occupied')
-            computerChoice.push(reRoll)
-            reRoll.style.opacity = 1
-            checkComputerConditions();
-        } else {
-            diceRoll.classList.remove('inactive')
-            diceRoll.classList.add('computer')
-            diceRoll.classList.add('occupied')
-            computerChoice.push(diceRoll)
-            diceRoll.style.opacity = 1
-            checkComputerConditions();
-        } 
+    console.log(diceRoll)
+        for (let i = 0; i < moonMove.length; i++) {
+            if (diceRoll.classList.contains('occupied')) break;
+                console.log('true')
+                diceRoll.classList.add('computer')
+                diceRoll.classList.add('occupied')
+                computerChoice.push(diceRoll)
+                diceRoll.style.opacity = 1
+        }
+        checkComputerConditions();
 }
-
-
-             
 
 
 //Create computer choice array
@@ -95,7 +88,7 @@ let checkComputerConditions = () => {
     for (let i = 0; i < moonMove.length; i++) {
         if (moon[i].classList.contains('computer')) { //push pieces marked computer into another array
             computerArr.push(i)
-            // console.log('computer picked ' + computerArr)
+            console.log('computer picked ' + computerArr)
         }
     }
 }
@@ -106,6 +99,7 @@ for (let i = 0; i < tiles.length; i++) {
     tiles[i].addEventListener('click', () => {
         tiles[i].children[0].classList.add('occupied') //attempts to prevent computer from picking it
         tiles[i].children[0].classList.remove('inactive') //alters class to remove it from available computer move array            
+    
     })
   
 }
@@ -151,9 +145,7 @@ document.addEventListener('click', () => {
 let gameDraw = () =>{  
     if (playerChoice.length === 6) {
         draw = true
-        
-    }
-            
+    }      
 }
 
 
@@ -223,6 +215,26 @@ const resetBoard = () => {
 
 
 // FAILED CODE - saving for later when I improve the game
+
+// const computerMove = () => {
+//     let diceRoll = moonMove[Math.floor(Math.random() * moonMove.length)]
+//         if (diceRoll.classList.contains('occupied')) {
+//             let reRoll = moonMove[Math.floor(Math.random() * moonMove.length)]
+//             reRoll.classList.remove('inactive')
+//             reRoll.classList.add('computer')
+//             reRoll.classList.add('occupied')
+//             computerChoice.push(reRoll)
+//             reRoll.style.opacity = 1
+//             checkComputerConditions();
+//         } else {
+//             diceRoll.classList.remove('inactive')
+//             diceRoll.classList.add('computer')
+//             diceRoll.classList.add('occupied')
+//             computerChoice.push(diceRoll)
+//             diceRoll.style.opacity = 1
+//             checkComputerConditions();
+//         } 
+// }
 
 
 // let checkMoves = () => {
