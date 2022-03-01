@@ -1,1 +1,270 @@
 
+:root {
+    font-family: 'Shizuru', cursive;
+    font-size: 50px;
+    
+}
+    
+    
+
+body {
+
+    background-image: linear-gradient(280deg, #96e2c6, rgba(206, 146, 179, 0.651));
+    
+    
+}
+
+
+.game{
+    width: 408px;
+    height: 68px;
+    position: relative;
+    left: 458px;
+    top: 5px;
+    color: rgb(64 40 53 / 65%);
+    background-color: #edc2c2;
+    font-family: 'Shizuru', cursive;
+    font-size: 30px;
+    margin-inline: 549px;
+    border-right: #cf6d6d solid 9px;
+    border-bottom: #5a2828 solid 8px;
+    border-left: #cb9797 solid 11px;
+    border-top: #e7bbbb solid 9px;
+    
+    
+       
+    }
+
+h2{
+    position: relative;
+    left:282px;
+    top:-155px;
+    color: rgb(64 40 53 / 65%);
+    font-family: 'Shizuru', cursive;
+    font-size: 40px;
+    margin: 70px 44px;
+}
+
+.choice{
+    position: relative;
+    left:320px;
+    top:-214px;
+    
+  
+}
+
+
+.X{
+    padding:0 30px;
+     margin: auto;
+    background-color: #edc2c2;
+    font-family: 'Shizuru', cursive;
+    font-size: 30px;
+    border-right: #cf6d6d solid 9px;
+    border-bottom: #5a2828 solid 8px;
+    border-left: #cb9797 solid 11px;
+    border-top: #e7bbbb solid 9px;
+    border-radius: 43px;
+}
+
+
+
+.O{
+    padding: 0 30px;
+    margin: auto;
+    background-color: #edc2c2;
+    font-family: 'Shizuru', cursive;
+    font-size: 30px;
+    border-right: #cf6d6d solid 9px;
+    border-bottom: #5a2828 solid 8px;
+    border-left: #cb9797 solid 11px;
+    border-top: #e7bbbb solid 9px;
+    border-radius: 43px;
+}
+
+
+
+
+
+
+
+
+
+#play{
+    position:relative;
+    top: 130px;
+    display: grid;
+    margin: -303px -26px;
+    height: 564px;
+    align-items: end;
+    align-content: space-evenly;
+    border-right: #cf6d6d dotted 9px;
+    border-bottom: #5a2828 dotted 8px;
+    border-left: #cb9797 dotted 11px;
+    border-top: #edc5c5 dotted 9px;
+    border-radius: 367px;
+}
+
+.board{
+    background-image: url(https://static.vecteezy.com/system/resources/previews/000/256/896/original/abstract-marble-texture-vector-design.jpg) ;
+    background-repeat: repeat-x;
+    background-size: 627px;
+    display: grid;
+    grid-template-columns: 111px;
+    grid-template-rows: 114px;
+    row-gap: 59px;
+    column-gap: 36px;
+    border-right: #cf6d6d solid 9px;
+    border-bottom: #5a2828 solid 8px;
+    border-left: #cb9797 solid 11px;
+    border-top: #edc5c5 solid 9px;
+    border-radius: 508px;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.square{
+    color: black;
+    font-family: 'Shizuru', cursive;
+    font-size: 50px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3,auto);
+    width: 150px;
+    height: 150px;
+    color: black;
+    background-color: transparent;
+    border-left: #cb9797 solid 11px;
+    border-right: #cf6d6d solid 9px;
+    border-bottom: #5a2828 solid 8px;
+    border-top: #edc5c5 solid 5px;
+    cursor: pointer;
+
+}
+
+#O{
+
+   border-top: none;
+   border-left: none;
+
+ 
+}
+#I{
+    border-top: none;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#II{
+    border-right: none;
+    grid-column-start: 4;
+    grid-column-end: 4;
+   }
+
+ #III{
+    
+    border-left: none;
+   }
+
+#IV{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end:3;
+   }
+
+
+#V{
+
+    border-right: none;
+    grid-column-start: 4;
+    grid-row-end:3;
+   }
+
+
+#VI{
+
+    border-left: none;
+    border-bottom: none;
+    grid-column-start: 1;
+    grid-row-end:4;
+   }
+
+#VII{
+    width: 150px;
+    height: 148px;
+    color: black;
+    background-color: transparent;
+    border-right: #cf6d6d solid 9px;
+    border-left: #cb9797 solid 11px;
+    border-top: #edc5c5 solid 5px;
+    border-bottom: none;
+    grid-column-start: 3;
+    grid-row-end: 4;
+}
+
+#VIII{
+ 
+    border-right: none;
+    border-bottom: none;
+    grid-column-start: 4;
+    grid-row-end: 4;
+ }
+
+/* .square.x,
+.square.o{
+    cursor: none;
+}
+
+.square.x::before,
+.square.x::after{
+    background-color: #5a2828;
+}
+.board.x.square:not(.o):not(.x):hover::before,
+.board.x.square:not(.o):not(.x):hover::after,
+.board.x .square:not(.o):not(.o):hover::before{
+	color:white;
+
+}
+
+.square.x::before,
+.square.x::after,
+.board.x .board.x.square:not(.o):not(.x):hover::before,
+.board.x.square:not(.o):not(.x):hover::after{
+    content:'';
+    position: absolute;
+    width: calc(var(--mark-size)*.15);
+    height: var(--mark-size);
+
+}
+
+.square.x::before,
+.board.x.square:not(.o):not(.x):hover::after{
+    transform: rotate(45deg);
+}
+
+.square.o::before,
+.square.o::after,
+.board.o .square:not(.x):not(.o):hover::before,
+.board.o .square:not(.x):not(.o):hover::after{
+    content:'';
+    position:absolute;
+    border-radius: 50%;
+}
+
+.square.o::before,
+.board.o .square:not(.x):not(.o):hover::before{
+    width: var(--mark-size);
+    height: var(--mark-size);
+}
+.square.o::after,
+.board.o .square:not(.x):not(.o):hover::after{
+    width: calc(var(--mark-size)* .7);
+    height: calc(var(--mark-size)* .7);
+    background-color: transparent;
+
+}
+ */
