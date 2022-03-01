@@ -1,1 +1,89 @@
+.topRow {
+    display: flex;
+}
 
+.middleRow {
+    display: flex;
+}
+
+.bottomRow {
+    display: flex;
+}
+
+#TopLeft {
+    height: 100px;
+    width: 100px;
+    border-bottom: 10px;
+    border-right: 10px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    border-color: blue;
+    transition:all 0.07s;
+}
+
+#TopMiddle {
+    height: 100px;
+    width: 100px;
+    border-bottom: 10px;
+    border-bottom-style: solid;
+    border-color: blue;
+}
+
+#TopRight {
+    height: 100px;
+    width: 100px;
+    border-bottom: 10px;
+    border-left: 10px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-color: blue;
+}
+
+#MiddleLeft {
+    height: 100px;
+    width: 100px;
+    border-bottom: 10px;
+    border-right: 10px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    border-color: blue;
+}
+
+#MiddleMiddle {
+    height: 100px;
+    width: 100px;
+    border-bottom: 10px;
+    border-bottom-style: solid;
+    border-color: blue;
+}
+
+#MiddleRight {
+    height: 100px;
+    width: 100px;
+    border-bottom: 10px;
+    border-left: 10px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-color: blue;
+}
+
+#BottomLeft {
+    height: 100px;
+    width: 100px;
+    border-right: 10px;
+    border-right-style: solid;
+    border-color: blue;
+}
+
+#BottomMiddle {
+    height: 100px;
+    width: 100px;
+}
+
+#BottomRight {
+    height: 100px;
+    width: 100px;
+    border-left: 10px;
+    border-left-style: solid;
+    border-color: blue;
+}
