@@ -37,6 +37,7 @@ const winCombo8 = [2, 4, 6].toString();
 // ONGOING BUGS:
 // 1. Computer won't stop picking player occupied spots
 // 2. Game end messages display multiple times for some reason
+// 3. Gotta figure out better method for tie conditions...
 
 //Aside: I kept the console.logs but commented them out so I could continue to troubleshoot later
 
