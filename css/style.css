@@ -1,1 +1,63 @@
+body {
+    background-color: black;
+    margin: 100px;
+}
 
+
+  
+.gameBoard {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows:100px 100px 100px;
+    grid-gap: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 50px;
+    margin-left: -50px;
+}
+  
+  .box {
+    background-color: dodgerblue;
+    color: black;
+    border-radius: 0px;
+    padding: 20px;
+    font-size: 150%;
+    justify: center;
+    height: 50px;
+    width: 50px;
+  }
+
+ 
+
+ 
+
+
+
+h1 {
+    font-size: 150px ;
+    font-family: 'Permanent Marker'; 
+    color: dodgerblue;
+}
+
+h2 {
+    font-size: 50px ;
+    font-family: 'Permanent Marker';
+    color: dodgerblue;
+}
+
+
+ul {
+    color: dodgerblue;
+    font-size: 25px;
+    font-family: 'Permanent Marker';
+}
+
+#restart {
+    font-size: 25px;
+    font-style: monospace;
+    background-color: dodgerblue;
+    color: red;
+    padding: 0px;
+}
+    
