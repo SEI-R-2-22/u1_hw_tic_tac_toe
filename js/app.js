@@ -41,6 +41,9 @@ let gameMode = 1
 const delayInMilliseconds = 1000
 let winLine = []
 
+//Add sound for winner
+let audio = new Audio('./audio/mixkit-achievement-bell-600.wav')
+
 //Create board game as an array: 3x3
 let boardGame = Array(3).fill().map(() => Array(3))
 
@@ -337,7 +340,8 @@ const playGame1P = (Element) => {
                 if (checkWinner(player1)) {
                     updateScore(player1) 
                     updateNotification()
-                    colorWinLine()               
+                    colorWinLine() 
+                    audio.play()              
                 } else if (isBoardFull()) {
                     updateTie()                 
                     updateNotification()
@@ -371,7 +375,8 @@ const playGame2P = (Element) => {
                 if (checkWinner(player1)) {
                     updateScore(player1) 
                     updateNotification()
-                    colorWinLine()               
+                    colorWinLine()
+                    audio.play()               
                 } else if (isBoardFull()) {
                     updateTie()                 
                     updateNotification()
@@ -391,6 +396,7 @@ const playGame2P = (Element) => {
                     updateScore(player2)                         
                     updateNotification()
                     colorWinLine()
+                    audio.play()
                 } else if (isBoardFull()) {
                     updateTie()                          
                     updateNotification()
@@ -455,5 +461,6 @@ gameModeButton.addEventListener('click', () => {
 //Game starts from here
 addEvents()
 askUserName(gameMode)
+
 
 ////////////////////////////////
