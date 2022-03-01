@@ -70,10 +70,8 @@ for (let i = 0; i < star.length; i++) {
 
 const computerMove = () => {
     let diceRoll = moonMove[Math.floor(Math.random() * moonMove.length)]
-    console.log(diceRoll)
         for (let i = 0; i < moonMove.length; i++) {
             if (diceRoll.classList.contains('occupied')) break;
-                console.log('true')
                 diceRoll.classList.add('computer')
                 diceRoll.classList.add('occupied')
                 computerChoice.push(diceRoll)
