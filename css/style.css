@@ -16,7 +16,7 @@ p {
 }
 
 .location {
-    border: 1px solid #000;
+    border: 1px solid black;
     width: 100px;
     height: 100px;
     cursor: pointer;
@@ -27,22 +27,30 @@ p {
 }
 
 .location:not(.disabled):hover {
-    background: #eee;
+    background: lightgray;
 }
 
-.location:nth-child(-n + 3) {
+.location:first-child,
+.location:nth-child(2),
+.location:nth-child(3) {
     border-top: none;
 }
 
-.location:nth-child(3n + 1) {
+.location:nth-child(1),
+.location:nth-child(4),
+.location:nth-child(7) {
     border-left: none;
 }
 
-.location:nth-child(3n + 3) {
+.location:nth-child(3),
+.location:nth-child(6),
+.location:nth-child(9) {
     border-right: none;
 }
 
-.location:nth-last-of-type(-n + 3) {
+.location:nth-child(7),
+.location:nth-child(8),
+.location:nth-child(9) {
     border-bottom: none;
 }
 
@@ -58,7 +66,7 @@ p {
     content: 'O';
 }
 
-.game-over {
+.playAgain {
     display: none;
     position: absolute;
     top: 50%;
@@ -66,7 +74,7 @@ p {
     transform: translate(-50%, -50%);
 }
 
-.game-over-text {
+.playAgainText {
     position: absolute;
     top: -200px;
     font-size: 60px;
