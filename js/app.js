@@ -1,5 +1,4 @@
 const boxes = document.querySelectorAll('.box')
-const resetButton = document.querySelector('#reset')
 const announcer = document.querySelector('.announcer')
 let displayPlayer = document.querySelector('.display-player')
 let turns = 0
@@ -74,21 +73,6 @@ function checkWinner () {
      }
 }
 
-const resetBoard = () => {
-    board = ['', '', '', '', '', '', '', '', ''];
-    isGameActive = true;
-    turns = 0
-    announcer.classList.add('hide');
-
-    if (currentPlayer === 'O') {
-        changePlayer();
-    }
-
-    boxes.forEach(tile => {
-        tile.innerText = '';
-        tile.classList.remove('playerX');
-        tile.classList.remove('playerO');
-    });
+function refreshPage(){
+    window.location.reload()
 }
-
-resetButton.addEventListener('click', resetBoard);
