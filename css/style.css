@@ -1,0 +1,81 @@
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+#game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+.location {
+    border: 1px solid #000;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.location:not(.disabled):hover {
+    background: #eee;
+}
+
+.location:nth-child(-n + 3) {
+    border-top: none;
+}
+
+.location:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.location:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.location:nth-last-of-type(-n + 3) {
+    border-bottom: none;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.x::after {
+    content: 'X';
+}
+
+.o::after {
+    content: 'O';
+}
+
+.game-over {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game-over-text {
+    position: absolute;
+    top: -200px;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    transform: translateX(-30%);
+    color: red;
+}
+
+.visible {
+    display: block;
+}
