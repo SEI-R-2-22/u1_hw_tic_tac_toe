@@ -114,14 +114,14 @@ function select(e) {
     //       break
     //     //     console.log('winner')
     //   }
-    // }
-
+    //     // }
+    // referencing how to determine winners = https://stackoverflow.com/questions/1056316/algorithm-for-determining-tic-tac-toe-game-over
     if (!playerWon) {
       intro.innerText = `${turn === 1 ? "X's" : "TOE's"} turn`
       intro.style.color = `${turn === 1 ? 'purple' : 'blue'}`
       // control.log('winner winner chicken dinner, but not yet')
-    } else if (playerWon == 'T') {
-      intro.innerText = 'Tie Game! Replay'
+    } else if (playerWon === 'T') {
+      intro.innerText = 'Tie! Replay'
       intro.style.color = 'purple'
       console.log('T')
     } else {
