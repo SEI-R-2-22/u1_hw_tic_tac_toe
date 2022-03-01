@@ -59,10 +59,8 @@ h1{
     border-radius:3px;
     background-color: #555;
     height:62px;
+    text-align: center;
 
-}
-.box p{
-    color:rgb(255,255,15);;   
 }
 .control-panel{
     
@@ -92,17 +90,21 @@ a{
     font-size: 21px;
 }
 a:hover{
-    color:yellow;
+    color:rgb(220,255,15);
 }
 a:active{
     color:orangered;
 }
 .game-container .box p{
     color:#fff;
-    font-size: 34px;
+    font-size: 13px;
     text-align: center;
     margin:8px auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#p-effect{
+    color:blue;
+    transition: color 1.62s ease;
 }
 .game-container .box:hover{
     background-color: #999;

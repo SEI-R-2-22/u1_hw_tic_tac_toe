@@ -33,7 +33,6 @@ let against = "human";
 // Functions For Game Logic Here
 
 
-
 const printArray = () => {
     for(i=0;i<choices.length;i++){
         console.log(choices[i]);
@@ -118,6 +117,10 @@ const computerChoice = function(){
     
 }
 
+const resetStyle = () => {
+    document.querySelectorAll(".box p").style = "color:red;";
+}
+
 const changeText = function(boxnumber){
     box = "#" + boxnumber;
     printArray();
@@ -125,12 +128,13 @@ const changeText = function(boxnumber){
     if(winner === null){
         if(turn === "player"){
             document.querySelector(box).children[0].innerText = "X";
-            
-            document.querySelector('#turns').innerText = "Your Turn, O"
+            document.querySelector(box).children[0].style = "font-size:34px; transition: font-size 0.62s ease;";
+            document.querySelector('#turns').innerText = "Your Turn, O";
             turn = "computer";
+
         }else if(turn === "computer"){
             document.querySelector(box).children[0].innerText = "O";
-        
+            document.querySelector(box).children[0].style = "font-size:34px; transition: font-size 0.62s ease;";
             document.querySelector('#turns').innerText = "Your Turn, X "
             turn = "player";
         }
@@ -172,6 +176,7 @@ const checkGameStatus = () => {
         console.log("100: Player X won!");
         winner = "X";
         winlog.push("X Won!");
+        resetStyle();
 
     }
     else if(cbox1.children[0].innerText === "X" && 
@@ -180,6 +185,7 @@ const checkGameStatus = () => {
         console.log("105: Player X won!");
         winner = "X";
         winlog.push("X Won!");
+        resetStyle();
 
     }else if(cbox1.children[0].innerText === "X" && 
     cbox5.children[0].innerText === "X" &&
@@ -187,49 +193,49 @@ const checkGameStatus = () => {
         console.log("105: Player X won!");
         winner = "X"; 
         winlog.push("X Won!");
-   
+        resetStyle();
     }else if(cbox2.children[0].innerText=== "X" && 
     cbox5.children[0].innerText === "X" &&
     cbox8.children[0].innerText === "X" ){
         console.log("109: Player X won!");
         winner = "X";
         winlog.push("X Won!");
- 
+        resetStyle();
     }else if(cbox3.children[0].innerText === "X" && 
     cbox6.children[0].innerText === "X" &&
     cbox9.children[0].innerText === "X" ){
         console.log("113: Player X won!");
         winner = "X";
         winlog.push("X Won!");
-            
+        resetStyle();
     }else if(cbox3.children[0].innerText === "X" && 
     cbox5.children[0].innerText === "X" &&
     cbox7.children[0].innerText === "X" ){
         console.log("117: Player X won!");
         winner = "X";
         winlog.push("X Won!");
-
+        resetStyle();
     }else if(cbox4.children[0].innerText === "X" && 
     cbox5.children[0].innerText === "X" &&
     cbox6.children[0].innerText === "X" ){
         console.log("125: Player X won!");
         winner = "X";
         winlog.push("X Won!");
-
+        resetStyle();
     }else if(cbox9.children[0].innerText=== "X" && 
     cbox7.children[0].innerText === "X" &&
     cbox8.children[0].innerText === "X" ){
         console.log("129: Player X won!");
         winner = "X";
         winlog.push("X Won!");
-       
+        resetStyle();
     } else if(cbox1.children[0].innerText=== "O" && 
     cbox2.children[0].innerText=== "O" &&
     cbox3.children[0].innerText === "O"){
         console.log("Player O won!");
         winner = "O";
         winlog.push("O Won!");
- 
+        resetStyle();
     }
     else if(cbox1.children[0].innerText === "O" && 
     cbox4.children[0].innerText === "O" &&
@@ -237,54 +243,54 @@ const checkGameStatus = () => {
         console.log("Player O won!");
         winner = "O";
         winlog.push("O Won!");
- 
+        resetStyle();
     }else if(cbox1.children[0].innerText === "O" && 
     cbox5.children[0].innerText === "O" &&
     cbox9.children[0].innerText === "O" ){
         console.log("105: Player O won!");
         winner = "O"; 
         winlog.push("O Won!");
-
+        resetStyle();
     }else if(cbox2.children[0].innerText=== "O" && 
     cbox5.children[0].innerText === "O" &&
     cbox8.children[0].innerText === "O" ){
         console.log("Player O won!");
         winner = "O";
         winlog.push("O Won!");
-
+        resetStyle();
     }else if(cbox3.children[0].innerText === "O" && 
     cbox6.children[0].innerText === "O" &&
     cbox9.children[0].innerText === "O" ){
         console.log("Player O won!");
         winner = "O";
         winlog.push("O Won!");
- 
+        resetStyle();
     }else if(cbox3.children[0].innerText === "O" && 
     cbox5.children[0].innerText === "O" &&
     cbox7.children[0].innerText === "O" ){
         console.log("Player O won!");
         winner = "O";
         winlog.push("O Won!");
-
+        resetStyle();
     }else if(cbox4.children[0].innerText === "O" && 
     cbox5.children[0].innerText === "O" &&
     cbox6.children[0].innerText === "O" ){
         console.log("Player O won!");
         winner = "O";
         winlog.push("O Won!");
-
+        resetStyle();
     }else if(cbox9.children[0].innerText=== "O" && 
     cbox7.children[0].innerText === "O" &&
     cbox8.children[0].innerText === "O" ){
         console.log("Player O won!");
         winner = "O";
         winlog.push("O Won!");
-
+        resetStyle();
     }else if(winner !== "X" && winner !== "O" && choices.length === 0){
         console.log("it's a tie!");
         winner = "T";
         winlog.push("You Tied!");
-
+        resetStyle();
     }
 }
 
