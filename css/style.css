@@ -1,0 +1,150 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: -1%;
+    font-size: 70px;
+    color:white;
+    font-family: 'Monoton', cursive;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    font-family: 'Warnes', cursive;
+}
+
+/* 
+From lines 24-48,
+Used generated code from https://grid.layoutit.com/ 
+and fixed it to my liking
+*/
+.container {
+    display: grid;
+    position: relative;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 5%;
+    background-color: white;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 27px 27px;
+    grid-template-areas: 
+      "topLeft top topRight"
+      "midLeft mid midRight"
+      "bottomLeft bottom bottomRight"; 
+}
+
+.topLeft { grid-area: topLeft; background-color: black;}
+.top { grid-area: top; background-color: black;}
+.mid { grid-area: mid; background-color: black;}
+.bottom { grid-area: bottom; background-color: black;}
+.bottomLeft { grid-area: bottomLeft; background-color: black;}
+.bottomRight { grid-area: bottomRight; background-color: black; }
+.midLeft { grid-area: midLeft; background-color: black;}
+.midRight { grid-area: midRight; background-color: black;}
+.topRight { grid-area: topRight; background-color: black;}
+
+.circle {
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    margin: 0 auto;
+    border: 3px solid blue;
+    opacity: 0%;
+}
+
+/* On Line 63, used generated code from https://bennettfeely.com/clippy/ and fixed it to my liking */
+.x_mark {
+    margin: 0 auto;
+    width: 50%;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    background-color: black;
+}
+
+#btn {
+    position: absolute;
+    top: 70%;
+    left: 48.5%;
+}
+
+#turn {
+    text-align: center;
+    font-size: 80px;
+    color: blue;
+    font-family: 'Neonderthaw', cursive;
+}
+
+#mark1{
+    background-color: black;
+}
+
+#mark2{
+    background-color: black;
+}
+
+#mark3{
+    background-color: black;
+}
+
+#mark4{
+    background-color: black;
+}
+
+#mark5{
+    background-color: black;
+}
+
+#mark6{
+    background-color: black;
+}
+
+#mark7{
+    background-color: black;
+}
+
+#mark8{
+    background-color: black;
+}
+
+#mark9{
+    background-color: black;
+}
+
+#circle1{
+    opacity: 0%;
+}
+
+#circle2{
+    opacity: 0%;
+}
+
+#circle3{
+    opacity: 0%;
+}
+
+#circle4{
+    opacity: 0%;
+}
+
+#circle5{
+    opacity: 0%;
+}
+
+#circle6{
+    opacity: 0%;
+}
+
+#circle7{
+    opacity: 0%;
+}
+
+#circle8{
+    opacity: 0%;
+}
+
+#circle9{
+    opacity: 0%;
+}
