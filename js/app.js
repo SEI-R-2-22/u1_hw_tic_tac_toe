@@ -59,7 +59,6 @@ if(
   }
   else{
     turnSign()
-
   }
 }
 //displays player/cpu turn
@@ -72,14 +71,14 @@ const turnSign = () => {
     document.getElementById('pop2').style.opacity = 1
   }
 }
+//randomly chooses who goes first
 const firstPlayer = () => {
-  if (Math.round(Math.random()) = 0) {
+  if (Math.round(Math.random()) === 0) {
     isPlayerTurn = true;
   } else {
     isPlayerTurn = false;
   }
 };
-
 //restart function
 const restart = () => {
   for (let i = 0; i < 9; i++) {
@@ -94,8 +93,8 @@ const restart = () => {
   }
   firstPlayer()
   turnSign()
+  smartAI()
 }
-
 //reset function
 const reset = () => {
   for (let i = 0; i < 9; i++) {
@@ -116,11 +115,34 @@ const reset = () => {
   }
   firstPlayer();
   turnSign();
+  smartAI();
+}
+//Not smart AI function
+const smartAI = () => {
+  if(!isPlayerTurn){
+    let aiChoice = Math.round(Math.random()*8)
+    if(parseInt(document.querySelector(`#sq${aiChoice}`).getAttribute('data-increment')) !== 1){
+      markBoxO(`sq${aiChoice}`)
+      document.querySelector(`#sq${aiChoice}`).setAttribute('data-increment', 1)
+      isPlayerTurn = !isPlayerTurn
+      let obj = {
+        spot: parseInt(aiChoice),
+        mark: 'O'
+      }
+      boardTracker.splice(aiChoice, 1, obj)
+      console.log( document.getElementById(`sq${aiChoice}`).style.backgroundColor)
+      document.getElementById(`sq${aiChoice}`).style.backgroundColor = 'yellow'
+      console.log(boardTracker)
+      winnerCheck();
+      } else {
+        smartAI();
+      }
+  }
 }
 
 ////////////////////////////////
 // Event Listeners Here
-
+sq.
 
 //Attaching eventListeners & running mark Functions
 sq.forEach ( s => 
@@ -138,22 +160,23 @@ sq.forEach ( s =>
       document.getElementById(location).style.backgroundColor = 'blue'
       console.log(boardTracker)
       winnerCheck();
+      smartAI();
       } else {
-          if(parseInt(s.getAttribute('data-increment')) !== 1 && !isPlayerTurn){
-            markBoxO(location)
-            document.querySelector(`#${location}`).setAttribute('data-increment', 1)
-            isPlayerTurn = !isPlayerTurn
-            let obj = {
-              spot: parseInt(location.charAt(2)),
-              mark: 'O'
-            }
-            boardTracker.splice(parseInt(location.charAt(2)), 1, obj)
-            document.getElementById(location).style.backgroundColor = 'yellow'
-            console.log(boardTracker)
-            winnerCheck();
+          // if(parseInt(s.getAttribute('data-increment')) !== 1 && !isPlayerTurn){
+          //   markBoxO(location)
+          //   document.querySelector(`#${location}`).setAttribute('data-increment', 1)
+          //   isPlayerTurn = !isPlayerTurn
+          //   let obj = {
+          //     spot: parseInt(location.charAt(2)),
+          //     mark: 'O'
+          //   }
+          //   boardTracker.splice(parseInt(location.charAt(2)), 1, obj)
+          //   document.getElementById(location).style.backgroundColor = 'yellow'
+          //   console.log(boardTracker)
+          //   winnerCheck();
             }
           }
-        }
+        
   )
 )
 
