@@ -138,7 +138,7 @@ const smartAI = () => {
       }
   }
 }
-//delay function
+//delay function idea from https://www.educba.com/javascript-delay/
 const delay = () => {
   setTimeout(function(){
     smartAI()
