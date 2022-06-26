@@ -5,7 +5,7 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 50px;
+  font-size: 100px;
 }
 
 .symbol {
@@ -23,36 +23,41 @@ h1 {
   font-size: 50px;
 }
 
-#pscore {}
-
-#tscore {}
-
-#cscore {}
-
 .button {
+  padding-top: 10px;
+  left: 45%;
   display: flex;
   position: relative;
-  left: 50%;
-  height: 100px;
+}
+
+#btn {
+  width: 150px;
+  position: center;
+  height: 50px;
+  font-size: 23px;
 }
 
 .grid {
+  position: relative;
   display: grid;
-  justify-content: center;
-  grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 33% 33% 33%;
+  grid-template-columns: repeat(3, minmax(33%, 33%));
+  grid-template-rows: repeat(3, minmax(33%, 33%));
   border: 2px solid black;
   padding: 200px;
+  content: 300px;
 }
 
 .sq {
+  position: sticky;
   border: 5px solid black;
+  display: inline;
   margin: 0;
-  width: auto;
   height: 100px;
   padding: 40px;
   text-align: center;
   font-size: 10vw;
+  justify-content: center;
+
 }
 
 .sign {

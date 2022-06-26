@@ -1,6 +1,7 @@
 ////////////////////////////////
 // Global Variables Here
 const sq = document.querySelectorAll('.sq');
+
 let isPlayerTurn = true;
 //add random turn at start of game
 //Scoreboard variables
@@ -15,16 +16,14 @@ const btn = document.getElementById('btn');
 // Functions For Game Logic Here
 // function marking box with an X
 const markBoxX = (location) => {
-  let boxX = document.createElement('span');
+  let boxX = document.createElement('div');
   boxX.innerText = 'X';
-  //style X bigger for the whole box
-  document.querySelector(`#${location}`).appendChild(boxX);
+    document.querySelector(`#${location}`).appendChild(boxX);
 };
 // function marking box with an O
 const markBoxO = (location) => {
-  let boxO = document.createElement('span');
+  let boxO = document.createElement('div');
   boxO.innerText = 'O';
-  //style O bigger for the whole box
   document.querySelector(`#${location}`).appendChild(boxO);
 }
 //check to see who's the winner
@@ -33,7 +32,7 @@ if(
   (boardTracker[0].mark === 'X' && boardTracker[1].mark === 'X' && boardTracker[2].mark === 'X') || (boardTracker[3].mark === 'X' && boardTracker[4].mark === 'X' && boardTracker[5].mark === 'X') 
   || (boardTracker[6].mark === 'X' && boardTracker[7].mark === 'X' && boardTracker[8].mark === 'X') ||
   (boardTracker[0].mark === 'X' && boardTracker[3].mark === 'X' && boardTracker[6].mark === 'X') || (boardTracker[1].mark === 'X' && boardTracker[4].mark === 'X' && boardTracker[7].mark === 'X') 
-  || (boardTracker[2].mark === 'X' && boardTracker[5].mark === 'X' && boardTracker[8].mark === 'X') || (boardTracker[0].mark === 'X' && boardTracker[4].mark === 'X' && boardTracker[7].mark === 'X') 
+  || (boardTracker[2].mark === 'X' && boardTracker[5].mark === 'X' && boardTracker[8].mark === 'X') || (boardTracker[0].mark === 'X' && boardTracker[4].mark === 'X' && boardTracker[8].mark === 'X') 
   || (boardTracker[2].mark === 'X' && boardTracker[4].mark === 'X' && boardTracker[6].mark === 'X') 
   ){
   alert(`Player Wins`)
@@ -44,7 +43,7 @@ if(
   } else if ((boardTracker[0].mark === 'O' && boardTracker[1].mark === 'O' && boardTracker[2].mark === 'O') || (boardTracker[3].mark === 'O' && boardTracker[4].mark === 'O' && boardTracker[5].mark === 'O') 
     || (boardTracker[6].mark === 'O' && boardTracker[7].mark === 'O' && boardTracker[8].mark === 'O') ||
     (boardTracker[0].mark === 'O' && boardTracker[3].mark === 'O' && boardTracker[6].mark === 'O') || (boardTracker[1].mark === 'O' && boardTracker[4].mark === 'O' && boardTracker[7].mark === 'O') 
-    || (boardTracker[2].mark === 'O' && boardTracker[5].mark === 'O' && boardTracker[8].mark === 'O') || (boardTracker[0].mark === 'O' && boardTracker[4].mark === 'O' && boardTracker[7].mark === 'O') 
+    || (boardTracker[2].mark === 'O' && boardTracker[5].mark === 'O' && boardTracker[8].mark === 'O') || (boardTracker[0].mark === 'O' && boardTracker[4].mark === 'O' && boardTracker[8].mark === 'O') 
     || (boardTracker[2].mark === 'O' && boardTracker[4].mark === 'O' && boardTracker[6].mark === 'O') ) {
   alert(`Computer Wins`)
   cpuScore++
@@ -139,10 +138,15 @@ const smartAI = () => {
       }
   }
 }
-
+//delay function
+const delay = () => {
+  setTimeout(function(){
+    smartAI()
+    console.log(`delay function going`)
+  }, Math.round(Math.random()*2*(1000)));
+}
 ////////////////////////////////
 // Event Listeners Here
-sq.
 
 //Attaching eventListeners & running mark Functions
 sq.forEach ( s => 
@@ -160,7 +164,7 @@ sq.forEach ( s =>
       document.getElementById(location).style.backgroundColor = 'blue'
       console.log(boardTracker)
       winnerCheck();
-      smartAI();
+      delay()
       } else {
           // if(parseInt(s.getAttribute('data-increment')) !== 1 && !isPlayerTurn){
           //   markBoxO(location)
