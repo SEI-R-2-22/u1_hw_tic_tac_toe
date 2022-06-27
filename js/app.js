@@ -11,7 +11,8 @@ let tieScore = 0;
 const boardTracker = ['','','','','','','','',''];
 //reset button
 const btn = document.getElementById('btn');
-let checkMark = document.getElementsByClassName('R1')
+// variable when I was trying to create logic around checking rows
+// let checkMark = document.getElementsByClassName('R1')
 
 ////////////////////////////////
 // Functions For Game Logic Here
@@ -188,22 +189,17 @@ sq.forEach ( s =>
       document.getElementById(location).style.backgroundColor = 'blue'      
       document.querySelector(`#${location}`).setAttribute('data-increment', 1)
       isPlayerTurn = !isPlayerTurn
-      // let obj = {
-      //   spot: parseInt(location.charAt(2)),
-      //   mark: 'X'
-      // }
       boardTracker.splice(parseInt(location.charAt(2)), 1, 'X')
       winnerCheck();
       delay()
       } else {
-        // enable to play against a 2nd player
+        // Original play against a 2nd player code
           // if(parseInt(s.getAttribute('data-increment')) !== 1 && !isPlayerTurn){
           //   markBoxO(location)
+          //   document.getElementById(location).style.backgroundColor = 'yellow'
           //   document.querySelector(`#${location}`).setAttribute('data-increment', 1)
           //   isPlayerTurn = !isPlayerTurn
           //   boardTracker.splice(parseInt(location.charAt(2)), 1, 'O'')
-          //   document.getElementById(location).style.backgroundColor = 'yellow'
-          //   console.log(boardTracker)
           //   winnerCheck();
             }
           }
