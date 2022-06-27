@@ -8,58 +8,94 @@ let isPlayerTurn = true;
 let playerScore = 0;
 let cpuScore = 0;
 let tieScore = 0;
-const boardTracker = [{spot:0, mark:''},{spot:1, mark:''},{spot:2, mark:''},{spot:3, mark:''},{spot:4,mark:''},{spot:5,mark:''},{spot:6,mark:''},{spot:7,mark:''},{spot:8,mark:''}];
+const boardTracker = ['','','','','','','','',''];
 //reset button
 const btn = document.getElementById('btn');
+let checkMark = document.getElementsByClassName('R1')
 
 ////////////////////////////////
 // Functions For Game Logic Here
 // function marking box with an X
 const markBoxX = (location) => {
-  let boxX = document.createElement('div');
-  boxX.innerText = 'X';
-    document.querySelector(`#${location}`).appendChild(boxX);
+  document.getElementById(location).innerHTML = 'X';
 };
 // function marking box with an O
 const markBoxO = (location) => {
-  let boxO = document.createElement('div');
-  boxO.innerText = 'O';
-  document.querySelector(`#${location}`).appendChild(boxO);
+  document.getElementById(location).innerHTML = 'O'
 }
+// //check to see who's the winner
+// const winnerCheck = () => {
+//     if((document.querySelectorAll('.R1').innerHTML === 'X' || document.querySelectorAll('.R2').innerHTML === 'X' || document.querySelectorAll('.R3').innerHTML === 'X') || 
+//     (document.querySelectorAll('.C1').innerHTML === 'X' || document.querySelectorAll('.C2').innerHTML === 'X' || document.querySelectorAll('.C3').innerHTML === 'X') ||
+//     (document.getElementById('sq0').innerHTML === 'X' && document.getElementById('sq4').innerHTML === 'X' && document.getElementById('sq8').innerHTML === 'X') ||
+//     (document.getElementById('sq2').innerHTML === 'X' && document.getElementById('sq4').innerHTML === 'X' && document.getElementById('sq6').innerHTML === 'X') 
+//   ) {
+//     alert(`Player Wins`)
+//   playerScore++
+//   console.log(playerScore)
+//   document.getElementById('pscore').innerText = playerScore
+//   restart()
+//   } else if (
+//     (document.querySelectorAll('.R1').innerHTML === 'O' || document.querySelectorAll('.R2').innerHTML === 'O' || document.querySelectorAll('.R3').innerHTML === 'O') || 
+//     (document.querySelectorAll('.C1').innerHTML === 'O' || document.querySelectorAll('.C2').innerHTML === 'O' || document.querySelectorAll('.C3').innerHTML === 'O') ||
+//     (document.getElementById('sq0').innerHTML === 'O' && document.getElementById('sq4').innerHTML === 'O' && document.getElementById('sq8').innerHTML === 'O') ||
+//     (document.getElementById('sq2').innerHTML === 'O' && document.getElementById('sq4').innerHTML === 'O' && document.getElementById('sq6').innerHTML === 'O') 
+//   ){
+//     alert(`Computer Wins`)
+//     cpuScore++
+//     document.getElementById('cscore').innerHTML = cpuScore
+//     restart()
+//   } else if (
+//     checkmark.forEach(c => {
+//       if(checkMark[c].innerHTML !== ''){
+//         console.log('not clear')
+//       } else console.log('clear')}))
+//       {
+//   //   (document.querySelectorAll('.R1').innerHTML !== '' && document.querySelectorAll('.R2').innerHTML  !== ''&& document.querySelectorAll('.R3').innerHTML  !== '')){
+//   // console.log(document.querySelectorAll('.R1').innerHTML)
+//     alert(`The Game is a Tie`) 
+//   tieScore++
+//   document.getElementById('tscore').innerText = tieScore
+//   restart()
+// } else {
+//   turnSign()
+// }
+// }
+
 //check to see who's the winner
 const winnerCheck = () => {
-if(
-  (boardTracker[0].mark === 'X' && boardTracker[1].mark === 'X' && boardTracker[2].mark === 'X') || (boardTracker[3].mark === 'X' && boardTracker[4].mark === 'X' && boardTracker[5].mark === 'X') 
-  || (boardTracker[6].mark === 'X' && boardTracker[7].mark === 'X' && boardTracker[8].mark === 'X') ||
-  (boardTracker[0].mark === 'X' && boardTracker[3].mark === 'X' && boardTracker[6].mark === 'X') || (boardTracker[1].mark === 'X' && boardTracker[4].mark === 'X' && boardTracker[7].mark === 'X') 
-  || (boardTracker[2].mark === 'X' && boardTracker[5].mark === 'X' && boardTracker[8].mark === 'X') || (boardTracker[0].mark === 'X' && boardTracker[4].mark === 'X' && boardTracker[8].mark === 'X') 
-  || (boardTracker[2].mark === 'X' && boardTracker[4].mark === 'X' && boardTracker[6].mark === 'X') 
-  ){
-  alert(`Player Wins`)
-  playerScore++
-  console.log(playerScore)
-  document.getElementById('pscore').innerText = playerScore
-  restart()
-  } else if ((boardTracker[0].mark === 'O' && boardTracker[1].mark === 'O' && boardTracker[2].mark === 'O') || (boardTracker[3].mark === 'O' && boardTracker[4].mark === 'O' && boardTracker[5].mark === 'O') 
-    || (boardTracker[6].mark === 'O' && boardTracker[7].mark === 'O' && boardTracker[8].mark === 'O') ||
-    (boardTracker[0].mark === 'O' && boardTracker[3].mark === 'O' && boardTracker[6].mark === 'O') || (boardTracker[1].mark === 'O' && boardTracker[4].mark === 'O' && boardTracker[7].mark === 'O') 
-    || (boardTracker[2].mark === 'O' && boardTracker[5].mark === 'O' && boardTracker[8].mark === 'O') || (boardTracker[0].mark === 'O' && boardTracker[4].mark === 'O' && boardTracker[8].mark === 'O') 
-    || (boardTracker[2].mark === 'O' && boardTracker[4].mark === 'O' && boardTracker[6].mark === 'O') ) {
-  alert(`Computer Wins`)
-  cpuScore++
-  document.getElementById('cscore').innerHTML = cpuScore
-  restart()
-  } else if ((boardTracker[0].mark !== '' && boardTracker[1].mark !== '' && boardTracker[2].mark !== '' && boardTracker[3].mark !== '' && boardTracker[4].mark !== '' && boardTracker[5].mark !== '') 
-    && (boardTracker[6].mark !== '' && boardTracker[7].mark !== '' && boardTracker[8].mark !== '') ) {
-  alert(`The Game is a Tie`) 
-  tieScore++
-  document.getElementById('tscore').innerText = tieScore
-  restart()
+  if(
+    (boardTracker[0] === 'X' && boardTracker[1] === 'X' && boardTracker[2] === 'X') || (boardTracker[3] === 'X' && boardTracker[4] === 'X' && boardTracker[5] === 'X') 
+    || (boardTracker[6] === 'X' && boardTracker[7] === 'X' && boardTracker[8] === 'X') ||
+    (boardTracker[0] === 'X' && boardTracker[3] === 'X' && boardTracker[6] === 'X') || (boardTracker[1] === 'X' && boardTracker[4] === 'X' && boardTracker[7] === 'X') 
+    || (boardTracker[2] === 'X' && boardTracker[5] === 'X' && boardTracker[8] === 'X') || (boardTracker[0] === 'X' && boardTracker[4] === 'X' && boardTracker[8] === 'X') 
+    || (boardTracker[2] === 'X' && boardTracker[4] === 'X' && boardTracker[6] === 'X') 
+    ){
+    alert(`Player Wins`)
+    playerScore++
+    document.getElementById('pscore').innerText = playerScore
+    restart()
+    } else if ((boardTracker[0] === 'O' && boardTracker[1] === 'O' && boardTracker[2] === 'O') || (boardTracker[3] === 'O' && boardTracker[4] === 'O' && boardTracker[5] === 'O') 
+      || (boardTracker[6] === 'O' && boardTracker[7] === 'O' && boardTracker[8] === 'O') ||
+      (boardTracker[0] === 'O' && boardTracker[3] === 'O' && boardTracker[6] === 'O') || (boardTracker[1] === 'O' && boardTracker[4] === 'O' && boardTracker[7] === 'O') 
+      || (boardTracker[2] === 'O' && boardTracker[5] === 'O' && boardTracker[8] === 'O') || (boardTracker[0] === 'O' && boardTracker[4] === 'O' && boardTracker[8] === 'O') 
+      || (boardTracker[2] === 'O' && boardTracker[4] === 'O' && boardTracker[6] === 'O') ) {
+    alert(`Computer Wins`)
+    cpuScore++
+    document.getElementById('cscore').innerHTML = cpuScore
+    restart()
+    } else if ((boardTracker[0] !== '' && boardTracker[1] !== '' && boardTracker[2] !== '' && boardTracker[3] !== '' && boardTracker[4] !== '' && boardTracker[5] !== '') 
+      && (boardTracker[6] !== '' && boardTracker[7] !== '' && boardTracker[8] !== '') ) {
+    alert(`The Game is a Tie`) 
+    tieScore++
+    document.getElementById('tscore').innerText = tieScore
+    restart()
+    }
+    else{
+      turnSign()
+    }
   }
-  else{
-    turnSign()
-  }
-}
+
 //displays player/cpu turn
 const turnSign = () => {
   if(isPlayerTurn){
@@ -83,11 +119,7 @@ const restart = () => {
   for (let i = 0; i < 9; i++) {
     document.querySelector(`#sq${i}`).setAttribute('data-increment', 0)
     document.querySelector(`#sq${i}`).innerText = ''
-    let obj = {
-      spot: `${i}`,
-      mark: ''
-    };
-    boardTracker.splice(`${i}`, 1, obj)
+    boardTracker.splice(`${i}`, 1, '')
     document.getElementById(`sq${i}`).style.backgroundColor = ''
   }
   firstPlayer()
@@ -99,11 +131,7 @@ const reset = () => {
   for (let i = 0; i < 9; i++) {
     document.querySelector(`#sq${i}`).setAttribute('data-increment', 0)
     document.querySelector(`#sq${i}`).innerText = ''
-    let obj = {
-      spot: `${i}`,
-      mark: ''
-    };
-    boardTracker.splice(`${i}`, 1, obj)
+    boardTracker.splice(`${i}`, 1, '')
     playerScore = 0;
     cpuScore = 0;
     tieScore = 0;
@@ -122,16 +150,10 @@ const smartAI = () => {
     let aiChoice = Math.round(Math.random()*8)
     if(parseInt(document.querySelector(`#sq${aiChoice}`).getAttribute('data-increment')) !== 1){
       markBoxO(`sq${aiChoice}`)
+      document.getElementById(`sq${aiChoice}`).style.backgroundColor = 'yellow'
       document.querySelector(`#sq${aiChoice}`).setAttribute('data-increment', 1)
       isPlayerTurn = !isPlayerTurn
-      let obj = {
-        spot: parseInt(aiChoice),
-        mark: 'O'
-      }
-      boardTracker.splice(aiChoice, 1, obj)
-      console.log( document.getElementById(`sq${aiChoice}`).style.backgroundColor)
-      document.getElementById(`sq${aiChoice}`).style.backgroundColor = 'yellow'
-      console.log(boardTracker)
+      boardTracker.splice(aiChoice, 1, 'O')
       winnerCheck();
       } else {
         smartAI();
@@ -142,9 +164,9 @@ const smartAI = () => {
 const delay = () => {
   setTimeout(function(){
     smartAI()
-    console.log(`delay function going`)
   }, Math.round(Math.random()*2*(1000)));
 }
+
 ////////////////////////////////
 // Event Listeners Here
 
@@ -154,27 +176,23 @@ sq.forEach ( s =>
     let location = s.getAttribute('id');
     if(parseInt(s.getAttribute('data-increment')) !== 1 && isPlayerTurn){
       markBoxX(location)
+      document.getElementById(location).style.backgroundColor = 'blue'      
       document.querySelector(`#${location}`).setAttribute('data-increment', 1)
       isPlayerTurn = !isPlayerTurn
-      let obj = {
-        spot: parseInt(location.charAt(2)),
-        mark: 'X'
-      }
-      boardTracker.splice(parseInt(location.charAt(2)), 1, obj)
-      document.getElementById(location).style.backgroundColor = 'blue'
-      console.log(boardTracker)
+      // let obj = {
+      //   spot: parseInt(location.charAt(2)),
+      //   mark: 'X'
+      // }
+      boardTracker.splice(parseInt(location.charAt(2)), 1, 'X')
       winnerCheck();
       delay()
       } else {
+        // enable to play against a 2nd player
           // if(parseInt(s.getAttribute('data-increment')) !== 1 && !isPlayerTurn){
           //   markBoxO(location)
           //   document.querySelector(`#${location}`).setAttribute('data-increment', 1)
           //   isPlayerTurn = !isPlayerTurn
-          //   let obj = {
-          //     spot: parseInt(location.charAt(2)),
-          //     mark: 'O'
-          //   }
-          //   boardTracker.splice(parseInt(location.charAt(2)), 1, obj)
+          //   boardTracker.splice(parseInt(location.charAt(2)), 1, 'O'')
           //   document.getElementById(location).style.backgroundColor = 'yellow'
           //   console.log(boardTracker)
           //   winnerCheck();
