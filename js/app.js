@@ -1,7 +1,7 @@
 ////////////////////////////////
 // Global Variables Here
 const sq = document.querySelectorAll('.sq');
-
+let isFirstGame = true;
 let isPlayerTurn = true;
 //add random turn at start of game
 //Scoreboard variables
@@ -18,10 +18,12 @@ let checkMark = document.getElementsByClassName('R1')
 // function marking box with an X
 const markBoxX = (location) => {
   document.getElementById(location).innerHTML = 'X';
+  isFirstGame = false;
 };
 // function marking box with an O
 const markBoxO = (location) => {
   document.getElementById(location).innerHTML = 'O'
+  isFirstGame = false;
 }
 // //check to see who's the winner
 // const winnerCheck = () => {
@@ -140,10 +142,16 @@ const reset = () => {
     document.getElementById('tscore').innerText = tieScore
     document.getElementById(`sq${i}`).style.backgroundColor = ''
   }
+  if(isFirstGame){
+    firstPlayer();
+    turnSign();
+    smartAI();
+  } else{
+  alert(`Game was reset. Have fun!`)
   firstPlayer();
   turnSign();
   smartAI();
-}
+}}
 //Not smart AI function
 const smartAI = () => {
   if(!isPlayerTurn){
@@ -160,6 +168,7 @@ const smartAI = () => {
       }
   }
 }
+
 //delay function idea from https://www.educba.com/javascript-delay/
 const delay = () => {
   setTimeout(function(){
